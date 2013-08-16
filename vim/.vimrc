@@ -49,7 +49,7 @@ set tabstop=4
 set expandtab
 " No wrap
 set nowrap
-set linebreak " For set wrap
+set linebreak " This is for 'set wrap'
 " No folds
 set nofoldenable
 " Scrolling
@@ -68,7 +68,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 " Quick save
 inoremap <Leader>s <ESC>:update<CR>
-" Smart enter and indention after enter
+nnoremap <Leader>s <ESC>:update<CR>
+" Smart enter and indentation after enter
 inoremap {<cr> {<cr>}<Esc><S-o>
 inoremap [<cr> [<cr>]<Esc><S-o>
 inoremap (<cr> (<cr>)<Esc><S-o>

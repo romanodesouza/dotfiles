@@ -13,6 +13,8 @@ set guioptions=-r
 set guioptions-=r
 set guioptions-=l
 set guioptions-=b
+" Disable cursor blinking
+set guicursor+=a:blinkon0
 " Command completion
 set wildmenu
 set wildmode=list:longest
