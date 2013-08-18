@@ -31,8 +31,9 @@ Bundle "terryma/vim-multiple-cursors"
 " Jinja syntax
 Bundle "estin/htmljinja"
 
-" PHP Stuff
+" PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
+Bundle "shawncplus/phpcomplete.vim"
 
 " Javascript stuff
 Bundle "pangloss/vim-javascript"

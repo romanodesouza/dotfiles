@@ -56,6 +56,15 @@ set nofoldenable
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
+" Completion
+set completeopt-=preview " No preview
+autocmd FileType css            setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown  setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript     setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python         setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml            setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby           setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell        setlocal omnifunc=necoghc#omnifunc
 
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
