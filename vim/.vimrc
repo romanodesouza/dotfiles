@@ -11,13 +11,12 @@ endif
 filetype plugin indent on
 
 " General config
-set number
+set relativenumber
 set backspace=indent,eol,start
 set history=1000
 set showcmd
 set noshowmode " Use airline
 set visualbell t_vb= " Disable visualbell
-set autoread
 set hidden
 set title
 set fileformats=unix,mac,dos
