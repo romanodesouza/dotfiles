@@ -129,7 +129,8 @@ augroup resCur
 augroup END
 
 " Set the fileformat
-autocmd BufWinEnter * set formatoptions-=o " don't continue comments when pushing o/O
+" don't continue comments when pushing o/O and return carriage
+autocmd BufWinEnter * set formatoptions-=or
 
 " Function: Open tag under cursor in new tab
 " Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
