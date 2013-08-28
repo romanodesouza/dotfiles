@@ -86,6 +86,9 @@ noremap <Leader>ff <ESC>:normal mzgg=G`zzz<CR>
 " Clear the highlight
 nnoremap <Leader>h :nohls<CR>
 inoremap <Leader>h <ESC>:nohls<CR>
+" Home key goes to first non blank character
+noremap <Home>  ^
+inoremap <Home> <ESC>^i
 
 " Abbreviations for exit
 cab qw wq
