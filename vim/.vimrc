@@ -31,7 +31,7 @@ set laststatus=2
 " Searching
 set hlsearch
 set incsearch
-set ignorecase 
+set ignorecase
 set smartcase
 set wrapscan
 " No backup files
@@ -128,12 +128,28 @@ cab QAll qall
 "  n... :  where to save the viminfo files
 " ---------------------------------------------------------------------------------------------------"
 set viminfo='10,\"100,:20,%,n~/.viminfo
+
 function! ResCur()
     if line("'\"") <= line("$")
         normal! g`"
         return 1
     endif
 endfunction
+
+" Striping whitespaces
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * call <SID>StripTrailingWhitespaces()
+
 augroup resCur
     autocmd!
     autocmd BufWinEnter * call ResCur()
