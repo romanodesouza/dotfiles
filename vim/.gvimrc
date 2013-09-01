@@ -31,9 +31,11 @@ colorscheme Earthsong
 " Mouse's behaviour
 behave mswin
 
-" Better tab navigation
-map <C-S-PageUp> :tabm +1<CR>
-map <C-S-PageDown> :tabm -1<CR>
+" Better splitted window navigation
+map <A-h> <C-w>h
+map <A-j> <C-w>j
+map <A-k> <C-w>k
+map <A-l> <C-w>l
 
 " Local conf
 if filereadable(expand("~/.gvimrc.local"))

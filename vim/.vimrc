@@ -65,15 +65,12 @@ autocmd FileType xml            setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby           setlocal omnifunc=rubycomplete#Complete
 autocmd FileType haskell        setlocal omnifunc=necoghc#omnifunc
 
+" Select all
+nnoremap <C-a> ggvG$
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
 vnoremap <C-c> "+y
 vnoremap <C-x> "+x
-" Key mapping for window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 " Quick save
 inoremap <Leader>s <ESC>:update<CR>
 nnoremap <Leader>s <ESC>:update<CR>
@@ -84,11 +81,27 @@ inoremap (<cr> (<cr>)<Esc><S-o>
 " Full file indent
 noremap <Leader>ff <ESC>:normal mzgg=G`zzz<CR>
 " Clear the highlight
-nnoremap <Leader>h :nohls<CR>
-inoremap <Leader>h <ESC>:nohls<CR>
+nnoremap <silent> <Leader>h :nohls<CR>
+imap <silent> <Leader>h <ESC><Leader>h
 " Home key goes to first non blank character
 noremap <Home>  ^
-inoremap <Home> <ESC>^i
+inoremap <Home> <ESC>^<Insert>
+imap <C-a> <Home>
+imap <C-e> <End>
+" Tab navigation
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <silent> <C-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <C-k> :execute 'silent! tabmove ' . tabpagenr()<CR>
+imap <C-j> <ESC><C-j>a
+imap <C-k> <ESC><C-k>a
+imap <C-h> <ESC><C-h>
+imap <C-l> <ESC><C-l>
+" Open new tab
+nnoremap <silent> <Leader>t :tabnew<CR>
+imap <silent> <Leader>t <ESC><Leader>t<Insert>
+" Goes to normal mode
+imap <Leader>n <ESC>
 
 " Abbreviations for exit
 cab qw wq
