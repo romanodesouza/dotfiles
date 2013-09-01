@@ -30,6 +30,8 @@ Bundle "honza/vim-snippets"
 Bundle "terryma/vim-multiple-cursors"
 " Jinja syntax
 Bundle "estin/htmljinja"
+" EasyMotion
+Bundle "Lokaltog/vim-easymotion"
 
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
