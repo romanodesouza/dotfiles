@@ -38,6 +38,10 @@ map <A-k> <C-w>k
 map <A-l> <C-w>l
 
 " Local conf
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
 if filereadable(expand("~/.gvimrc.local"))
     source ~/.gvimrc.local
 endif

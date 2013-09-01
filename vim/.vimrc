@@ -118,11 +118,6 @@ cab WAll wall
 cab Qall qall
 cab QAll qall
 
-" Colorscheme
-if (!has("gui_running"))
-    colorscheme kellys
-endif
-
 " ---------------------------------------------------------------------------------------------------"
 " Tell vim to remember certain things when we exit
 "
@@ -162,7 +157,12 @@ if filereadable(expand("~/.vim/extra-filetypes.vim"))
     source ~/.vim/extra-filetypes.vim
 endif
 
-" Local conf
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+if (!has("gui_running"))
+    " Colorscheme
+    colorscheme kellys
+    " Local conf
+    if filereadable(expand("~/.vimrc.local"))
+        source ~/.vimrc.local
+    endif
 endif
+
