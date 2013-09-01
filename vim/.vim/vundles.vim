@@ -32,6 +32,8 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle "estin/htmljinja"
 " EasyMotion
 Bundle "Lokaltog/vim-easymotion"
+" Emmet
+Bundle "mattn/emmet-vim"
 
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
