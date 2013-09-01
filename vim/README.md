@@ -1,6 +1,7 @@
 Dependencies
 =========
 - [Vundle](https://github.com/gmarik/vundle)
+- [Curl](http://curl.haxx.se/) (for Gist plugin)
 
 Recommended
 =========

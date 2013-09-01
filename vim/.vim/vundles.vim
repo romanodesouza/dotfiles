@@ -35,6 +35,11 @@ Bundle "Lokaltog/vim-easymotion"
 " Emmet
 Bundle "mattn/emmet-vim"
 
+" Git stuff
+Bundle "tpope/vim-fugitive"
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
 Bundle "shawncplus/phpcomplete.vim"
