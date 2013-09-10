@@ -68,6 +68,7 @@
 
     # push
     ps = push
+    po = push origin
 
     # rebase
     rb = "!f(){ git rebase -i $(git rev-parse $(git rev-parse --abbrev-ref --symbolic-full-name @{u};)); };f"
