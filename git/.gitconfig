@@ -44,6 +44,7 @@
     # checkout
     co = checkout
     nb = checkout -b
+    pv = checkout @{-1} # Changes to previous branch
 
     # cherry-pick
     cp = cherry-pick -x
