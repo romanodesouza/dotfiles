@@ -1,0 +1,83 @@
+[user]
+	name = Romano Augusto
+	email = romanoaugusto88@gmail.com
+
+[github]
+    user = romanoaugusto88
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    # add
+    a = add
+
+    # commit
+    c = commit
+    ci = commit
+
+    # status
+    s = status
+    st = status
+
+    # branch
+    br = branch
+
+    # checkout
+    co = checkout
+    nb = checkout -b
+
+    # cherry-pick
+    cp = cherry-pick -x
+
+    # diff
+    d = diff
+    df = diff
+    dc = diff --cached
+    dh = diff HEAD^
+
+    # log
+    l = log --no-merges
+    ld = log --no-merges -p
+    who = shortlog -s --
+    changes = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    changelog = log --no-merges --pretty=format:\" * %s\"
+
+    # pull
+    pl = pull
+
+    # push
+    ps = push
+
+    # rebase
+    rb = "!f(){ git rebase -i $(git rev-parse $(git rev-parse --abbrev-ref --symbolic-full-name @{u};)); };f"
+    rc = rebase --continue
+    rs = rebase --skip
+
+    # remote
+    r = remote -v
+
+[push]
+    default = current
+
+[include]
+    path = .gitconfig.local

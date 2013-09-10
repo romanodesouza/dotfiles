@@ -5,6 +5,8 @@ My personal Unix dotfiles
 Config for
 =========
 - vim
+- bash
+- git
 
 Installation
 =========
