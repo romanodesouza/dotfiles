@@ -8,6 +8,10 @@ if filereadable(expand("~/.vim/vundles.vim"))
     source ~/.vim/vundles.vim
 endif
 
+if filereadable(expand("~/.vimrc.bundles.local"))
+    source ~/.vimrc.bundles.local
+endif
+
 filetype plugin indent on
 
 " General config
