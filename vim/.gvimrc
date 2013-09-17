@@ -3,7 +3,7 @@ set visualbell t_vb=
 " For better reading
 set linespace=4
 " Font
-set guifont=Monospace\ 10 
+set guifont=Monospace\ 10
 " No menu bar
 set guioptions-=m
 " No toolbar
@@ -30,12 +30,6 @@ colorscheme Earthsong
 
 " Mouse's behaviour
 behave mswin
-
-" Better splitted window navigation
-map <A-h> <C-w>h
-map <A-j> <C-w>j
-map <A-k> <C-w>k
-map <A-l> <C-w>l
 
 " Local conf
 if filereadable(expand("~/.vimrc.local"))

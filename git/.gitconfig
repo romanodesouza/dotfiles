@@ -65,15 +65,18 @@
 
     # pull
     pl = pull
+    pr = pull --rebase
 
     # push
     ps = push
     po = push origin
 
     # rebase
-    rb = "!f(){ git rebase -i $(git rev-parse $(git rev-parse --abbrev-ref --symbolic-full-name @{u};)); };f"
+    rb = rebase
     rc = rebase --continue
     rs = rebase --skip
+    # rebase upstream
+    rbu = "!f(){ git rebase -i $(git rev-parse $(git rev-parse --abbrev-ref --symbolic-full-name @{u};)); };f"
 
     # remote
     r = remote -v

@@ -89,19 +89,23 @@ inoremap <Home> <ESC>^<Insert>
 imap <C-a> <Home>
 imap <C-e> <End>
 " Tab navigation
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <silent> <C-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <C-k> :execute 'silent! tabmove ' . tabpagenr()<CR>
-imap <C-j> <ESC><C-j>a
-imap <C-k> <ESC><C-k>a
-imap <C-h> <ESC><C-h>
-imap <C-l> <ESC><C-l>
+nnoremap <S-h> :tabprevious<CR>
+nnoremap <S-l> :tabnext<CR>
+nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . tabpagenr()<CR>
+imap <S-PageUp> <ESC><S-PageUp>a
+imap <S-PageDown> <ESC><S-PageDown>a
+
 " Open new tab
 nnoremap <silent> <Leader>t :tabnew<CR>
 imap <silent> <Leader>t <ESC><Leader>t<Insert>
 " Goes to normal mode
 imap <Leader>n <ESC>
+" Better splitted window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Abbreviations for exit
 cab qw wq
