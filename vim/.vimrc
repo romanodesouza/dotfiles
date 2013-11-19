@@ -110,6 +110,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" Git conflicts
+map <Leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 " Abbreviations for exit
 cab qw wq
