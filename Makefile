@@ -9,6 +9,7 @@ install: install_vim_dir \
 	install_inputrc \
 	install_bash_files \
 	install_git_files \
+	install_ssh_files \
 	done
 
 install_vim_dir:
@@ -36,6 +37,10 @@ install_bash_files:
 install_git_files:
 	@echo "Linking git/.gitconfig to ~/.gitconfig"
 	@ln -sf `pwd`/git/.gitconfig ~/
+
+install_ssh_files:
+	@echo "Linking ssh/config to ~/.ssh/config"
+	@ln -sf `pwd`/ssh/config ~/.ssh/
 
 done:
 	@echo

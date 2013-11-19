@@ -7,6 +7,7 @@ Config for
 - vim
 - bash
 - git
+- ssh
 
 Installation
 =========
