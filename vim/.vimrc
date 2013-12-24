@@ -16,6 +16,7 @@ filetype plugin indent on
 
 " General config
 set relativenumber
+set number " "number" and "relativenumber" can live together!! xD
 set backspace=indent,eol,start
 set history=1000
 set showcmd
