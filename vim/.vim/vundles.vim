@@ -48,6 +48,9 @@ Bundle "shawncplus/phpcomplete.vim"
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
 
+" Python stuff
+Bundle "klen/python-mode.git"
+
 " Colorschemes
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
