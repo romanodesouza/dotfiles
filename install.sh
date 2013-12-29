@@ -31,6 +31,7 @@ install_bash() {
     make_link ./bash/.inputrc ~/.inputrc
     make_link ./bash/.bashrc ~/.bashrc
     make_link ./bash/.bash_profile ~/.bash_profile
+    make_link ./bash/.bash_aliases ~/.bash_aliases
 }
 
 install_git() {
