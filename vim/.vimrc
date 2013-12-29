@@ -3,9 +3,9 @@ set nocompatible
 syntax on
 let mapleader=","
 
-" Init Vundle
-if filereadable(expand("~/.vim/vundles.vim"))
-    source ~/.vim/vundles.vim
+" Init bundles
+if filereadable(expand("~/.vim/bundles.vim"))
+    source ~/.vim/bundles.vim
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
