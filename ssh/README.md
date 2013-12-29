@@ -1,3 +1,0 @@
-About
-=========
-OpenSSH config
