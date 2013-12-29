@@ -1,6 +1,6 @@
 About
 =========
-My personal Unix dotfiles
+Unix dotfiles
 
 Config for
 =========
@@ -11,7 +11,7 @@ Config for
 
 Installation
 =========
-Clone, make a backup of your files and run:
 ```
-make install
+chmod +x ./install.sh
+./install.sh or ./install.sh -y
 ```

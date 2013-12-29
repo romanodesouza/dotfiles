@@ -1,24 +1,10 @@
 Dependencies
 =========
-- [Vundle](https://github.com/gmarik/vundle)
 - [Curl](http://curl.haxx.se/) (for Gist plugin)
 
 Recommended
 =========
 - [Exuberant Ctags](http://ctags.sourceforge.net/)
-
-Setup
-=========
-- Install [Vundle](https://github.com/gmarik/vundle)
-
-```
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-```
-- Install the bundles
-
-```
-vim --noplugin -u ~/.vim/vundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
-```
 
 Structure
 =========
