@@ -6,3 +6,10 @@ snippet retn
 	return null;
 snippet d
 	die("${1}");
+snippet ni # Namespace and interface
+	namespace `substitute(substitute(expand("%:h"), '\v^\w+\/(\u)', '\1', ''), '\/', '\\\', 'g')`;
+
+	interface `vim_snippets#Filename()`
+	{
+		${0}
+	}
