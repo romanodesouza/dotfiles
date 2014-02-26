@@ -10,9 +10,6 @@ Bundle 'gmarik/vundle'
 
 " CtrlP
 Bundle 'kien/ctrlp.vim'
-" NERDTree
-Bundle "jistr/vim-nerdtree-tabs.git"
-Bundle "scrooloose/nerdtree.git"
 " Airline
 Bundle "bling/vim-airline.git"
 " CamelCaseMotion
@@ -34,6 +31,8 @@ Bundle "estin/htmljinja"
 Bundle "Lokaltog/vim-easymotion"
 " Emmet
 Bundle "mattn/emmet-vim"
+" Lusty Explorer
+Bundle "sjbach/lusty"
 
 " Git stuff
 Bundle "tpope/vim-fugitive"
