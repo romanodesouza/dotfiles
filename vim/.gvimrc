@@ -15,12 +15,6 @@ set guioptions-=l
 set guioptions-=b
 " Disable cursor blinking
 set guicursor+=a:blinkon0
-" Command completion
-set wildmenu
-set wildmode=list:longest
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
 " Size
 set lines=30
 set columns=100

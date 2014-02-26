@@ -69,6 +69,13 @@ autocmd FileType python         setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml            setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby           setlocal omnifunc=rubycomplete#Complete
 autocmd FileType haskell        setlocal omnifunc=necoghc#omnifunc
+" Command completion
+set wildmenu
+set wildmode=list:longest
+" stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
 " Select all
 nnoremap <C-a> ggvG$
