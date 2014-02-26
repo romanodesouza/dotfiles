@@ -35,7 +35,6 @@ Bundle "mattn/emmet-vim"
 Bundle "sjbach/lusty"
 
 " Git stuff
-Bundle "tpope/vim-fugitive"
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 
