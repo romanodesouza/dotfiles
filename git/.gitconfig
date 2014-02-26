@@ -29,24 +29,21 @@
 [alias]
     # commit
     ci = commit
-
+    # ammend
+    amend = commit --amend -C HEAD
+    amendoa = commit -a --amend -C HEAD
     # status
     st = status
-
     # branch
     br = branch
-
     # checkout
     co = checkout
-
     # cherry-pick
     cp = cherry-pick -x
-
     # diff
     df = diff
     dc = diff --cached
     dh = diff HEAD^
-
     # log
     l = log --no-merges
     ld = log --no-merges -p
@@ -54,13 +51,10 @@
     changes = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
     short = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
     changelog = log --no-merges --pretty=format:\" * %s\"
-
     # pull
     pr = pull --rebase
-
     # push
     po = push origin
-
     # rebase
     rb = rebase
     rc = rebase --continue
