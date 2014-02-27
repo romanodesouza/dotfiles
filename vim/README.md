@@ -1,6 +1,7 @@
 Dependencies
 =========
 - [Curl](http://curl.haxx.se/) (for Gist plugin)
+- [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) (for Ag plugin)
 
 Recommended
 =========
