@@ -29,23 +29,23 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle "estin/htmljinja"
 " EasyMotion
 Bundle "Lokaltog/vim-easymotion"
+" Ag
+Bundle "rking/ag.vim"
+" Qargs
+Bundle "henrik/vim-qargs"
 " Emmet
 Bundle "mattn/emmet-vim"
 " Lusty Explorer
 Bundle "sjbach/lusty"
-
 " Git stuff
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
 Bundle "shawncplus/phpcomplete.vim"
-
 " Javascript stuff
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
-
 " Colorschemes
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
