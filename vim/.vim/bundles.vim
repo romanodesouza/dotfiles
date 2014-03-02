@@ -27,6 +27,8 @@ Bundle "honza/vim-snippets"
 Bundle "terryma/vim-multiple-cursors"
 " Autotag
 Bundle "vim-scripts/AutoTag"
+" Vim pasta
+Bundle "sickill/vim-pasta"
 " Jinja syntax
 Bundle "estin/htmljinja"
 " EasyMotion
