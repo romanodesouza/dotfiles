@@ -76,7 +76,6 @@ set wildmode=list:longest
 set wildignore=*.o,*.obj,*~
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-
 " Select all
 nnoremap <C-a> ggvG$
 " Full copy/cut/past simple

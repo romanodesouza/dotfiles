@@ -6,10 +6,10 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle "gmarik/vundle"
 
 " CtrlP
-Bundle 'kien/ctrlp.vim'
+Bundle "kien/ctrlp.vim"
 " Airline
 Bundle "bling/vim-airline.git"
 " CamelCaseMotion
@@ -25,6 +25,8 @@ Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 " Multiple cursors
 Bundle "terryma/vim-multiple-cursors"
+" Autotag
+Bundle "vim-scripts/AutoTag"
 " Jinja syntax
 Bundle "estin/htmljinja"
 " EasyMotion
@@ -38,16 +40,17 @@ Bundle "mattn/emmet-vim"
 " Lusty Explorer
 Bundle "sjbach/lusty"
 " Git stuff
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Bundle "mattn/webapi-vim"
+Bundle "mattn/gist-vim"
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
 Bundle "shawncplus/phpcomplete.vim"
+Bundle "arnaud-lb/vim-php-namespace"
 " Javascript stuff
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
 " Colorschemes
-Bundle 'flazz/vim-colorschemes'
+Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 
 filetype plugin indent on
