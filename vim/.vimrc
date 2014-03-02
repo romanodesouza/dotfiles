@@ -106,7 +106,6 @@ nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . tabpagenr()<CR>
 imap <S-PageUp> <ESC><S-PageUp>a
 imap <S-PageDown> <ESC><S-PageDown>a
-
 " Open new tab
 nnoremap <silent> <Leader>t :tabnew<CR>
 imap <silent> <Leader>t <ESC><Leader>t<Insert>
@@ -119,6 +118,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 " Git conflicts
 map <Leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+" Filesystem explorer
+noremap <F3> :Explore<CR>
+inoremap <F3> <ESC>:Explore<CR>
 
 " Abbreviations for exit
 cab qw wq
