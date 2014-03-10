@@ -37,8 +37,6 @@ Bundle "Lokaltog/vim-easymotion"
 Bundle "rking/ag.vim"
 " Qargs
 Bundle "henrik/vim-qargs"
-" Emmet
-Bundle "mattn/emmet-vim"
 " Lusty Explorer
 Bundle "sjbach/lusty"
 " Git stuff
