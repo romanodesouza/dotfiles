@@ -99,9 +99,7 @@ noremap <Home>  ^
 inoremap <Home> <ESC>^<Insert>
 imap <C-a> <Home>
 imap <C-e> <End>
-" Tab navigation
-nnoremap <S-h> :tabprevious<CR>
-nnoremap <S-l> :tabnext<CR>
+" Tab switching
 nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . tabpagenr()<CR>
 imap <S-PageUp> <ESC><S-PageUp>a
