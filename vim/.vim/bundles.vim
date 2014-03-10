@@ -39,6 +39,8 @@ Bundle "rking/ag.vim"
 Bundle "henrik/vim-qargs"
 " Lusty Explorer
 Bundle "sjbach/lusty"
+" Tabular
+Bundle "godlygeek/tabular"
 " Git stuff
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
