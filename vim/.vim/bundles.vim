@@ -51,6 +51,8 @@ Bundle "arnaud-lb/vim-php-namespace"
 " Javascript stuff
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
+" Go stuff
+Bundle "jnwhiteh/vim-golang"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
