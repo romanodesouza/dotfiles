@@ -9,3 +9,7 @@ let g:ctrlp_buftag_types={
 \}
 " On git projects, use it to list the files tracked and to be tracked
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+\}
