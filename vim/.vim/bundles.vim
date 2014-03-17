@@ -56,5 +56,7 @@ Bundle "jnwhiteh/vim-golang"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+" Dockerfile
+Bundle "ekalinin/Dockerfile.vim"
 
 filetype plugin indent on
