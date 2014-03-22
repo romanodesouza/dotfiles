@@ -8,8 +8,8 @@ if filereadable(expand("~/.vim/bundles.vim"))
     source ~/.vim/bundles.vim
 endif
 
-if filereadable(expand("~/.vimrc.bundles.local"))
-    source ~/.vimrc.bundles.local
+if filereadable(expand("~/.vim/bundles.vim.local"))
+    source ~/.vim/bundles.vim.local
 endif
 
 filetype plugin indent on
