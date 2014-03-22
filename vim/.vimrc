@@ -159,7 +159,7 @@ function! ResCur()
 endfunction
 
 " Striping whitespaces
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -170,7 +170,6 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-autocmd BufWritePre * call <SID>StripTrailingWhitespaces()
 
 augroup resCur
     autocmd!
