@@ -179,6 +179,8 @@ augroup END
 " Set the fileformat
 " don't continue comments when pushing o/O and return carriage
 autocmd FileType * set formatoptions-=o formatoptions-=r
+" Indentation for ruby
+autocmd FileType ruby set expandtab ts=2 sw=2
 
 " Function: Open tag under cursor in new tab
 " Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
