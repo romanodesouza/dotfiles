@@ -10,6 +10,8 @@ Bundle "gmarik/vundle"
 
 " CtrlP
 Bundle "kien/ctrlp.vim"
+" CtrlP Funky
+Bundle "tacahiroy/ctrlp-funky"
 " Airline
 Bundle "bling/vim-airline.git"
 " CamelCaseMotion
