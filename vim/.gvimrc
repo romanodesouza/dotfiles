@@ -20,7 +20,7 @@ set lines=30
 set columns=100
 
 " Colorscheme
-colorscheme Earthsong
+colorscheme earthsong
 
 " Mouse's behaviour
 behave mswin

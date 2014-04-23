@@ -46,6 +46,7 @@ Bundle "godlygeek/tabular"
 " Git stuff
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
+Bundle "tpope/vim-fugitive"
 " PHP stuff
 Bundle "stephpy/vim-php-cs-fixer"
 Bundle "shawncplus/phpcomplete.vim"
@@ -59,7 +60,7 @@ Bundle "jnwhiteh/vim-golang"
 Bundle "vim-ruby/vim-ruby"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " Dockerfile
 Bundle "ekalinin/Dockerfile.vim"
 
