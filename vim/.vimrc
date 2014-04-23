@@ -124,6 +124,8 @@ map <Leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 " Filesystem explorer
 noremap <F3> :Explore<CR>
 inoremap <F3> <ESC>:Explore<CR>
+" Ctrl + Backspace removes the entire previous word
+imap <C-BS> <ESC>ldB<Insert>
 
 " Abbreviations for exit
 cab qw wq
