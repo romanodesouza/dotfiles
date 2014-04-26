@@ -58,10 +58,14 @@ Bundle "itspriddle/vim-jquery.git"
 Bundle "jnwhiteh/vim-golang"
 " Ruby stuff
 Bundle "vim-ruby/vim-ruby"
+" Moonscript stuff
+Bundle "leafo/moonscript-vim"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " Dockerfile
 Bundle "ekalinin/Dockerfile.vim"
+" Nginx
+Bundle "evanmiller/nginx-vim-syntax"
 
 filetype plugin indent on
