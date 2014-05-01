@@ -20,9 +20,7 @@ Bundle "vim-scripts/camelcasemotion.git"
 Bundle "scrooloose/syntastic.git"
 " TComment
 Bundle "tomtom/tcomment_vim.git"
-" snipMate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+" Ultisnips
 Bundle "SirVer/ultisnips"
 Bundle "honza/vim-snippets"
 " YouCompleteMe
