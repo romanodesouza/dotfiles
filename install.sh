@@ -42,7 +42,18 @@ install_ssh() {
     make_link ./ssh/config ~/.ssh/config
 }
 
+install_vim_bundle_dependencies() {
+    # YouCompleteMe
+    # TODO: Detect the OS and use its package manager
+    sudo apt-get install -y build-essential cmake python-dev
+    git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe 2>/dev/null;
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh --clang-completer
+    cd -
+}
+
 install_vim() {
+    install_vim_bundle_dependencies
     make_link ./vim/.vimrc ~/.vimrc
     make_link ./vim/.gvimrc ~/.gvimrc
     make_link ./vim/.vim/ ~/.vim &&

@@ -23,8 +23,10 @@ Bundle "tomtom/tcomment_vim.git"
 " snipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+Bundle "SirVer/ultisnips"
 Bundle "honza/vim-snippets"
+" YouCompleteMe
+Bundle "Valloric/YouCompleteMe"
 " Multiple cursors
 Bundle "terryma/vim-multiple-cursors"
 " Autotag
