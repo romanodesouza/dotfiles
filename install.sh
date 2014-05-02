@@ -48,6 +48,7 @@ install_vim_bundle_dependencies() {
     sudo apt-get install -y build-essential cmake python-dev
     git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe 2>/dev/null;
     cd ~/.vim/bundle/YouCompleteMe
+    git submodule update --init --recursive
     ./install.sh --clang-completer
     cd -
 }
