@@ -63,6 +63,7 @@ Bundle "leafo/moonscript-vim"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+Bundle "ChrisKempson/Tomorrow-Theme", { "rtp": "vim/" }
 " Dockerfile
 Bundle "ekalinin/Dockerfile.vim"
 " Nginx
