@@ -81,6 +81,7 @@ set wildignore+=*.tar
 set wildignore+=*.swf
 set wildignore+=*.crx
 set wildignore+=*.doc
+set wildignore+=*.volt.php,*.volt-e-.php
 " Select all
 nnoremap <C-a> ggvG$
 " Full copy/cut/past simple
