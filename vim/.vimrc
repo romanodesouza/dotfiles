@@ -184,6 +184,8 @@ augroup END
 autocmd FileType * set formatoptions-=o formatoptions-=r
 " Indentation for ruby
 autocmd FileType ruby set expandtab ts=2 sw=2
+" Enable spell checker for git commit
+autocmd FileType gitcommit set spell spelllang=en_us,pt_br
 
 " Function: Open tag under cursor in new tab
 " Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
