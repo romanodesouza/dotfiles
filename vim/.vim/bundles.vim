@@ -31,6 +31,8 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle "vim-scripts/AutoTag"
 " Vim pasta
 Bundle "sickill/vim-pasta"
+" Emmet
+Bundle "mattn/emmet-vim"
 " Jinja syntax
 Bundle "estin/htmljinja"
 " EasyMotion
