@@ -33,6 +33,10 @@ Bundle "vim-scripts/AutoTag"
 Bundle "sickill/vim-pasta"
 " Emmet
 Bundle "mattn/emmet-vim"
+" Slim syntax
+Bundle "slim-template/vim-slim"
+" Gold syntax
+Bundle "yosssi/vim-gold"
 " Jinja syntax
 Bundle "estin/htmljinja"
 " EasyMotion
@@ -57,7 +61,7 @@ Bundle "arnaud-lb/vim-php-namespace"
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
 " Go stuff
-Bundle "jnwhiteh/vim-golang"
+Bundle "fatih/vim-go"
 " Ruby stuff
 Bundle "vim-ruby/vim-ruby"
 " Moonscript stuff
