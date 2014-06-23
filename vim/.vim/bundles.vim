@@ -33,14 +33,8 @@ Bundle "vim-scripts/AutoTag"
 Bundle "sickill/vim-pasta"
 " Emmet
 Bundle "mattn/emmet-vim"
-" Slim syntax
-Bundle "slim-template/vim-slim"
-" Gold syntax
-Bundle "yosssi/vim-gold"
 " Jinja syntax
 Bundle "estin/htmljinja"
-" EasyMotion
-Bundle "Lokaltog/vim-easymotion"
 " Ag
 Bundle "rking/ag.vim"
 " Qargs
