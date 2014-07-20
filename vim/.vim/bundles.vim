@@ -56,10 +56,6 @@ Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery.git"
 " Go stuff
 Bundle "fatih/vim-go"
-" Ruby stuff
-Bundle "vim-ruby/vim-ruby"
-" Moonscript stuff
-Bundle "leafo/moonscript-vim"
 " Colorschemes
 Bundle "flazz/vim-colorschemes"
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
