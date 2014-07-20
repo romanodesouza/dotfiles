@@ -18,3 +18,5 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:/usr/local/scala/bin
 # Java
 export PATH=$PATH:/usr/local/jdk/bin
+# NodeJS
+export PATH=$PATH:/usr/local/node/bin
