@@ -184,6 +184,8 @@ augroup END
 autocmd FileType * set formatoptions-=o formatoptions-=r
 " Indentation for ruby
 autocmd FileType ruby set expandtab ts=2 sw=2
+" Indentation for Lisp
+autocmd FileType lisp set expandtab ts=2 sw=2
 " Enable spell checker for git commit
 autocmd FileType gitcommit set spell spelllang=en_us,pt_br
 

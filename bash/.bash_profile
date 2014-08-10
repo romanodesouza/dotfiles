@@ -20,3 +20,7 @@ export PATH=$PATH:/usr/local/scala/bin
 export PATH=$PATH:/usr/local/jdk/bin
 # NodeJS
 export PATH=$PATH:/usr/local/node/bin
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
