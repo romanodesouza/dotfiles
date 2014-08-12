@@ -37,11 +37,11 @@
 (require 'init-elpa)
 (require 'init-linum-relative)
 (require 'init-evil-mode)
-(require 'init-evil-leader)
 (require 'init-projectile)
 (require 'init-smex)
 (require 'init-ido)
 (require 'init-company-mode)
+(require 'init-expand-region)
 (add-hook 'python-mode-hook
   (lambda()
     (require 'init-python-mode)))
