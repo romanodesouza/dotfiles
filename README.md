@@ -5,6 +5,7 @@ Unix dotfiles
 Config for
 =========
 - vim
+- emacs
 - bash
 - git
 - ssh

@@ -4,3 +4,7 @@ vim/.vim/bundle/*/
 vim/.vim/spell/
 # Vim's explorer
 .netrwhist
+# Emacs
+emacs/elpa/
+emacs/projectile-bookmarks.eld
+emacs/auto-save-list/
