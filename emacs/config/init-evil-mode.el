@@ -1,5 +1,7 @@
 (require-package 'evil)
 (require-package 'evil-leader)
+(require-package 'evil-nerd-commenter)
+
 ; Setup evil leader
 (global-evil-leader-mode)
 (setq evil-leader/in-all-states t)
@@ -13,7 +15,8 @@
   "n" 'new-buffer
   "i" 'imenu
 )
-
+; Enable evil-nerd-commenter
+(evilnc-default-hotkeys)
 ; Enable evil mode
 (evil-mode t)
 
