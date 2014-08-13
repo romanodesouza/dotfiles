@@ -56,6 +56,7 @@
 (require 'init-company-mode)
 (require 'init-expand-region)
 (require 'init-autopair)
+(require 'init-flycheck)
 ; Programming languages modes
 (require 'init-go-mode)
 (add-hook 'python-mode-hook
