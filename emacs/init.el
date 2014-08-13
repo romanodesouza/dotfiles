@@ -36,8 +36,8 @@
 ;
 (require 'init-elpa)
 (require 'init-linum-relative)
-(require 'init-evil-mode)
 (require 'init-projectile)
+(require 'init-evil-mode)
 (require 'init-smex)
 (require 'init-ido)
 (require 'init-company-mode)

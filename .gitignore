@@ -8,3 +8,4 @@ vim/.vim/spell/
 emacs/elpa/
 emacs/projectile-bookmarks.eld
 emacs/auto-save-list/
+emacs/eshell/
