@@ -11,6 +11,7 @@
 ; Default indentation
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
+(electric-indent-mode 1)
 ; Don't show me the startup screen
 (setq inhibit-startup-screen t)
 ; Starts with a blank screen
@@ -31,6 +32,9 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 ; imenu
 (setq-default imenu-auto-rescan t)
+; Parens mode
+(show-paren-mode 1)
+(setq show-paren-delay 0)
 
 ;;
 ;; Custom key bindings
@@ -51,6 +55,7 @@
 (require 'init-ido)
 (require 'init-company-mode)
 (require 'init-expand-region)
+(require 'init-autopair)
 ; Programming languages modes
 (require 'init-go-mode)
 (add-hook 'python-mode-hook
