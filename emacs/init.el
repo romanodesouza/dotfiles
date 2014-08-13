@@ -9,8 +9,8 @@
 ; Disable auto saving
 (setq auto-save-default nil)
 ; Default indentation
-(setq indent-tabs-mode nil)
-(setq tab-width 4)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
 ; Don't show me the startup screen
 (setq inhibit-startup-screen t)
 ; Starts with a blank screen
@@ -22,6 +22,15 @@
 (tool-bar-mode -1)
 ; Disable scroll bar
 (scroll-bar-mode -1)
+; Encoding
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+; Aliases
+(defalias 'yes-or-no-p 'y-or-n-p)
+; imenu
+(setq-default imenu-auto-rescan t)
 
 ;;
 ;; Custom key bindings
