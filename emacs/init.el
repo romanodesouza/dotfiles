@@ -36,6 +36,13 @@
 ; Parens mode
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+; Font
+(defun fontify-frame (frame)
+  (set-frame-parameter frame 'font "Droid Sans Mono-11"))
+;; Fontify current frame
+(fontify-frame nil)
+;; Fontify any future frames
+(push 'fontify-frame after-make-frame-functions)
 
 ;;
 ;; Custom key bindings
@@ -62,8 +69,8 @@
 (require 'init-go-mode)
 (require 'init-javascript-mode)
 (add-hook 'python-mode-hook
-  (lambda()
-    (require 'init-python-mode)))
+          (lambda()
+            (require 'init-python-mode)))
 
 ; Color scheme
 ;(require-package 'cyberpunk-theme)
