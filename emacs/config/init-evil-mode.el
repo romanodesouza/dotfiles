@@ -2,9 +2,10 @@
 (require-package 'evil-leader)
 (require-package 'evil-nerd-commenter)
 
+(setq evil-leader/in-all-states t)
+(setq evil-leader/no-prefix-mode-rx '(".*-mode"))
 ; Setup evil leader
 (global-evil-leader-mode)
-(setq evil-leader/in-all-states t)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "f" 'fuzzy-finder
