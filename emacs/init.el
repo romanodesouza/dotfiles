@@ -13,10 +13,11 @@
 ; Default indentation
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
+(electric-indent-mode t)
 ; Don't show me the startup screen
 (setq inhibit-startup-screen t)
 ; Starts with a blank screen
-(switch-to-buffer (get-buffer-create "emtpy"))
+(switch-to-buffer (get-buffer-create "empty"))
 (delete-other-windows)
 ; Disable menu bar
 (menu-bar-mode -1)
