@@ -43,6 +43,8 @@
 (fontify-frame nil)
 ;; Fontify any future frames
 (push 'fontify-frame after-make-frame-functions)
+; Highlight current line
+(global-hl-line-mode t)
 
 ;;
 ;; Custom key bindings
