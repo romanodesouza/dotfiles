@@ -1,5 +1,7 @@
 ; Add the config dir to load path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
+; Add the elisp dir to load path
+(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
 
 ;;
 ;; Custom config
@@ -11,7 +13,6 @@
 ; Default indentation
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
-(electric-indent-mode 1)
 ; Don't show me the startup screen
 (setq inhibit-startup-screen t)
 ; Starts with a blank screen
@@ -59,6 +60,7 @@
 (require 'init-flycheck)
 ; Programming languages modes
 (require 'init-go-mode)
+(require 'init-javascript-mode)
 (add-hook 'python-mode-hook
   (lambda()
     (require 'init-python-mode)))
