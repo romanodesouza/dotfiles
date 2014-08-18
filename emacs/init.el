@@ -40,9 +40,9 @@
 ; Font
 (defun fontify-frame (frame)
   (set-frame-parameter frame 'font "Droid Sans Mono-11"))
-;; Fontify current frame
+; Fontify current frame
 (fontify-frame nil)
-;; Fontify any future frames
+; Fontify any future frames
 (push 'fontify-frame after-make-frame-functions)
 ; Highlight current line
 (global-hl-line-mode t)
@@ -74,6 +74,7 @@
 (add-hook 'python-mode-hook
           (lambda()
             (require 'init-python-mode)))
+(require 'init-eshell)
 
 ; Color scheme
 ;(require-package 'cyberpunk-theme)
