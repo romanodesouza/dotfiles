@@ -74,7 +74,6 @@
 (add-hook 'java-mode-hook
           (lambda()
             (require 'init-java-mode)))
-(require 'init-eshell)
 
 ; Color scheme
 ;(require-package 'cyberpunk-theme)
