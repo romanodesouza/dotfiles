@@ -70,6 +70,9 @@
 (add-hook 'python-mode-hook
           (lambda()
             (require 'init-python-mode)))
+(add-hook 'java-mode-hook
+          (lambda()
+            (require 'init-eclim-java-mode)))
 (require 'init-eshell)
 
 ; Color scheme
