@@ -61,6 +61,7 @@
 (require 'init-ido)
 (require 'init-company-mode)
 (require 'init-expand-region)
+(require 'init-smartparens)
 (require 'init-flycheck)
 ; Programming languages modes
 (require 'init-php-mode)
