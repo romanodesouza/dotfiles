@@ -6,7 +6,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 (add-hook 'js3-mode-hook (lambda ()
                            (tern-mode t)
-                           (add-hook 'before-save-hook 'web-beautify-js)
+                           (add-hook 'before-save-hook (lambda ()
+                                                         (when (string-equal major-mode "js3-mode"))
+                                                           (web-beautify-js)))
                            (add-to-list 'company-backends 'company-tern)
 
                            (setq-default js3-global-externs
