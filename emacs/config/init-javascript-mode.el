@@ -1,12 +1,12 @@
 (require-package 'js3-mode)
 (require-package 'tern)
 (require-package 'company-tern)
-(require 'jsfmt)
+(require-package 'web-beautify)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 (add-hook 'js3-mode-hook (lambda ()
                            (tern-mode t)
-                           (add-hook 'before-save-hook 'jsfmt-before-save)
+                           (add-hook 'before-save-hook 'web-beautify-js)
                            (add-to-list 'company-backends 'company-tern)
 
                            (setq-default js3-global-externs

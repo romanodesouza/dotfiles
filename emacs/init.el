@@ -1,7 +1,5 @@
 ; Add the config dir to load path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
-; Add the elisp dir to load path
-(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
 
 ;;
 ;; Custom config
