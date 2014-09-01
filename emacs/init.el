@@ -65,6 +65,7 @@
 (require 'init-expand-region)
 (require 'init-flycheck)
 ; Programming languages modes
+(require 'init-php-mode)
 (require 'init-go-mode)
 (require 'init-javascript-mode)
 (add-hook 'python-mode-hook
@@ -72,7 +73,7 @@
             (require 'init-python-mode)))
 (add-hook 'java-mode-hook
           (lambda()
-            (require 'init-eclim-java-mode)))
+            (require 'init-java-mode)))
 (require 'init-eshell)
 
 ; Color scheme

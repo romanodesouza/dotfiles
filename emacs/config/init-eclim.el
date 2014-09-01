@@ -11,4 +11,4 @@
 (company-emacs-eclim-setup)
 (global-company-mode t)
 
-(provide 'init-eclim-java-mode)
+(provide 'init-eclim)
