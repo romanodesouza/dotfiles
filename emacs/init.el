@@ -63,6 +63,7 @@
 (require 'init-expand-region)
 (require 'init-smartparens)
 (require 'init-flycheck)
+(require 'init-ag)
 ; Programming languages modes
 (require 'init-php-mode)
 (require 'init-go-mode)
