@@ -64,6 +64,7 @@
 (require 'init-smartparens)
 (require 'init-flycheck)
 (require 'init-ag)
+(require 'init-yasnippet)
 ; Programming languages modes
 (require 'init-php-mode)
 (require 'init-go-mode)
