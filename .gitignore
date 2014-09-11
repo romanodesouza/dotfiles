@@ -9,3 +9,4 @@ emacs/elpa/
 emacs/projectile-bookmarks.eld
 emacs/auto-save-list/
 emacs/eshell/
+emacs/local-config/*.el

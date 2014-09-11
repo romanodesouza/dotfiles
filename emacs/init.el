@@ -1,5 +1,7 @@
-; Add the config dir to load path
+; Add config dir to load path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
+; Add local config dir to load path
+(add-to-list 'load-path (expand-file-name "local-config" user-emacs-directory))
 
 ;;
 ;; Custom config
@@ -76,9 +78,7 @@
           (lambda()
             (require 'init-java-mode)))
 
-; Color scheme
-;(require-package 'cyberpunk-theme)
-(require-package 'ujelly-theme)
-;(load-theme 'cyberpunk t)
-;(load-theme 'wombat t)
-(load-theme 'ujelly t)
+;;
+;; Local Config
+;
+(require 'init-local-config nil 'noerror)
