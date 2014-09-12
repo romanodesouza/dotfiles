@@ -2,7 +2,7 @@
 (require-package 'evil-leader)
 (require-package 'evil-nerd-commenter)
 
-; Setup evil leader
+(setq evil-search-module 'evil-search)
 (setq evil-leader/in-all-states t)
 (setq evil-leader/no-prefix-mode-rx '(".*-mode"))
 (global-evil-leader-mode)
@@ -21,6 +21,8 @@
   ; Workaround to print "comma"(the leader char):
   "," (kbd "C-q ,")
 )
+; Override "C-k"
+(define-key evil-insert-state-map (kbd "C-k") 'backward-paragraph)
 ; Enable evil-nerd-commenter
 (evilnc-default-hotkeys)
 ; Enable evil mode

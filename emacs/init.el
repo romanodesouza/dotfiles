@@ -6,6 +6,15 @@
 ;;
 ;; Custom config
 ;
+; Key bindings overrides
+(global-set-key (kbd "C-l") 'forward-word)
+(global-set-key (kbd "C-h") 'backward-word)
+(global-set-key (kbd "C-j") 'forward-paragraph)
+(global-set-key (kbd "C-k") 'backward-paragraph)
+(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "C-e") 'end-of-line)
+; Enable deletion of selected text
+(delete-selection-mode 1)
 ; Disable backup
 (setq backup-inhibited t)
 ; Disable auto saving
