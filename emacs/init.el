@@ -6,13 +6,6 @@
 ;;
 ;; Custom config
 ;
-; Key bindings overrides
-(global-set-key (kbd "C-l") 'forward-word)
-(global-set-key (kbd "C-h") 'backward-word)
-(global-set-key (kbd "C-j") 'forward-paragraph)
-(global-set-key (kbd "C-k") 'backward-paragraph)
-(global-set-key (kbd "C-a") 'back-to-indentation)
-(global-set-key (kbd "C-e") 'end-of-line)
 ; Enable deletion of selected text
 (delete-selection-mode 1)
 ; Disable backup
@@ -60,6 +53,22 @@
 ; Notice that the evil-mode might override this setting to
 ; switch between evil/emacs mode
 (global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-l") 'forward-word)
+(global-set-key (kbd "C-h") 'backward-word)
+(global-set-key (kbd "C-j") 'forward-paragraph)
+(global-set-key (kbd "C-k") 'backward-paragraph)
+(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "C-e") 'end-of-line)
+(global-set-key (kbd "C-x g") 'switch-to-previous-buffer)
+;;
+;; Common functions
+;
+(defun switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
 
 ;;
 ;; Packages
