@@ -53,12 +53,14 @@
 ; Notice that the evil-mode might override this setting to
 ; switch between evil/emacs mode
 (global-unset-key (kbd "C-z"))
-(global-set-key (kbd "C-l") 'forward-word)
-(global-set-key (kbd "C-h") 'backward-word)
-(global-set-key (kbd "C-j") 'forward-paragraph)
-(global-set-key (kbd "C-k") 'backward-paragraph)
+; Move like vim
+(global-set-key (kbd "C-l") 'forward-char)
+(global-set-key (kbd "C-h") 'backward-char)
+(global-set-key (kbd "C-j") 'forward-line)
+(global-set-key (kbd "C-k") 'ibuffer-backward-line)
 (global-set-key (kbd "C-a") 'back-to-indentation)
 (global-set-key (kbd "C-e") 'end-of-line)
+; Switch to previous buffer
 (global-set-key (kbd "C-x g") 'switch-to-previous-buffer)
 ;;
 ;; Common functions
@@ -85,6 +87,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'init-flycheck)
 (require 'init-ag)
 (require 'init-yasnippet)
+(require 'init-key-chord)
 ; Programming languages modes
 (require 'init-php-mode)
 (require 'init-go-mode)

@@ -1,37 +1,19 @@
 (require-package 'evil)
-(require-package 'evil-leader)
 (require-package 'evil-nerd-commenter)
 
+; Config
 (setq evil-search-module 'evil-search)
-(setq evil-leader/in-all-states t)
-(setq evil-leader/no-prefix-mode-rx '(".*-mode"))
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(evil-leader/set-key
-  "f" 'fuzzy-finder
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer
-  "s" 'save-buffer-and-goes-to-normal-mode
-  "q" 'quit-window
-  "i" 'imenu
-  "a" 'back-to-indentation
-  "e" 'end-of-line
-  "g" 'switch-to-previous-buffer
-  "h" 'next-buffer
-  ; Workaround to print "comma"(the leader char):
-  "," (kbd "C-q ,")
-)
-; Override "C-k"
-(define-key evil-insert-state-map (kbd "C-k") 'backward-paragraph)
-; Enable evil-nerd-commenter
-(evilnc-default-hotkeys)
 ; Enable evil mode
 (evil-mode t)
-
-(defun save-buffer-and-goes-to-normal-mode ()
-  "Evil: Save buffer and goes to normal mode."
-  (interactive)
-  (save-buffer)
-  (evil-normal-state))
+; Key bindings
+(define-key evil-insert-state-map (kbd "C-l") 'forward-char)
+(define-key evil-insert-state-map (kbd "C-h") 'backward-char)
+(define-key evil-insert-state-map (kbd "C-j") 'forward-line)
+(define-key evil-insert-state-map (kbd "C-k") 'ibuffer-backward-line)
+(define-key evil-insert-state-map (kbd "C-a") 'back-to-indentation)
+(define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+(define-key evil-insert-state-map (kbd "C-d") 'delete-char)
+; Enable evil-nerd-commenter
+(evilnc-default-hotkeys)
 
 (provide 'init-evil-mode)

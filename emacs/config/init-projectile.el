@@ -10,7 +10,4 @@
     (projectile-find-file)
     (ido-find-file)))
 
-; Overrides default C-x C-f
-(global-set-key (kbd "C-x C-f") 'fuzzy-finder)
-
 (provide 'init-projectile)
