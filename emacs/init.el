@@ -88,6 +88,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'init-ag)
 (require 'init-yasnippet)
 (require 'init-key-chord)
+(require 'init-multiple-cursors)
 ; Programming languages modes
 (require 'init-php-mode)
 (require 'init-go-mode)
