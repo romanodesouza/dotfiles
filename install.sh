@@ -42,19 +42,7 @@ install_ssh() {
     make_link ./ssh/config ~/.ssh/config
 }
 
-install_vim_bundle_dependencies() {
-    # YouCompleteMe
-    # TODO: Detect the OS and use its package manager
-    sudo apt-get install -y build-essential cmake python-dev
-    git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe 2>/dev/null;
-    cd ~/.vim/bundle/YouCompleteMe
-    git submodule update --init --recursive
-    ./install.sh --clang-completer
-    cd -
-}
-
 install_vim() {
-    install_vim_bundle_dependencies
     make_link ./vim/.vimrc ~/.vimrc
     make_link ./vim/.gvimrc ~/.gvimrc
     make_link ./vim/.vim/ ~/.vim &&
@@ -62,15 +50,9 @@ install_vim() {
         vim --noplugin -u ~/.vim/bundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
 }
 
-install_emacs() {
-    make_link ./emacs/ ~/.emacs.d
-}
-
-
 install_bash
 install_git
 install_ssh
 install_vim
-install_emacs
 
 echo "Finish! :)"

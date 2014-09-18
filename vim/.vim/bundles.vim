@@ -10,8 +10,6 @@ Bundle "gmarik/vundle"
 
 " CtrlP
 Bundle "kien/ctrlp.vim"
-" CtrlP Funky
-Bundle "tacahiroy/ctrlp-funky"
 " Airline
 Bundle "bling/vim-airline.git"
 " CamelCaseMotion
@@ -20,49 +18,19 @@ Bundle "vim-scripts/camelcasemotion.git"
 Bundle "scrooloose/syntastic.git"
 " TComment
 Bundle "tomtom/tcomment_vim.git"
-" Ultisnips
-Bundle "SirVer/ultisnips"
-Bundle "honza/vim-snippets"
-" YouCompleteMe
-Bundle "Valloric/YouCompleteMe"
-" Multiple cursors
-Bundle "terryma/vim-multiple-cursors"
-" Autotag
-Bundle "vim-scripts/AutoTag"
 " Vim pasta
 Bundle "sickill/vim-pasta"
-" Emmet
-Bundle "mattn/emmet-vim"
-" Jinja syntax
-Bundle "estin/htmljinja"
-" Ag
-Bundle "rking/ag.vim"
-" Qargs
-Bundle "henrik/vim-qargs"
-" Lusty Explorer
-Bundle "sjbach/lusty"
-" Tabular
-Bundle "godlygeek/tabular"
 " Git stuff
 Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
 Bundle "tpope/vim-fugitive"
-" PHP stuff
-Bundle "stephpy/vim-php-cs-fixer"
-Bundle "shawncplus/phpcomplete.vim"
-Bundle "arnaud-lb/vim-php-namespace"
-" Javascript stuff
-Bundle "pangloss/vim-javascript"
-Bundle "itspriddle/vim-jquery.git"
-" Go stuff
-Bundle "fatih/vim-go"
-" Colorschemes
-Bundle "flazz/vim-colorschemes"
-Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
-Bundle "ChrisKempson/Tomorrow-Theme", { "rtp": "vim/" }
 " Dockerfile
 Bundle "ekalinin/Dockerfile.vim"
 " Nginx
 Bundle "evanmiller/nginx-vim-syntax"
+" Colorschemes
+Bundle "flazz/vim-colorschemes"
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+Bundle "ChrisKempson/Tomorrow-Theme", { "rtp": "vim/" }
 
 filetype plugin indent on

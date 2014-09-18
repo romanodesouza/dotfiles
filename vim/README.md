@@ -1,11 +1,6 @@
 Dependencies
 =========
 - [Curl](http://curl.haxx.se/) (for Gist plugin)
-- [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) (for Ag plugin)
-
-Recommended
-=========
-- [Exuberant Ctags](http://ctags.sourceforge.net/)
 
 Structure
 =========
@@ -16,7 +11,6 @@ Structure
 - `./vim/bundle-settings/` - Fine tuning of bundles
 - `./vim/vundles.vim` - [Vundle](https://github.com/gmarik/vundle) central usage
 - `./vim/bundle-settings.vim` - Loads the bundle settings
-- `./vim/extra-filetypes.vim` - Set up non native filetypes
 
 Customization
 =========
