@@ -1,15 +1,8 @@
 About
 =========
-Unix dotfiles
+My personal Unix dotfiles
 
-Config for
-=========
-- vim
-- bash
-- git
-- ssh
-
-Installation
+Install
 =========
 ```
 chmod +x ./install.sh

@@ -50,9 +50,14 @@ install_vim() {
         vim --noplugin -u ~/.vim/bundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
 }
 
+install_emacs() {
+    make_link ./emacs/init-local-config.el ~/.emacs.d/local-config/init-local-config.el
+}
+
 install_bash
 install_git
 install_ssh
 install_vim
+install_emacs
 
 echo "Finish! :)"
