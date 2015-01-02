@@ -14,12 +14,7 @@ function godep_workspace_gopath() {
     export GODEP_WORKSPACE_BACKUP_GOPATH=$GOPATH
   fi
 
-  # Check for Godeps dir
-  if [ -d "Godeps" ]; then
-    grep "`godep path`" <<< "$GOPATH" >/dev/null || export GOPATH="`godep path`:$GOPATH"
-  else
-    export GOPATH=$GODEP_WORKSPACE_BACKUP_GOPATH
-  fi
+  godep path 2>/dev/null 1>/dev/null && export GOPATH="`godep path`:$GODEP_WORKSPACE_BACKUP_GOPATH" || export GOPATH=$GODEP_WORKSPACE_BACKUP_GOPATH
 }
 
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]\[\033[00m\]\$ '
