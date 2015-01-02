@@ -8,18 +8,27 @@
 (define-key evil-normal-state-map (kbd "w") 'forward-word)
 (define-key evil-normal-state-map (kbd "b") 'backward-word)
 
-(key-chord-define-global ",a" 'back-to-indentation)
+(key-chord-define-global ",e" 'er/expand-region)
+(key-chord-define-global ",w" 'er/contract-region)
+(key-chord-define-global "ee" 'end-of-line)
+(key-chord-define-global "aa" 'back-to-indentation)
+
 (key-chord-define-global "!!" 'flycheck-next-error)
 (key-chord-define-global "@@" 'flycheck-previous-error)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-insert-state-map "oo" 'evil-open-below)
-(key-chord-define evil-insert-state-map "oO" 'evil-open-above)
+(key-chord-define evil-insert-state-map "OO" 'evil-open-above)
 
 ; Jinja2 mode
 (require-package 'jinja2-mode)
 (add-to-list 'auto-mode-alist '("\\.html" . jinja2-mode))
 (add-hook 'sgml-mode-hook (lambda ()
+                            (key-chord-define sgml-mode-map "hd" 'sgml-delete-tag)
+                            (key-chord-define sgml-mode-map "hf" 'sgml-skip-tag-forward)
+                            (key-chord-define sgml-mode-map "hb" 'sgml-skip-tag-backward)
+                            ; TODO: Change "//" by "</"
+                            (key-chord-define sgml-mode-map "//" 'sgml-close-tag)
                             (key-chord-define jinja2-mode-map "jo" 'jinja2-insert-tag)
                             (key-chord-define jinja2-mode-map "jc" 'my-jinja2-close-tag)
                             (key-chord-define jinja2-mode-map "jv" 'jinja2-var-tag)))
