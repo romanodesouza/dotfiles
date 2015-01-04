@@ -4,21 +4,32 @@
 (set-default-font "DejaVu Sans Mono-14")
 
 ; Key bindings
-(define-key evil-normal-state-map (kbd "/") 'helm-swoop)
-(define-key evil-normal-state-map (kbd "w") 'forward-word)
-(define-key evil-normal-state-map (kbd "b") 'backward-word)
+(global-unset-key (kbd"C-S-p"))
+(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
-(key-chord-define-global ",e" 'er/expand-region)
-(key-chord-define-global ",w" 'er/contract-region)
-(key-chord-define-global "ee" 'end-of-line)
-(key-chord-define-global "aa" 'back-to-indentation)
+(define-key evil-normal-state-map (kbd ";")     'evil-ex)
+(define-key evil-normal-state-map (kbd "w")     'forward-word)
+(define-key evil-normal-state-map (kbd "b")     'backward-word)
+(define-key evil-normal-state-map (kbd "U")     'undo-tree-redo)
+(define-key evil-normal-state-map (kbd "C-p")   'helm-swoop)
+(define-key evil-insert-state-map (kbd "C-p")   'helm-swoop)
+(define-key evil-normal-state-map (kbd "C-r")   'helm-semantic-or-imenu)
+(define-key evil-insert-state-map (kbd "C-r")   'helm-semantic-or-imenu)
+(define-key evil-normal-state-map (kbd "C-l")   'evil-repeat-find-char)
+(define-key evil-normal-state-map (kbd "C-h")   'evil-repeat-find-char-reverse)
+(define-key evil-insert-state-map (kbd "C-SPC") 'evil-delete-backward-word)
+(define-key evil-insert-state-map (kbd "C-d")   'kill-word)
+(define-key evil-normal-state-map (kbd "C-j")   'evil-visual-line-down)
+(define-key evil-normal-state-map (kbd "C-k")   'evil-visual-line-up)
+(define-key evil-normal-state-map (kbd "C-d")   'gcm-scroll-down)
+(define-key evil-normal-state-map (kbd "C-u")   'gcm-scroll-up)
+(define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
+(define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
 
-(key-chord-define-global "!!" 'flycheck-next-error)
-(key-chord-define-global "@@" 'flycheck-previous-error)
-
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-insert-state-map "oo" 'evil-open-below)
 (key-chord-define evil-insert-state-map "OO" 'evil-open-above)
+(key-chord-define-global ",e" 'file-fuzzy-finder)
+(key-chord-define-global ",a" 'ag-project-regexp)
 
 ; Jinja2 mode
 (require-package 'jinja2-mode)
@@ -39,9 +50,33 @@
   (let ((open-tag (save-excursion (jinja2-find-open-tag))))
     (if open-tag
       (insert
-          (format "{%% end%s %%}"
-                  (match-string 2)))
+        (format "{%% end%s %%}"
+                (match-string 2)))
       (error "Nothing to close")))
   (save-excursion (jinja2-indent-line)))
+
+; Scroll down 1 line
+(defun gcm-scroll-down ()
+  (interactive)
+  (scroll-up 1))
+
+; Scroll up 1 line
+(defun gcm-scroll-up ()
+  (interactive)
+  (scroll-down 1))
+
+(defun evil-visual-line-down ()
+  (interactive)
+  (evil-visual-line)
+  (evil-next-line))
+
+(defun evil-visual-line-up ()
+  (interactive)
+  (evil-visual-line)
+  (evil-previous-line))
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
 
 (provide 'init-local-config)
