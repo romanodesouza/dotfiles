@@ -54,10 +54,15 @@ install_emacs() {
     make_link ./emacs/init-local-config.el ~/.emacs.d/local-config/init-local-config.el
 }
 
+install_x11() {
+    make_link x11/.Xmodmap ~/.Xmodmap
+}
+
 install_bash
 install_git
 install_ssh
 install_vim
 install_emacs
+install_x11
 
 echo "Finish! :)"
