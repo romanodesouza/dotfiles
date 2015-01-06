@@ -4,15 +4,17 @@
 (set-default-font "DejaVu Sans Mono-14")
 
 ; Key bindings
-(global-unset-key (kbd"C-S-p"))
+(global-unset-key (kbd "C-S-p"))
+(global-unset-key (kbd "C-+"))
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 
 (define-key evil-normal-state-map (kbd ";")     'evil-ex)
 (define-key evil-normal-state-map (kbd "w")     'forward-word)
 (define-key evil-normal-state-map (kbd "b")     'backward-word)
 (define-key evil-normal-state-map (kbd "U")     'undo-tree-redo)
-(define-key evil-normal-state-map (kbd "C-p")   'helm-swoop)
-(define-key evil-insert-state-map (kbd "C-p")   'helm-swoop)
+(define-key evil-normal-state-map (kbd "/")     'helm-swoop)
 (define-key evil-normal-state-map (kbd "C-r")   'helm-semantic-or-imenu)
 (define-key evil-insert-state-map (kbd "C-r")   'helm-semantic-or-imenu)
 (define-key evil-normal-state-map (kbd "C-l")   'evil-repeat-find-char)
@@ -25,10 +27,11 @@
 (define-key evil-normal-state-map (kbd "C-u")   'gcm-scroll-up)
 (define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
 (define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
+(define-key evil-insert-state-map (kbd "C-{")   'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)
 
 (key-chord-define evil-insert-state-map "oo" 'evil-open-below)
 (key-chord-define evil-insert-state-map "OO" 'evil-open-above)
-(key-chord-define-global ",e" 'file-fuzzy-finder)
 (key-chord-define-global ",a" 'ag-project-regexp)
 
 ; Jinja2 mode

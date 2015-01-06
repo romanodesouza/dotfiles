@@ -9,5 +9,7 @@ keycode 17 = asterisk 8 asterisk 8 bracketleft trademark bracketleft trademark 8
 keycode 18 = parenleft 9 parenleft 9 bracketright plusminus bracketright plusminus 9 parenleft bracketright plusminus 9 parenleft bracketright plusminus
 keycode 19 = parenright 0 parenright 0 braceright degree braceright degree 0 parenright braceright degree 0 parenright braceright degree
 keycode 94 = bar backslash bar backslash masculine dead_breve masculine dead_breve backslash bar masculine dead_breve backslash bar masculine dead_breve
+keycode 35 = braceleft bracketleft braceleft bracketleft ordfeminine dead_macron ordfeminine dead_macron bracketleft braceleft ordfeminine dead_macron bracketleft braceleft ordfeminine dead_macron
+keycode 51 = braceright bracketright braceright bracketright masculine masculine masculine masculine bracketright braceright masculine masculine bracketright braceright masculine masculine
 
 keycode 66 = Control_L
