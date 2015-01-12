@@ -1,12 +1,2 @@
 keycode 49 = quotedbl apostrophe quotedbl apostrophe
-keycode 10 = exclam exclam onesuperior exclamdown onesuperior
-keycode 11 = at at at at twosuperior onehalf twosuperior onehalf
-keycode 12 = numbersign numbersign numbersign numbersign threesuperior threequarters threesuperior
-keycode 13 = dollar dollar dollar dollar sterling onequarter sterling onequarter dollar dollar sterling onequarter
-keycode 14 = percent percent percent percent cent threeeighths cent
-keycode 16 = ampersand ampersand ampersand ampersand braceleft seveneighths braceleft seveneighths ampersand ampersand braceleft seveneighths ampersand ampersand braceleft seveneighths
-keycode 17 = asterisk asterisk asterisk asterisk bracketleft trademark bracketleft trademark asterisk asterisk bracketleft trademark asterisk asterisk bracketleft trademark
-keycode 18 = parenleft parenleft parenleft parenleft bracketright plusminus bracketright plusminus parenleft parenleft bracketright plusminus parenleft parenleft bracketright plusminus
-keycode 19 = parenright parenright parenright parenright braceright degree braceright degree parenright parenright braceright degree parenright parenright braceright degree
-
 keycode 66 = Control_L
