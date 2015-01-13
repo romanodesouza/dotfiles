@@ -35,7 +35,8 @@
 (define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
 (define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
 (define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)
-(define-key evil-normal-state-map (kbd "SPC")   'evil-visual-line)
+
+(define-key evil-motion-state-map (kbd "SPC")   'evil-visual-line)
 
 ; Try to simulate some motions by Terminal's Alt escape key
 (define-key evil-insert-state-map (kbd "M-h")   'escape-backward-char)
@@ -59,7 +60,6 @@
 ; Key chord
 (key-chord-define-global ",w" 'delete-other-windows)
 (key-chord-define-global ",a" 'ag-project-regexp)
-(key-chord-define-global ".s" 'save-buffer-and-goes-to-normal-mode) ; typo
 
 (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
 
