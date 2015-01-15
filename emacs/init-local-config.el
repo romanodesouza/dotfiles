@@ -50,7 +50,6 @@
 
 (define-key evil-normal-state-map (kbd "w")     'forward-word)
 (define-key evil-normal-state-map (kbd "b")     'backward-word)
-(define-key evil-normal-state-map (kbd "/")     'helm-swoop)
 (define-key evil-normal-state-map (kbd "C-h")   'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j")   'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k")   'evil-window-up)
@@ -58,8 +57,6 @@
 (define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
 (define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
 (define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)
-
-(define-key evil-motion-state-map (kbd "SPC")   'evil-visual-line)
 
 ; Try to simulate some motions by Terminal's Alt escape key
 (define-key evil-insert-state-map (kbd "M-h")   'escape-backward-char)
@@ -69,7 +66,6 @@
 (define-key evil-insert-state-map (kbd "M-w")   'escape-forward-word)
 (define-key evil-insert-state-map (kbd "M-b")   'escape-backward-word)
 (define-key evil-insert-state-map (kbd "M-e")   'escape-forward-WORD-end)
-(define-key evil-insert-state-map (kbd "M-f")   'evil-normal-state)
 
 (define-key evil-normal-state-map (kbd "M-h")   'evil-backward-char)
 (define-key evil-normal-state-map (kbd "M-j")   'evil-next-line)
@@ -78,11 +74,9 @@
 (define-key evil-normal-state-map (kbd "M-w")   'forward-word)
 (define-key evil-normal-state-map (kbd "M-b")   'backward-word)
 (define-key evil-normal-state-map (kbd "M-e")   'evil-forward-WORD-end)
-(define-key evil-normal-state-map (kbd "M-f")   'evil-find-char)
 
 ; Key chord
 (key-chord-define-global ",w" 'delete-other-windows)
-(key-chord-define-global ",a" 'ag-project-regexp)
 
 (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
 
