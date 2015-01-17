@@ -3,10 +3,11 @@
 (load-theme 'seti t)
 (set-default-font "DejaVu Sans Mono-14")
 
-; Go Oracle
+; Go
 (add-hook 'go-mode-hook (lambda ()
                           (load-file "~/.go/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
-                          (go-oracle-mode)))
+                          (go-oracle-mode)
+                          (run-at-time '1s' nil 'disable-go-company-snippets)))
 
 ; PHP mode
 (require-package 'php-mode)
@@ -27,7 +28,6 @@
 
 
 ; Key bindings
-(global-unset-key (kbd "C-S-p"))
 (global-unset-key (kbd "C-+"))
 
 (global-set-key                   (kbd "M-h")   nil)
@@ -151,5 +151,10 @@
   (interactive)
   (evil-normal-state)
   (evil-forward-WORD-end))
+
+(defun disable-go-company-snippets ()
+  (set (make-local-variable 'company-backends)
+       '((company-go))))
+
 
 (provide 'init-local-config)
