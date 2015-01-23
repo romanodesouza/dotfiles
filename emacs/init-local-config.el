@@ -4,10 +4,12 @@
 (set-default-font "DejaVu Sans Mono-14")
 
 ; Go
-(add-hook 'go-mode-hook (lambda ()
-                          (load-file "~/.go/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
-                          (go-oracle-mode)
-                          (run-at-time '1s' nil 'disable-go-company-snippets)))
+(add-hook 'go-mode-hook 'my-go-mode-settings)
+
+(defun my-go-mode-settings ()
+  (load-file "~/.go/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
+  (go-oracle-mode)
+  (run-at-time '1s' nil 'disable-go-company-snippets))
 
 ; PHP mode
 (require-package 'php-mode)
