@@ -54,7 +54,8 @@
     rc = rebase --continue
     rs = rebase --skip
 
-    done = !git fetch upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+    update = !git remote update upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+    done = !git fetch upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u} && git push origin`
 
 [push]
     default = current
