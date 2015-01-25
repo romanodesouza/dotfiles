@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: interface word
+# key: i
+# --
+interface$0

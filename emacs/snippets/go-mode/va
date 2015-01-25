@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: var
+# key: va
+# --
+var (
+    $0
+)

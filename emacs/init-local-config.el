@@ -3,68 +3,36 @@
 (load-theme 'seti t)
 (set-default-font "DejaVu Sans Mono-14")
 
+; Yasnippets
+(add-to-list 'yas-snippet-dirs (concat user-emacs-directory "local-config/snippets"))
+(yas-reload-all)
+
+; Auto revert buffer mode
+(global-auto-revert-mode)
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+; Multiple cursors
+(require-package 'multiple-cursors)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+
 ; Go
 (add-hook 'go-mode-hook 'my-go-mode-settings)
 
 (defun my-go-mode-settings ()
-  (load-file "~/.go/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
-  (go-oracle-mode)
   (run-at-time '1s' nil 'disable-go-company-snippets))
 
 (defun disable-go-company-snippets ()
   (set (make-local-variable 'company-backends) '((company-go))))
 
-; PHP
-(require-package 'php-mode)
-
-; Jinja2
-(require-package 'jinja2-mode)
-(add-to-list 'auto-mode-alist '("\\.html" . jinja2-mode))
-(add-to-list 'auto-mode-alist '("\\.volt" . jinja2-mode))
-(add-hook 'sgml-mode-hook 'setup-sgml-custom-keybinds)
-
-(defun setup-sgml-custom-keybinds ()
-  (interactive)
-  (evil-define-key 'normal sgml-mode-map (kbd "<SPC> t d") 'sgml-delete-tag)
-  (evil-define-key 'normal sgml-mode-map (kbd "<SPC> t f") 'sgml-skip-tag-forward)
-  (evil-define-key 'normal sgml-mode-map (kbd "<SPC> t b") 'sgml-skip-tag-backward)
-  (evil-define-key 'normal sgml-mode-map (kbd "<SPC> t c") 'sgml-close-tag)
-
-  (evil-define-key 'normal jinja2-mode-map (kbd "<SPC> j o") 'jinja2-insert-tag)
-  (evil-define-key 'normal jinja2-mode-map (kbd "<SPC> j c") 'my-jinja2-close-tag))
-
-(defun my-jinja2-close-tag ()
-  "Close the previously opened template tag."
-  (interactive)
-  (let ((open-tag (save-excursion (jinja2-find-open-tag))))
-    (if open-tag
-      (insert
-        (format "{%% end%s %%}"
-                (match-string 2)))
-      (error "Nothing to close")))
-  (save-excursion (jinja2-indent-line)))
-
 ; Key bindings
-(global-unset-key (kbd "C-+"))
-
-(global-set-key (kbd "M-h") nil)
-(global-set-key (kbd "M-j") nil)
-(global-set-key (kbd "M-k") nil)
-(global-set-key (kbd "M-l") nil)
-(global-set-key (kbd "M-w") nil)
-(global-set-key (kbd "M-b") nil)
-(global-set-key (kbd "M-e") nil)
-(global-set-key (kbd "M-f") nil)
-(global-set-key (kbd "M-r") nil)
 (global-set-key (kbd "C-j") nil)
 (define-key evil-insert-state-map (kbd "C-j") nil)
-
-(global-set-key (kbd "C-=")  'er/expand-region)
-(global-set-key (kbd "C--")  'er/contract-region)
-(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
-(defun revert-buffer-no-confirm ()
-  "Revert buffer without confirmation."
-  (interactive) (revert-buffer t t))
 
 (define-key evil-normal-state-map (kbd "w")     'forward-word)
 (define-key evil-normal-state-map (kbd "b")     'backward-word)
@@ -77,21 +45,14 @@
 (define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)
 
 ; Use Emacs search without regex
-(define-key evil-normal-state-map (kbd "/") 'isearch-forward)
-(define-key evil-normal-state-map (kbd "?") 'isearch-backward)
-(define-key evil-normal-state-map (kbd "n") 'isearch-repeat-forward)
-(define-key evil-normal-state-map (kbd "p") 'isearch-repeat-backward)
-(define-key evil-normal-state-map (kbd "<RET>") 'isearch-exit)
+(define-key evil-motion-state-map (kbd "/") 'isearch-forward)
+(define-key evil-motion-state-map (kbd "?") 'isearch-backward)
+(define-key evil-motion-state-map (kbd "n") 'isearch-repeat-forward)
+(define-key evil-motion-state-map (kbd "N") 'isearch-repeat-backward)
+(define-key evil-motion-state-map (kbd "<RET>") 'isearch-exit)
 (key-chord-define-global ",h" 'isearch-exit)
 
-; Try to simulate the "vmap y ygv<Esc>" conf
-(define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
-(evil-define-operator my-evil-yank (beg end type register yank-handler)
-                      (interactive "<R><x><y>")
-                      (evil-yank beg end type register yank-handler)
-                      (run-at-time "000 msec" nil 'evil-visual-restore)
-                      (run-at-time "001 msec" nil 'keyboard-quit))
-
-(key-chord-define-global ",w" 'delete-other-windows)
+; Transpose words
+(key-chord-define-global ",t" 'transpose-words)
 
 (provide 'init-local-config)
