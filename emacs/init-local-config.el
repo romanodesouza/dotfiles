@@ -12,6 +12,10 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
+; Clean up trailing whitespaces on save
+(require-package 'whitespace-cleanup-mode)
+(global-whitespace-cleanup-mode)
+
 ; Multiple cursors
 (require-package 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
