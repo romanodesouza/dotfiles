@@ -53,6 +53,7 @@ install_vim() {
 install_emacs() {
     make_link ./emacs/init-local-config.el ~/.emacs.d/local-config/init-local-config.el
     make_link ./emacs/snippets/ ~/.emacs.d/local-config/snippets
+    make_link ./emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
 }
 
 install_x11() {
