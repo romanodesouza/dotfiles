@@ -36,7 +36,6 @@
 ; Key bindings
 (global-set-key (kbd "C-<SPC>") nil)
 (define-key evil-insert-state-map (kbd "C-<SPC>") 'evil-normal-state)
-
 (define-key evil-normal-state-map (kbd "w")     'forward-word)
 (define-key evil-normal-state-map (kbd "b")     'backward-word)
 (define-key evil-normal-state-map (kbd "C-h")   'evil-window-left)
@@ -46,16 +45,13 @@
 (define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
 (define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
 (define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)
-
 ; Use Emacs search without regex
-(global-set-key (kbd "C-f") 'isearch-forward)
 (define-key evil-motion-state-map (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
-(define-key evil-motion-state-map (kbd "/") 'helm-swoop)
+(define-key evil-motion-state-map (kbd "/") 'isearch-forward)
 (define-key evil-motion-state-map (kbd "?") 'isearch-backward)
 (define-key evil-motion-state-map (kbd "n") 'isearch-repeat-forward)
 (define-key evil-motion-state-map (kbd "N") 'isearch-repeat-backward)
-
 (define-key evil-motion-state-map (kbd "<RET>") 'clear-highlighted-search)
 (key-chord-define-global ",h" 'clear-highlighted-search)
 (defun clear-highlighted-search ()
