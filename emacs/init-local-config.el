@@ -24,15 +24,6 @@
 (global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-; Go
-(add-hook 'go-mode-hook 'my-go-mode-settings)
-
-(defun my-go-mode-settings ()
-  (run-at-time '1s' nil 'disable-go-company-snippets))
-
-(defun disable-go-company-snippets ()
-  (set (make-local-variable 'company-backends) '((company-go))))
-
 ; Key bindings
 (global-set-key (kbd "C-<SPC>") nil)
 (define-key evil-insert-state-map (kbd "C-<SPC>") 'evil-normal-state)
