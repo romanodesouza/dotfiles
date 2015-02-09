@@ -3,27 +3,30 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        evil-backward-char
         evil-change
+        evil-complete-next
         evil-delete-backward-char-and-join
         evil-forward-char
         evil-insert
+        evil-next-line
         evil-normal-state
         evil-open-below
-        evil-visual-char
-        evil-window-down
-        evil-next-line
         evil-previous-line
         evil-visual-block
-        evil-backward-char
-        evil-complete-next
+        evil-visual-char
+        evil-window-down
         smex
         ))
 
 (setq mc/cmds-to-run-once
       '(
         evil-ex-search-next
+        evil-first-non-blank
         evil-goto-first-line
         evil-scroll-page-down
+        evil-substitute
         keyboard-quit
         save-buffer-and-goes-to-normal-mode
+        switch-to-previous-buffer
         ))
