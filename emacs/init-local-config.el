@@ -1,6 +1,4 @@
 ; Look'n feel
-(require-package 'seti-theme)
-(load-theme 'seti t)
 (set-default-font "DejaVu Sans Mono-14")
 
 ; Yasnippets
@@ -29,10 +27,6 @@
 (define-key evil-insert-state-map (kbd "C-<SPC>") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "w")     'forward-word)
 (define-key evil-normal-state-map (kbd "b")     'backward-word)
-(define-key evil-normal-state-map (kbd "C-h")   'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j")   'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k")   'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l")   'evil-window-right)
 (define-key evil-normal-state-map (kbd "C-S-l") 'evil-window-move-far-right)
 (define-key evil-normal-state-map (kbd "C-S-h") 'evil-window-move-far-left)
 (define-key evil-normal-state-map (kbd "C-~")   'evil-first-non-blank)

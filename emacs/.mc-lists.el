@@ -7,6 +7,7 @@
         evil-change
         evil-complete-next
         evil-delete-backward-char-and-join
+        evil-delete-char
         evil-forward-char
         evil-insert
         evil-next-line
