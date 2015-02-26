@@ -5,6 +5,10 @@
 (add-to-list 'yas-snippet-dirs (concat user-emacs-directory "local-config/snippets"))
 (yas-reload-all)
 
+; Flycheck
+(setq-default flycheck-disabled-checkers '(go-golint))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ; Auto revert buffer mode
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t)
