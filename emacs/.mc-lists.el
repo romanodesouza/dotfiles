@@ -25,6 +25,7 @@
         evil-ex-search-next
         evil-first-non-blank
         evil-goto-first-line
+        evil-mouse-drag-region
         evil-scroll-page-down
         evil-substitute
         keyboard-quit

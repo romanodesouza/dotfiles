@@ -14,6 +14,9 @@
 (require-package 'whitespace-cleanup-mode)
 (global-whitespace-cleanup-mode)
 
+; Disable electric pair mode
+(electric-pair-mode 0)
+
 ; Multiple cursors
 (require-package 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
