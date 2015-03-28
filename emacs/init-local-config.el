@@ -1,5 +1,5 @@
 ; Look'n feel
-(set-default-font "DejaVu Sans Mono-14")
+(set-default-font "DejaVu Sans Mono-11")
 
 ; Yasnippets
 (add-to-list 'yas-snippet-dirs (concat user-emacs-directory "local-config/snippets"))
