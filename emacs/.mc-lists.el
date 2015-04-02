@@ -17,6 +17,7 @@
         evil-visual-block
         evil-visual-char
         evil-window-down
+        go-mode-insert-and-indent
         smex
         ))
 
