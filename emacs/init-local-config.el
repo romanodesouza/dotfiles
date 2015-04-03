@@ -21,14 +21,6 @@
 ; Disable electric pair mode
 (electric-pair-mode 0)
 
-; Multiple cursors
-(require-package 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
-(global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-
 ; Key bindings
 (define-key evil-normal-state-map (kbd "w") 'forward-word)
 (define-key evil-normal-state-map (kbd "b") 'backward-word)
