@@ -1,5 +1,7 @@
 ; Look'n feel
 (set-default-font "DejaVu Sans Mono-11")
+(require-package 'ujelly-theme)
+(load-theme 'ujelly t)
 
 ; Yasnippets
 (add-to-list 'yas-snippet-dirs (concat user-emacs-directory "local-config/snippets"))
