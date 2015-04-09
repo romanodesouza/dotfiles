@@ -35,6 +35,7 @@
     br = branch
     co = checkout
     cp = cherry-pick -x
+    cf = clean -f
 
     df = diff
     dc = diff --cached
