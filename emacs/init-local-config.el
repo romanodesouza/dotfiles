@@ -41,4 +41,9 @@
 ; Transpose words
 (key-chord-define-global ",t" 'transpose-words)
 
+; Key freq
+(require-package 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 (provide 'init-local-config)

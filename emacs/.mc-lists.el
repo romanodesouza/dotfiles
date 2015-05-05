@@ -23,12 +23,15 @@
 
 (setq mc/cmds-to-run-once
       '(
+        evil-ex
         evil-ex-search-next
         evil-first-non-blank
         evil-goto-first-line
         evil-mouse-drag-region
         evil-scroll-page-down
         evil-substitute
+        evil-window-vsplit
+        js2-mode-show-node
         keyboard-quit
         save-buffer-and-goes-to-normal-mode
         switch-to-previous-buffer
