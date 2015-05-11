@@ -3,6 +3,9 @@
 (require-package 'ujelly-theme)
 (load-theme 'ujelly t)
 
+; Paredit
+(require-package 'paredit)
+
 ; Yasnippets
 (add-to-list 'yas-snippet-dirs (concat user-emacs-directory "local-config/snippets"))
 (yas-reload-all)
@@ -37,9 +40,6 @@
   (interactive)
   (isearch-exit)
   (evil-ex-nohighlight))
-
-; Transpose words
-(key-chord-define-global ",t" 'transpose-words)
 
 ; Key freq
 (require-package 'keyfreq)
