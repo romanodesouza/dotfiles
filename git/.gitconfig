@@ -50,10 +50,12 @@
 
     pr = pull --rebase
     po = push origin
+    pof = push -f origin
 
     rb = rebase
-    rc = rebase --continue
-    rs = rebase --skip
+    rbc = rebase --continue
+    rbs = rebase --skip
+    rba = rebase --abort
 
     update = !git remote update upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
     done = !git fetch upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u} && git push origin`
