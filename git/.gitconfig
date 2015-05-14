@@ -60,6 +60,8 @@
     update = !git remote update upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
     done = !git fetch upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u} && git push origin`
 
+    rh = reset --hard
+
 [push]
     default = current
 
