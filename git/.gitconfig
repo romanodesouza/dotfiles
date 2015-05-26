@@ -51,6 +51,7 @@
     pr = pull --rebase
     po = push origin
     pof = push -f origin
+    apof = !git amendoa && git pof
 
     rb = rebase
     rbc = rebase --continue
