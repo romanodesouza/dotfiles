@@ -13,6 +13,7 @@
 ; Flycheck
 (setq-default flycheck-disabled-checkers '(go-golint))
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(remove-hook 'before-save-hook #'add-flycheck-list-hook)
 
 ; Auto revert buffer mode
 (global-auto-revert-mode)
@@ -24,7 +25,18 @@
 (global-whitespace-cleanup-mode)
 
 ; Disable electric pair mode
-(electric-pair-mode 0)
+(defun my-local-electric-pair-mode ()
+  (interactive)
+  (electric-pair-mode 0))
+
+; My js2-mode
+(add-hook 'js2-mode-hook 'my-js2-mode)
+(defun my-js2-mode ()
+  (interactive)
+  (run-at-time '5 sec' nil 'disable-company-tern))
+
+(defun disable-company-tern ()
+  (set (make-local-variable 'company-backends) '(())))
 
 ; Key bindings
 (define-key evil-normal-state-map (kbd "w") 'forward-word)
