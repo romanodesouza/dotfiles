@@ -1,10 +1,5 @@
-About
-=========
-My personal Unix dotfiles
-
-Install
+My dotfiles
 =========
 ```
-chmod +x ./install.sh
-./install.sh or ./install.sh -y
+make install
 ```
