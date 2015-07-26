@@ -45,7 +45,8 @@
                                         paredit
                                         yaml-mode)
     ;; A list of packages and/or extensions that will not be install and loaded.
-    dotspacemacs-excluded-packages '(vi-tilde-fringe)
+    dotspacemacs-excluded-packages '(vi-tilde-fringe
+                                     php-extras)
     ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
     ;; are declared in a layer which is not a member of
     ;; the list `dotspacemacs-configuration-layers'
@@ -76,7 +77,8 @@
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(ujelly)
+    dotspacemacs-themes '(solarized-light
+                          ujelly)
     ;; If non nil the cursor color matches the state color.
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -164,7 +166,8 @@
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
-  ;; show number and show relativenumber
+
+  ;; Show number and relativenumber
   (global-linum-mode t)
   (linum-relative-toggle)
 
@@ -228,8 +231,8 @@
   (key-chord-define-global ",v" 'evil-window-vsplit)
 
   (key-chord-mode t)
-  (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
 
+  (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
   (defun disable-key-chord-mode ()
     (set (make-local-variable 'input-method-function) nil))
 
@@ -287,4 +290,3 @@
   (newline)
   (forward-line -1)
   (indent-for-tab-command))
-
