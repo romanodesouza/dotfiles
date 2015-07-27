@@ -5,7 +5,7 @@ install-bash:
 	ln -sf `pwd`/bash/.bash_aliases ~/.bash_aliases
 
 install-emacs:
-	ln -sf `pwd`/emacs/.spacemacs ~/.emacs.d/.spacemacs
+	ln -sf `pwd`/emacs/.spacemacs ~/.spacemacs
 	ln -sf `pwd`/emacs/snippets/* ~/.emacs.d/private/snippets/
 	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
 
