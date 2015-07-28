@@ -166,6 +166,9 @@
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
+ 
+  ;; Disable projectile caching
+  (setq projectile-enable-caching nil)
 
   ;; Show number and relativenumber
   (global-linum-mode t)
@@ -239,6 +242,7 @@
   ;; evil
   (define-key evil-motion-state-map (kbd "C-]") nil)
   (define-key evil-motion-state-map (kbd "K") nil)
+  (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
   (define-key evil-insert-state-map (kbd "C-k") 'paredit-kill)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
