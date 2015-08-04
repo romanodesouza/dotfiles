@@ -166,6 +166,9 @@
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
+
+  ;; Holy mode
+  (my-holy-mode)
  
   ;; Disable projectile caching
   (setq projectile-enable-caching nil)
@@ -176,9 +179,6 @@
 
   ; Enable deletion of selected text
   (delete-selection-mode 1)
-
-  ;; Paredit
-  (enable-paredit-mode)
 
   ;; nginx mode
   (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode))
@@ -206,19 +206,30 @@
   ;; Key bindings
   (my-keybindings))
 
+(defun my-holy-mode ()
+  (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
+  (bind-keys ("<C-[>" . evil-normal-state))
+  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+  (bind-keys :map evil-emacs-state-map
+             ("<escape>" . evil-normal-state))
+  (defadvice evil-insert-state (around benedictus-dominus activate)
+             (evil-emacs-state)))
+
 (defun my-go-mode ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
   (setq-default flycheck-disabled-checkers '(go-golint))
   (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
-  (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe))
+  (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
+  (paredit-mode t))
 
 (defun my-js-mode ()
   (add-hook 'before-save-hook 'web-beautify-js-buffer t t)
   (setq-default indent-tabs-mode t)
   (setq-default js2-basic-offset 2)
   (evil-define-key 'normal tern-mode-keymap (kbd "C-]") 'tern-find-definition)
-  (evil-define-key 'normal tern-mode-keymap (kbd "K") 'tern-get-docs))
+  (evil-define-key 'normal tern-mode-keymap (kbd "K") 'tern-get-docs)
+  (paredit-mode t))
 
 (defun my-keybindings ()
   ;; key chord
@@ -246,9 +257,6 @@
   (define-key evil-insert-state-map (kbd "C-k") 'paredit-kill)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
-  (define-key evil-insert-state-map (kbd "C-r") 'isearch-backward)
-  (define-key evil-normal-state-map (kbd "C-r") 'isearch-backward)
-  (define-key evil-motion-state-map (kbd "C-r") 'isearch-backward)
   (define-key evil-motion-state-map (kbd "<RET>") 'clear-highlighted-search)
   (define-key evil-insert-state-map (kbd "<backtab>") 'evil-shift-left-line)
   (evil-define-key 'insert yas-minor-mode-map (kbd "<tab>") 'my-company-tab)
