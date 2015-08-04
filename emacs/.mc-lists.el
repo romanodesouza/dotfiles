@@ -9,6 +9,7 @@
         evil-complete-next
         evil-delete-backward-char-and-join
         evil-delete-char
+        evil-escape-insert-state
         evil-force-normal-state
         evil-forward-char
         evil-insert
