@@ -42,8 +42,8 @@
                                         key-chord
                                         multiple-cursors
                                         nginx-mode
-                                        paredit
-                                        yaml-mode)
+                                        yaml-mode
+                                        sublime-themes)
     ;; A list of packages and/or extensions that will not be install and loaded.
     dotspacemacs-excluded-packages '(vi-tilde-fringe
                                      php-extras)
@@ -77,7 +77,8 @@
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(solarized-light
+    dotspacemacs-themes '(brin
+                          solarized-light
                           ujelly)
     ;; If non nil the cursor color matches the state color.
     dotspacemacs-colorize-cursor-according-to-state t
@@ -170,12 +171,12 @@
   ;; Disable projectile caching
   (setq projectile-enable-caching nil)
 
+  ;; Disable cursor line
+  (global-hl-line-mode -1)
+
   ;; Show number and relativenumber
   (global-linum-mode t)
   (linum-relative-toggle)
-
-  ; Enable deletion of selected text
-  (delete-selection-mode 1)
 
   ;; nginx mode
   (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode))
@@ -208,16 +209,14 @@
   (setq gofmt-command "goimports")
   (setq-default flycheck-disabled-checkers '(go-golint))
   (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
-  (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
-  (paredit-mode t))
+  (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe))
 
 (defun my-js-mode ()
   (add-hook 'before-save-hook 'web-beautify-js-buffer t t)
   (setq-default indent-tabs-mode t)
   (setq-default js2-basic-offset 2)
   (evil-define-key 'normal tern-mode-keymap (kbd "C-]") 'tern-find-definition)
-  (evil-define-key 'normal tern-mode-keymap (kbd "K") 'tern-get-docs)
-  (paredit-mode t))
+  (evil-define-key 'normal tern-mode-keymap (kbd "K") 'tern-get-docs))
 
 (defun my-keybindings ()
   ;; key chord
@@ -242,17 +241,23 @@
   (define-key evil-motion-state-map (kbd "C-]") nil)
   (define-key evil-motion-state-map (kbd "K") nil)
   (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
-  (define-key evil-insert-state-map (kbd "C-k") 'paredit-kill)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "<RET>") 'clear-highlighted-search)
   (define-key evil-insert-state-map (kbd "<backtab>") 'evil-shift-left-line)
   (evil-define-key 'insert yas-minor-mode-map (kbd "<tab>") 'my-company-tab)
+  (evil-leader/set-key "pf" 'projectile-or-ido)
 
   ;; emacs
   (global-set-key (kbd "RET") 'newline-and-indent)
   (global-set-key (kbd "<C-return>") 'open-line-below)
   (global-set-key (kbd "<S-return>") 'open-line-above))
+
+(defun projectile-or-ido ()
+  (interactive)
+  (if (projectile-project-p)
+      (helm-projectile-find-file)
+    (ido-find-file)))
 
 (defun kill-and-close ()
   (interactive)
