@@ -43,7 +43,8 @@
                                         multiple-cursors
                                         nginx-mode
                                         yaml-mode
-                                        sublime-themes)
+                                        sublime-themes
+                                        centered-window-mode)
     ;; A list of packages and/or extensions that will not be install and loaded.
     dotspacemacs-excluded-packages '(vi-tilde-fringe
                                      php-extras)
@@ -251,7 +252,8 @@
   ;; emacs
   (global-set-key (kbd "RET") 'newline-and-indent)
   (global-set-key (kbd "<C-return>") 'open-line-below)
-  (global-set-key (kbd "<S-return>") 'open-line-above))
+  (global-set-key (kbd "<S-return>") 'open-line-above)
+  (global-set-key (kbd "<f11>") 'toggle-distraction-free))
 
 (defun projectile-or-ido ()
   (interactive)
@@ -295,3 +297,8 @@
   (newline)
   (forward-line -1)
   (indent-for-tab-command))
+
+(defun toggle-distraction-free ()
+  (interactive)
+  (toggle-frame-fullscreen)
+  (centered-window-mode))
