@@ -1,0 +1,40 @@
+set relativenumber
+set number
+set scrolloff=8
+set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
+set showmode
+set history=1000
+set matchpairs
+
+" spacemacs bindings
+nnoremap <space>pf :action GotoFile<cr>
+nnoremap <space>pc :action GotoClass<cr>
+
+" escape
+inoremap fd <esc>
+
+" Leader bindings
+" TODO: Update the ideavim plugin and change "," by "<Leader>"
+" save and goes to normal mode
+inoremap ,s <esc>:w<cr> 
+nnoremap ,s :w<cr> 
+" clear highlighted search
+nnoremap ,h :nohlsearch<cr>
+" end of line
+nnoremap ,e $
+inoremap ,e <esc>A
+" close
+nnoremap ,q :action CloseContent<cr>
+inoremap ,q <esc>:action CloseContent<cr>
+" go to symbol
+nnoremap ,d :action GotoSymbol<cr>
+" go to action
+nnoremap ,r :action GotoAction<cr>
+inoremap ,r :action GotoAction<cr>
+
+" Override point navigation
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>

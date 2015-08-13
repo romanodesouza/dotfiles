@@ -12,6 +12,9 @@ install-emacs:
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
+install-ideavim:
+	ln -sf `pwd`/ideavim/.ideavimrc ~/.ideavimrc
+
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
 
@@ -28,6 +31,7 @@ install-x11:
 install: \
 	install-bash \
 	install-emacs \
+	install-ideavim \
 	install-git \
 	install-ssh \
 	install-vim \
