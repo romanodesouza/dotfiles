@@ -32,8 +32,10 @@
         evil-goto-first-line
         evil-mouse-drag-region
         evil-scroll-page-down
+        evil-search-forward
         evil-substitute
         evil-window-vsplit
+        isearch-printing-char
         js2-mode-show-node
         keyboard-quit
         save-buffer-and-goes-to-normal-mode
