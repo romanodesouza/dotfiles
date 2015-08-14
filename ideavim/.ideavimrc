@@ -15,6 +15,7 @@ nnoremap <space>pc :action GotoClass<cr>
 
 " escape
 inoremap fd <esc>
+noremap <c-g> <esc>
 
 " Leader bindings
 " TODO: Update the ideavim plugin and change "," by "<Leader>"
@@ -34,7 +35,19 @@ nnoremap ,d :action GotoSymbol<cr>
 " go to action
 nnoremap ,r :action GotoAction<cr>
 inoremap ,r :action GotoAction<cr>
+" toggle buffers
+nnoremap ,g :action VimFilePrevious<cr>
+inoremap ,g :action VimFilePrevious<cr>
 
 " Override point navigation
 nnoremap <c-o> :action Back<cr>
 nnoremap <c-i> :action Forward<cr>
+
+" Emacs bindings
+inoremap <c-f> <c-o>l
+inoremap <c-b> <c-o>h
+inoremap <a-f> <c-o>w
+inoremap <a-b> <c-o>b
+nnoremap <a-f> w
+nnoremap <a-b> b
+inoremap <c-k> <esc>ld$a
