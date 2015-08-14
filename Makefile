@@ -12,8 +12,9 @@ install-emacs:
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
-install-ideavim:
-	ln -sf `pwd`/ideavim/.ideavimrc ~/.ideavimrc
+install-idea:
+	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
+	ln -sf `pwd`/idea/vimtellimacs.xml ~/.AndroidStudio1.3/config/keymaps/vimtellimacs.xml
 
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
@@ -31,7 +32,7 @@ install-x11:
 install: \
 	install-bash \
 	install-emacs \
-	install-ideavim \
+	install-idea \
 	install-git \
 	install-ssh \
 	install-vim \
