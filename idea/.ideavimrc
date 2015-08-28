@@ -47,6 +47,11 @@ nnoremap <c-o> :action Back<cr>
 nnoremap <c-i> :action Forward<cr>
 
 " Emacs bindings
+inoremap <c-a> <esc>I
+nnoremap <c-a> ^
+inoremap <c-e> <esc>A
+nnoremap <c-e> $
+inoremap <c-d> <esc>lxi
 inoremap <c-f> <c-o>l
 inoremap <c-b> <c-o>h
 inoremap <a-f> <c-o>w
