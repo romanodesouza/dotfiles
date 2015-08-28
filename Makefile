@@ -14,6 +14,7 @@ install-git:
 
 install-idea:
 	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
+	mkdir -p ~/.AndroidStudio1.3/config/keymaps 2>/dev/null
 	ln -sf `pwd`/idea/vimtellimacs.xml ~/.AndroidStudio1.3/config/keymaps/vimtellimacs.xml
 
 install-ssh:
