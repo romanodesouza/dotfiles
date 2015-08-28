@@ -1,5 +1,19 @@
-keycode 49 = quotedbl apostrophe quotedbl apostrophe
 keycode 66 = Control_L
 clear Lock
 add Control = Control_L
+
+keycode 49 = quotedbl apostrophe quotedbl apostrophe
+
+keycode 79 = KP_7
+keycode 80 = KP_8
+keycode 81 = KP_9
+keycode 83 = KP_4
+keycode 84 = KP_5
+keycode 85 = KP_6
+keycode 87 = KP_1
+keycode 88 = KP_2
+keycode 89 = KP_3
+keycode 90 = KP_0
+keycode 91 = comma
+
 pointer = 3 2 1
