@@ -106,11 +106,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if [ -f ~/.bashrc.local ]; then
-    . ~/.bashrc.local
-fi
 
-# Better support for git
 function parse_git_branch() {
   local DIRTY STATUS
   STATUS=$(git status --porcelain 2>/dev/null)
@@ -122,3 +118,7 @@ function parse_git_branch() {
 }
 
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]\[\033[00m\]\$ '
+
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
+fi
