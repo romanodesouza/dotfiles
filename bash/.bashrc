@@ -113,3 +113,6 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+[[ -s "/home/romano/.gvm/scripts/gvm" ]] && source "/home/romano/.gvm/scripts/gvm"
