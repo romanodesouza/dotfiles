@@ -19,25 +19,16 @@
         evil-previous-line
         evil-visual-block
         evil-visual-char
-        evil-window-down
         go-mode-insert-and-indent
-        smex
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        smex
         evil-ex
         evil-ex-search-next
-        evil-first-non-blank
-        evil-goto-first-line
-        evil-mouse-drag-region
-        evil-scroll-page-down
-        evil-search-forward
-        evil-substitute
-        evil-window-vsplit
-        isearch-printing-char
-        js2-mode-show-node
-        keyboard-quit
+        evil-window-down
+        clear-highlighted-search
         save-buffer-and-goes-to-normal-mode
         switch-to-previous-buffer
         ))
