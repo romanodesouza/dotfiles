@@ -1,6 +1,6 @@
 #vi:ft=bash
 
-parse_git_branch() {
+parse_git_branch(){
     local DIRTY STATUS
     STATUS=$(git status --porcelain 2>/dev/null)
     [ $? -eq 128 ] && return
@@ -10,7 +10,7 @@ parse_git_branch() {
     echo "($(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* //')$DIRTY)"
 }
 
-newgo() {
+newgo(){
     local project_name=$1
     local go_version=$2
 
@@ -39,3 +39,11 @@ newgo() {
     go get github.com/codegangsta/cli
 }
 
+# Docker functions based on: https://github.com/jfrazelle/dotfiles/blob/master/.dockerfunc
+ab(){
+    docker run --rm --pid host --name ab jess/ab "$@"
+}
+
+htop(){
+    docker run --rm -it --pid host --name htop jess/htop
+}
