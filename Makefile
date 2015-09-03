@@ -27,6 +27,7 @@ install-vim:
 	ln -sf `pwd`/vim/.vim/ ~/.vim && \
 		git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle 2>/dev/null; \
 		vim --noplugin -u ~/.vim/bundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
+	rm vim/.vim/.vim 2>/dev/null
 
 install-x11:
 	ln -sf `pwd`/x11/.Xmodmap ~/.Xmodmap
