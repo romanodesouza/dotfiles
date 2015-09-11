@@ -169,9 +169,6 @@
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
 
-  ;; Holy mode
-  (my-holy-mode)
-
   ;; Disable projectile caching
   (setq projectile-enable-caching nil)
 
