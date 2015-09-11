@@ -1,4 +1,7 @@
 alias mount='mount | column -t'
+alias g='git'
+alias ..='cd ..'
+alias -- -='cd -'
 
 # Vagrant
 alias vup='vagrant up && vagrant ssh'
