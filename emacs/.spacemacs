@@ -162,7 +162,8 @@
     powerline-default-separator 'arrow
     helm-ag-insert-at-point 'symbol
     helm-swoop-pre-input-function (lambda () "")
-    frame-title-format "%b (%f)"))
+    frame-title-format "%b (%f)"
+    ido-ignore-buffers '("\\` " "^\*")))
 
 (defun dotspacemacs/config ()
   "Configuration function.
@@ -238,7 +239,7 @@
   (key-chord-define-global ",d" 'helm-semantic-or-imenu)
   (key-chord-define-global ",g" 'switch-to-previous-buffer)
   (key-chord-define-global ",h" 'clear-highlighted-search)
-  (key-chord-define-global ",b" 'helm-mini)
+  (key-chord-define-global ",b" 'ido-switch-buffer)
   (key-chord-define-global ",v" 'evil-window-vsplit)
 
   (key-chord-mode t)
