@@ -4,9 +4,11 @@
 (setq mc/cmds-to-run-for-all
       '(
         electric-newline-and-maybe-indent
+        evil-append-line
         evil-backward-char
         evil-change
         evil-complete-next
+        evil-delete
         evil-delete-backward-char-and-join
         evil-delete-char
         evil-escape-insert-state
@@ -24,11 +26,11 @@
 
 (setq mc/cmds-to-run-once
       '(
-        smex
+        clear-highlighted-search
         evil-ex
         evil-ex-search-next
         evil-window-down
-        clear-highlighted-search
         save-buffer-and-goes-to-normal-mode
+        smex
         switch-to-previous-buffer
         ))
