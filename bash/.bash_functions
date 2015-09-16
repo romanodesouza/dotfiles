@@ -47,3 +47,7 @@ ab(){
 htop(){
     docker run --rm -it --pid host --name htop jess/htop
 }
+
+dsh(){
+    docker exec -ti $1 bash
+}
