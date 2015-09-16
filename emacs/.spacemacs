@@ -158,6 +158,7 @@
 
   ;; User initialization goes here
   (setq-default
+    tab-width 2
     line-spacing 4
     powerline-default-separator 'arrow
     helm-ag-insert-at-point 'symbol
