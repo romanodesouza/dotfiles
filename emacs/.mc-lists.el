@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        c-electric-colon
+        c-electric-slash
         electric-newline-and-maybe-indent
         evil-append-line
         evil-backward-char
