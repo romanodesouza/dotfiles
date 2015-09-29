@@ -64,7 +64,7 @@
   (setq-default
     ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
     ;; is `emacs' then the `holy-mode' is enabled at startup.
-    dotspacemacs-editing-style 'vim
+    dotspacemacs-editing-style 'hybrid
     ;; If non nil output loading progress in `*Messages*' buffer.
     dotspacemacs-verbose-loading nil
     ;; Specify the startup banner. Default value is `official', it displays
@@ -274,7 +274,10 @@
   (global-set-key (kbd "RET") 'newline-and-indent)
   (global-set-key (kbd "<C-return>") 'open-line-below)
   (global-set-key (kbd "<S-return>") 'open-line-above)
-  (global-set-key (kbd "<f11>") 'toggle-distraction-free))
+  (global-set-key (kbd "<f11>") 'toggle-distraction-free)
+
+  ;; hybrid
+  (define-key evil-hybrid-state-map (kbd "fd") 'evil-normal-state))
 
 (defun projectile-or-ido ()
   (interactive)
