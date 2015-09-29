@@ -51,3 +51,7 @@ htop(){
 dsh(){
     docker exec -ti $1 bash
 }
+
+dme() {
+    eval "$(docker-machine env $@)"
+}
