@@ -62,7 +62,7 @@
   (setq-default
     ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
     ;; is `emacs' then the `holy-mode' is enabled at startup.
-    dotspacemacs-editing-style 'hybrid
+    dotspacemacs-editing-style 'vim
     ;; If non nil output loading progress in `*Messages*' buffer.
     dotspacemacs-verbose-loading nil
     ;; Specify the startup banner. Default value is `official', it displays
@@ -207,6 +207,15 @@
   ;; Key bindings
   (my-keybindings))
 
+(defun my-holy-mode ()
+  (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
+  (bind-keys ("<C-[>" . evil-normal-state))
+  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+  (bind-keys :map evil-emacs-state-map
+             ("<escape>" . evil-normal-state))
+  (defadvice evil-insert-state (around benedictus-dominus activate)
+    (evil-emacs-state)))
+
 (defun my-go-mode ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
@@ -255,10 +264,7 @@
   (global-set-key (kbd "RET") 'newline-and-indent)
   (global-set-key (kbd "<C-return>") 'open-line-below)
   (global-set-key (kbd "<S-return>") 'open-line-above)
-  (global-set-key (kbd "<f11>") 'toggle-distraction-free)
-
-  ;; hybrid
-  (define-key evil-hybrid-state-map (kbd "fd") 'evil-normal-state))
+  (global-set-key (kbd "<f11>") 'toggle-distraction-free))
 
 (defun projectile-or-ido ()
   (interactive)
