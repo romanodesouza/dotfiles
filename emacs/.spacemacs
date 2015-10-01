@@ -207,15 +207,6 @@
   ;; Key bindings
   (my-keybindings))
 
-(defun my-holy-mode ()
-  (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
-  (bind-keys ("<C-[>" . evil-normal-state))
-  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
-  (bind-keys :map evil-emacs-state-map
-             ("<escape>" . evil-normal-state))
-  (defadvice evil-insert-state (around benedictus-dominus activate)
-    (evil-emacs-state)))
-
 (defun my-go-mode ()
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
