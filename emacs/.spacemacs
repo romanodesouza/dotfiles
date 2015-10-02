@@ -243,6 +243,7 @@
   ;; evil
   (define-key evil-motion-state-map (kbd "C-]") nil)
   (define-key evil-motion-state-map (kbd "K") nil)
+  (define-key evil-normal-state-map (kbd "Y") 'evil-yank-line)
   (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
