@@ -39,6 +39,10 @@ newgo(){
     go get github.com/codegangsta/cli
 }
 
+delete_broken_links(){
+    for i in $(file * | grep broken | cut -d : -f 1); do rm $i; done
+}
+
 # Docker functions based on: https://github.com/jfrazelle/dotfiles/blob/master/.dockerfunc
 ab(){
     docker run --rm --pid host --name ab jess/ab "$@"
@@ -49,7 +53,8 @@ htop(){
 }
 
 dsh(){
-    docker exec -ti $1 bash
+    docker exec -ti $1 bash 2>/dev/null || \
+    docker exec -ti $1 sh
 }
 
 dme() {
