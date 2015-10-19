@@ -21,6 +21,9 @@ install-idea:
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
 
+install-tmux:
+	ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
+
 install-vim:
 	ln -sf `pwd`/vim/.vimrc ~/.vimrc
 	ln -sf `pwd`/vim/.gvimrc ~/.gvimrc
@@ -39,5 +42,6 @@ install: \
 	install-idea \
 	install-git \
 	install-ssh \
+	install-tmux \
 	install-vim \
 	install-x11

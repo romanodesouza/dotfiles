@@ -16,3 +16,6 @@ alias dc='docker-compose'
 alias dr='docker ps -aq | xargs docker stop | xargs docker rm 2>/dev/null'
 # Remove all <none> images
 alias drn="docker images -a | grep '<none>' | awk '{print \$3}' | xargs docker rmi 2>/dev/null"
+
+# tmux
+alias tmux='TERM=screen-256color-bce tmux'
