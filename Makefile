@@ -34,6 +34,7 @@ install-vim:
 
 install-x11:
 	ln -sf `pwd`/x11/.Xmodmap ~/.Xmodmap
+	ln -sf `pwd`/x11/.Xresources ~/.Xresources
 	ln -sf `pwd`/x11/.profile ~/.profile
 
 install: \
