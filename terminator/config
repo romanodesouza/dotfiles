@@ -3,31 +3,33 @@
   handle_size = -3
   tab_position = bottom
 [keybindings]
-  toggle_zoom = <Alt>m
-  go_up = <Alt>k
-  split_horiz = <Alt>o
-  go_down = <Alt>j
   close_term = <Alt>q
-  split_vert = <Alt>i
-  go_right = <Alt>l
+  go_down = <Alt>j
   go_left = <Alt>h
+  go_right = <Alt>l
+  go_up = <Alt>k
   hide_window = F12
-[profiles]
-  [[default]]
-    use_system_font = False
-    background_darkness = 0.9
-    background_type = transparent
-    scrollbar_position = hidden
-    cursor_color = "#999999"
-    show_titlebar = False
-    font = DejaVu Sans Mono 12
-    cursor_blink = False
+  layout_launcher = <Shift><Alt>l
+  split_horiz = <Alt>o
+  split_vert = <Alt>i
+  toggle_zoom = <Alt>m
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#999999"
+    font = DejaVu Sans Mono 12
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
