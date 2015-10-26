@@ -14,6 +14,6 @@ keycode 87 = KP_1
 keycode 88 = KP_2
 keycode 89 = KP_3
 keycode 90 = KP_0
-keycode 95 = comma
+keycode 91 = KP_Delete comma
 
 pointer = 3 2 1
