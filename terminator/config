@@ -1,0 +1,33 @@
+[global_config]
+  borderless = True
+  handle_size = -3
+  tab_position = bottom
+[keybindings]
+  toggle_zoom = <Alt>m
+  go_up = <Alt>k
+  split_horiz = <Alt>o
+  go_down = <Alt>j
+  close_term = <Alt>q
+  split_vert = <Alt>i
+  go_right = <Alt>l
+  go_left = <Alt>h
+  hide_window = F12
+[profiles]
+  [[default]]
+    use_system_font = False
+    background_darkness = 0.9
+    background_type = transparent
+    scrollbar_position = hidden
+    cursor_color = "#999999"
+    show_titlebar = False
+    font = DejaVu Sans Mono 12
+    cursor_blink = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

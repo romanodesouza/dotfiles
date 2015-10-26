@@ -21,8 +21,9 @@ install-idea:
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
 
-install-tmux:
-	ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
+install-terminator:
+	mkdir -p ~/.config/terminator 2>/dev/null
+	ln -sf `pwd`/terminator/config ~/.config/terminator/
 
 install-vim:
 	ln -sf `pwd`/vim/.vimrc ~/.vimrc
@@ -43,6 +44,6 @@ install: \
 	install-idea \
 	install-git \
 	install-ssh \
-	install-tmux \
+	install-terminator \
 	install-vim \
 	install-x11
