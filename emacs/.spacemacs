@@ -158,13 +158,14 @@
 
   ;; User initialization goes here
   (setq-default
-    tab-width 2
+    tab-width 1
     line-spacing 4
     powerline-default-separator 'arrow
     helm-ag-insert-at-point 'symbol
     helm-swoop-pre-input-function (lambda () "")
     frame-title-format "%b (%f)"
-    ido-ignore-buffers '("\\` " "^\*")))
+    ido-ignore-buffers '("\\` " "^\*")
+    mouse-yank-at-point t))
 
 (defun dotspacemacs/config ()
   "Configuration function.
@@ -216,7 +217,7 @@
 
 (defun my-js-mode ()
   (add-hook 'before-save-hook 'web-beautify-js-buffer t t)
-  (setq-default indent-tabs-mode t)
+  ;; (setq-default indent-tabs-mode t)
   (setq-default js2-basic-offset 2)
   (evil-define-key 'normal tern-mode-keymap (kbd "C-]") 'tern-find-definition)
   (evil-define-key 'normal tern-mode-keymap (kbd "K") 'tern-get-docs))
