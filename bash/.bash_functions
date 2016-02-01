@@ -60,3 +60,9 @@ dsh(){
 dme() {
     eval "$(docker-machine env $@)"
 }
+
+# .autoexec
+git_project_autoexec() {
+    local toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+    [[ $? -eq 0 ]] && [[ -e "$toplevel/.autoexec" ]] && . $toplevel/.autoexec
+}

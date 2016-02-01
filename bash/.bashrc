@@ -111,20 +111,10 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]\[\033[00m\]\n\$ '
-
-# .autoexec
-git_project_autoexec() {
-    local toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
-    [[ $? -eq 0 ]] && [[ -e "$toplevel/.autoexec" ]] && . $toplevel/.autoexec
-}
+export PATH=$PATH:$JAVA_HOME/bin
+export CDPATH=~/projects/romanoaugusto88
 export PROMPT_COMMAND="git_project_autoexec;$PROMPT_COMMAND"
 
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-
-export NVM_DIR="/home/romano/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[[ -s "/home/romano/.gvm/scripts/gvm" ]] && source "/home/romano/.gvm/scripts/gvm"
