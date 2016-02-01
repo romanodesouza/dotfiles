@@ -1,0 +1,3 @@
+[submodule "emacs/elpa"]
+	path = emacs/elpa
+	url = git@github.com:romanoaugusto88/elpa.git
