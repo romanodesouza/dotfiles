@@ -3,7 +3,7 @@ set visualbell t_vb=
 " For better reading
 set linespace=4
 " Font
-set guifont=Monospace\ 10
+set guifont=DejaVu\ Sans\ Mono\ 10
 " No menu bar
 set guioptions-=m
 " No toolbar
@@ -20,7 +20,9 @@ set lines=30
 set columns=100
 
 " Colorscheme
-colorscheme earthsong
+colorscheme Tomorrow-Night
+AirlineTheme tomorrow
+AirlineToggle
 
 " Mouse's behaviour
 behave mswin
