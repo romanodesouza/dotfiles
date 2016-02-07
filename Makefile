@@ -35,7 +35,12 @@ install-vim:
 	rm vim/.vim/.vim 2>/dev/null
 
 install-x11:
+ifeq ($(shell hostname),yoga)
+	ln -sf `pwd`/x11/.Xmodmap.yoga ~/.Xmodmap
+else
 	ln -sf `pwd`/x11/.Xmodmap ~/.Xmodmap
+endif
+	xmodmap ~/.Xmodmap
 	ln -sf `pwd`/x11/.Xresources ~/.Xresources
 	ln -sf `pwd`/x11/.profile ~/.profile
 

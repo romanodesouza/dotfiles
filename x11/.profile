@@ -22,3 +22,4 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap 2>/dev/null
+xinput set-button-map "SynPS/2 Synaptics TouchPad" 3 2 1

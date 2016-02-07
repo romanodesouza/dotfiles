@@ -113,6 +113,12 @@ fi
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]\[\033[00m\]\n\$ '
 export PATH=$PATH:$JAVA_HOME/bin
 export CDPATH=~/projects/romanoaugusto88
+
+# .autoexec
+git_project_autoexec() {
+    local toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+    [[ $? -eq 0 ]] && [[ -e "$toplevel/.autoexec" ]] && . $toplevel/.autoexec
+}
 export PROMPT_COMMAND="git_project_autoexec;$PROMPT_COMMAND"
 
 if [ -f ~/.bashrc.local ]; then
