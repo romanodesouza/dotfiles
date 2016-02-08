@@ -15,9 +15,3 @@ Structure
 Customization
 =========
 Create and put it into `~/.vimrc.local` and/or `~/.gvimrc.local` files
-
-Inspired by
-=========
-- My previous conf :P
-- [skwp/dotfiles](https://github.com/skwp/dotfiles/)
-- [lfilho/vimfiles](https://github.com/lfilho/vimfiles/)
