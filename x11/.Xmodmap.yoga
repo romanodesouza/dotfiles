@@ -15,5 +15,7 @@ keycode 49 = quotedbl apostrophe
 keycode 47 = semicolon colon ccedilla Ccedilla
 ! ";" as "/"
 keycode 61 = slash question
+! "Menu" as Super key
+keycode 135 = Super_R
 
 pointer = 3 2 1
