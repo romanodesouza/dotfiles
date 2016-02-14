@@ -6,6 +6,7 @@ clear lock
 clear control
 add control = Control_L Control_R
 keycode 37 = Control_L
+keycode 66 = Control_L
 keycode 97 = Control_R
 
 ! shift double/single quotes
