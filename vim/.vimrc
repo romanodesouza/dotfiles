@@ -75,6 +75,8 @@ set wildignore+=*.swf
 set wildignore+=*.crx
 set wildignore+=*.doc
 set wildignore+=*.volt.php,*.volt-e-.php
+" unify clipboard
+set clipboard=unnamedplus
 " Select all
 nnoremap <C-a> ggvG$
 " Full copy/cut/past simple
