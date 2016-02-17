@@ -8,6 +8,7 @@ set wrapscan
 set showmode
 set history=1000
 set matchpairs
+set clipboard=unnamed
 
 " spacemacs bindings
 nnoremap <space>pf :action GotoFile<cr>
