@@ -14,10 +14,11 @@ install-emacs:
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
+ANDROID_STUDIO_DIR = $(shell ls -A ~/ | grep ".AndroidStudio")
 install-idea:
 	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
-	mkdir -p ~/.AndroidStudio1.5/config/keymaps 2>/dev/null
-	ln -sf `pwd`/idea/vimtellimacs.xml ~/.AndroidStudio1.5/config/keymaps/vimtellimacs.xml
+	mkdir -p ~/$(ANDROID_STUDIO_DIR)/config/keymaps 2>/dev/null
+	ln -sf `pwd`/idea/vimtellimacs.xml ~/$(ANDROID_STUDIO_DIR)/config/keymaps/vimtellimacs.xml
 
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
