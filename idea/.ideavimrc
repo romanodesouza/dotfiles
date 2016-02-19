@@ -13,6 +13,7 @@ set clipboard=unnamed
 " spacemacs bindings
 nnoremap <space>pf :action GotoFile<cr>
 nnoremap <space>pc :action GotoClass<cr>
+nnoremap <space>r :action RenameElement<cr>
 
 " escape
 inoremap fd <esc>
