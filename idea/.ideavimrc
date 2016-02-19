@@ -14,6 +14,8 @@ set clipboard=unnamed
 nnoremap <space>pf :action GotoFile<cr>
 nnoremap <space>pc :action GotoClass<cr>
 nnoremap <space>r :action RenameElement<cr>
+nnoremap <space>; :action CommentByLineComment<cr>
+vnoremap <space>; :action CommentByLineComment<cr>
 
 " escape
 inoremap fd <esc>
