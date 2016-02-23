@@ -126,3 +126,5 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='git ls-files || ag --hidden -g "" || find .'
+export FZF_CTRL_T_COMMAND='git ls-files || ag --hidden -g "" || find . -type f'
