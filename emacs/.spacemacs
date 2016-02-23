@@ -44,7 +44,8 @@
                                         nginx-mode
                                         yaml-mode
                                         sublime-themes
-                                        centered-window-mode)
+                                        centered-window-mode
+                                        fzf)
     ;; A list of packages and/or extensions that will not be install and loaded.
     dotspacemacs-excluded-packages '(vi-tilde-fringe
                                      php-extras)
@@ -205,6 +206,9 @@
   ;; My JS mode
   (add-hook 'js2-mode-hook 'my-js-mode)
 
+  ;; emacs state on term mode
+  (add-hook 'term-mode-hook 'evil-emacs-state)
+
   ;; Key bindings
   (my-keybindings))
 
@@ -251,7 +255,8 @@
   (define-key evil-motion-state-map (kbd "<RET>") 'clear-highlighted-search)
   (define-key evil-insert-state-map (kbd "<backtab>") 'evil-shift-left-line)
   (evil-define-key 'insert yas-minor-mode-map (kbd "<tab>") 'my-company-tab)
-  (evil-leader/set-key "pf" 'projectile-or-ido)
+  ;; (evil-leader/set-key "pf" 'projectile-or-ido)
+  (evil-leader/set-key "pf" 'fzf)
 
   ;; emacs
   (global-set-key (kbd "RET") 'newline-and-indent)

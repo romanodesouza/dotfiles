@@ -124,3 +124,5 @@ export PROMPT_COMMAND="git_project_autoexec;$PROMPT_COMMAND"
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
