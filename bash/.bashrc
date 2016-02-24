@@ -126,5 +126,7 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='git ls-files || ag --hidden -g "" || find .'
-export FZF_CTRL_T_COMMAND='git ls-files || ag --hidden -g "" || find . -type f'
+find_git_cmd="git status >/dev/null && cat <(git ls-files) <(git status -s | awk '{print \$2}' | xargs -I{} find {} -type f)"
+find_ag_cmd="ag --hidden -g '' --ignore .git"
+find_cmd="find . -type f"
+export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
