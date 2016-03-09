@@ -48,7 +48,8 @@
                                         fzf)
     ;; A list of packages and/or extensions that will not be install and loaded.
     dotspacemacs-excluded-packages '(vi-tilde-fringe
-                                     php-extras)
+                                     php-extras
+                                     smartparens)
     ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
     ;; are declared in a layer which is not a member of
     ;; the list `dotspacemacs-configuration-layers'
@@ -79,7 +80,8 @@
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(brin
+    dotspacemacs-themes '(wombat
+                          brin
                           solarized-light
                           ujelly)
     ;; If non nil the cursor color matches the state color.
@@ -161,6 +163,7 @@
   (setq-default
     tab-width 1
     line-spacing 4
+    linum-relative-format " %3s  "
     powerline-default-separator 'arrow
     helm-ag-insert-at-point 'symbol
     helm-swoop-pre-input-function (lambda () "")
@@ -172,6 +175,9 @@
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
+
+  ;; Disable fringe
+  (set-fringe-mode 0)
 
   ;; Disable projectile caching
   (setq projectile-enable-caching nil)
