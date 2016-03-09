@@ -169,7 +169,8 @@
     helm-swoop-pre-input-function (lambda () "")
     frame-title-format "%b (%f)"
     ido-ignore-buffers '("\\` " "^\*")
-    mouse-yank-at-point t))
+    mouse-yank-at-point t
+    fzf/args "-x --reverse"))
 
 (defun dotspacemacs/config ()
   "Configuration function.
@@ -214,6 +215,11 @@
 
   ;; emacs state on term mode
   (add-hook 'term-mode-hook 'evil-emacs-state)
+
+  ;; workaround: show *fzf* buffer at bottom
+  (defun fzf-split (orig-fun &rest args)
+    (split-window-below-and-focus))
+  (advice-add 'split-window-vertically :around #'fzf-split)
 
   ;; Key bindings
   (my-keybindings))
