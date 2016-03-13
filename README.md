@@ -1,5 +1,0 @@
-My dotfiles
-=========
-```
-make install
-```
