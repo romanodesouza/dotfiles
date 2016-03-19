@@ -113,7 +113,6 @@ fi
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]\[\033[00m\]\n\$ '
 export PATH=$PATH:$JAVA_HOME/bin
 export CDPATH=~/projects/romanoaugusto88
-export PROMPT_COMMAND="git_project_autoexec;$PROMPT_COMMAND"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -128,6 +127,9 @@ export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
 # nvm
 export NVM_DIR="/home/romano/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# autoenv
+[[ -s "$HOME/.autoenv" ]] && source "$HOME/.autoenv/activate.sh"
 
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local

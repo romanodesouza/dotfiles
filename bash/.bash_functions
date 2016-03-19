@@ -18,9 +18,3 @@ dsh() {
     docker exec -ti $1 bash 2>/dev/null || \
     docker exec -ti $1 sh
 }
-
-# .autoexec
-git_project_autoexec() {
-    local toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
-    [[ $? -eq 0 ]] && [[ -e "$toplevel/.autoexec" ]] && . $toplevel/.autoexec
-}
