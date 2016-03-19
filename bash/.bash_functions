@@ -18,3 +18,21 @@ dsh() {
     docker exec -ti $1 bash 2>/dev/null || \
     docker exec -ti $1 sh
 }
+
+install-go-dev-tools() {
+    print_cmd go get github.com/alecthomas/gometalinter
+    print_cmd go get github.com/golang/lint/golint
+    print_cmd go get github.com/nsf/gocode
+    print_cmd go get github.com/rogpeppe/godef
+    print_cmd go get golang.org/x/tools/cmd/goimports
+    print_cmd go get golang.org/x/tools/cmd/gorename
+    print_cmd go get golang.org/x/tools/cmd/oracle
+    print_cmd go get golang.org/x/tools/refactor/rename
+
+    print_cmd gometalinter --install --update
+}
+
+print_cmd() {
+    echo $@
+    eval $@
+}

@@ -129,7 +129,7 @@ export NVM_DIR="/home/romano/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # autoenv
-[[ -s "$HOME/.autoenv" ]] && source "$HOME/.autoenv/activate.sh"
+[[ -d "$HOME/.autoenv" ]] && source "$HOME/.autoenv/activate.sh"
 
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
