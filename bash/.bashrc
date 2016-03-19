@@ -125,6 +125,10 @@ export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
 # gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+# nvm
+export NVM_DIR="/home/romano/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
