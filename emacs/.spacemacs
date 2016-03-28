@@ -190,22 +190,14 @@
   (global-linum-mode t)
   (linum-relative-toggle)
 
+  ;; Replace selected region
+  (delete-selection-mode 1)
+
   ;; nginx mode
   (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode))
 
   ;; crontab mode
   (add-to-list 'auto-mode-alist '("/cron" . crontab-mode))
-
-  ;; Multiple cursors
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
-  (global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
-  (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-
-  ;; Company cycle
-  (define-key company-active-map (kbd "\C-n") 'company-select-next)
-  (define-key company-active-map (kbd "\C-p") 'company-select-previous)
 
   ;; My Go mode
   (add-hook 'go-mode-hook 'my-go-mode)
@@ -275,9 +267,19 @@
   (global-set-key (kbd "<C-return>") 'open-line-below)
   (global-set-key (kbd "<S-return>") 'open-line-above)
   (global-set-key (kbd "<f11>") 'toggle-distraction-free)
-
-  ;; hybrid
-  (define-key evil-hybrid-state-map (kbd "fd") 'evil-normal-state))
+  (global-set-key (kbd "s-k") 'evil-scroll-line-up)
+  (global-set-key (kbd "s-j") 'evil-scroll-line-down)
+  (global-set-key (kbd "C-=") 'er/expand-region)
+  (global-set-key (kbd "C--") 'er/contract-region)
+  ;; Multiple cursors
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
+  (global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
+  (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+  ;; Company cycle
+  (define-key company-active-map (kbd "\C-n") 'company-select-next)
+  (define-key company-active-map (kbd "\C-p") 'company-select-previous))
 
 (defun projectile-or-ido ()
   (interactive)
