@@ -170,7 +170,7 @@
     frame-title-format "%b (%f)"
     ido-ignore-buffers '("\\` " "^\*")
     mouse-yank-at-point t
-    fzf/args "-x --reverse"))
+    fzf/args "-x"))
 
 (defun dotspacemacs/config ()
   "Configuration function.
