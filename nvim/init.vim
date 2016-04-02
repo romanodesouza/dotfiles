@@ -11,3 +11,7 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_funky_syntax_highlight = 1
 
 nnoremap <silent> <leader>d :CtrlPFunky<CR>
+nnoremap <silent> <leader>g :Goyo<CR>
+
+autocmd VimResized * normal =
+autocmd TermClose * call feedkeys("\<C-w>=")
