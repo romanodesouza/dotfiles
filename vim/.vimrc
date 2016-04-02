@@ -8,11 +8,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'flazz/vim-colorschemes'
   Plug 'mattn/webapi-vim'
   Plug 'mattn/gist-vim'
-  Plug 'scrooloose/syntastic.git'
+  Plug 'scrooloose/syntastic'
+
+  if has("nvim")
+    Plug 'tacahiroy/ctrlp-funky'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/goyo.vim'
+  endif
 
 call plug#end()
 
-let mapleader=","
+let mapleader = ","
 
 set nocompatible
 set relativenumber
@@ -56,6 +62,7 @@ set clipboard=unnamedplus
 
 nnoremap <space>pf :FZF<CR>
 nnoremap <C-a> ggvG$
+nnoremap <leader>a :Ag<space>
 nnoremap <silent> <leader>q :bd!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>e $
@@ -70,7 +77,6 @@ nnoremap <silent> <leader>b :call fzf#run({
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
 
-
 imap <leader>e <ESC>A
 imap <leader>s <ESC><leader>s
 imap <leader>h <ESC><leader>h
@@ -82,6 +88,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 vmap y ygv<Esc>
+
+xmap <leader>a <plug>(GrepperOperator)
 
 cab qw wq
 cab Qw wq
@@ -99,8 +107,6 @@ cab QAll qall
 
 syntax on
 
-
-
 function! s:buflist()
   redir => ls
   silent ls
@@ -111,8 +117,6 @@ endfunction
 function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
-
-
 
 if (!has("gui_running"))
     colorscheme kellys
