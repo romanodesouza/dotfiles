@@ -1,6 +1,0 @@
-# Vim bundles
-vim/.vim/bundle/*/
-# Spell checker's dictionaries
-vim/.vim/spell/
-# Vim's explorer
-.netrwhist

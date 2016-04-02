@@ -30,10 +30,11 @@ install-terminator:
 install-vim:
 	ln -sf `pwd`/vim/.vimrc ~/.vimrc
 	ln -sf `pwd`/vim/.gvimrc ~/.gvimrc
-	ln -sf `pwd`/vim/.vim/ ~/.vim && \
-		git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle 2>/dev/null; \
-		vim --noplugin -u ~/.vim/bundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
-	rm vim/.vim/.vim 2>/dev/null
+ifeq ($(wildcard ~/.vim/autoload/plug.vim), "")
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+	vim --noplugin +PlugInstall +qall
 
 install-x11:
 ifeq ($(shell hostname),yoga)

@@ -1,49 +1,44 @@
-" Vim rather than Vi
-set nocompatible
-syntax on
+call plug#begin('~/.vim/plugged')
+
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'bling/vim-airline'
+  Plug 'mhinz/vim-grepper'
+  Plug 'evanmiller/nginx-vim-syntax'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'mattn/webapi-vim'
+  Plug 'mattn/gist-vim'
+  Plug 'scrooloose/syntastic.git'
+
+call plug#end()
+
 let mapleader=","
 
-" Init bundles
-if filereadable(expand("~/.vim/bundles.vim"))
-    source ~/.vim/bundles.vim
-endif
-
-if filereadable(expand("~/.vim/bundles.vim.local"))
-    source ~/.vim/bundles.vim.local
-endif
-
-filetype plugin indent on
-
-" General config
+set nocompatible
 set relativenumber
-set number " "number" and "relativenumber" can live together!! xD
+set number
 set backspace=indent,eol,start
 set history=1000
 set showcmd
-set noshowmode " Use airline
-set visualbell t_vb= " Disable visualbell
+set noshowmode
+set visualbell t_vb=
 set hidden
 set title
 set fileformats=unix,mac,dos
 set ruler
-set cursorline
 set showmatch
 set t_Co=256
 set mouse=a
 set mousehide
-set pastetoggle=<F2>
 set laststatus=2
-" Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set wrapscan
-" No backup files
 set noswapfile
 set nobackup
 set nowb
-" Indentation
 set autoindent
 set smartindent
 set smarttab
@@ -51,81 +46,43 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
-" No wrap
 set nowrap
-set linebreak " This is for 'set wrap'
-" No folds
+set linebreak
 set nofoldenable
-" Scrolling
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
-" Completion
-set completeopt-=preview " No preview
-" Command completion
-set wildmenu
-set wildmode=list:longest
-" stuff to ignore when tab completing
-set wildignore=*.o,*.obj,*~
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-set wildignore+=*.exe,*.dll
-set wildignore+=*.tar
-set wildignore+=*.swf
-set wildignore+=*.crx
-set wildignore+=*.doc
-set wildignore+=*.volt.php,*.volt-e-.php
-" unify clipboard
 set clipboard=unnamedplus
-" Select all
+
+nnoremap <space>pf :FZF<CR>
 nnoremap <C-a> ggvG$
-" Full copy/cut/past simple
-inoremap <C-v> <ESC>"+gpa
-vnoremap <C-c> "+y
-vnoremap <C-x> "+x
-" Quick save
-inoremap <Leader>s <ESC>:update<CR>
-nnoremap <Leader>s <ESC>:update<CR>
-" Smart enter and indentation after enter
-inoremap {<cr> {<cr>}<Esc><S-o>
-inoremap [<cr> [<cr>]<Esc><S-o>
-inoremap (<cr> (<cr>)<Esc><S-o>
-" Full file indent
-noremap <Leader>ff <ESC>:normal mzgg=G`zzz<CR>
-" Clear the highlight
-nnoremap <silent> <Leader>h :nohls<CR>
-imap <silent> <Leader>h <ESC><Leader>h
-" Home key goes to first non blank character
-noremap <Home>  ^
-inoremap <Home> <ESC>^<Insert>
-imap <C-a> <Home>
-imap <C-e> <End>
-" Tab switching
-nnoremap <silent> <S-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <S-PageDown> :execute 'silent! tabmove ' . tabpagenr()<CR>
-imap <S-PageUp> <ESC><S-PageUp>a
-imap <S-PageDown> <ESC><S-PageDown>a
-" Open new tab
-nnoremap <silent> <Leader>t :tabnew<CR>
-imap <silent> <Leader>t <ESC><Leader>t<Insert>
-" Goes to normal mode
-imap <Leader>n <ESC>
-" Better splitted window navigation
+nnoremap <silent> <leader>q :bd!<CR>
+nnoremap <silent> <leader>w :only<CR>
+nnoremap <silent> <leader>e $
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>s :wa<CR>
+nnoremap <silent> <leader>ff <ESC>:normal mzgg=G`zzz<CR>
+nnoremap <silent> <leader>h :nohls<CR>
+nnoremap <silent> <leader>b :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+
+imap <leader>e <ESC>A
+imap <leader>s <ESC><leader>s
+imap <leader>h <ESC><leader>h
+imap fd <ESC>
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" Git conflicts
-map <Leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
-" Filesystem explorer
-noremap <F3> :Explore<CR>
-inoremap <F3> <ESC>:Explore<CR>
-" Ctrl + Backspace removes the entire previous word
-imap <C-BS> <ESC>ldB<Insert>
-" Make cursor stay put after yanking
+
 vmap y ygv<Esc>
 
-" Abbreviations for exit
 cab qw wq
 cab Qw wq
 cab qW wq
@@ -140,67 +97,26 @@ cab WAll wall
 cab Qall qall
 cab QAll qall
 
-" ---------------------------------------------------------------------------------------------------"
-" Tell vim to remember certain things when we exit
-"
-"  '10  :  marks will be remembered for up to 10 previously edited files
-"  "100 :  will save up to 100 lines for each register
-"  :20  :  up to 20 lines of command-line history will be remembered
-"  %    :  saves and restores the buffer list
-"  n... :  where to save the viminfo files
-" ---------------------------------------------------------------------------------------------------"
-set viminfo='10,\"100,:20,%,n~/.viminfo
+syntax on
 
-function! ResCur()
-    if line("'\"") <= line("$")
-        normal! g`"
-        return 1
-    endif
+
+
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
 endfunction
 
-" Striping whitespaces
-function! StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-augroup resCur
-    autocmd!
-    autocmd BufWinEnter * call ResCur()
-augroup END
 
-" Set the fileformat
-" don't continue comments when pushing o/O and return carriage
-autocmd FileType * set formatoptions-=o formatoptions-=r
-" Indentation for ruby
-autocmd FileType ruby set expandtab ts=2 sw=2
-" Indentation for Lisp
-autocmd FileType lisp set expandtab ts=2 sw=2
-" Enable spell checker for git commit
-autocmd FileType gitcommit set spell spelllang=en_us,pt_br
-
-" Function: Open tag under cursor in new tab
-" Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Init Bundle Settings
-if filereadable(expand("~/.vim/bundle-settings.vim"))
-    source ~/.vim/bundle-settings.vim
-endif
 
 if (!has("gui_running"))
-    " Colorscheme
     colorscheme kellys
-    " Local conf
     if filereadable(expand("~/.vimrc.local"))
         source ~/.vimrc.local
     endif
 endif
-
