@@ -47,11 +47,12 @@ set nobackup
 set nowb
 set autoindent
 set smartindent
-set smarttab
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
 set shiftwidth=4
-set softtabstop=4
 set tabstop=4
-set expandtab
 set nowrap
 set linebreak
 set nofoldenable
