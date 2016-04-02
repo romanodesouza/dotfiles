@@ -53,7 +53,7 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-set nowrap
+set wrap
 set linebreak
 set nofoldenable
 set scrolloff=8
@@ -64,7 +64,7 @@ set clipboard=unnamedplus
 nnoremap <space>pf :FZF<CR>
 nnoremap <C-a> ggvG$
 nnoremap <leader>a :Ag<space>
-nnoremap <silent> <leader>q :bd!<CR>
+nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>e $
 nnoremap <silent> <leader>v :vsplit<CR>
