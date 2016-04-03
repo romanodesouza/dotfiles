@@ -49,7 +49,6 @@ else
 endif
 	xmodmap ~/.Xmodmap
 	ln -sf `pwd`/x11/.Xresources ~/.Xresources
-	ln -sf `pwd`/x11/.profile ~/.profile
 
 install: \
 	install-bash \
