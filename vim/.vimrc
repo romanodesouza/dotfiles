@@ -60,6 +60,7 @@ set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 set clipboard=unnamedplus
+set viminfo='10,\"100,:20,%,n~/.viminfo
 
 nnoremap <space>pf :FZF<CR>
 nnoremap <C-a> ggvG$
@@ -108,6 +109,11 @@ cab QAll qall
 
 syntax on
 
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+augroup END
+
 function! s:buflist()
   redir => ls
   silent ls
@@ -117,6 +123,13 @@ endfunction
 
 function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+function! ResCur()
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 
 if (!has("gui_running"))
