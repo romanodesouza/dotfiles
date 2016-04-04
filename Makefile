@@ -36,11 +36,6 @@ ifeq ($(wildcard ~/.vim/autoload/plug.vim), "")
 endif
 	vim --noplugin +PlugInstall +qall
 
-install-nvim: install-vim
-	mkdir -p ~/.config/nvim 2>/dev/null
-	ln -sf `pwd`/nvim/init.vim ~/.config/nvim/init.vim
-	nvim --noplugin +PlugInstall +qall
-
 install-x11:
 ifeq ($(shell hostname),yoga)
 	ln -sf `pwd`/x11/.Xmodmap.yoga ~/.Xmodmap
@@ -58,5 +53,4 @@ install: \
 	install-ssh \
 	install-terminator \
 	install-vim \
-	install-nvim \
 	install-x11

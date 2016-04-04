@@ -10,12 +10,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/gist-vim'
   Plug 'scrooloose/syntastic'
 
-  if has("nvim")
-    Plug 'tacahiroy/ctrlp-funky'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'junegunn/goyo.vim'
-  endif
-
 call plug#end()
 
 let mapleader = ","
