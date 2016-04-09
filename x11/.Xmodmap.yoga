@@ -1,16 +1,11 @@
-! fn as mode switch
-keycode 151 = Mode_switch Mode_switch
-
 ! control keys
-clear lock
-clear control
-add control = Control_L Control_R
 keycode 37 = Control_L
 keycode 66 = Control_L
+clear lock
+clear control
+add control = Control_L
 
 ! shift double/single quotes
 keycode 49 = quotedbl apostrophe
 ! "Menu" as Super key
 keycode 135 = Super_R
-
-pointer = 3 2 1
