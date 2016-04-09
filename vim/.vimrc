@@ -56,16 +56,19 @@ set sidescroll=1
 set clipboard=unnamedplus
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
-nnoremap <space>pf :FZF<CR>
-nnoremap <C-a> ggvG$
 nnoremap <leader>a :Ag<space>
+
+nnoremap <space>s /
+nnoremap <space>r ?
+nnoremap <silent> <space>pf :FZF<CR>
+nnoremap <silent> <space> :nohls<CR>
+
 nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>e $
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>s :wa<CR>
 nnoremap <silent> <leader>ff <ESC>:normal mzgg=G`zzz<CR>
-nnoremap <silent> <leader>h :nohls<CR>
 nnoremap <silent> <leader>b :call fzf#run({
 \   'source':  reverse(<sid>buflist()),
 \   'sink':    function('<sid>bufopen'),
@@ -75,7 +78,6 @@ nnoremap <silent> <leader>b :call fzf#run({
 
 imap <leader>e <ESC>A
 imap <leader>s <ESC><leader>s
-imap <leader>h <ESC><leader>h
 imap fd <ESC>
 
 map <C-h> <C-w>h
