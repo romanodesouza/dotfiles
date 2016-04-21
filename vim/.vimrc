@@ -89,6 +89,16 @@ vmap y ygv<Esc>
 
 xmap <leader>a <plug>(GrepperOperator)
 
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Delete>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>d <S-right><C-w><Delete>
+cnoremap <Esc><Backspace> <C-w><Delete>
+cnoremap <C-g> <C-c>
+
 cab qw wq
 cab Qw wq
 cab qW wq
