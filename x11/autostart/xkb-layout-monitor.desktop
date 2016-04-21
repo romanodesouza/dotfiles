@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=sh -c "\$HOME/.config/dbus/xkb-layout-monitor.py"
+Name[en_US]=XKB Layout Monitor
+Type=Application

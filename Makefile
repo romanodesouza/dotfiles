@@ -11,6 +11,10 @@ install-emacs:
 	ln -sf `pwd`/emacs/snippets/* ~/.emacs.d/private/snippets/
 	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
 
+install-dbus:
+	mkdir -p ~/.config/dbus 2>/dev/null
+	ln -sf `pwd`/dbus/* ~/.config/dbus/
+
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
@@ -44,10 +48,12 @@ else
 endif
 	xmodmap ~/.Xmodmap
 	ln -sf `pwd`/x11/.Xresources ~/.Xresources
+	ln -sf `pwd`/x11/autostart/* ~/.config/autostart/
 
 install: \
 	install-bash \
 	install-emacs \
+	install-dbus \
 	install-idea \
 	install-git \
 	install-ssh \

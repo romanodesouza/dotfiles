@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=sh -c "xmodmap \$HOME/.Xmodmap &"
+Name[en_US]=Xmodmap
+Type=Application
