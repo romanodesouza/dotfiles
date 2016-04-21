@@ -1,5 +1,4 @@
 install-bash:
-	ln -sf `pwd`/bash/.inputrc ~/.inputrc
 	ln -sf `pwd`/bash/.bashrc ~/.bashrc
 	ln -sf `pwd`/bash/.bash_profile ~/.bash_profile
 	ln -sf `pwd`/bash/.bash_aliases ~/.bash_aliases
