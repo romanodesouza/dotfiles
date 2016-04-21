@@ -62,13 +62,13 @@ nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>pf :FZF<CR>
 nnoremap <silent> <space> :nohls<CR>
+nnoremap <silent> <space>if <ESC>:normal mzgg=G`zzz<CR>
 
 nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>e $
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>s :wa<CR>
-nnoremap <silent> <leader>ff <ESC>:normal mzgg=G`zzz<CR>
 nnoremap <silent> <leader>b :call fzf#run({
 \   'source':  reverse(<sid>buflist()),
 \   'sink':    function('<sid>bufopen'),
