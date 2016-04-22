@@ -120,3 +120,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # autoenv
 [ -d "$HOME/.autoenv" ] && . "$HOME/.autoenv/activate.sh"
+
+# local config
+[ -f ~/.bashrc.local ] && . ~/.bashrc.local
