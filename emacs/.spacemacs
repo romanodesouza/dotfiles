@@ -335,7 +335,6 @@ you should place you code here."
   (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe))
 
 (defun my/js-mode ()
-  (add-hook 'before-save-hook 'web-beautify-js-buffer t t)
   (setq-default js2-basic-offset 2))
 
 (defun my/key-bindings ()
