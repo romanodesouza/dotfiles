@@ -24,7 +24,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ycmd
      syntax-checking
      dockerfile
      git
@@ -38,7 +37,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(key-chord
+   dotspacemacs-additional-packages '(evil-nerd-commenter
+                                      key-chord
                                       multiple-cursors
                                       expand-region
                                       crontab-mode
@@ -258,7 +258,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
    line-spacing 4
    ido-ignore-buffers '("\\` " "^\*")
    exec-path-from-shell-check-startup-files nil
-   ycmd-server-command (list "python" (expand-file-name "~/.ycmd/ycmd")))
+   flycheck-disabled-checkers '(go-golint)
+   )
 
   ;; Go
   (add-hook 'go-mode-hook 'my/go-mode)
@@ -280,13 +281,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
-  ;; flycheck
-  (global-flycheck-mode t)
-  (with-eval-after-load 'flycheck
-    (flycheck-pos-tip-mode))
-  ;; company + ycmd
+  ;; flycheck tip
+  (with-eval-after-load 'flycheck (flycheck-pos-tip-mode))
+  ;; company mode
   (global-company-mode)
-  (company-ycmd-setup)
   ;; Key bindings
   (my/key-bindings)
 
@@ -331,10 +329,8 @@ you should place you code here."
      nil)))
 
 (defun my/go-mode ()
-  (ycmd-mode)
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
-  (setq-default flycheck-disabled-checkers '(go-golint))
   (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
   (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe))
 
@@ -377,7 +373,8 @@ you should place you code here."
     "r" 'evil-search-backward
     "if" 'spacemacs/indent-region-or-buffer
     "w" 'evil-window-next
-    "x" 'helm-M-x)
+    "x" 'helm-M-x
+    ";" 'evilnc-comment-or-uncomment-lines)
 
   ;; emacs
   (global-set-key (kbd "s-k") 'evil-scroll-line-up)
