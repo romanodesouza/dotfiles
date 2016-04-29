@@ -313,6 +313,10 @@ you should place you code here."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+(defun show-file-name ()
+  (interactive)
+  (message (buffer-file-name)))
+
 (defun my/company-tab ()
   (interactive)
   (when (null (yas-expand))
@@ -371,6 +375,7 @@ you should place you code here."
     "s" 'evil-search-forward
     "r" 'evil-search-backward
     "if" 'spacemacs/indent-region-or-buffer
+    "ip" 'show-file-name
     "w" 'evil-window-next
     "x" 'helm-M-x
     ";" 'evilnc-comment-or-uncomment-lines)
