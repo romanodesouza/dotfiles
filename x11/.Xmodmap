@@ -2,7 +2,8 @@ keycode 66 = Control_L
 clear Lock
 add Control = Control_L
 
-keycode 49 = quotedbl apostrophe quotedbl apostrophe
+keycode 48 = quotedbl apostrophe quotedbl apostrophe
+keycode 49 = asciitilde grave asciitilde grave
 
 keycode 79 = KP_7
 keycode 80 = KP_8
