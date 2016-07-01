@@ -10,47 +10,56 @@ set history=1000
 set matchpairs
 set clipboard=unnamed
 
-" spacemacs bindings
+" find files
 nnoremap <space>pf :action GotoFile<cr>
-nnoremap <space>pc :action GotoClass<cr>
+" find usages
+nnoremap <space>u :action FindUsages<cr>
+" toggle breakpoint
+nnoremap <space>b :action ToggleLineBreakpoint<cr>
+" refactoring
 nnoremap <space>r :action RenameElement<cr>
-nnoremap <space>; :action CommentByLineComment<cr>
-vnoremap <space>; :action CommentByLineComment<cr>
+" error navigation
+noremap <space>en :action GotoNextError<cr>:action ShowErrorDescription<cr>
+noremap <space>ep :action GotoPreviousError<cr>:action ShowErrorDescription<cr>
+" reopen closed tab
+nnoremap <space>t :action ReopenClosedTab<cr>
+inoremap <space>t <esc>:action ReopenClosedTab<cr>
 
 " escape
 inoremap fd <esc>
 noremap <c-g> <esc>
 
+" first non-null character
+nnoremap 0 ^
+
 " Leader bindings
-" TODO: Update the ideavim plugin and change "," by "<Leader>"
+let mapleader = ","
 " save and goes to normal mode
-inoremap ,s <esc>:w<cr> 
-nnoremap ,s :w<cr> 
-" clear highlighted search
-nnoremap ,h :nohlsearch<cr>
+nnoremap <leader>s :wa<cr> 
+inoremap <leader>s <esc>:wa<cr> 
 " end of line
-nnoremap ,e $
-inoremap ,e <esc>A
+nnoremap <leader>e $
+inoremap <leader>e <esc>A
 " close
-nnoremap ,q :action CloseContent<cr>
-inoremap ,q <esc>:action CloseContent<cr>
+nnoremap <leader>q :action CloseContent<cr>
+inoremap <leader>q <esc>:action CloseContent<cr>
 " go to symbol
-nnoremap ,d :action GotoSymbol<cr>
+nnoremap <leader>d :action GotoSymbol<cr>
 " go to action
-nnoremap ,r :action GotoAction<cr>
-inoremap ,r :action GotoAction<cr>
+nnoremap <leader>r :action GotoAction<cr>
+inoremap <leader>r :action GotoAction<cr>
 " toggle buffers
-nnoremap ,g :action VimFilePrevious<cr>
-inoremap ,g :action VimFilePrevious<cr>
+nnoremap <leader>g :action VimFilePrevious<cr>
+inoremap <leader>g :action VimFilePrevious<cr>
 " find in files
-nnoremap ,a :action FindInPath<cr>
-inoremap ,a :action FindInPath<cr>
+nnoremap <leader>a :action FindInPath<cr>
+inoremap <leader>a :action FindInPath<cr>
 " vertical split
-nnoremap ,v :vsplit<cr>
-inoremap ,v :vsplit<cr>
+nnoremap <leader>v :vsplit<cr>
+inoremap <leader>v :vsplit<cr>
 " Close other splits
-nnoremap ,w :action VimWindowOnly<cr>
-inoremap ,w <esc>:action VimWindowOnly<cr>
+nnoremap <leader>w :action VimWindowOnly<cr>
+inoremap <leader>w <esc>:action VimWindowOnly<cr>
 
 " override point navigation
 nnoremap <c-o> :action Back<cr>
