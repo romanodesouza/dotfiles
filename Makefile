@@ -39,7 +39,11 @@ endif
 	vim --noplugin +PlugInstall +qall
 
 install-x11:
+ifeq ($(shell hostname),yoga)
+	ln -sf `pwd`/x11/.Xmodmap.yoga ~/.Xmodmap
+else
 	ln -sf `pwd`/x11/.Xmodmap ~/.Xmodmap
+endif
 	xmodmap ~/.Xmodmap
 	ln -sf `pwd`/x11/.Xresources ~/.Xresources
 	ln -sf `pwd`/x11/autostart/* ~/.config/autostart/
