@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-grepper'
 Plug 'evanmiller/nginx-vim-syntax'
@@ -8,13 +9,14 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'terryma/vim-expand-region'
+Plug 'tomtom/tcomment_vim'
 " Colorschemes
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
 
 if has('nvim')
 	Plug 'fatih/vim-go'
-	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+	Plug 'Valloric/YouCompleteMe'
 	Plug 'neomake/neomake'
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
@@ -79,34 +81,18 @@ set clipboard=unnamedplus
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 nnoremap <leader>a :Ag<space>
-
 nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>pf :FZF<CR>
 nnoremap <silent> <space> :nohls<CR>
 nnoremap <silent> <space>ib <ESC>:normal mzgg=G`zzz<CR>
-
 nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>s :w<CR>
-nnoremap <silent> <leader>b :call fzf#run({
-			\	'source':  reverse(<sid>buflist()),
-			\	'sink':    function('<sid>bufopen'),
-			\	'options': '+m',
-			\	'down':    len(<sid>buflist()) + 2
-			\ })<CR>
-
-function! s:buflist()
-	redir => ls
-	silent ls
-	redir END
-	return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-	execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <space><space> :Commands<CR>
+nnoremap <silent> <leader>d :BLines<CR>
 
 imap <leader>s <ESC><leader>s
 imap fd <ESC>
@@ -117,6 +103,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <leader>c :TComment<CR>
 
 vmap y ygv<Esc>
 vmap <C-g> <ESC>
@@ -150,6 +137,7 @@ syntax on
 au FileType go set completeopt-=preview
 au FileType go nmap <space>tr <Plug>(go-rename)
 au FileType go nmap <C-]> <Plug>(go-def)
+au FileType go nmap <leader>d :BLines func <CR>
 
 if has('nvim')
 	set viminfo='10,\"100,:20,%,n~/.nviminfo
