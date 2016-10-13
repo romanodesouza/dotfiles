@@ -18,17 +18,21 @@ if has('nvim')
 	Plug 'neomake/neomake'
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-
-	let g:ycm_key_list_select_completion = ['<C-n>']
-	let g:ycm_key_list_previous_completion = ['<C-p>']
-	let g:UltiSnipsExpandTrigger='<tab>'
-	let g:UltiSnipsJumpForwardTrigger='<tab>'
-	let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
-	let g:go_def_mode = 'godef'
-	let g:go_fmt_command = 'goimports'
 end
 
 call plug#end()
+
+augroup resCur
+	autocmd!
+	autocmd BufWinEnter * call ResCur()
+augroup END
+
+function! ResCur()
+	if line("'\"") <= line("$")
+		normal! g`"
+		return 1
+	endif
+endfunction
 
 let mapleader = ","
 
@@ -80,22 +84,30 @@ nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>pf :FZF<CR>
 nnoremap <silent> <space> :nohls<CR>
-nnoremap <silent> <space>if <ESC>:normal mzgg=G`zzz<CR>
-nnoremap <space>q <ESC>:q
+nnoremap <silent> <space>ib <ESC>:normal mzgg=G`zzz<CR>
 
 nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
-nnoremap <silent> <leader>e $
 nnoremap <silent> <leader>v :vsplit<CR>
-nnoremap <silent> <leader>s :wa<CR>
+nnoremap <silent> <leader>s :w<CR>
 nnoremap <silent> <leader>b :call fzf#run({
-			\   'source':  reverse(<sid>buflist()),
-			\   'sink':    function('<sid>bufopen'),
-			\   'options': '+m',
-			\   'down':    len(<sid>buflist()) + 2
+			\	'source':  reverse(<sid>buflist()),
+			\	'sink':    function('<sid>bufopen'),
+			\	'options': '+m',
+			\	'down':    len(<sid>buflist()) + 2
 			\ })<CR>
 
-imap <leader>e <ESC>A
+function! s:buflist()
+	redir => ls
+	silent ls
+	redir END
+	return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+	execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
 imap <leader>s <ESC><leader>s
 imap fd <ESC>
 imap <A-BS> <C-w>
@@ -139,39 +151,23 @@ au FileType go set completeopt-=preview
 au FileType go nmap <space>tr <Plug>(go-rename)
 au FileType go nmap <C-]> <Plug>(go-def)
 
-augroup resCur
-    autocmd!
-    autocmd BufWinEnter * call ResCur()
-augroup END
-
-function! s:buflist()
-  	redir => ls
-  	silent ls
-  	redir END
-  	return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  	execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-function! ResCur()
-    if line("'\"") <= line("$")
-        normal! g`"
-        return 1
-    endif
-endfunction
-
-if !has("gui_running")
-    "colorscheme kellys
-    set bg=dark
-    colorscheme OceanicNext
-	let g:airline_theme='oceanicnext'
-    if filereadable(expand("~/.vimrc.local"))
-        source ~/.vimrc.local
-    endif
-endif
-
-if has("nvim")
+if has('nvim')
 	set viminfo='10,\"100,:20,%,n~/.nviminfo
+
+	let g:ycm_key_list_select_completion = ['<C-n>']
+	let g:ycm_key_list_previous_completion = ['<C-p>']
+	let g:UltiSnipsExpandTrigger='<tab>'
+	let g:UltiSnipsJumpForwardTrigger='<tab>'
+	let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
+	let g:go_def_mode = 'godef'
+	let g:go_fmt_command = 'goimports'
 endif
+
+set bg=dark
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
+endif
+
