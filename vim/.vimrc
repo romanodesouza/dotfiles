@@ -20,6 +20,7 @@ if has('nvim')
 	Plug 'neomake/neomake'
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
+	Plug 'junegunn/Goyo.vim'
 end
 
 call plug#end()
@@ -93,6 +94,9 @@ nnoremap <silent> <leader>s :w<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <space><space> :Commands<CR>
 nnoremap <silent> <leader>d :BLines<CR>
+" soft line navigation
+nnoremap j gj
+nnoremap k gk
 
 imap <leader>s <ESC><leader>s
 imap fd <ESC>
