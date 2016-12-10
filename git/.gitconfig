@@ -1,73 +1,60 @@
 [user]
-    name = Romano Augusto
-    email = romanoaugusto88@gmail.com
+	name = Romano Augusto
+	email = romanoaugusto88@gmail.com
 
 [github]
-    user = romanoaugusto88
+	user = romanoaugusto88
 
 [color]
-    branch = auto
-    diff = auto
-    status = auto
+	branch = auto
+	diff = auto
+	status = auto
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
 
 [alias]
-    ci = commit
-    amend = commit --amend -C HEAD
-    amendoa = commit -a --amend -C HEAD
+	ci = commit
+	amend = commit --amend -C HEAD
+	amendoa = commit -a --amend -C HEAD
 
-    s = status
-    st = status
-    br = branch
-    co = checkout
-    cp = cherry-pick -x
-    cf = clean -f
+	st = status
+	br = branch
+	co = checkout
+	cp = cherry-pick -x
+	cf = clean -f
 
-    df = diff
-    dc = diff --cached
-    dh = diff HEAD^
+	df = diff
+	dc = diff --cached
 
-    l = log --no-merges
-    ld = log --no-merges -p
-    who = shortlog -s --
-    changes = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
-    short = log --no-merges --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
-    changelog = log --no-merges --pretty=format:\" * %s\"
+	l = log --no-merges
+	changes = log --no-merges --pretty=format:\"%h %Cgreen%s%Creset %cr by %cn\" --name-status
 
-    pr = pull --rebase
-    po = push origin
-    pof = push -f origin
-    apof = !git amendoa && git pof
+	pr = pull --rebase
+	po = push origin
+	pof = push -f origin
+	apof = !git amendoa && git pof
 
-    rb = rebase
-    rbc = rebase --continue
-    rbs = rebase --skip
-    rba = rebase --abort
-
-    update = !git remote update upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
-    done = !git fetch upstream && git rebase `git rev-parse --abbrev-ref --symbolic-full-name @{u} && git push origin`
-
-    rh = reset --hard
+	rb = rebase
 
 [push]
-    default = current
+	default = current
 
 [include]
-    path = .gitconfig.local
+	path = .gitconfig.local
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
