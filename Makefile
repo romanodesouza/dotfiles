@@ -5,6 +5,9 @@ install-bash:
 	ln -sf `pwd`/bash/.bash_functions ~/.bash_functions
 
 install-emacs:
+ifeq ("$(wildcard ~/.emacs.d)", "")
+	git clone -b v0.105.22 --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
+endif
 	ln -sf `pwd`/emacs/.spacemacs ~/.spacemacs
 	ln -sf `pwd`/emacs/snippets/* ~/.emacs.d/private/snippets/
 	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
