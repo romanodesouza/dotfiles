@@ -9,11 +9,11 @@ set showmode
 set history=1000
 set matchpairs
 set clipboard=unnamed
+set incsearch
+set surround
 
 " find files
 nnoremap <space>pf :action GotoFile<cr>
-" find usages
-nnoremap <space>u :action FindUsages<cr>
 " toggle breakpoint
 nnoremap <space>b :action ToggleLineBreakpoint<cr>
 " refactoring
@@ -44,9 +44,6 @@ nnoremap <leader>q :action CloseContent<cr>
 inoremap <leader>q <esc>:action CloseContent<cr>
 " go to symbol
 nnoremap <leader>d :action GotoSymbol<cr>
-" go to action
-nnoremap <leader>r :action GotoAction<cr>
-inoremap <leader>r :action GotoAction<cr>
 " toggle buffers
 nnoremap <leader>g :action VimFilePrevious<cr>
 inoremap <leader>g :action VimFilePrevious<cr>
@@ -59,6 +56,9 @@ inoremap <leader>v :vsplit<cr>
 " Close other splits
 nnoremap <leader>w :action VimWindowOnly<cr>
 inoremap <leader>w <esc>:action VimWindowOnly<cr>
+" Opened buffers
+nnoremap <leader>b :action Switcher<cr>
+inoremap <leader>b <esc>:action Switcher<cr>
 
 " override point navigation
 nnoremap <c-o> :action Back<cr>

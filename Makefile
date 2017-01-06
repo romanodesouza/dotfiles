@@ -19,11 +19,8 @@ install-dbus:
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
-ANDROID_STUDIO_DIR = $(shell ls -A ~/ | grep ".AndroidStudio")
 install-idea:
 	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
-	mkdir -p ~/$(ANDROID_STUDIO_DIR)/config/keymaps 2>/dev/null
-	ln -sf `pwd`/idea/vimtellimacs.xml ~/$(ANDROID_STUDIO_DIR)/config/keymaps/vimtellimacs.xml
 
 install-ssh:
 	ln -sf `pwd`/ssh/config ~/.ssh/config
