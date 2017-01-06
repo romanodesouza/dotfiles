@@ -35,7 +35,7 @@ install-terminator:
 install-vim:
 	ln -sf `pwd`/vim/.vimrc ~/.vimrc
 	ln -sf `pwd`/vim/.gvimrc ~/.gvimrc
-ifeq ($(wildcard ~/.vim/autoload/plug.vim), "")
+ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
