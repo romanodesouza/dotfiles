@@ -10,21 +10,12 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'tomtom/tcomment_vim'
-" Colorschemes
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
 
-if has('nvim')
-	Plug 'fatih/vim-go'
-	Plug 'Valloric/YouCompleteMe'
-	Plug 'neomake/neomake'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-	Plug 'junegunn/Goyo.vim'
-end
-
 call plug#end()
 
+" recover last buffer position
 augroup resCur
 	autocmd!
 	autocmd BufWinEnter * call ResCur()
@@ -39,31 +30,45 @@ endfunction
 
 let mapleader = ","
 
+" no vi compatibility
 set nocompatible
+
+" side numbers
 set relativenumber
 set number
+
+" fix backspace key
 set backspace=indent,eol,start
-set history=1000
-set showcmd
-set noshowmode
+" no visualbell
 set visualbell t_vb=
+" unload closed buffers
 set hidden
-set title
-set fileformats=unix,mac,dos
-set ruler
+" highlight pair match like (), [] or {}
 set showmatch
+" 256 colors on terminal
 set t_Co=256
+
+" airline
+set noshowmode
+set laststatus=2
+
+" enable mouse
 set mouse=a
 set mousehide
-set laststatus=2
+
+" search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set wrapscan
+
+" nobackup
 set noswapfile
 set nobackup
 set nowb
+
+" indent
 set autoindent
 set smartindent
 set noexpandtab
@@ -72,14 +77,27 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
+
+" wrap lines
 set wrap
 set linebreak
+
+" no fold
 set nofoldenable
+
+" scroll
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
+
+" clipboard cross compatible with X
 set clipboard=unnamedplus
+
 set viminfo='10,\"100,:20,%,n~/.viminfo
+set history=1000
+set fileformats=unix,mac,dos
+set ruler
+set title
 
 nnoremap <leader>a :Ag<space>
 nnoremap <space>s /
@@ -94,11 +112,13 @@ nnoremap <silent> <leader>s :w<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <space><space> :Commands<CR>
 nnoremap <silent> <leader>d :BLines<CR>
+nnoremap <silent> <leader>e $
 " soft line navigation
 nnoremap j gj
 nnoremap k gk
 
 imap <leader>s <ESC><leader>s
+imap <leader>e <ESC><leader>e
 imap fd <ESC>
 imap <A-BS> <C-w>
 imap <C-g> <ESC>
@@ -137,23 +157,7 @@ cab QAll qall
 
 syntax on
 
-" go
-au FileType go set completeopt-=preview
-au FileType go nmap <space>tr <Plug>(go-rename)
-au FileType go nmap <C-]> <Plug>(go-def)
-au FileType go nmap <leader>d :BLines func <CR>
-
-if has('nvim')
-	set viminfo='10,\"100,:20,%,n~/.nviminfo
-
-	let g:ycm_key_list_select_completion = ['<C-n>']
-	let g:ycm_key_list_previous_completion = ['<C-p>']
-	let g:UltiSnipsExpandTrigger='<tab>'
-	let g:UltiSnipsJumpForwardTrigger='<tab>'
-	let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
-	let g:go_def_mode = 'godef'
-	let g:go_fmt_command = 'goimports'
-endif
+au FileType php nmap <leader>d :BLines function <CR>
 
 set bg=dark
 colorscheme OceanicNext
