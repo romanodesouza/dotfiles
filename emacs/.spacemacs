@@ -42,7 +42,6 @@ values."
         gofmt-command "goimports"
         go-tab-width 4)
      javascript
-     react
      markdown
      yaml
 
@@ -58,7 +57,9 @@ values."
                                       crontab-mode
                                       nginx-mode
                                       eslint-fix
-                                      expand-region)
+                                      expand-region
+                                      rjsx-mode
+                                      emmet-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -308,7 +309,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'go-mode-hook 'my/go-mode)
   ;; Javascript
   (add-hook 'js2-mode-hook 'my/js-mode)
-  (add-hook 'react-mode-hook 'my/js-mode)
+  (add-hook 'rjsx-mode-hook 'my/rjsx-mode)
+  (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
   ;; nginx mode
   (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode))
   ;; crontab mode
@@ -335,16 +337,17 @@ you should place your code here."
 
 (defun my/js-mode ()
   (add-hook 'after-save-hook 'eslint-fix nil t)
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        js-indent-level 2)
+  (setq js-indent-level 2)
   (setq-default js2-basic-offset 2))
+
+(defun my/rjsx-mode ()
+  (setq-local emmet-expand-jsx-className? t))
 
 (defun my/company-tab ()
   (interactive)
   (when (null (yas-expand))
-    (tab-to-tab-stop)))
+    (when (null (emmet-expand-yas))
+      (tab-to-tab-stop))))
 
 (defun my/git-grep ()
   (interactive)
