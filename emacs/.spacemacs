@@ -427,8 +427,11 @@ you should place your code here."
   (global-set-key (kbd "C-;") 'mc/mark-more-like-this-extended)
 
   ;; Company cycle
-  (define-key company-active-map (kbd "\C-n") 'company-select-next)
-  (define-key company-active-map (kbd "\C-p") 'company-select-previous))
+  (eval-after-load "company"
+    '(progn
+       (define-key company-active-map (kbd "C-n") 'company-select-next)
+       (define-key company-active-map (kbd "C-p") 'company-select-previous)))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
