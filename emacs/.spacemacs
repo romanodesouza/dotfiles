@@ -56,7 +56,6 @@ values."
    dotspacemacs-additional-packages '(key-chord
                                       crontab-mode
                                       nginx-mode
-                                      eslint-fix
                                       expand-region
                                       rjsx-mode
                                       emmet-mode)
@@ -326,6 +325,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  (defvar my/eslint-executable (my/eslint-bin))
+
   (setq auto-save-default nil)
   (my/key-bindings)
 
@@ -336,12 +337,27 @@ you should place your code here."
   (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe))
 
 (defun my/js-mode ()
-  (add-hook 'after-save-hook 'eslint-fix nil t)
+  (add-hook 'after-save-hook 'my/eslint-fix nil t)
   (setq js-indent-level 2)
   (setq-default js2-basic-offset 2))
 
 (defun my/rjsx-mode ()
   (setq-local emmet-expand-jsx-className? t))
+
+(defun my/eslint-bin ()
+  (if (file-executable-p (expand-file-name "node_modules/.bin/eslint" default-directory))
+    (expand-file-name "node_modules/.bin/eslint" default-directory)
+    (if (projectile-project-p)
+      (expand-file-name "node_modules/.bin/eslint" projectile-project-root)
+      (executable-find "eslint"))))
+
+(defun my/eslint-fix ()
+  "Format the current file with ESLint."
+  (interactive)
+  (if my/eslint-executable
+      (progn (call-process my/eslint-executable nil "*ESLint Errors*" nil "--fix" buffer-file-name)
+             (revert-buffer t t t))
+    (message "ESLint not found.")))
 
 (defun my/company-tab ()
   (interactive)
