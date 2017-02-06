@@ -343,6 +343,7 @@ you should place your code here."
   (setq-default js2-basic-offset 2))
 
 (defun my/rjsx-mode ()
+  (flycheck-mode)
   (setq-local emmet-expand-jsx-className? t))
 
 (defun my/eslint-bin ()
