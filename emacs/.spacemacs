@@ -345,11 +345,16 @@ you should place your code here."
   (setq-local emmet-expand-jsx-className? t))
 
 (defun my/eslint-bin ()
-  (if (file-executable-p (expand-file-name "node_modules/.bin/eslint" default-directory))
-    (expand-file-name "node_modules/.bin/eslint" default-directory)
+  (or (my/eslint-local-bin)
+      (executable-find "eslint")))
+
+(defun my/eslint-local-bin ()
     (if (projectile-project-p)
-      (expand-file-name "node_modules/.bin/eslint" projectile-project-root)
-      (executable-find "eslint"))))
+        (my/exec-path (expand-file-name "node_modules/.bin/eslint" projectile-project-root))))
+
+(defun my/exec-path (path)
+  (if (file-executable-p path)
+      path))
 
 (defun my/eslint-fix ()
   "Format the current file with ESLint."
