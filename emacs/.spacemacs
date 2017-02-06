@@ -300,6 +300,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ivy-ignore-buffers '("\\` " "^\*")
    flycheck-disabled-checkers '(go-golint)
    make-backup-files nil
+   create-lockfiles nil
    )
 
   (recentf-mode nil)
