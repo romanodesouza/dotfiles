@@ -400,6 +400,19 @@ you should place your code here."
   (interactive)
   (message (buffer-file-name)))
 
+(defun my/open-line-below ()
+  (interactive)
+  (end-of-line)
+  (newline)
+  (indent-for-tab-command))
+
+(defun my/open-line-above ()
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command))
+
 (defun my/key-bindings ()
   ;; key chord
   (key-chord-define-global ",q" 'my/delete-window-maybe-kill-buffer)
@@ -442,6 +455,8 @@ you should place your code here."
   ;; emacs
   (global-set-key (kbd "s-k") 'evil-scroll-line-up)
   (global-set-key (kbd "s-j") 'evil-scroll-line-down)
+  (global-set-key (kbd "<C-return>") 'my/open-line-below)
+  (global-set-key (kbd "<S-return>") 'my/open-line-above)
 
   ;; multiple cursors
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
