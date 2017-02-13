@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: test
+# key: t
+# --
+test("$1", () => {
+	$0
+})
