@@ -58,7 +58,8 @@ values."
                                       nginx-mode
                                       expand-region
                                       rjsx-mode
-                                      emmet-mode)
+                                      emmet-mode
+                                      smartparens)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -327,7 +328,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (defvar my/eslint-executable (my/eslint-bin))
-
+  (smartparens-global-mode)
   (setq auto-save-default nil)
   (my/key-bindings)
 
