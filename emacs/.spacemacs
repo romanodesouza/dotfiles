@@ -60,7 +60,8 @@ values."
                                       expand-region
                                       rjsx-mode
                                       emmet-mode
-                                      smartparens)
+                                      smartparens
+                                      evil-surround)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -329,6 +330,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (defvar my/eslint-executable (my/eslint-bin))
+  (global-evil-surround-mode 1)
   (smartparens-global-mode)
   (setq auto-save-default nil)
   (my/key-bindings)
