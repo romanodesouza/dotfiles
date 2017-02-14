@@ -345,7 +345,8 @@ you should place your code here."
 
 (defun my/rjsx-mode ()
   (flycheck-mode)
-  (setq-local emmet-expand-jsx-className? t))
+  (setq-local emmet-expand-jsx-className? t)
+  (emmet-mode))
 
 (defun my/eslint-bin ()
   (or (my/eslint-local-bin)
