@@ -418,6 +418,12 @@ you should place your code here."
   (forward-line -1)
   (indent-for-tab-command))
 
+(defun my/tag-trans (start end)
+  (interactive "r")
+  (save-excursion
+    (goto-char end) (insert "\" %}")
+    (goto-char start) (insert "{% trans \"")))
+
 (defun my/key-bindings ()
   ;; key chord
   (key-chord-define-global ",q" 'my/delete-window-maybe-kill-buffer)
