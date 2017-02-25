@@ -46,6 +46,7 @@ values."
      markdown
      yaml
 
+     git
      ivy
      auto-completion
      syntax-checking
