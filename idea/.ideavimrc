@@ -23,6 +23,9 @@ noremap <space>en :action GotoNextError<cr>:action ShowErrorDescription<cr>
 noremap <space>ep :action GotoPreviousError<cr>:action ShowErrorDescription<cr>
 " reopen closed tab
 nnoremap <space>t :action ReopenClosedTab<cr>
+" find
+nnoremap <space>s /
+nnoremap <space>r ?
 
 " escape
 inoremap fd <esc>
