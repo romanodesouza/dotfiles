@@ -16,8 +16,6 @@ set surround
 nnoremap <space>pf :action GotoFile<cr>
 " toggle breakpoint
 nnoremap <space>b :action ToggleLineBreakpoint<cr>
-" refactoring
-nnoremap <space>r :action RenameElement<cr>
 " error navigation
 noremap <space>en :action GotoNextError<cr>:action ShowErrorDescription<cr>
 noremap <space>ep :action GotoPreviousError<cr>:action ShowErrorDescription<cr>
@@ -62,6 +60,8 @@ inoremap <leader>w <esc>:action VimWindowOnly<cr>
 " Opened buffers
 nnoremap <leader>b :action Switcher<cr>
 inoremap <leader>b <esc>:action Switcher<cr>
+" refactoring
+nnoremap <leader>r :action RenameElement<cr>
 
 " override point navigation
 nnoremap <c-o> :action Back<cr>
