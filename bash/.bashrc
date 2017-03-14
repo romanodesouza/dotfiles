@@ -118,8 +118,5 @@ export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# autoenv
-[ -d "$HOME/.autoenv" ] && . "$HOME/.autoenv/activate.sh"
-
 # local config
 [ -f ~/.bashrc.local ] && . ~/.bashrc.local
