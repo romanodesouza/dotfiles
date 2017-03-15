@@ -344,6 +344,7 @@ you should place your code here."
   (smartparens-global-mode)
   (setq auto-save-default nil)
   (my/key-bindings)
+  (global-hl-line-mode -1)
 
   )
 
