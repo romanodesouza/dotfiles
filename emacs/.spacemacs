@@ -63,6 +63,7 @@ values."
                                       emmet-mode
                                       smartparens
                                       evil-surround
+                                      dockerfile-mode
                                       darcula-theme
                                       solarized-theme)
    ;; A list of packages that cannot be updated.
@@ -322,6 +323,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode))
   ;; crontab mode
   (add-to-list 'auto-mode-alist '("/cron" . crontab-mode))
+  ;; Dockerfile mode
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
   )
 
