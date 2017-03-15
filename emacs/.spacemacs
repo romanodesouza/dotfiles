@@ -307,7 +307,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (setq-default
    tab-width 1
-   line-spacing 4
+   line-spacing 6
    ivy-ignore-buffers '("\\` " "^\*")
    flycheck-disabled-checkers '(go-golint)
    make-backup-files nil
