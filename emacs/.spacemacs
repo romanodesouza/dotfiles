@@ -45,6 +45,7 @@ values."
      javascript
      markdown
      yaml
+     python
 
      git
      ivy
@@ -65,7 +66,6 @@ values."
                                       evil-surround
                                       dockerfile-mode
                                       github-theme
-
                                       solarized-theme)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
