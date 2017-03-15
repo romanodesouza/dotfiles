@@ -45,6 +45,7 @@ values."
      javascript
      markdown
      yaml
+     php
 
      git
      ivy
@@ -327,6 +328,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'auto-mode-alist '("/cron" . crontab-mode))
   ;; Dockerfile mode
   (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+  (eval-after-load 'php-mode
+    '(require 'php-ext))
 
   )
 
