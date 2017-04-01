@@ -30,6 +30,9 @@ install-terminator:
 	mkdir -p ~/.config/terminator 2>/dev/null
 	ln -sf `pwd`/terminator/config ~/.config/terminator/
 
+install-top:
+	ln -sf `pwd`/top/.toprc ~/.toprc
+
 install-vim:
 	ln -sf `pwd`/vim/.vimrc ~/.vimrc
 	ln -sf `pwd`/vim/.gvimrc ~/.gvimrc
@@ -57,5 +60,6 @@ install: \
 	install-git \
 	install-ssh \
 	install-terminator \
+	install-top \
 	install-vim \
 	install-x11
