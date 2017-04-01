@@ -11,3 +11,5 @@ alias egrep='egrep --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias l='ls -alF'
+
+alias g='git'
