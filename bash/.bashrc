@@ -111,9 +111,6 @@ find_ag_cmd="ag --hidden -g '' --ignore .git"
 find_cmd="find . -type f"
 export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
 
-# gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
