@@ -62,10 +62,8 @@ values."
                                       expand-region
                                       rjsx-mode
                                       emmet-mode
-                                      smartparens
                                       evil-surround
                                       dockerfile-mode
-                                      github-theme
                                       solarized-theme)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -138,10 +136,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(github
+   dotspacemacs-themes '(spacemacs-light
                          brin
-                         solarized-light
-                         spacemacs-light)
+                         solarized-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -343,7 +340,6 @@ you should place your code here."
 
   (defvar my/eslint-executable (my/eslint-bin))
   (global-evil-surround-mode 1)
-  (smartparens-global-mode)
   (setq auto-save-default nil)
   (my/key-bindings)
   (global-hl-line-mode -1)
