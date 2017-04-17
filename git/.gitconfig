@@ -50,6 +50,7 @@
 	ruub = !git remote update upstream && git rebase
 
 	rb = rebase
+	rbc = rebase --continue
 
 [push]
 	default = current
