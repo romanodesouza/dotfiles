@@ -50,7 +50,8 @@ govm() {
 				tar -xvf $file -C $dest/
 				rm -f $file
 			fi
-			ln -sf $dest/go ~/opt/go/activated
+			rm ~/opt/go/activated 2>/dev/null
+			ln -s $dest/go ~/opt/go/activated
 			export GOPATH=~/go
 		;;
 
