@@ -105,7 +105,8 @@ set title
 nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
 nnoremap <space>r ?
-nnoremap <silent> <space>pf :FZF<CR>
+nnoremap <silent> <space>o :FZF<CR>
+nnoremap <silent> <space>p :FZF<CR>
 nnoremap <silent> <space> :nohls<CR>
 nnoremap <silent> <space>ib <ESC>:normal mzgg=G`zzz<CR>
 nnoremap <silent> <leader>q :close!<CR>
