@@ -161,6 +161,8 @@ cab QAll qall
 syntax on
 
 au FileType php nmap <leader>d :BLines function <CR>
+au FileType go nmap<leader>d :BLines func{ <CR>
+au FileType python nmap<leader>d :BLines def: <CR>
 
 set bg=dark
 colorscheme OceanicNext
