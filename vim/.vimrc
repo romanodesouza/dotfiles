@@ -136,6 +136,8 @@ vmap y ygv<Esc>
 vmap <C-g> <ESC>
 
 xmap <leader>a "yy:<C-u>GitGrep <c-r>y<CR>
+xmap <space>s /
+xmap <space>r ?
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
