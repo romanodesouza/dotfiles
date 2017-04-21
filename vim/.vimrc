@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
-Plug 'mhinz/vim-grepper'
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'mattn/webapi-vim'
@@ -27,6 +26,10 @@ function! ResCur()
 		return 1
 	endif
 endfunction
+
+command -nargs=* GitGrep
+  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>).
+  \ " -- './*' '!vendor/' '!node_modules/'", 0, 0)
 
 let mapleader = ","
 
@@ -99,7 +102,7 @@ set fileformats=unix,mac,dos
 set ruler
 set title
 
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>pf :FZF<CR>
@@ -132,7 +135,7 @@ map <leader>c :TComment<CR>
 vmap y ygv<Esc>
 vmap <C-g> <ESC>
 
-xmap <leader>a <plug>(GrepperOperator)
+xmap <leader>a "yy:<C-u>GitGrep <c-r>y<CR>
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
@@ -166,4 +169,3 @@ let g:airline_theme='oceanicnext'
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
-
