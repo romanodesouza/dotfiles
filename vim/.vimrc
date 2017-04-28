@@ -12,6 +12,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
 Plug 'tpope/vim-sleuth'
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
@@ -167,6 +168,7 @@ syntax on
 au FileType php nmap <leader>d :BLines function <CR>
 au FileType go nmap<leader>d :BLines func{ <CR>
 au FileType python nmap<leader>d :BLines def: <CR>
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 set bg=dark
 colorscheme OceanicNext
