@@ -11,6 +11,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
