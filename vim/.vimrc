@@ -41,6 +41,11 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
 
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
+
 " Go
 Plug 'fatih/vim-go'
 let g:go_def_mode = 'godef'
@@ -55,14 +60,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'yarn' }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
+" PHP
+au FileType php nmap <leader>d :BLines function <CR>
+
+" Python
+au FileType python nmap<leader>d :BLines def: <CR>
+
 " Themes
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
-
-" YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
 
 call plug#end()
 
@@ -240,12 +246,10 @@ cab WAll wall
 cab Qall qall
 cab QAll qall
 cab q1 q!
+cab w1 w!
+cab wq1 wq!
 
 syntax on
-
-au FileType php nmap <leader>d :BLines function <CR>
-au FileType python nmap<leader>d :BLines def: <CR>
-
 set bg=dark
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
