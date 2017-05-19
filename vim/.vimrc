@@ -13,16 +13,9 @@ Plug 'evanmiller/nginx-vim-syntax'
 " Dockerfile support
 Plug 'ekalinin/Dockerfile.vim'
 
-" expand region
-Plug 'terryma/vim-expand-region'
-
 " gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
-
-" TComment
-Plug 'tomtom/tcomment_vim'
-let g:tcommentMapLeader1='<C-;>'
 
 " Detect buffer indentation
 Plug 'tpope/vim-sleuth'
@@ -30,6 +23,18 @@ Plug 'tpope/vim-sleuth'
 " Strip trailing white spaces
 Plug 'ntpeters/vim-better-whitespace'
 autocmd BufEnter * EnableStripWhitespaceOnSave
+
+" Themes
+Plug 'flazz/vim-colorschemes'
+Plug 'mhartington/oceanic-next'
+
+if has('nvim')
+" TComment
+Plug 'tomtom/tcomment_vim'
+let g:tcommentMapLeader1='<C-;>'
+
+" expand region
+Plug 'terryma/vim-expand-region'
 
 " Distraction-free mode
 Plug 'junegunn/Goyo.vim'
@@ -50,10 +55,12 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 Plug 'fatih/vim-go'
 let g:go_def_mode = 'godef'
 let g:go_fmt_command = 'goimports'
-au FileType go nmap<leader>d :BLines func{ <CR>
-au FileType go nmap <C-]> <Plug>(go-def)
-au FileType go nmap <leader>r <Plug>(go-rename)
-au FileType go nmap <leader>gr <Plug>(go-referrers)
+let g:go_doc_keywordprg_enabled = 0
+au FileType go nmap <buffer> <leader>d :BLines func{ <CR>
+au FileType go nmap <buffer> <C-]> <Plug>(go-def)
+au FileType go nmap <buffer> <leader>r <Plug>(go-rename)
+au FileType go nmap <buffer> <leader>gr <Plug>(go-referrers)
+au FileType go nmap <buffer> <silent> K :GoInfo<CR>
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
@@ -65,10 +72,7 @@ au FileType php nmap <leader>d :BLines function <CR>
 
 " Python
 au FileType python nmap<leader>d :BLines def: <CR>
-
-" Themes
-Plug 'flazz/vim-colorschemes'
-Plug 'mhartington/oceanic-next'
+end
 
 call plug#end()
 
@@ -153,11 +157,19 @@ set sidescroll=1
 " clipboard cross compatible with X
 set clipboard=unnamedplus
 
+" no preview on completion
+set completeopt-=preview
+
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set history=1000
 set fileformats=unix,mac,dos
 set ruler
 set title
+
+if has('nvim')
+set viminfo='10,\"100,:20,%,n~/.nviminfo
+set inccommand=nosplit
+end
 
 nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
@@ -197,6 +209,9 @@ nnoremap <silent>k <ESC>:nohls<CR>k
 imap <leader>s <ESC><leader>s
 imap <leader>e <ESC><leader>e
 imap fd <ESC>
+
+" Enable <cr> on auto complete pop up
+inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
