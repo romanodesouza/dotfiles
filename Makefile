@@ -6,11 +6,9 @@ install-bash:
 
 install-emacs:
 ifeq ("$(wildcard ~/.emacs.d)", "")
-	git clone -b v0.200.7 --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	mkdir ~/.emacs.d
 endif
-	ln -sf `pwd`/emacs/.spacemacs ~/.spacemacs
-	ln -sf `pwd`/emacs/snippets/* ~/.emacs.d/private/snippets/
-	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
+	ln -sf `pwd`/emacs/init.el ~/.emacs.d/init.el
 	emacs -nw --kill
 
 install-dbus:
