@@ -8,10 +8,8 @@
 (setq gnutls-min-prime-bits 4096)
 ;; Enable deletion of selected text
 (delete-selection-mode t)
-;; CUA mode
-(cua-mode t)
 ;; Disable backup
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
 ;; Disable auto saving
 (setq auto-save-default nil)
 ;; Default indentation
@@ -52,13 +50,15 @@
 ;; Line spacing
 (setq-default line-spacing 3)
 ;; Font
-(defvar my/font "Liberation Mono 14")
+(defvar my/font "Liberation Mono 12")
 (set-face-attribute 'default nil :font my/font)
 (set-frame-font my/font nil t)
 ;; Set key bindings
 (add-hook 'after-init-hook 'my/key-bindings)
 ;; FZF
 (add-hook 'after-init-hook 'my/fzf-init)
+;; Centered window mode
+(add-hook 'after-init-hook 'centered-window-mode)
 
 ;; Packages
 (require 'package)
@@ -74,21 +74,26 @@
 (setq use-package-always-ensure t)
 (require 'use-package)
 
-(use-package solarized-theme
-  :init (load-theme 'solarized-light t))
+;; (use-package solarized-theme
+;;   :init (load-theme 'solarized-light t))
+
+(use-package darcula-theme)
 
 (use-package powerline
   :init (powerline-default-theme))
 
+(use-package centered-window-mode
+  :commands centered-window-mode)
+
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook 'smooth-scrolling-mode)
-  :config (setq smooth-scroll-margin 12))
+  :config (setq smooth-scroll-margin 8))
 
 (use-package saveplace
-   :init
-   (setq-default save-place t)
-   (setq save-place-forget-unreadable-files t
-         save-place-skip-check-regexp "\\`/\\(?:cdrom\\|floppy\\|mnt\\|/[0-9]\\|\\(?:[^@/:]*@\\)?[^@/:]*[^@/:.]:\\)"))
+  :init
+  (setq-default save-place t)
+  (setq save-place-forget-unreadable-files t
+        save-place-skip-check-regexp "\\`/\\(?:cdrom\\|floppy\\|mnt\\|/[0-9]\\|\\(?:[^@/:]*@\\)?[^@/:]*[^@/:.]:\\)"))
 
 (use-package smex
   :init (smex-initialize)
@@ -99,26 +104,51 @@
   (setq which-key-idle-delay 0.5)
   (add-hook 'after-init-hook 'which-key-mode))
 
-(use-package aggressive-indent
-  :init (add-hook 'prog-mode-hook 'global-aggressive-indent-mode))
+(use-package evil
+  :init (setq evil-magic 'very-magic
+              evil-want-C-u-scroll t)
+  :config
+  (evil-mode t)
+  (evil-set-initial-state 'term-mode 'emacs)
+  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-motion-state-map (kbd "C-]") nil)
+  (define-key evil-motion-state-map (kbd "K") nil)
+  (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
+  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
+
+  (use-package evil-leader
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+     "o" 'my/fzf
+     "r" 'avy-goto-char-timer
+     "s" 'avy-goto-char-timer))
+
+  (use-package evil-visualstar
+    :config (global-evil-visualstar-mode t))
+  (use-package evil-matchit
+    :config (global-evil-matchit-mode t)))
 
 (use-package key-chord
   :init
-  (setq key-chord-two-keys-delay .085
-        key-chord-one-key-delay .090)
   (add-hook 'after-init-hook (lambda () (key-chord-mode t)))
   :config
-  (key-chord-define-global " o" 'my/fzf)
-  (key-chord-define-global " r" 'avy-goto-char-timer)
-  (key-chord-define-global " s" 'avy-goto-char-timer)
   (key-chord-define-global ",b" 'ido-switch-buffer)
-  (key-chord-define-global ",s" 'save-buffer)
+  (key-chord-define-global ",s" 'my/save-buffers-and-goes-to-normal-mode)
   (key-chord-define-global ",v" 'split-window-horizontally)
   (key-chord-define-global ",q" 'my/delete-window-maybe-kill-buffer)
   (key-chord-define-global ",w" 'delete-other-windows)
   (key-chord-define-global ",c" 'comment-dwim)
   (key-chord-define-global ",d" 'idomenu)
-  (key-chord-define-global ",a" 'my/fzf-git-grep))
+  (key-chord-define-global ",a" 'my/fzf-git-grep)
+
+  (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode))
 
 (use-package ido
   :commands ido-switch-buffer
@@ -174,11 +204,14 @@
 (use-package flycheck
   :init (add-hook 'after-init-hook 'global-flycheck-mode)
   :config
-  (global-set-key (kbd "C-c C-n") 'my/next-error)
-  (global-set-key (kbd "C-c C-l") 'flycheck-list-errors)
-  ;;(add-hook 'flycheck-after-syntax-check-hook 'my/flycheck-list-errors-only-when-errors)
-  (setq flycheck-check-syntax-automatically '(save))
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  (evil-leader/set-key
+    "en" 'my/next-error
+    "ep" 'flycheck-previous-error)
+
+  (setq flycheck-check-syntax-automatically '(idle-change mode-enabled))
+  (setq-default flycheck-disabled-checkers
+                '(emacs-lisp emacs-lisp-checkdoc go-golint)
+                ))
 
 (use-package highlight-indent-guides
   :init
@@ -191,6 +224,8 @@
         gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq go-mode-hook (lambda ()
+                       (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
+                       (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
                        (setq imenu-generic-expression
                              '((nil "func *\\(.*\\) {" 1)))
                        (go-eldoc-setup)
@@ -204,8 +239,19 @@
   ;; C-h erases previous character
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
-  (global-set-key (kbd "RET") 'my/open-line-below)
-  (global-set-key (kbd "C-o") 'my/open-line-above))
+  (global-set-key (kbd "<C-return>") 'my/open-line-below)
+  (global-set-key (kbd "<S-return>") 'my/open-line-above)
+  (global-set-key (kbd "s-k") 'evil-scroll-line-up)
+  (global-set-key (kbd "s-j") 'evil-scroll-line-down))
+
+(defun my/save-buffers-and-goes-to-normal-mode ()
+  (interactive)
+  (save-some-buffers 'no-confirm)
+  (message "buffers has been saved")
+  (evil-normal-state))
+
+(defun disable-key-chord-mode ()
+  (set (make-local-variable 'input-method-function) nil))
 
 (defun my/open-line-below ()
   (interactive)
@@ -224,13 +270,6 @@
   (or (locate-dominating-file default-directory ".git")
       (default-directory)))
 
-(defun my/flycheck-list-errors-only-when-errors ()
-  (if flycheck-current-errors
-      (flycheck-list-errors)
-    (-when-let (buffer (get-bufferflycheck-error-list-buffer))
-      (dolist (window (get-buffer-window-list buffer))
-        (quit-window nil window)))))
-
 (defun my/next-error ()
   (interactive)
   (condition-case nil (next-error)
@@ -241,6 +280,11 @@
   (when (eq 1 (length (get-buffer-window-list)))
     (kill-this-buffer))
   (delete-window))
+
+(defun evil-paste-after-from-0 ()
+  (interactive)
+  (let ((evil-this-register ?0))
+    (call-interactively 'evil-paste-after)))
 
 (defun my/fzf-init ()
 
