@@ -9,6 +9,7 @@ ifeq ("$(wildcard ~/.emacs.d)", "")
 	mkdir ~/.emacs.d
 endif
 	ln -sf `pwd`/emacs/init.el ~/.emacs.d/init.el
+	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
 	emacs -nw --kill
 
 install-dbus:
