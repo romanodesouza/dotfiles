@@ -146,6 +146,7 @@
   (key-chord-define-global ",c" 'comment-dwim)
   (key-chord-define-global ",d" 'idomenu)
   (key-chord-define-global ",a" 'my/fzf-git-grep)
+  (key-chord-define-global "fd" 'evil-normal-state)
 
   (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode))
 
