@@ -218,6 +218,16 @@
   (setq highlight-indent-guides-method 'character)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
+(use-package project-explorer
+  :commands project-explorer-toggle
+  :init
+  (evil-leader/set-key
+    "p" 'project-explorer-toggle)
+  :config
+  (evil-define-key 'normal project-explorer-mode-map (kbd "TAB") 'pe/return)
+  (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
+  (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
+
 (use-package go-mode
   :init
   (setq company-go-insert-arguments t
