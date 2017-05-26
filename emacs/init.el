@@ -87,7 +87,7 @@
 
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook 'smooth-scrolling-mode)
-  :config (setq smooth-scroll-margin 8))
+  :config (setq smooth-scroll-margin 10))
 
 (use-package saveplace
   :init
