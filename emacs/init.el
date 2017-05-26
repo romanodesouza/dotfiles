@@ -59,8 +59,6 @@
 (add-hook 'after-init-hook 'my/key-bindings)
 ;; FZF
 (add-hook 'after-init-hook 'my/fzf-init)
-;; Centered window mode
-(add-hook 'after-init-hook 'centered-window-mode)
 
 ;; Packages
 (require 'package)
