@@ -12,6 +12,8 @@
 (setq make-backup-files nil)
 ;; Disable auto saving
 (setq auto-save-default nil)
+;; Reload file disk changed automatically
+(global-auto-revert-mode t)
 ;; Default indentation
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
