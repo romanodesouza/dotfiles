@@ -110,7 +110,6 @@
   :config
   (evil-mode t)
   (evil-set-initial-state 'term-mode 'emacs)
-  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
@@ -280,11 +279,6 @@
   (when (eq 1 (length (get-buffer-window-list)))
     (kill-this-buffer))
   (delete-window))
-
-(defun evil-paste-after-from-0 ()
-  (interactive)
-  (let ((evil-this-register ?0))
-    (call-interactively 'evil-paste-after)))
 
 (defun my/fzf-init ()
 
