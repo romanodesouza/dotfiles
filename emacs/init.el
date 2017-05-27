@@ -10,8 +10,12 @@
 (delete-selection-mode t)
 ;; Disable backup
 (setq make-backup-files nil)
+;; Disable lockfiles
+(setq create-lockfiles nil)
 ;; Disable auto saving
 (setq auto-save-default nil)
+;; Always follow vc symlinks
+(setq vc-follow-symlinks t)
 ;; Reload file disk changed automatically
 (global-auto-revert-mode t)
 ;; Default indentation
@@ -219,11 +223,14 @@
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (use-package project-explorer
-  :commands project-explorer-toggle
+  :commands (project-explorer-open project-explorer-toggle)
   :init
+  (setq pe/project-root-function 'projectile-project-root
+        pe/width 30)
+  (add-hook 'after-init-hook 'project-explorer-open)
+  :config
   (evil-leader/set-key
     "p" 'project-explorer-toggle)
-  :config
   (evil-define-key 'normal project-explorer-mode-map (kbd "TAB") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
