@@ -99,7 +99,8 @@
   :init (powerline-default-theme))
 
 (use-package centered-window-mode
-  :commands centered-window-mode)
+  :commands centered-window-mode
+  :init (add-hook 'after-init-hook 'centered-window-mode))
 
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook 'smooth-scrolling-mode)
@@ -239,10 +240,9 @@
   :init
   (setq pe/project-root-function 'projectile-project-root
         pe/width 30)
-  (add-hook 'after-init-hook 'project-explorer-open)
-  :config
   (evil-leader/set-key
     "p" 'project-explorer-toggle)
+  :config
   (evil-define-key 'normal project-explorer-mode-map (kbd "TAB") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
