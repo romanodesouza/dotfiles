@@ -61,8 +61,6 @@
 (set-frame-font my/font nil t)
 ;; Set key bindings
 (add-hook 'after-init-hook 'my/key-bindings)
-;; FZF
-(add-hook 'after-init-hook 'my/fzf-init)
 
 ;; Packages
 (require 'package)
@@ -78,8 +76,22 @@
 (setq use-package-always-ensure t)
 (require 'use-package)
 
-;; (use-package solarized-theme
-;;   :init (load-theme 'solarized-light t))
+;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+
+;; fzf fork
+(el-get-bundle fzf
+  :url "git@github.com:romanoaugusto88/fzf.el.git"
+  :features fzf
+  (setq fzf/args "-x --margin 1,0"
+        fzf/window-height 8))
 
 (use-package darcula-theme)
 
@@ -129,7 +141,7 @@
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
-     "o" 'my/fzf
+     "o" 'fzf
      "r" 'avy-goto-char-timer
      "s" 'avy-goto-char-timer))
 
@@ -149,7 +161,7 @@
   (key-chord-define-global ",w" 'delete-other-windows)
   (key-chord-define-global ",c" 'comment-dwim)
   (key-chord-define-global ",d" 'idomenu)
-  (key-chord-define-global ",a" 'my/fzf-git-grep)
+  (key-chord-define-global ",a" 'fzf-git-grep)
   (key-chord-define-global "fd" 'evil-normal-state)
 
   (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode))
@@ -298,52 +310,5 @@
     (kill-this-buffer))
   (delete-window))
 
-(defun my/fzf-init ()
-
-  (defun my/fzf-after-term-handle-exit (process-name msg)
-    (let* ((text (buffer-substring-no-properties (point-min) (point-max)))
-           (lines (split-string text "\n" t "\s.*\s"))
-           (line (car (last (butlast lines 1))))
-           (splitted (split-string line ":"))
-           (target (pop splitted))
-           (linenumber (pop splitted))
-           (file (expand-file-name target)))
-      (jump-to-register :fzf-windows)
-      (when (file-exists-p file)
-        (find-file file)
-        (when linenumber
-          (goto-line (string-to-number linenumber)))))
-    (advice-remove 'term-handle-exit #'my/fzf-after-term-handle-exit))
-
-  (defun my/fzf-run (cmd)
-    (window-configuration-to-register :fzf-windows)
-    (advice-add 'term-handle-exit :after #'my/fzf-after-term-handle-exit)
-    (split-window-vertically)
-    (other-window 1)
-    (let ((buffer (make-term "*fzf*" "sh" nil "-c" (concat (when cmd (concat cmd " | ")) "fzf -x --margin 1,0"))))
-      (set-buffer buffer)
-      (setq-local default-directory (projectile-project-root))
-      (term-mode)
-      (term-char-mode)
-      (switch-to-buffer buffer)))
-
-  (defun my/fzf ()
-    (interactive)
-    (my/fzf-run nil))
-
-  (defun my/fzf-git-grep ()
-    (interactive)
-    (my/fzf-run (concat "git grep --line-number "
-                        (if (region-active-p)
-                            (buffer-substring-no-properties (region-beginning) (region-end))
-                          (call-interactively (lambda (input)
-                                                (interactive "sgit grep: ")
-                                                input))
-                          )
-                        " -- './*' '!vendor/' '!node_modules/'"
-                        )
-                )
-    )
-  )
 
 ;;; init.el ends here
