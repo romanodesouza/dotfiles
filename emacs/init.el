@@ -140,6 +140,7 @@
   (use-package evil-leader
     :config
     (global-evil-leader-mode)
+    (fset 'evil-visual-update-x-selection 'ignore)
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
      "o" 'fzf
