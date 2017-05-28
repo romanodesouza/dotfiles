@@ -297,7 +297,7 @@
 
 (defun projectile-project-root ()
   (or (locate-dominating-file default-directory ".git")
-      (default-directory)))
+      default-directory))
 
 (defun my/next-error ()
   (interactive)
