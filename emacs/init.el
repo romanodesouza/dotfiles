@@ -225,7 +225,7 @@
     "en" 'my/next-error
     "ep" 'flycheck-previous-error)
 
-  (setq flycheck-check-syntax-automatically '(idle-change mode-enabled))
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (setq-default flycheck-disabled-checkers
                 '(emacs-lisp emacs-lisp-checkdoc go-golint)
                 ))
