@@ -257,6 +257,15 @@
             "pp" 'pomodoro-pause
             "pr" 'pomodoro-resume))
 
+(use-package git-timemachine
+  :commands (git-timemachine)
+  :init
+  (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)
+  (evil-leader/set-key
+    "gt" 'git-timemachine)
+  :config
+  (evil-make-overriding-map git-timemachine-mode-map 'normal))
+
 (use-package go-mode
   :init
   (setq company-go-insert-arguments t
