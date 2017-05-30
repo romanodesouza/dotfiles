@@ -90,8 +90,11 @@
 (el-get-bundle fzf
   :url "git@github.com:romanoaugusto88/fzf.el.git"
   :features fzf
-  (setq fzf/args "-x --margin 1,0"
-        fzf/window-height 8))
+  (setq fzf/args "-x --margin 1,0")
+  (add-hook 'term-mode-hook 'my-term-mode-hook)
+  (defun my-term-mode-hook ()
+    ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
+    (setq bidi-paragraph-direction 'left-to-right)))
 
 (use-package darcula-theme)
 
