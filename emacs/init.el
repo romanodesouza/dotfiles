@@ -244,11 +244,18 @@
   (setq pe/project-root-function 'projectile-project-root
         pe/width 30)
   (evil-leader/set-key
-    "p" 'project-explorer-toggle)
+    "x" 'project-explorer-toggle)
   :config
   (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
+
+(use-package pomodoro
+  :init (add-hook 'after-init-hook 'pomodoro-add-to-mode-line)
+  :config (evil-leader/set-key
+            "ps" 'pomodoro-start
+            "pp" 'pomodoro-pause
+            "pr" 'pomodoro-resume))
 
 (use-package go-mode
   :init
