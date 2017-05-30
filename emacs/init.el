@@ -202,9 +202,8 @@
   :init (setq avy-background t))
 
 (use-package expand-region
-  :bind
-  ("C-=" . er/expand-region)
-  ("C--" . er/contract-region))
+  :commands (er/expand-region)
+  :init (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
 
 (use-package multiple-cursors
   :bind ("M-n" . mc/mark-more-like-this-extended)
@@ -247,7 +246,7 @@
   (evil-leader/set-key
     "p" 'project-explorer-toggle)
   :config
-  (evil-define-key 'normal project-explorer-mode-map (kbd "TAB") 'pe/return)
+  (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
 
