@@ -238,7 +238,8 @@
   :commands (project-explorer-open project-explorer-toggle)
   :init
   (setq pe/project-root-function 'projectile-project-root
-        pe/width 30)
+        pe/width 30
+        pe/follow-current t)
   (evil-leader/set-key
     "x" 'project-explorer-toggle)
   :config
