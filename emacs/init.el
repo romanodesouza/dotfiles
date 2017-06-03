@@ -101,10 +101,6 @@
 (use-package powerline
   :init (powerline-default-theme))
 
-(use-package centered-window-mode
-  :commands centered-window-mode
-  :init (add-hook 'after-init-hook 'centered-window-mode))
-
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook 'smooth-scrolling-mode)
   :config (setq smooth-scroll-margin 10))
