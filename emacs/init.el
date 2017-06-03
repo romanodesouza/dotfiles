@@ -143,8 +143,8 @@
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
      "o" 'fzf
-     "r" 'avy-goto-char-timer
-     "s" 'avy-goto-char-timer))
+     "r" 'isearch-backward
+     "s" 'isearch-forward))
 
   (use-package evil-visualstar
     :config (global-evil-visualstar-mode t))
@@ -194,8 +194,10 @@
     :commands idomenu))
 
 (use-package avy
-  :commands avy-goto-char-timer
-  :init (setq avy-background t))
+  :commands avy-isearch
+  :init
+  (setq avy-background t)
+  (define-key isearch-mode-map (kbd "C-o") 'avy-isearch))
 
 (use-package expand-region
   :commands (er/expand-region)
@@ -287,7 +289,9 @@
   (global-set-key (kbd "<C-return>") 'my/open-line-below)
   (global-set-key (kbd "<S-return>") 'my/open-line-above)
   (global-set-key (kbd "s-k") 'evil-scroll-line-up)
-  (global-set-key (kbd "s-j") 'evil-scroll-line-down))
+  (global-set-key (kbd "s-j") 'evil-scroll-line-down)
+  (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+  (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward))
 
 (defun my/save-buffers-and-goes-to-normal-mode ()
   (interactive)
