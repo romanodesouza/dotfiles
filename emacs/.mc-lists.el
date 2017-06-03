@@ -32,6 +32,7 @@
         evil-ex
         evil-ex-search-next
         evil-window-down
+        my/save-buffers-and-goes-to-normal-mode
         save-buffer-and-goes-to-normal-mode
         smex
         switch-to-previous-buffer

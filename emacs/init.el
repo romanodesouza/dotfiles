@@ -135,6 +135,8 @@
   (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-motion-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-motion-state-map (kbd "j") (kbd "gj"))
+  (define-key evil-motion-state-map (kbd "k") (kbd "gk"))
 
   (use-package evil-leader
     :config
