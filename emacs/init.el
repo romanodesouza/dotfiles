@@ -173,7 +173,7 @@
   :commands ido-switch-buffer
   :init (setq ido-enable-flex-matching t
               ido-ignore-extensions t
-              ido-use-virtual-buffers t
+              ido-use-virtual-buffers nil
               ido-ignore-buffers '("\\` " "^\*")
               ido-everywhere t)
   :config
