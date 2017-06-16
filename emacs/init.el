@@ -146,7 +146,8 @@
     (evil-leader/set-key
      "o" 'fzf
      "r" 'isearch-backward
-     "s" 'isearch-forward))
+     "s" 'isearch-forward
+     "en" 'my/next-error))
 
   (use-package evil-visualstar
     :config (global-evil-visualstar-mode t))
@@ -165,6 +166,7 @@
   (key-chord-define-global ",c" 'comment-dwim)
   (key-chord-define-global ",d" 'idomenu)
   (key-chord-define-global ",a" 'fzf-git-grep)
+  (key-chord-define-global ",e" 'end-of-line)
   (key-chord-define-global "fd" 'evil-normal-state)
 
   (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode))
@@ -213,25 +215,14 @@
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-idle-delay 0.1
-        company-minimum-prefix-length 1
+        company-minimum-prefix-length 2
         company-tooltip-limit 20
-        company-dabbrev-ignore-case t
-        company-dabbrev-downcase nil
-        company-backends '(company-elisp company-dabbrev company-dabbrev-code company-file))
+        company-backends '(company-elisp company-file))
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
-
-(use-package flycheck
-  :init (add-hook 'after-init-hook 'global-flycheck-mode)
-  :config
-  (evil-leader/set-key
-    "en" 'my/next-error
-    "ep" 'flycheck-previous-error)
-
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (setq-default flycheck-disabled-checkers
-                '(emacs-lisp emacs-lisp-checkdoc go-golint)
-                ))
 
 (use-package highlight-indent-guides
   :init
@@ -250,6 +241,10 @@
   (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
+
+(use-package smartparens
+  :commands (smartparens-mode)
+  :init (add-hook 'prog-mode-hook 'smartparens-mode))
 
 (use-package pomodoro
   :init (add-hook 'after-init-hook 'pomodoro-add-to-mode-line)
@@ -291,9 +286,7 @@
   (global-set-key (kbd "<C-return>") 'my/open-line-below)
   (global-set-key (kbd "<S-return>") 'my/open-line-above)
   (global-set-key (kbd "s-k") 'evil-scroll-line-up)
-  (global-set-key (kbd "s-j") 'evil-scroll-line-down)
-  (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
-  (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward))
+  (global-set-key (kbd "s-j") 'evil-scroll-line-down))
 
 (defun my/save-buffers-and-goes-to-normal-mode ()
   (interactive)
