@@ -28,52 +28,6 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
 
-if has('nvim')
-" TComment
-Plug 'tomtom/tcomment_vim'
-let g:tcommentMapLeader1='<C-;>'
-
-" expand region
-Plug 'terryma/vim-expand-region'
-
-" Distraction-free mode
-Plug 'junegunn/Goyo.vim'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
-
-" YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
-
-" Go
-Plug 'fatih/vim-go'
-let g:go_def_mode = 'godef'
-let g:go_fmt_command = 'goimports'
-let g:go_doc_keywordprg_enabled = 0
-au FileType go nmap <buffer> <leader>d :BLines func{ <CR>
-au FileType go nmap <buffer> <C-]> <Plug>(go-def)
-au FileType go nmap <buffer> <leader>r <Plug>(go-rename)
-au FileType go nmap <buffer> <leader>gr <Plug>(go-referrers)
-au FileType go nmap <buffer> <silent> K :GoInfo<CR>
-
-" TypeScript
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'yarn' }
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
-" PHP
-au FileType php nmap <leader>d :BLines function <CR>
-
-" Python
-au FileType python nmap<leader>d :BLines def: <CR>
-end
-
 call plug#end()
 
 augroup resCur
@@ -165,11 +119,6 @@ set history=1000
 set fileformats=unix,mac,dos
 set ruler
 set title
-
-if has('nvim')
-set viminfo='10,\"100,:20,%,n~/.nviminfo
-set inccommand=nosplit
-end
 
 nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
