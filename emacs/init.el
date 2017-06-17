@@ -217,9 +217,6 @@
         company-minimum-prefix-length 2
         company-tooltip-limit 20
         company-backends '(company-elisp company-file))
-  (define-key company-active-map (kbd "<return>") nil)
-  (define-key company-active-map (kbd "RET") nil)
-  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
