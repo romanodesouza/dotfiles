@@ -19,6 +19,11 @@ install-dbus:
 install-git:
 	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
 
+install-gitsh:
+	git clone --depth 1 git://github.com/rtomayko/git-sh.git ~/.git-sh || true
+	cd ~/.git-sh && make && sudo make install
+	ln -sf `pwd`/.gitshrc ~/.gitshrc
+
 install-idea:
 	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
 
@@ -57,6 +62,7 @@ install: \
 	install-dbus \
 	install-idea \
 	install-git \
+	install-gitsh \
 	install-ssh \
 	install-terminator \
 	install-top \
