@@ -1,23 +1,21 @@
+install-autostart:
+	ln -sf `pwd`/.config/autostart/* ~/.config/autostart/
+
 install-bash:
-	ln -sf `pwd`/bash/.bashrc ~/.bashrc
-	ln -sf `pwd`/bash/.bash_profile ~/.bash_profile
-	ln -sf `pwd`/bash/.bash_aliases ~/.bash_aliases
-	ln -sf `pwd`/bash/.bash_functions ~/.bash_functions
+	ln -sf `pwd`/.bashrc ~/.bashrc
+	ln -sf `pwd`/.bash_profile ~/.bash_profile
+	ln -sf `pwd`/.bash_aliases ~/.bash_aliases
+	ln -sf `pwd`/.bash_functions ~/.bash_functions
 
 install-emacs:
 ifeq ("$(wildcard ~/.emacs.d)", "")
-	mkdir ~/.emacs.d
+       mkdir ~/.emacs.d
 endif
-	ln -sf `pwd`/emacs/init.el ~/.emacs.d/init.el
-	ln -sf `pwd`/emacs/.mc-lists.el ~/.emacs.d/.mc-lists.el
+	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
 	emacs -nw --kill
 
-install-dbus:
-	mkdir -p ~/.config/dbus 2>/dev/null
-	ln -sf `pwd`/dbus/* ~/.config/dbus/
-
 install-git:
-	ln -sf `pwd`/git/.gitconfig ~/.gitconfig
+	ln -sf `pwd`/.gitconfig ~/.gitconfig
 
 install-gitsh:
 	git clone --depth 1 git://github.com/rtomayko/git-sh.git ~/.git-sh || true
@@ -25,21 +23,20 @@ install-gitsh:
 	ln -sf `pwd`/.gitshrc ~/.gitshrc
 
 install-idea:
-	ln -sf `pwd`/idea/.ideavimrc ~/.ideavimrc
+	ln -sf `pwd`/.ideavimrc ~/.ideavimrc
 
 install-ssh:
-	ln -sf `pwd`/ssh/config ~/.ssh/config
+	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
 install-terminator:
-	mkdir -p ~/.config/terminator 2>/dev/null
-	ln -sf `pwd`/terminator/config ~/.config/terminator/
+	rm -rf ~/.config/terminator || true
+	ln -sf `pwd`/.config/terminator/ ~/.config/
 
 install-top:
-	ln -sf `pwd`/top/.toprc ~/.toprc
+	ln -sf `pwd`/.toprc ~/.toprc
 
 install-vim:
-	ln -sf `pwd`/vim/.vimrc ~/.vimrc
-	ln -sf `pwd`/vim/.gvimrc ~/.gvimrc
+	ln -sf `pwd`/.vimrc ~/.vimrc
 ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -48,18 +45,17 @@ endif
 
 install-x11:
 ifeq ($(shell hostname),yoga)
-	ln -sf `pwd`/x11/.Xmodmap.yoga ~/.Xmodmap
+	ln -sf `pwd`/.Xmodmap.yoga ~/.Xmodmap
 else
-	ln -sf `pwd`/x11/.Xmodmap ~/.Xmodmap
+	ln -sf `pwd`/.Xmodmap ~/.Xmodmap
 endif
 	xmodmap ~/.Xmodmap
-	ln -sf `pwd`/x11/.Xresources ~/.Xresources
-	ln -sf `pwd`/x11/autostart/* ~/.config/autostart/
+	ln -sf `pwd`/.Xresources ~/.Xresources
 
 install: \
+	install-autostart \
 	install-bash \
 	install-emacs \
-	install-dbus \
 	install-idea \
 	install-git \
 	install-gitsh \
