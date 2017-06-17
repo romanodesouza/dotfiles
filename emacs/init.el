@@ -155,8 +155,7 @@
     :config (global-evil-matchit-mode t)))
 
 (use-package key-chord
-  :init
-  (add-hook 'after-init-hook (lambda () (key-chord-mode t)))
+  :init (add-hook 'after-init-hook (lambda () (key-chord-mode t)))
   :config
   (key-chord-define-global ",b" 'ido-switch-buffer)
   (key-chord-define-global ",s" 'my/save-buffers-and-goes-to-normal-mode)
@@ -260,7 +259,9 @@
   (evil-leader/set-key
     "gt" 'git-timemachine)
   :config
-  (evil-make-overriding-map git-timemachine-mode-map 'normal))
+  (evil-define-key 'normal git-timemachine-mode-map (kbd "p") 'git-timemachine-show-previous-revision)
+  (evil-define-key 'normal git-timemachine-mode-map (kbd "n") 'git-timemachine-show-next-revision)
+  (evil-define-key 'normal git-timemachine-mode-map (kbd "q") 'git-timemachine-quit))
 
 (use-package go-mode
   :init
