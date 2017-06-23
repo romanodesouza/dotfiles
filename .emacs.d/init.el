@@ -211,14 +211,26 @@
   :config (define-key mc/mark-more-like-this-extended-keymap (kbd "M-n") 'mc/mmlte--down))
 
 (use-package company
+  :commands (global-company-mode)
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-idle-delay 0.1
-        company-minimum-prefix-length 2
+        company-minimum-prefix-length 1
         company-tooltip-limit 20
+        company-echo-delay 0
+        company-begin-commands '(self-insert-command)
         company-backends '(company-elisp company-file))
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
+(use-package yasnippet
+  :commands (yas-global-mode yas-minor-mode)
+  :init (add-hook 'prog-mode-hook 'yas-global-mode))
+
+(use-package magit
+  :commands (magit-status)
+  :init (evil-leader/set-key
+          "gs" 'magit-status))
 
 (use-package highlight-indent-guides
   :init
@@ -237,10 +249,6 @@
   (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
-
-(use-package smartparens
-  :commands (smartparens-mode)
-  :init (add-hook 'prog-mode-hook 'smartparens-mode))
 
 (use-package pomodoro
   :init (add-hook 'after-init-hook 'pomodoro-add-to-mode-line)
@@ -268,10 +276,9 @@
   (setq go-mode-hook (lambda ()
                        (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
                        (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
-                       (setq imenu-generic-expression
-                             '((nil "func *\\(.*\\) {" 1)))
+                       (setq imenu-generic-expression '((nil "func *\\(.*\\) {" 1)))
                        (go-eldoc-setup)
-                       (add-to-list 'company-backends 'company-go)))
+                       (set (make-local-variable 'company-backends) '((company-files company-go company-yasnippet)))))
   :config
   (use-package company-go)
   (use-package go-eldoc))
