@@ -230,7 +230,8 @@
 (use-package magit
   :commands (magit-status)
   :init (evil-leader/set-key
-          "gs" 'magit-status))
+          "gs" 'magit-status
+          "gl" 'magit-log-head))
 
 (use-package highlight-indent-guides
   :init
