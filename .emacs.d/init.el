@@ -312,6 +312,21 @@
                                 (emmet-mode)
                                 (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
 
+;; Programming related modes
+(use-package yaml-mode
+  :mode "\\.ya?ml$")
+
+(use-package dockerfile-mode
+  :mode "Dockerfile")
+
+(use-package nginx-mode
+  :commands (nginx-mode)
+  :init (add-to-list 'auto-mode-alist '("/nginx" . nginx-mode)))
+
+(use-package crontab-mode
+  :commands (crontab-mode)
+  :init (add-to-list 'auto-mode-alist '("/cron" . crontab-mode)))
+
 ;; Functions
 (defun my/key-bindings ()
   ;; C-h erases previous character
