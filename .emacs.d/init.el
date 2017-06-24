@@ -311,7 +311,7 @@
 ;; React
 (use-package rjsx-mode
   :commands (rjsx-mode)
-  :init (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
+  :init (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*import React" . rjsx-mode))
   :config
   (add-hook 'rjsx-mode-hook (lambda ()
                               (yas-activate-extra-mode 'js2-mode)
