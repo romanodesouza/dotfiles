@@ -221,7 +221,7 @@
         company-tooltip-limit 20
         company-echo-delay 0
         company-begin-commands '(self-insert-command)
-        company-backends '(company-elisp company-file))
+        company-backends '(company-elisp company-files))
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
@@ -302,6 +302,11 @@
   (add-hook 'js2-mode-hook (lambda ()
                              (js2-imenu-extras-mode)
                              (add-hook 'after-save-hook 'eslint-fix nil t)
+                             (add-hook 'company-completion-finished-hook #'(lambda (candidate)
+                                                                             (when (derived-mode-p 'js2-mode)
+                                                                               (when (string-suffix-p ".js" candidate)
+                                                                                 (message company-backend)
+                                                                                 (delete-backward-char 3)))))
                              (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
 
 ;; React
