@@ -271,6 +271,9 @@
   (evil-define-key 'normal git-timemachine-mode-map (kbd "n") 'git-timemachine-show-next-revision)
   (evil-define-key 'normal git-timemachine-mode-map (kbd "q") 'git-timemachine-quit))
 
+(use-package editorconfig
+  :config (editorconfig-mode t))
+
 ;; Programming modes
 ;; Go
 (use-package go-mode
@@ -291,12 +294,14 @@
 
 ;; Javascript
 (use-package js2-mode
-  :mode "\\.js$"
+  :mode "\\.jsx?$"
   :config
   (setq js-indent-level 2)
   (setq-default js2-basic-offset 2)
+  (use-package eslint-fix)
   (add-hook 'js2-mode-hook (lambda ()
                              (js2-imenu-extras-mode)
+                             (add-hook 'after-save-hook 'eslint-fix nil t)
                              (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
 
 ;; React
