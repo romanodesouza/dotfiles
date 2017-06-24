@@ -303,8 +303,14 @@
 (use-package rjsx-mode
   :commands (rjsx-mode)
   :init (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
-  :config (add-hook 'rjsx-mode-hook (lambda ()
-                                      (yas-activate-extra-mode 'js2-mode))))
+  :config
+  (add-hook 'rjsx-mode-hook (lambda ()
+                              (yas-activate-extra-mode 'js2-mode)
+                              (use-package emmet-mode
+                                :init
+                                (setq-local emmet-expand-jsx-className? t)
+                                (emmet-mode)
+                                (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
 
 ;; Functions
 (defun my/key-bindings ()
