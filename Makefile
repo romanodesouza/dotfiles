@@ -9,7 +9,7 @@ install-bash:
 
 install-emacs:
 ifeq ("$(wildcard ~/.emacs.d)", "")
-       mkdir ~/.emacs.d
+	mkdir ~/.emacs.d
 endif
 	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
 	emacs -nw --kill

@@ -1,0 +1,5 @@
+# emacs
+.emacs.d/**/*.elc
+.emacs.d/**/*.signed
+.emacs.d/elpa/archives/
+.emacs.d/elpa/gnupg/

@@ -1,0 +1,1 @@
+(define-package "project-explorer" "20150503.1714" "A project explorer sidebar" '((cl-lib "0.3") (es-lib "0.3") (es-windows "0.1") (emacs "24")) :commit "589a09008706f5f4ef91393dc4306eede0d15ca9" :url "https://github.com/sabof/project-explorer")
