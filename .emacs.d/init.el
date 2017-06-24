@@ -305,7 +305,6 @@
                              (add-hook 'company-completion-finished-hook #'(lambda (candidate)
                                                                              (when (derived-mode-p 'js2-mode)
                                                                                (when (string-suffix-p ".js" candidate)
-                                                                                 (message company-backend)
                                                                                  (delete-backward-char 3)))))
                              (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
 
