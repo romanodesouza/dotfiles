@@ -271,7 +271,10 @@
   (evil-define-key 'normal git-timemachine-mode-map (kbd "n") 'git-timemachine-show-next-revision)
   (evil-define-key 'normal git-timemachine-mode-map (kbd "q") 'git-timemachine-quit))
 
+;; Programming modes
+;; Go
 (use-package go-mode
+  :mode "\\.go$"
   :init
   (setq company-go-insert-arguments t
         gofmt-command "goimports")
@@ -285,6 +288,23 @@
   :config
   (use-package company-go)
   (use-package go-eldoc))
+
+;; Javascript
+(use-package js2-mode
+  :mode "\\.js$"
+  :config
+  (setq js-indent-level 2)
+  (setq-default js2-basic-offset 2)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (js2-imenu-extras-mode)
+                             (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
+
+;; React
+(use-package rjsx-mode
+  :commands (rjsx-mode)
+  :init (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
+  :config (add-hook 'rjsx-mode-hook (lambda ()
+                                      (yas-activate-extra-mode 'js2-mode))))
 
 ;; Functions
 (defun my/key-bindings ()
