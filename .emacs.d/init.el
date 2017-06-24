@@ -96,7 +96,9 @@
     ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
     (setq bidi-paragraph-direction 'left-to-right)))
 
-(use-package darcula-theme)
+;;(use-package darcula-theme)
+(use-package dracula-theme
+  :config (load-theme 'dracula t))
 
 (use-package powerline
   :init (powerline-default-theme))
