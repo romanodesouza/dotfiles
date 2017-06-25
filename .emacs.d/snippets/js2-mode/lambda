@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: arrow function
+# key: lambda
+# --
+$1 => {
+	$0
+}

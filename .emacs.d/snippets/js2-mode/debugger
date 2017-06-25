@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: debugger
-# key: d
+# key: debugger
 # --
-debugger
+debugger;

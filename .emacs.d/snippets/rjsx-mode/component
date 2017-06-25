@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: component
+# key: component
+# --
+class ${1:Name} extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {$2};
+  }
+
+  render() {
+    return (
+      $0
+    );
+  }
+}

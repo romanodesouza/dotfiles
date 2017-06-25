@@ -229,7 +229,8 @@
 
 (use-package yasnippet
   :commands (yas-global-mode yas-minor-mode)
-  :init (add-hook 'prog-mode-hook 'yas-global-mode))
+  :init (add-hook 'prog-mode-hook 'yas-global-mode)
+  :config (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
 
 (use-package magit
   :commands (magit-status)
