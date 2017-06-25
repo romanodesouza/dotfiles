@@ -159,18 +159,20 @@
 (use-package key-chord
   :init (add-hook 'after-init-hook (lambda () (key-chord-mode t)))
   :config
-  (key-chord-define-global ",b" 'ido-switch-buffer)
-  (key-chord-define-global ",s" 'my/save-buffers-and-goes-to-normal-mode)
-  (key-chord-define-global ",v" 'split-window-horizontally)
-  (key-chord-define-global ",q" 'my/delete-window-maybe-kill-buffer)
-  (key-chord-define-global ",w" 'delete-other-windows)
-  (key-chord-define-global ",c" 'comment-dwim)
-  (key-chord-define-global ",d" 'idomenu)
-  (key-chord-define-global ",a" 'fzf-git-grep)
-  (key-chord-define-global ",e" 'end-of-line)
-  (key-chord-define-global "fd" 'evil-normal-state)
+  (use-package key-seq
+    :config
+    (key-seq-define-global ",b" 'ido-switch-buffer)
+    (key-seq-define-global ",s" 'my/save-buffers-and-goes-to-normal-mode)
+    (key-seq-define-global ",v" 'split-window-horizontally)
+    (key-seq-define-global ",q" 'my/delete-window-maybe-kill-buffer)
+    (key-seq-define-global ",w" 'delete-other-windows)
+    (key-seq-define-global ",c" 'comment-dwim)
+    (key-seq-define-global ",d" 'idomenu)
+    (key-seq-define-global ",a" 'fzf-git-grep)
+    (key-seq-define-global ",e" 'end-of-line)
+    (key-seq-define-global "fd" 'evil-normal-state)
 
-  (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode))
+    (add-hook 'minibuffer-setup-hook #'my/disable-key-chord-mode)))
 
 (use-package ido
   :commands ido-switch-buffer
@@ -353,7 +355,7 @@
   (message "buffers has been saved")
   (evil-normal-state))
 
-(defun disable-key-chord-mode ()
+(defun my/disable-key-chord-mode ()
   (set (make-local-variable 'input-method-function) nil))
 
 (defun my/open-line-below ()
