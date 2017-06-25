@@ -330,6 +330,32 @@
                                 (emmet-mode)
                                 (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
 
+;; Ruby/Rails
+(add-hook 'ruby-mode-hook (lambda()
+                            (use-package inf-ruby
+                              :config
+                              (inf-ruby-minor-mode)
+                              (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter))
+
+                            (use-package robe
+                              :config
+                              (robe-mode)
+                              (set (make-local-variable 'company-backends) '((company-files company-robe company-yasnippet)))
+                              (evil-define-key 'normal robe-mode-map (kbd "C-]") 'robe-jump)
+                              (evil-define-key 'normal robe-mode-map (kbd "K") 'robe-eldoc))
+
+                            (use-package rinari
+                              :config
+                              (rinari-minor-mode)
+                              (dolist (mode '(ruby-mode html-mode))
+                                            (evil-leader/set-key-for-mode mode
+                                              "fr" 'rinari-find-routes
+                                              "fh" 'rinari-find-helper
+                                              "fc" 'rinari-find-controller
+                                              "fm" 'rinari-find-model
+                                              "fd" 'rinari-find-migration
+                                              "fv" 'rinari-find-view)))))
+
 ;; Programming related modes
 (use-package yaml-mode
   :mode "\\.ya?ml$")
