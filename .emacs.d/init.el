@@ -314,6 +314,7 @@
   :init (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*import React" . rjsx-mode))
   :config
   (add-hook 'rjsx-mode-hook (lambda ()
+                              (evil-define-key 'insert rjsx-mode-map (kbd "C-d") 'rjsx-delete-creates-full-tag)
                               (yas-activate-extra-mode 'js2-mode)
                               (use-package emmet-mode
                                 :init
