@@ -243,6 +243,10 @@
   (setq highlight-indent-guides-method 'character)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
+(use-package smartparens
+  :commands (smartparens-mode)
+  :init (add-hook 'prog-mode-hook 'smartparens-mode))
+
 (use-package project-explorer
   :commands (project-explorer-open project-explorer-toggle)
   :init
