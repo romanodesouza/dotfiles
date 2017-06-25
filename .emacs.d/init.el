@@ -245,7 +245,8 @@
 
 (use-package smartparens
   :commands (smartparens-mode)
-  :init (add-hook 'prog-mode-hook 'smartparens-mode))
+  :init (add-hook 'prog-mode-hook 'smartparens-mode)
+  :config (sp-local-pair 'prog-mode "{" nil :post-handlers '((my/create-newline-and-enter-sexp "RET"))))
 
 (use-package project-explorer
   :commands (project-explorer-open project-explorer-toggle)
@@ -349,8 +350,6 @@
   ;; C-h erases previous character
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
-  (global-set-key (kbd "<C-return>") 'my/open-line-below)
-  (global-set-key (kbd "<S-return>") 'my/open-line-above)
   (global-set-key (kbd "s-k") 'evil-scroll-line-up)
   (global-set-key (kbd "s-j") 'evil-scroll-line-down))
 
@@ -362,19 +361,6 @@
 
 (defun my/disable-key-chord-mode ()
   (set (make-local-variable 'input-method-function) nil))
-
-(defun my/open-line-below ()
-  (interactive)
-  (end-of-line)
-  (newline)
-  (indent-for-tab-command))
-
-(defun my/open-line-above ()
-  (interactive)
-  (beginning-of-line)
-  (newline)
-  (forward-line -1)
-  (indent-for-tab-command))
 
 (defun projectile-project-root ()
   (or (locate-dominating-file default-directory ".git")
@@ -390,6 +376,12 @@
   (when (eq 1 (length (get-buffer-window-list)))
     (kill-this-buffer))
   (delete-window))
+
+(defun my/create-newline-and-enter-sexp (&rest _ignored)
+  (newline)
+  (indent-according-to-mode)
+  (forward-line -1)
+  (indent-according-to-mode))
 
 
 ;;; init.el ends here
