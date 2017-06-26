@@ -1,4 +1,5 @@
 install-autostart:
+	mkdir -p ~/.config/autostart/ || true
 	ln -sf `pwd`/.config/autostart/* ~/.config/autostart/
 
 install-bash:
