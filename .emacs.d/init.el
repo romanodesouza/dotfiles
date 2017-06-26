@@ -330,6 +330,13 @@
                                 (emmet-mode)
                                 (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
 
+;; Elixir
+(use-package alchemist
+  :mode "\\.exs$"
+  :config
+  (elixir-mode)
+  (alchemist-mode))
+
 ;; Ruby/Rails
 (add-hook 'ruby-mode-hook (lambda()
                             (use-package inf-ruby
