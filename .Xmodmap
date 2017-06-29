@@ -7,7 +7,7 @@ keycode 49 = quotedbl apostrophe quotedbl apostrophe
 keycode 80 = Up
 keycode 83 = Left
 keycode 85 = Right
-keycode 89 = Down
+keycode 88 = Down
 
 keycode 111 = Shift_L Shift_R
 keycode 113 = slash question
