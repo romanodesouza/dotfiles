@@ -304,7 +304,9 @@
 (use-package js2-mode
   :mode "\\.jsx?$"
   :config
-  (setq js-indent-level 2)
+  (setq js-indent-level 2
+        js2-strict-missing-semi-warning nil
+        js2-strict-trailing-comma-warning nil)
   (setq-default js2-basic-offset 2)
   (use-package eslint-fix)
   (add-hook 'js2-mode-hook (lambda ()
