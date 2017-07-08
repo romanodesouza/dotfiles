@@ -8,6 +8,7 @@
   go_left = <Alt>h
   go_right = <Alt>l
   go_up = <Alt>k
+  hide_window = F12
   layout_launcher = <Shift><Alt>l
   split_horiz = <Alt>o
   split_vert = <Alt>i
