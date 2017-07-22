@@ -122,6 +122,8 @@
   (setq which-key-idle-delay 0.5)
   (add-hook 'after-init-hook 'which-key-mode))
 
+(use-package simpleclip)
+
 (use-package evil
   :init (setq evil-magic 'very-magic
               evil-want-C-u-scroll t)
