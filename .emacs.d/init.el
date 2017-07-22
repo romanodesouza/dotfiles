@@ -59,8 +59,8 @@
 (defvar my/font "Liberation Mono 12")
 (set-face-attribute 'default nil :font my/font)
 (set-frame-font my/font nil t)
-;; Set key bindings
-(add-hook 'after-init-hook 'my/key-bindings)
+;; init after init :P
+(add-hook 'after-init-hook 'my/init)
 
 ;; Packages
 (require 'package)
@@ -363,6 +363,12 @@
   :init (add-to-list 'auto-mode-alist '("/cron" . crontab-mode)))
 
 ;; Functions
+(defun my/init ()
+  (my/key-bindings)
+  ;; Enable mouse when running in terminal
+  (unless (display-graphic-p)
+    (xterm-mouse-mode)))
+
 (defun my/key-bindings ()
   ;; C-h erases previous character
   (global-set-key (kbd "C-h") 'delete-backward-char)
