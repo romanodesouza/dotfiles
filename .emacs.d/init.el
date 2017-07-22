@@ -232,17 +232,6 @@
   :init (add-hook 'prog-mode-hook 'yas-global-mode)
   :config (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
 
-(use-package magit
-  :commands (magit-status)
-  :init (evil-leader/set-key
-          "gs" 'magit-status
-          "gl" 'magit-log-head))
-
-(use-package highlight-indent-guides
-  :init
-  (setq highlight-indent-guides-method 'character)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
-
 (use-package smartparens
   :commands (smartparens-mode)
   :init (add-hook 'prog-mode-hook 'smartparens-mode)
@@ -260,13 +249,6 @@
   (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
-
-(use-package pomodoro
-  :init (add-hook 'after-init-hook 'pomodoro-add-to-mode-line)
-  :config (evil-leader/set-key
-            "ps" 'pomodoro-start
-            "pp" 'pomodoro-pause
-            "pr" 'pomodoro-resume))
 
 (use-package git-timemachine
   :commands (git-timemachine)
