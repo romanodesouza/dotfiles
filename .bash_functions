@@ -1,6 +1,6 @@
 #vi:ft=bash
 
-git_info() { 
+git_info() {
 	[ -x "$(which git)" ] || return    # git not found
 
 	local git_branch_symbol='⑂ '
@@ -64,7 +64,7 @@ govm() {
 			print_nrun go get golang.org/x/tools/cmd/gorename
 			print_nrun go get golang.org/x/tools/cmd/guru
 			print_nrun go get golang.org/x/tools/refactor/rename
-
+			print_nrun go get github.com/kr/pretty
 			print_nrun gometalinter --install --update
 		;;
 	esac
