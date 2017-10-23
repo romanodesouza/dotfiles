@@ -47,10 +47,8 @@ endif
 install-x11:
 ifeq ($(shell hostname),yoga)
 	ln -sf `pwd`/.Xmodmap.yoga ~/.Xmodmap
-else
-	ln -sf `pwd`/.Xmodmap ~/.Xmodmap
-endif
 	xmodmap ~/.Xmodmap
+endif
 	ln -sf `pwd`/.Xresources ~/.Xresources
 
 install: \
