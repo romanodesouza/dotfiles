@@ -31,8 +31,8 @@ nnoremap 0 ^
 " Leader bindings
 let mapleader = ","
 " save and goes to normal mode
-nnoremap <leader>s :w<cr>:action Tool_External Tools_goimports<cr>
-inoremap <leader>s <esc>:w<cr>:action Tool_External Tools_goimports<cr>
+nnoremap <leader>s :w<cr>:action Run<cr>:action Tool_External Tools_goimports<cr>
+inoremap <leader>s <esc>:w<cr>:action Run<cr>:action Tool_External Tools_goimports<cr>
 " end of line
 inoremap <leader>e <esc>A
 " close
