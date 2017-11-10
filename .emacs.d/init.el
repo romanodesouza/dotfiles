@@ -149,8 +149,8 @@
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
      "o" 'fzf
-     "r" 'isearch-backward
-     "s" 'isearch-forward
+     "r" 'evil-search-backward
+     "s" 'evil-search-forward
      "en" 'my/next-error))
 
   (use-package evil-visualstar
@@ -201,12 +201,6 @@
 
   (use-package idomenu
     :commands idomenu))
-
-(use-package avy
-  :commands avy-isearch
-  :init
-  (setq avy-background t)
-  (define-key isearch-mode-map (kbd "C-o") 'avy-isearch))
 
 (use-package expand-region
   :commands (er/expand-region)
