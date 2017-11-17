@@ -1,7 +1,3 @@
-install-autostart:
-	mkdir -p ~/.config/autostart/ || true
-	ln -sf `pwd`/.config/autostart/* ~/.config/autostart/
-
 install-bash:
 	ln -sf `pwd`/.bashrc ~/.bashrc
 	ln -sf `pwd`/.bash_profile ~/.bash_profile
@@ -45,10 +41,6 @@ endif
 	vim --noplugin +PlugInstall +qall
 
 install-x11:
-ifeq ($(shell hostname),yoga)
-	ln -sf `pwd`/.Xmodmap.yoga ~/.Xmodmap
-	xmodmap ~/.Xmodmap
-endif
 	ln -sf `pwd`/.Xresources ~/.Xresources
 
 install: \

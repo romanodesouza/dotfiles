@@ -1,4 +1,0 @@
-[Desktop Entry]
-Exec=sh -c "\$HOME/.config/autostart/xkb-layout-monitor.py"
-Name[en_US]=XKB Layout Monitor
-Type=Application
