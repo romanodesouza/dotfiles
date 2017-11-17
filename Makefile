@@ -44,7 +44,6 @@ install-x11:
 	ln -sf `pwd`/.Xresources ~/.Xresources
 
 install: \
-	install-autostart \
 	install-bash \
 	install-emacs \
 	install-idea \
