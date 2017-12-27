@@ -1,4 +1,4 @@
-alias emacs="XLIB_SKIP_ARGB_VISUALS=1 XMODIFIERS= emacs"
+alias emacs="XLIB_SKIP_ARGB_VISUALS=1 XMODIFIERS= emacs25"
 alias mount='mount | column -t'
 
 # Remove all containers
