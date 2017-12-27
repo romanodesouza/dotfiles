@@ -117,6 +117,7 @@ nnoremap j gj
 nnoremap k gk
 " save on insert mode
 imap <leader>s <ESC><leader>s
+imap <leader>e <ESC>A
 imap fd <ESC>
 " Enable <cr> on auto complete pop up
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
