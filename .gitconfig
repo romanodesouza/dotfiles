@@ -9,6 +9,7 @@
 	branch = auto
 	diff = auto
 	status = auto
+	ui = true
 
 [color "branch"]
 	current = yellow reverse
@@ -16,10 +17,12 @@
 	remote = green
 
 [color "diff"]
-	meta = yellow bold
+	meta = yellow
 	frag = magenta bold
 	old = red bold
 	new = green bold
+	commit = yellow bold
+	whitespace = red reverse
 
 [color "status"]
 	added = yellow
@@ -61,3 +64,12 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[diff-so-fancy]
+	markEmptyLines = false
