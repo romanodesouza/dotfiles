@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "smooth-scrolling" "smooth-scrolling.el" (22823
-;;;;;;  25116 901894 428000))
-;;; Generated autoloads from smooth-scrolling.el
+;;;### (autoloads nil "smooth-scrolling" "../../../../../../.emacs.d/elpa/smooth-scrolling-20161002.1249/smooth-scrolling.el"
+;;;;;;  "c73c12379eefe6e2546d47db9ae3a50f")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/smooth-scrolling-20161002.1249/smooth-scrolling.el
 
 (defvar smooth-scrolling-mode nil "\
 Non-nil if Smooth-Scrolling mode is enabled.
@@ -72,6 +72,12 @@ Note that the advice will not have an effect unless
 `smooth-scrolling-mode' is enabled.
 
 \(fn FUNC)" nil t)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/smooth-scrolling-20161002.1249/smooth-scrolling-autoloads.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/smooth-scrolling-20161002.1249/smooth-scrolling.el")
+;;;;;;  (23116 1773 70063 362000))
 
 ;;;***
 

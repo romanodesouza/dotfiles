@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "evil-visualstar" "evil-visualstar.el" (22823
-;;;;;;  25126 470038 913000))
-;;; Generated autoloads from evil-visualstar.el
+;;;### (autoloads nil "evil-visualstar" "../../../../../../.emacs.d/elpa/evil-visualstar-20160222.1648/evil-visualstar.el"
+;;;;;;  "b50d8b6943175fc29d13ba5368f7c3cc")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/evil-visualstar-20160222.1648/evil-visualstar.el
 
 (autoload 'evil-visualstar-mode "evil-visualstar" "\
 Minor mode for visual star selection.
@@ -42,6 +42,12 @@ Turns on visual star selection.
 Turns off visual star selection.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/evil-visualstar-20160222.1648/evil-visualstar-autoloads.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/evil-visualstar-20160222.1648/evil-visualstar.el")
+;;;;;;  (23116 1781 859437 667000))
 
 ;;;***
 
