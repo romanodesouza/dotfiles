@@ -275,7 +275,7 @@
                              (pattern (concat "^\t+\\(" (getenv "GOPATH") "/src/[^:]+\\):\\([0-9]+\\)")))
                          (add-to-list 'compilation-error-regexp-alist name)
                          (add-to-list 'compilation-error-regexp-alist-alist (list name pattern 1 2) t))
-                       (set (make-local-variable 'company-backends) '((company-go :with company-yasnippet company-dabbrev)))))
+                       (set (make-local-variable 'company-backends) '((company-go :with company-yasnippet)))))
   ;; recompile after saving
   (advice-add 'my/save-buffers :after (lambda () (when (derived-mode-p 'go-mode) (recompile))))
   :config
