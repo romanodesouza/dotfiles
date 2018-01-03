@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pretty.Println()
+# key: prettyprintln
+# --
+pretty.Println($1)$0
