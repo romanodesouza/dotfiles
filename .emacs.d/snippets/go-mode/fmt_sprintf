@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: fmt.Sprintf()
-# key: sp
-# --
-fmt.Sprintf("$1", $2)$0
