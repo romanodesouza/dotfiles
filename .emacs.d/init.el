@@ -65,10 +65,14 @@
 (show-paren-mode t)
 ;; Strip trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-                                        ; Font
+;; Font
 (let ((font "Liberation Mono 12"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
+
+;; Reset threshold to its default after Emacs has startup, because a large
+;; GC threshold equates to longer delays whenever GC happens
+(add-hook 'emacs-startup-hook 'my/set-gc-threshold)
 
 ;; Packages
 (require 'package)
@@ -118,12 +122,37 @@
   (setq which-key-idle-delay 0.5)
   (add-hook 'after-init-hook 'which-key-mode))
 
-(use-package ivy
-  :commands (ivy-resume ivy-switch-buffer))
+(use-package smex
+  :init (add-hook 'after-init-hook 'smex-initialize)
+  :bind ("M-x" . smex))
+
+(use-package ido
+  :commands ido-switch-buffer
+  :init (setq ido-enable-flex-matching t
+              ido-ignore-extensions t
+              ido-use-virtual-buffers nil
+              ido-everywhere t)
+  :config
+  (ido-mode t)
+  (ido-everywhere t)
+
+  (use-package flx-ido
+    :init (setq ido-enable-flex-matching t
+                ido-use-faces nil)
+    :config (flx-ido-mode t))
+
+  (use-package ido-vertical-mode
+    :init (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+    :config  (ido-vertical-mode t))
+
+  (use-package ido-completing-read+
+    :config (ido-ubiquitous-mode t))
+
+  (use-package idomenu
+    :commands idomenu))
 
 (use-package counsel
-  :commands (counsel-ag counsel-imenu)
-  :bind ("M-x" . counsel-M-x))
+  :commands counsel-imenu)
 
 (use-package evil
   :init (setq evil-magic 'very-magic
@@ -171,10 +200,6 @@
   (use-package evil-matchit
     :config (global-evil-matchit-mode t)))
 
-;;(use-package smex
-;;  :init (add-hook 'after-init-hook 'smex-initialize)
-;;  :bind ("M-x" . smex))
-
 (use-package expand-region
   :commands (er/expand-region er/contract-region)
   :init
@@ -186,7 +211,7 @@
   :config
   (use-package key-seq
     :config
-    (key-seq-define-global ",b" 'ivy-switch-buffer)
+    (key-seq-define-global ",b" 'ido-switch-buffer)
     (key-seq-define-global ",s" 'my/save-buffers)
     (key-seq-define-global ",v" 'split-window-horizontally)
     (key-seq-define-global ",q" 'my/delete-window-maybe-kill-buffer)
@@ -222,7 +247,12 @@
   :init (add-hook 'prog-mode-hook 'yas-global-mode)
   :config (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
 
-;; programming modes
+(use-package smartparens
+  :commands (smartparens-mode)
+  :init (add-hook 'prog-mode-hook 'smartparens-mode)
+  :config (sp-local-pair 'prog-mode "{" nil :post-handlers '((my/create-newline-and-enter-sexp "RET"))))
+
+;; Go
 (use-package go-mode
   :mode "\\.go$"
   :init
@@ -249,7 +279,39 @@
 
   (use-package go-eldoc))
 
-;; functions
+;; Javascript
+(use-package js2-mode
+  :mode "\\.jsx?$"
+  :config
+  (setq js-indent-level 2
+        js2-strict-missing-semi-warning nil
+        js2-strict-trailing-comma-warning nil)
+  (setq-default js2-basic-offset 2)
+  (use-package eslint-fix)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (js2-imenu-extras-mode)
+                             (add-hook 'after-save-hook 'eslint-fix nil t)
+                             (add-hook 'company-completion-finished-hook #'(lambda (candidate)
+                                                                             (when (derived-mode-p 'js2-mode)
+                                                                               (when (string-suffix-p ".js" candidate)
+                                                                                 (delete-backward-char 3)))))
+                             (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
+
+;; React
+(use-package rjsx-mode
+  :commands (rjsx-mode)
+  :init (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*import React" . rjsx-mode))
+  :config
+  (add-hook 'rjsx-mode-hook (lambda ()
+                              (evil-define-key 'insert rjsx-mode-map (kbd "C-d") 'rjsx-delete-creates-full-tag)
+                              (yas-activate-extra-mode 'js2-mode)
+                              (use-package emmet-mode
+                                :init
+                                (setq-local emmet-expand-jsx-className? t)
+                                (emmet-mode)
+                                (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
+
+;; Functions
 (defun my/save-buffers ()
   (interactive)
   (save-some-buffers 'no-confirm)
@@ -273,6 +335,15 @@
   (condition-case nil (next-error)
     (error (next-error 1 t))))
 
+(defun my/create-newline-and-enter-sexp (&rest _ignored)
+  (newline)
+  (indent-according-to-mode)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(defun my/set-gc-threshold ()
+  "Reset `gc-cons-threshold' to its default value."
+  (setq gc-cons-threshold 800000))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
