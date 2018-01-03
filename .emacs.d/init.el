@@ -35,7 +35,10 @@
  split-height-threshold nil
  split-width-threshold most-positive-fixnum
  ;; Safe local variables
- enable-local-variables ':all)
+ enable-local-variables ':all
+ ;; Warning suppress list
+ warning-suppress-types nil
+ )
 
 (setq-default
  ;; Default indentation
@@ -245,7 +248,9 @@
 (use-package yasnippet
   :commands (yas-global-mode yas-minor-mode)
   :init (add-hook 'prog-mode-hook 'yas-global-mode)
-  :config (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
+  :config
+  (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs))
+  (add-to-list 'warning-suppress-types '(yasnippet backquote-change)))
 
 (use-package smartparens
   :commands (smartparens-mode)
