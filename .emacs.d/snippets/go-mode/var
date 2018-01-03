@@ -1,7 +1,6 @@
 # -*- mode: snippet -*-
 # name: var
-# key: va
+# key: var(
 # --
 var (
     $0
-)

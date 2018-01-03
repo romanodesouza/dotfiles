@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: method
-# key: m
+# key: func receiver
 # --
 func ($1) $2 ($3) $4 {
     $0
