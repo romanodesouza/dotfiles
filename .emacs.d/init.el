@@ -37,8 +37,7 @@
  ;; Safe local variables
  enable-local-variables ':all
  ;; Warning suppress list
- warning-suppress-types nil
- )
+ warning-suppress-types nil)
 
 (setq-default
  ;; Default indentation
@@ -73,9 +72,8 @@
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 
-;; Reset threshold to its default after Emacs has startup, because a large
-;; GC threshold equates to longer delays whenever GC happens
-(add-hook 'emacs-startup-hook 'my/set-gc-threshold)
+;; my/init
+(add-hook 'after-init-hook 'my/init)
 
 ;; Packages
 (require 'package)
@@ -104,8 +102,7 @@
 ;; fzf fork
 (el-get-bundle fzf
   :url "git@github.com:romanoaugusto88/fzf.el.git"
-  :features fzf
-  (setq fzf/args "-x --color bw --margin 0,1,1,0"))
+  :features fzf)
 
 (use-package color-theme-solarized
   :config (load-theme 'solarized t))
@@ -217,7 +214,7 @@
     (key-seq-define-global ",b" 'ido-switch-buffer)
     (key-seq-define-global ",s" 'my/save-buffers)
     (key-seq-define-global ",v" 'split-window-horizontally)
-    (key-seq-define-global ",q" 'my/delete-window-maybe-kill-buffer)
+    (key-seq-define-global ",q" 'my/kill-or-close)
     (key-seq-define-global ",w" 'delete-other-windows)
     (key-seq-define-global ",c" 'comment-dwim)
     (key-seq-define-global ",d" 'counsel-imenu)
@@ -254,8 +251,26 @@
 
 (use-package smartparens
   :commands (smartparens-mode)
-  :init (add-hook 'prog-mode-hook 'smartparens-mode)
+  :init
+  (add-hook 'prog-mode-hook 'smartparens-mode)
+  (evil-leader/set-key "l" 'sp-slurp-hybrid-sexp)
   :config (sp-local-pair 'prog-mode "{" nil :post-handlers '((my/create-newline-and-enter-sexp "RET"))))
+
+(use-package multi-compile
+  :commands (multi-compile-run)
+  :init
+  (evil-leader/set-key "c" 'multi-compile-run)
+  (setq multi-compile-alist '((go-mode . (("go install" .	"go install 2>&1 \
+                                                             | grep \\\\.go \
+                                                             | sed -r  's,^./,, ; s,([^:]+):,%dir\\1:,' \
+                                                             | awk '{print} END {exit NR}'")
+                                          ("go test" .		"go test -c 2>&1 \
+                                                             | grep \\\\.go \
+                                                             | sed -r  's,^./,, ; s,([^:]+):,%dir\\1:,' \
+                                                             | awk '{print} END {exit NR}' && \
+                                                               (find -type f -executable -name *.test -exec {} -test.v \\; -exec rm {} \\;)")))))
+  :config
+  (advice-add 'compilation-start :before (lambda (command &rest args) (set (make-local-variable 'compile-command) command))))
 
 ;; Go
 (use-package go-mode
@@ -272,12 +287,10 @@
                        (setq compilation-error-regexp-alist (delete 'go-test compilation-error-regexp-alist))
                        (setq compilation-error-regexp-alist-alist (delete 'go-test compilation-error-regexp-alist-alist))
                        (let ((name 'go)
-                             (pattern (concat "^\t+\\(" (getenv "GOPATH") "/src/[^:]+\\):\\([0-9]+\\)")))
+                             (pattern (concat "^\\(" (getenv "GOPATH") "/src/[^:]+\\):\\([0-9]+\\)")))
                          (add-to-list 'compilation-error-regexp-alist name)
                          (add-to-list 'compilation-error-regexp-alist-alist (list name pattern 1 2) t))
                        (set (make-local-variable 'company-backends) '((company-go :with company-yasnippet)))))
-  ;; recompile after saving
-  (advice-add 'my/save-buffers :after (lambda () (when (derived-mode-p 'go-mode) (recompile))))
   :config
   (use-package company-go
     :init (setq company-go-insert-arguments nil))
@@ -315,18 +328,34 @@
                                 (setq-local emmet-expand-jsx-className? t)
                                 (emmet-mode)
                                 (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
+;; Yaml
+(use-package yaml-mode
+  :mode "\\.ya?ml$")
+
+;; Dockerfile
+(use-package dockerfile-mode
+  :mode "Dockerfile")
 
 ;; Functions
+(defun my/init ()
+  ;; Reset threshold to its default after Emacs has startup, because a large
+  ;; GC threshold equates to longer delays whenever GC happens
+  (add-hook 'emacs-startup-hook 'my/set-gc-threshold)
+  (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
+  ;; Auto recompile if compilation window is visible
+  (advice-add 'my/save-buffers :after (lambda () (when (get-buffer-window "*compilation*") (recompile))))
+  (add-hook 'compilation-mode-hook 'my-compilation-hook))
+
 (defun my/save-buffers ()
   (interactive)
   (save-some-buffers 'no-confirm)
   (message "buffers has been saved"))
 
-(defun my/delete-window-maybe-kill-buffer ()
+(defun my/kill-or-close ()
   (interactive)
-  (when (eq 1 (length (get-buffer-window-list)))
-    (kill-this-buffer))
-  (delete-window))
+  (if (string= "*compilation*" (buffer-name))
+      (delete-window)
+    (kill-this-buffer)))
 
 (defun my/disable-key-chord-mode ()
   (set (make-local-variable 'input-method-function) nil))
@@ -349,6 +378,26 @@
 (defun my/set-gc-threshold ()
   "Reset `gc-cons-threshold' to its default value."
   (setq gc-cons-threshold 800000))
+
+(defun remove-elc-on-save ()
+  "If you're saving an elisp file, likely the .elc is no longer valid."
+  (add-hook 'after-save-hook
+            (lambda ()
+              (if (file-exists-p (concat buffer-file-name "c"))
+                  (delete-file (concat buffer-file-name "c"))))
+            nil
+            t))
+
+(defun my-compilation-hook ()
+  "Make sure that the compile window is splitting vertically"
+  (progn
+    (if (not (get-buffer-window "*compilation*"))
+        (progn
+          (split-window-vertically)
+          )
+      )
+    )
+  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
