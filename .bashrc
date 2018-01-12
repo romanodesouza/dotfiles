@@ -108,7 +108,7 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(g
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-find_git_cmd="(git ls-files --others --exclude-standard && git ls-files)"
+find_git_cmd="(git ls-files --others --exclude-standard && git ls-files) | egrep -v '^(vendor|node_modules)/'"
 find_ag_cmd="ag --hidden -g '' --ignore .git"
 find_cmd="find . -type f"
 export FZF_DEFAULT_COMMAND="$find_git_cmd || $find_ag_cmd || $find_cmd"
