@@ -244,7 +244,10 @@
   :init
   (add-hook 'prog-mode-hook 'smartparens-mode)
   (evil-leader/set-key "l" 'sp-slurp-hybrid-sexp)
-  :config (sp-local-pair 'prog-mode "{" nil :post-handlers '((my/create-newline-and-enter-sexp "RET"))))
+  :config
+  (sp-local-pair 'prog-mode "{" nil :post-handlers '((my/create-newline-and-enter-sexp "RET")))
+  (sp-local-pair 'prog-mode "'" nil :actions nil)
+  (sp-local-pair 'prog-mode "\"" nil :actions nil))
 
 (use-package multi-compile
   :commands (multi-compile-run)
