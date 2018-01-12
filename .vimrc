@@ -153,9 +153,8 @@ cnoremap <A-BS> <C-w>
 nnoremap <C-_> u
 nnoremap <silent><C-g> <ESC>:nohls<CR><C-g>
 
-" quit!
+" quit
 cab Q  q
-cab q q!
 
 syntax on
 set bg=dark
