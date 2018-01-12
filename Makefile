@@ -9,6 +9,7 @@ ifeq ("$(wildcard ~/.emacs.d)", "")
 	mkdir ~/.emacs.d
 endif
 	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
+	ln -sf ~/.emacs.d/vendor/elpa/ ~/.emacs.d/
 	emacs -nw --kill
 
 install-git:

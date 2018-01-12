@@ -1,5 +1,5 @@
 # emacs
 .emacs.d/**/*.elc
 .emacs.d/**/*.signed
-.emacs.d/elpa/archives/
-.emacs.d/elpa/gnupg/
+.emacs.d/vendor/elpa/archives/
+.emacs.d/vendor/elpa/gnupg/
