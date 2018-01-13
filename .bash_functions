@@ -65,6 +65,7 @@ govm() {
 			print_nrun go get golang.org/x/tools/cmd/guru
 			print_nrun go get golang.org/x/tools/refactor/rename
 			print_nrun go get github.com/kr/pretty
+			print_nrun go get github.com/fatih/gomodifytags
 			print_nrun gometalinter --install --update
 		;;
 	esac
