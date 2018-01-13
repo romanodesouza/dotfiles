@@ -253,17 +253,10 @@
   :commands (multi-compile-run)
   :init
   (evil-leader/set-key "c" 'multi-compile-run)
-  (setq multi-compile-alist '((go-mode . (("go install" .	"go install 2>&1 \
-                                                             | grep \\\\.go \
-                                                             | sed -r  's,^./,, ; s,([^:]+):,%dir\\1:,' \
-                                                             | awk '{print} END {exit NR}'")
-                                          ("go test" .		"go test -c 2>&1 \
-                                                             | grep \\\\.go \
-                                                             | sed -r  's,^./,, ; s,([^:]+):,%dir\\1:,' \
-                                                             | awk '{print} END {exit NR}' && \
-                                                               (find -type f -executable -name *.test -exec {} -test.v \\; -exec rm {} \\;)")))))
+  (setq multi-compile-alist '((go-mode . (("go install" . "go install")
+                                          ("go test" . "go test -v")))))
   :config
-  (advice-add 'compilation-start :before (lambda (command &rest args) (set (make-local-variable 'compile-command) command))))
+  (advice-add 'compilation-start :before (lambda (command &rest args) (setq compile-command command))))
 
 ;; Go
 (use-package go-mode
@@ -277,10 +270,8 @@
                        (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
                        (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
                        (go-eldoc-setup)
-                       (setq compilation-error-regexp-alist (delete 'go-test compilation-error-regexp-alist))
-                       (setq compilation-error-regexp-alist-alist (delete 'go-test compilation-error-regexp-alist-alist))
                        (let ((name 'go)
-                             (pattern (concat "^\\(" (getenv "GOPATH") "/src/[^:]+\\):\\([0-9]+\\)")))
+                             (pattern (concat "\\([^\n\t:]+\\.go\\):\\([0-9]+\\)")))
                          (add-to-list 'compilation-error-regexp-alist name)
                          (add-to-list 'compilation-error-regexp-alist-alist (list name pattern 1 2) t))
                        (set (make-local-variable 'company-backends) '((company-go :with company-yasnippet)))))
