@@ -315,6 +315,7 @@
                                 (setq-local emmet-expand-jsx-className? t)
                                 (emmet-mode)
                                 (local-set-key (kbd "TAB") 'emmet-expand-yas)))))
+
 ;; Yaml
 (use-package yaml-mode
   :mode "\\.ya?ml$")
@@ -322,6 +323,9 @@
 ;; Dockerfile
 (use-package dockerfile-mode
   :mode "Dockerfile")
+
+;; Editor config
+(use-package editorconfig)
 
 ;; Functions
 (defun my/init ()
