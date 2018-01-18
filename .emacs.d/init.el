@@ -299,6 +299,9 @@
                                                                                  (delete-backward-char 3)))))
                              (set (make-local-variable 'company-backends) '((company-files company-yasnippet))))))
 
+;; Coffee
+(use-package coffee-mode)
+
 ;; React
 (use-package rjsx-mode
   :commands (rjsx-mode)
