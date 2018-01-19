@@ -278,6 +278,9 @@
   :config
   (use-package company-go
     :init (setq company-go-insert-arguments nil))
+  (use-package go-rename
+    :commands (go-rename)
+    :init (key-seq-define go-mode-map ",r" 'go-rename))
   (use-package go-eldoc)
   (use-package go-tag))
 
@@ -397,7 +400,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-tag go-eldoc company-go yasnippet which-key use-package smooth-scrolling key-seq go-mode fzf expand-region evil-visualstar evil-matchit evil-leader counsel company color-theme-solarized))))
+    (go-rename go-tag go-eldoc company-go yasnippet which-key use-package smooth-scrolling key-seq go-mode fzf expand-region evil-visualstar evil-matchit evil-leader counsel company color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
