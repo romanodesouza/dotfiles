@@ -253,8 +253,8 @@
   :commands (multi-compile-run)
   :init
   (evil-leader/set-key "c" 'multi-compile-run)
-  (setq multi-compile-alist '((go-mode . (("go install" . "go install")
-                                          ("go test" . "go test -v")))))
+  (setq multi-compile-alist '((go-mode . (("go install" . "go install -race")
+                                          ("go test" . "go test -v -race -cover")))))
   :config
   (advice-add 'compilation-start :before (lambda (command &rest args) (setq compile-command command))))
 
