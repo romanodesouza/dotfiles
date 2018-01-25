@@ -10,6 +10,7 @@ ifeq ("$(wildcard ~/.emacs.d)", "")
 endif
 	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
 	ln -sf ~/.emacs.d/vendor/elpa/ ~/.emacs.d/
+	git submodule update --init
 	emacs -nw --kill
 
 install-git:
