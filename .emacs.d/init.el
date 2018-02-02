@@ -342,7 +342,8 @@
   (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
   ;; Auto recompile if compilation window is visible
   (advice-add 'my/save-buffers :after (lambda () (when (get-buffer-window "*compilation*") (recompile))))
-  (add-hook 'compilation-mode-hook 'my-compilation-hook))
+  (add-hook 'compilation-mode-hook 'my-compilation-hook)
+  (add-hook 'prog-mode-hook 'linum-mode))
 
 (defun my/save-buffers ()
   (interactive)
