@@ -94,8 +94,11 @@
   :load-path "vendor/fzf.el"
   :commands (fzf fzf-git-grep))
 
-(use-package color-theme-solarized
-  :config (load-theme 'solarized t))
+;; (use-package color-theme-solarized
+;;   :config (load-theme 'solarized t))
+
+(use-package github-modern-theme
+  :config (load-theme 'github-modern t))
 
 (use-package saveplace
   :init
