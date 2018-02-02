@@ -258,7 +258,7 @@
   (evil-leader/set-key "c" 'multi-compile-run)
   (setq multi-compile-alist '((go-mode . (("go install" . "go install -race")
                                           ("go lint" . "golint -set_exit_status && go vet && megacheck && errcheck")
-                                          ("go test" . "go test -v -race -cover")))))
+                                          ("go test" . "go test -v -race -coverprofile=/tmp/coverage.out")))))
   :config
   (advice-add 'compilation-start :before (lambda (command &rest args) (setq compile-command command))))
 
@@ -268,7 +268,8 @@
   :init
   (setq company-go-show-annotation t
         company-go-insert-arguments t
-        gofmt-command "goimports")
+        gofmt-command "goimports"
+        go--coverage-current-file-name "/tmp/coverage.out")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq go-mode-hook (lambda ()
                        (evil-define-key 'normal go-mode-map (kbd "C-]") 'godef-jump)
