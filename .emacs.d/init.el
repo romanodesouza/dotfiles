@@ -31,6 +31,11 @@
  compilation-always-kill t
  compilation-error-regexp-alist nil
  compilation-error-regexp-alist-alist nil
+ special-display-buffer-names
+ `(("*compilation*" . ((name . "*compilation*")
+                       ,@default-frame-alist
+                       (left . (- 1))
+                       (top . 0))))
  ;; Open buffers always on bottom
  split-height-threshold nil
  split-width-threshold most-positive-fixnum
@@ -345,8 +350,7 @@
   (add-hook 'emacs-startup-hook 'my/set-gc-threshold)
   (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
   ;; Auto recompile if compilation window is visible
-  (advice-add 'my/save-buffers :after (lambda () (when (get-buffer-window "*compilation*") (recompile))))
-  (add-hook 'compilation-mode-hook 'my-compilation-hook)
+  (advice-add 'my/save-buffers :after (lambda () (when (get-buffer "*compilation*") (recompile))))
   (add-hook 'prog-mode-hook 'linum-mode))
 
 (defun my/save-buffers ()
@@ -391,16 +395,6 @@
             nil
             t))
 
-(defun my-compilation-hook ()
-  "Make sure that the compile window is splitting vertically"
-  (progn
-    (if (not (get-buffer-window "*compilation*"))
-        (progn
-          (split-window-vertically)
-          )
-      )
-    )
-  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
