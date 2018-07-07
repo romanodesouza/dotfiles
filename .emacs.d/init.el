@@ -285,7 +285,7 @@
                        (evil-define-key 'normal go-mode-map (kbd "K") 'godef-describe)
                        (go-eldoc-setup)
                        (let ((name 'go)
-                             (pattern (concat "\\([^\n\t:]+\\.go\\):\\([0-9]+\\)")))
+                             (pattern (concat "\\([^\n\t\s:]+\\.go\\):\\([0-9]+\\)")))
                          (add-to-list 'compilation-error-regexp-alist name)
                          (add-to-list 'compilation-error-regexp-alist-alist (list name pattern 1 2) t))
                        (set (make-local-variable 'company-backends) '((company-go :with company-yasnippet)))))
