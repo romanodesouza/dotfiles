@@ -193,6 +193,7 @@
       "o" 'fzf
       "r" 'evil-search-backward
       "s" 'evil-search-forward
+      "k" 'kill-buffer
       "en" 'my/next-error))
 
   (use-package evil-visualstar
