@@ -34,8 +34,12 @@ delete_broken_links() {
 }
 
 dsh() {
-	docker exec -ti $1 bash 2>/dev/null || \
-		docker exec -ti $1 sh
+	local container=$1
+	if [ -z $container ]; then
+		container=$(docker ps --format '{{.Names}}' | fzf);
+	fi
+	docker exec -ti $container bash 2>/dev/null || \
+		docker exec -ti $container sh
 }
 
 govm() {
