@@ -271,6 +271,19 @@
   :config
   (advice-add 'compilation-start :before (lambda (command &rest args) (setq compile-command command))))
 
+(use-package project-explorer
+  :commands (project-explorer-open project-explorer-toggle)
+  :init
+  (setq pe/project-root-function 'projectile-project-root
+        pe/width 30
+        pe/follow-current t)
+  (evil-leader/set-key
+    "x" 'project-explorer-toggle)
+  :config
+  (evil-define-key 'normal project-explorer-mode-map (kbd "o") 'pe/return)
+  (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
+  (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
+
 ;; Go
 (use-package go-mode
   :mode "\\.go$"
