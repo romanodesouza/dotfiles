@@ -105,8 +105,11 @@
 ;; (use-package github-modern-theme
 ;;   :config (load-theme 'github-modern t))
 
-(use-package darcula-theme
-  :config (load-theme 'darcula t))
+;;(use-package darcula-theme
+;;  :config (load-theme 'darcula t))
+
+(use-package atom-one-dark-theme
+  :config (load-theme 'atom-one-dark t))
 
 (use-package saveplace
   :init
@@ -416,7 +419,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (darcula-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-eldoc github-modern-theme flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode counsel company-go color-theme-solarized coffee-mode))))
+    (project-explorer neotree darcula-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-eldoc github-modern-theme flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode counsel company-go color-theme-solarized coffee-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
