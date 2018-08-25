@@ -312,7 +312,8 @@
     :commands (go-rename)
     :init (key-seq-define go-mode-map ",r" 'go-rename))
   (use-package go-eldoc)
-  (use-package go-tag))
+  (use-package go-tag)
+  (use-package go-guru))
 
 ;; Javascript
 (use-package js2-mode
@@ -419,7 +420,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (project-explorer neotree darcula-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-eldoc github-modern-theme flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode counsel company-go color-theme-solarized coffee-mode))))
+    (go-guru project-explorer neotree darcula-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-eldoc github-modern-theme flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode counsel company-go color-theme-solarized coffee-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
