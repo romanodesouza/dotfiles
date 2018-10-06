@@ -287,6 +287,14 @@
   (evil-define-key 'normal project-explorer-mode-map (kbd "c") 'pe/create-file)
   (evil-define-key 'normal project-explorer-mode-map (kbd "d") 'pe/delete-file))
 
+(use-package git-timemachine
+  :init (evil-leader/set-key "gt" 'git-timemachine)
+  :config
+  (evil-define-minor-mode-key 'normal 'git-timemachine-mode
+    "p" 'git-timemachine-show-previous-revision
+    "n" 'git-timemachine-show-next-revision
+    "q" 'git-timemachine-quit))
+
 ;; Go
 (use-package go-mode
   :mode "\\.go$"
@@ -412,18 +420,3 @@
                   (delete-file (concat buffer-file-name "c"))))
             nil
             t))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (go-guru project-explorer neotree darcula-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-eldoc github-modern-theme flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode counsel company-go color-theme-solarized coffee-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
