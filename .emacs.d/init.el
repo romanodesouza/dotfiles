@@ -73,7 +73,7 @@
 ;; Strip trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; Font
-(let ((font "Liberation Mono 12"))
+(let ((font "Liberation Mono 11"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 
