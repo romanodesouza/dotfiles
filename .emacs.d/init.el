@@ -197,7 +197,8 @@
       "r" 'evil-search-backward
       "s" 'evil-search-forward
       "k" 'kill-buffer
-      "en" 'my/next-error))
+      "en" 'my/next-error
+      "gh" 'vc-region-history))
 
   (use-package evil-visualstar
     :config (global-evil-visualstar-mode t))
@@ -386,7 +387,7 @@
 
 (defun my/kill-or-close ()
   (interactive)
-  (if (string= "*compilation*" (buffer-name))
+  (if (string-prefix-p "*" (buffer-name))
       (delete-window)
     (kill-this-buffer)))
 
