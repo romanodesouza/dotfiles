@@ -97,7 +97,8 @@
 ;; fzf fork
 (use-package fzf
   :load-path "vendor/fzf.el"
-  :commands (fzf fzf-git-grep))
+  :commands (fzf fzf-git-grep)
+  :init (setq fzf/args "-x -e --print-query"))
 
 (use-package color-theme-solarized
   :config (load-theme 'solarized t))
