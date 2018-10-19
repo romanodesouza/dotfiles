@@ -100,14 +100,14 @@
   :commands (fzf fzf-git-grep)
   :init (setq fzf/args "-x -e --print-query"))
 
-(use-package color-theme-solarized
-  :config (load-theme 'solarized t))
+;;(use-package color-theme-solarized
+  ;;:config (load-theme 'solarized t))
 
 ;;(use-package github-modern-theme
 ;;  :config (load-theme 'github-modern t))
 
-;;(use-package darcula-theme
-;;  :config (load-theme 'darcula t))
+(use-package darcula-theme
+  :config (load-theme 'darcula t))
 
 ;;(use-package atom-one-dark-theme
 ;;  :config (load-theme 'atom-one-dark t))
