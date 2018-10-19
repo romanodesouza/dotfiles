@@ -92,6 +92,8 @@ set sidescroll=1
 set clipboard=unnamedplus
 " no preview on completion
 set completeopt-=preview
+" https://unix.stackexchange.com/a/400717
+set t_BE=
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set history=1000
