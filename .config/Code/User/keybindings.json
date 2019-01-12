@@ -1,0 +1,89 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    // quickOpen
+    {
+        "key": "space o",
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && !inDebugRepl"
+    },
+    // jump to the next error
+    {
+        "key": "alt+n",
+        "command": "editor.action.marker.next",
+    },
+    // jump to the previous error
+    {
+        "key": "alt+p",
+        "command": "editor.action.marker.prev",
+    },
+    // toggle terminal
+// toggle terminal
+
+    {
+        "key": "ctrl+f12",
+        "key": "ctrl+f12",
+        "command": "workbench.action.terminal.toggleTerminal"
+
+    },
+    // ctrl+m is Enter, guys xP
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // autocomplete move to next
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    // autocomplete move to previous
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    // emacs ctrl+g to escape
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "extension.vim_ctrl+[",
+        "when": "editorTextFocus && vim.active && vim.use<C-[> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    // vim ctrl+w ctrl+h (see vscodevim bindings and you'll understand this)
+    {
+        "key": "ctrl+h",
+        "command": "extension.vim_ctrl+h",
+        "when": "!editorTextFocus && !inDebugRepl"
+    },
+    // vim doc
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && !inDebugRepl"
+    },
+    // emacs right
+    {
+        "key": "ctrl+f",
+        "command": "extension.vim_right",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert' && !inDebugRepl"
+    },
+    // emacs left
+    {
+        "key": "ctrl+b",
+        "command": "extension.vim_left",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert' && !inDebugRepl"
+    }
+]
