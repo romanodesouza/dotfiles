@@ -16,6 +16,8 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 " Themes
 Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
+" Commentary
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -132,6 +134,8 @@ vmap y ygv<Esc>
 xmap <leader>a "yy:<C-u>GitGrep <c-r>y<CR>
 xmap <space>s /
 xmap <space>r ?
+" commentary
+xmap <silent> <leader>c <Plug>Commentary
 " emacs key bindings
 vmap <C-g> <ESC>
 imap <C-_> <C-o>u
