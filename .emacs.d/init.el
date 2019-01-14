@@ -100,17 +100,8 @@
   :commands (fzf fzf-git-grep)
   :init (setq fzf/args "-x -e --print-query"))
 
-;;(use-package color-theme-solarized
-  ;;:config (load-theme 'solarized t))
-
-;;(use-package github-modern-theme
-;;  :config (load-theme 'github-modern t))
-
-(use-package darcula-theme
-  :config (load-theme 'darcula t))
-
-;;(use-package atom-one-dark-theme
-;;  :config (load-theme 'atom-one-dark t))
+(use-package darktooth-theme
+  :config (load-theme 'darktooth t))
 
 (use-package saveplace
   :init
@@ -423,3 +414,17 @@
                   (delete-file (concat buffer-file-name "c"))))
             nil
             t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (darktooth-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode project-explorer multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-guru go-eldoc github-modern-theme git-timemachine flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode darcula-theme counsel company-go color-theme-solarized coffee-mode atom-one-dark-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
