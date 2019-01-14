@@ -5,8 +5,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " airline
 Plug 'bling/vim-airline'
-" nginx support
-Plug 'evanmiller/nginx-vim-syntax'
 " Dockerfile support
 Plug 'ekalinin/Dockerfile.vim'
 " gist
