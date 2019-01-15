@@ -147,9 +147,6 @@
   (use-package idomenu
     :commands idomenu))
 
-(use-package counsel
-  :commands counsel-imenu)
-
 (use-package evil
   :init (setq evil-magic 'very-magic
               evil-want-C-u-scroll t)
@@ -215,7 +212,6 @@
     (key-seq-define-global ",q" 'my/kill-or-close)
     (key-seq-define-global ",w" 'delete-other-windows)
     (key-seq-define-global ",c" 'comment-dwim)
-    (key-seq-define-global ",d" 'counsel-imenu)
     (key-seq-define-global ",e" 'end-of-line)
     (key-seq-define-global "fd" 'evil-normal-state)
     (key-seq-define-global ",a" 'fzf-git-grep)
@@ -406,17 +402,3 @@
                   (delete-file (concat buffer-file-name "c"))))
             nil
             t))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (darktooth-theme yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode project-explorer multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-guru go-eldoc github-modern-theme git-timemachine flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode darcula-theme counsel company-go color-theme-solarized coffee-mode atom-one-dark-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
