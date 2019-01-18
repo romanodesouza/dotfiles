@@ -19,6 +19,9 @@ install-git:
 install-idea:
 	ln -sf `pwd`/.ideavimrc ~/.ideavimrc
 
+install-profile:
+	ln -sf `pwd`/.profile ~/.profile
+
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
@@ -43,8 +46,9 @@ install-x11:
 install: \
 	install-bash \
 	install-emacs \
-	install-idea \
 	install-git \
+	install-idea \
+	install-profile \
 	install-ssh \
 	install-terminator \
 	install-top \
