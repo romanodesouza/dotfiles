@@ -183,6 +183,7 @@
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
       "o" 'fzf
+      "p" 'my/select-project
       "r" 'evil-search-backward
       "s" 'evil-search-forward
       "k" 'kill-buffer
@@ -393,6 +394,11 @@
 (defun my/set-gc-threshold ()
   "Reset `gc-cons-threshold' to its default value."
   (setq gc-cons-threshold 800000))
+
+(defun my/select-project ()
+  "Change default-directory to the selected project"
+  (interactive)
+  (setq default-directory (ido-completing-read "Project: " (split-string (shell-command-to-string (concat "find " (getenv "HOME") "/projects -maxdepth 2 -type d -o -type l"))))))
 
 (defun remove-elc-on-save ()
   "If you're saving an elisp file, likely the .elc is no longer valid."
