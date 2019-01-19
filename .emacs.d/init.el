@@ -42,7 +42,9 @@
  ;; Safe local variables
  enable-local-variables ':all
  ;; Warning suppress list
- warning-suppress-types nil)
+ warning-suppress-types nil
+ ;; Custom file
+ custom-file "~/.emacs.d/custom.el")
 
 (setq-default
  ;; Default indentation
@@ -392,7 +394,7 @@
   ;; Auto recompile if compilation window is visible
   (advice-add 'my/save-buffers :after (lambda () (when (get-buffer "*compilation*") (recompile))))
   ;;(add-hook 'prog-mode-hook 'linum-mode)
-  )
+  (load custom-file))
 
 (defun my/save-buffers ()
   (interactive)
@@ -440,17 +442,3 @@
                   (delete-file (concat buffer-file-name "c"))))
             nil
             t))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (evil-magit imenu-list popup-imenu imenus yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode ranger project-explorer multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-guru go-eldoc github-modern-theme git-timemachine flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode darktooth-theme darcula-theme counsel company-go color-theme-solarized coffee-mode atom-one-dark-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
