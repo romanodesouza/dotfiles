@@ -99,8 +99,11 @@
 ;; fzf fork
 (use-package fzf
   :load-path "vendor/fzf.el"
-  :commands (fzf fzf-git-grep)
-  :init (setq fzf/args "-x -e --print-query"))
+  :commands (fzf fzf-git-grep fzf-rg)
+  :init
+  (setq fzf/args "-x -e --print-query")
+  (setq fzf/git-grep-args "-i --line-number %s -- './*' '!vendor/' '!node_modules/'")
+  (setq fzf/rg-args "--trim --hidden -n -S -g '!vendor/' -g '!node_modules/' -g '!.git/' %s"))
 
 (use-package darktooth-theme
   :config (load-theme 'darktooth t))
@@ -220,7 +223,7 @@
     (key-seq-define-global ",c" 'comment-dwim)
     (key-seq-define-global ",e" 'end-of-line)
     (key-seq-define-global "fd" 'evil-normal-state)
-    (key-seq-define-global ",a" 'fzf-git-grep)
+    (key-seq-define-global ",a" 'fzf-rg)
     (key-seq-define-global ",d" 'imenus)
 
     (add-hook 'minibuffer-setup-hook #'my/disable-key-chord-mode)))
