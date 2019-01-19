@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "cftag-mode" "cftag-mode.el" (0 0 0 0))
-;;; Generated autoloads from cftag-mode.el
+;;;### (autoloads nil "cftag-mode" "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el"
+;;;;;;  "1a87fbfa3a356382900d81a59c44a30d")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el
 
 (autoload 'cftag-mode "cftag-mode" "\
 Major mode based on SGML mode for editing HTML documents.
@@ -47,8 +48,20 @@ To work around that, do:
 \\{cftag-mode-map}
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "cftag-mode" "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cftag-mode" '("cftag-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

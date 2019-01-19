@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "eslint-fix" "20180514.700" "Fix JavaScript files using ESLint" 'nil :commit "f81f3b47a47460611fbdbdae1d23275ec78f2f8d" :keywords '("tools" "javascript" "eslint" "lint" "formatting" "style") :authors '(("Neri Marschik" . "marschik_neri@cyberagent.co.jp")) :maintainer '("Neri Marschik" . "marschik_neri@cyberagent.co.jp") :url "https://github.com/codesuki/eslint-fix")

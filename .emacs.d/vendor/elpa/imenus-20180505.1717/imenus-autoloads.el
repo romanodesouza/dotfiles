@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "imenus" "imenus.el" (0 0 0 0))
-;;; Generated autoloads from imenus.el
+;;;### (autoloads nil "imenus" "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el"
+;;;;;;  "0e937450085d775251fa96c9b00afab8")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el
 
 (autoload 'imenus "imenus" "\
 Prompt for a place from a list of BUFFERS and jump to it.
@@ -24,8 +25,20 @@ Perform `imenus' on all buffers with MODE.
 Interactively, use the major mode of the current buffer.
 
 \(fn MODE)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "imenus" "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "imenus" '("imenus-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "ranger" "ranger.el" (0 0 0 0))
-;;; Generated autoloads from ranger.el
+;;;### (autoloads nil "ranger" "../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger.el"
+;;;;;;  "28d03bd2df1527cee21d7639dc1a9f98")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger.el
 
 (defvar ranger-key [16] "\
 Key in `dired-mode' used to toggle `ranger-mode'.")
@@ -59,8 +60,20 @@ Major mode emulating the ranger file manager in `dired'.
 \\{ranger-mode-map}
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ranger" "../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ranger" '("r--" "ranger-" "deer-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/ranger-20170817.1557/ranger.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
