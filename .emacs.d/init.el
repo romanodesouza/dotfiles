@@ -145,7 +145,10 @@
     :config (ido-ubiquitous-mode t))
 
   (use-package idomenu
-    :commands idomenu))
+    :commands idomenu)
+
+  (use-package imenus
+    :commands imenus))
 
 (use-package evil
   :init (setq evil-magic 'very-magic
@@ -216,6 +219,7 @@
     (key-seq-define-global ",e" 'end-of-line)
     (key-seq-define-global "fd" 'evil-normal-state)
     (key-seq-define-global ",a" 'fzf-git-grep)
+    (key-seq-define-global ",d" 'imenus)
 
     (add-hook 'minibuffer-setup-hook #'my/disable-key-chord-mode)))
 
@@ -430,7 +434,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cfml-mode yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode ranger project-explorer multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-guru go-eldoc github-modern-theme git-timemachine flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode darktooth-theme darcula-theme counsel company-go color-theme-solarized coffee-mode atom-one-dark-theme))))
+    (imenu-list popup-imenu imenus yasnippet yaml-mode which-key use-package smooth-scrolling smex smartparens rjsx-mode ranger project-explorer multi-compile key-seq idomenu ido-vertical-mode ido-ubiquitous go-tag go-rename go-guru go-eldoc github-modern-theme git-timemachine flx-ido expand-region evil-visualstar evil-matchit evil-leader eslint-fix editorconfig dockerfile-mode darktooth-theme darcula-theme counsel company-go color-theme-solarized coffee-mode atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
