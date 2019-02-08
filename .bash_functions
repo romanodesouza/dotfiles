@@ -60,16 +60,16 @@ govm() {
 		;;
 
 		dt) # dev tools
-			print_nrun go get github.com/alecthomas/gometalinter
-			print_nrun go get github.com/golang/lint/golint
-			print_nrun go get github.com/nsf/gocode
-			print_nrun go get github.com/rogpeppe/godef
-			print_nrun go get golang.org/x/tools/cmd/goimports
-			print_nrun go get golang.org/x/tools/cmd/gorename
-			print_nrun go get golang.org/x/tools/cmd/guru
-			print_nrun go get golang.org/x/tools/refactor/rename
-			print_nrun go get github.com/kr/pretty
-			print_nrun go get github.com/fatih/gomodifytags
+			print_nrun go get -u github.com/alecthomas/gometalinter
+			print_nrun go get -u github.com/golang/lint/golint
+			print_nrun go get -u github.com/nsf/gocode
+			print_nrun go get -u github.com/rogpeppe/godef
+			print_nrun go get -u golang.org/x/tools/cmd/goimports
+			print_nrun go get -u golang.org/x/tools/cmd/gorename
+			print_nrun go get -u golang.org/x/tools/cmd/guru
+			print_nrun go get -u golang.org/x/tools/refactor/rename
+			print_nrun go get -u github.com/kr/pretty
+			print_nrun go get -u github.com/fatih/gomodifytags
 			print_nrun gometalinter --install --update
 		;;
 	esac
