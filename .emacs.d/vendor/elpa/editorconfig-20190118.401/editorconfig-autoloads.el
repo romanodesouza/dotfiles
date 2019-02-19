@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "editorconfig" "editorconfig.el" (0 0 0 0))
-;;; Generated autoloads from editorconfig.el
+;;;### (autoloads nil "editorconfig" "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig.el"
+;;;;;;  "070bea704ed51e6358933846b31c1eb9")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig.el
 
 (autoload 'editorconfig-apply "editorconfig" "\
 Get and apply EditorConfig properties to current buffer.
@@ -50,14 +51,21 @@ Display EditorConfig properties extracted for current buffer.
 Format buffer according to .editorconfig indent_style and indent_width.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "editorconfig"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig" '("editorconfig-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "editorconfig-conf-mode" "editorconfig-conf-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from editorconfig-conf-mode.el
+;;;### (autoloads nil "editorconfig-conf-mode" "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-conf-mode.el"
+;;;;;;  "e017e42cafa61860fe3628142cc393dc")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-conf-mode.el
 
 (autoload 'editorconfig-conf-mode "editorconfig-conf-mode" "\
 Major mode for editing .editorconfig files.
@@ -65,14 +73,21 @@ Major mode for editing .editorconfig files.
 \(fn)" t nil)
 
 (add-to-list 'auto-mode-alist '("\\.editorconfig\\'" . editorconfig-conf-mode))
+
+;;;### (autoloads "actual autoloads are elsewhere" "editorconfig-conf-mode"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-conf-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-conf-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-conf-mode" '("editorconfig-conf-mode-syntax-table")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "editorconfig-core" "editorconfig-core.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from editorconfig-core.el
+;;;### (autoloads nil "editorconfig-core" "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core.el"
+;;;;;;  "3592cb0c6764b464521a6315a8a55d6a")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core.el
 
 (autoload 'editorconfig-core-get-nearest-editorconfig "editorconfig-core" "\
 Return path to .editorconfig file that is closest to DIRECTORY.
@@ -100,22 +115,30 @@ This function is almost same as `editorconfig-core-get-properties', but returns
 hash object instead.
 
 \(fn &optional FILE CONFNAME CONFVERSION)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "editorconfig-core"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-core" '("editorconfig-core-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "editorconfig-core-handle" "editorconfig-core-handle.el"
+;;;### (autoloads "actual autoloads are elsewhere" "editorconfig-core-handle"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core-handle.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from editorconfig-core-handle.el
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core-handle.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-core-handle" '("editorconfig-core-handle")))
 
 ;;;***
 
-;;;### (autoloads nil "editorconfig-fnmatch" "editorconfig-fnmatch.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from editorconfig-fnmatch.el
+;;;### (autoloads nil "editorconfig-fnmatch" "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-fnmatch.el"
+;;;;;;  "04360c014b58a5b35332e80e16d68c18")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-fnmatch.el
 
 (autoload 'editorconfig-fnmatch-p "editorconfig-fnmatch" "\
 Test whether STRING match PATTERN.
@@ -134,12 +157,26 @@ be used:
 {min..max}  Matches any number between min and max
 
 \(fn STRING PATTERN)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "editorconfig-fnmatch"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-fnmatch.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-fnmatch.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-fnmatch" '("editorconfig-fnmatch-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("editorconfig-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-conf-mode.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core-handle.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-core.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-fnmatch.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig-pkg.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/editorconfig-20190118.401/editorconfig.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

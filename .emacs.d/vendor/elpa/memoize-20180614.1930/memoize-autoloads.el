@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "memoize" "memoize.el" (0 0 0 0))
-;;; Generated autoloads from memoize.el
+;;;### (autoloads "actual autoloads are elsewhere" "memoize" "../../../../../../../.emacs.d/elpa/memoize-20180614.1930/memoize.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/memoize-20180614.1930/memoize.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "memoize" '("defmemoize" "memoize")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/memoize-20180614.1930/memoize-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/memoize-20180614.1930/memoize.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

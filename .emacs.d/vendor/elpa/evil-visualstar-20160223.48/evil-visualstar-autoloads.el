@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "evil-visualstar" "evil-visualstar.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from evil-visualstar.el
+;;;### (autoloads nil "evil-visualstar" "../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar.el"
+;;;;;;  "1cec6bdbf8e6965a51fd302018ee577f")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar.el
 
 (autoload 'evil-visualstar-mode "evil-visualstar" "\
 Minor mode for visual star selection.
@@ -46,8 +46,21 @@ Turns on visual star selection.
 Turns off visual star selection.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "evil-visualstar"
+;;;;;;  "../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-visualstar" '("evil-visualstar/")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/evil-visualstar-20160223.48/evil-visualstar.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

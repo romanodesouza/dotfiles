@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "dockerfile-mode" "dockerfile-mode.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from dockerfile-mode.el
+;;;### (autoloads nil "dockerfile-mode" "../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode.el"
+;;;;;;  "243de13f908733a5e9b1d5272b9102d5")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode.el
 
 (autoload 'dockerfile-build-buffer "dockerfile-mode" "\
 Build an image called IMAGE-NAME based upon the buffer.
@@ -28,8 +28,21 @@ A major mode to edit Dockerfiles.
 \(fn)" t nil)
 
 (add-to-list 'auto-mode-alist '("Dockerfile\\(?:\\..*\\)?\\'" . dockerfile-mode))
+
+;;;### (autoloads "actual autoloads are elsewhere" "dockerfile-mode"
+;;;;;;  "../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dockerfile-mode" '("dockerfile-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/dockerfile-mode-20181104.1800/dockerfile-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

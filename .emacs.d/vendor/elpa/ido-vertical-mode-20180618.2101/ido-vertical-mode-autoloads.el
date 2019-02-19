@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "ido-vertical-mode" "ido-vertical-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ido-vertical-mode.el
+;;;### (autoloads nil "ido-vertical-mode" "../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode.el"
+;;;;;;  "d7ef5be5ab45d9e55e4e2b83ac082536")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode.el
 
 (defvar ido-vertical-mode nil "\
 Non-nil if Ido-Vertical mode is enabled.
@@ -24,8 +24,21 @@ or call the function `ido-vertical-mode'.")
 Makes ido-mode display vertically.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ido-vertical-mode"
+;;;;;;  "../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ido-vertical-mode" '("ido-vertical-" "turn-o")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/ido-vertical-mode-20180618.2101/ido-vertical-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

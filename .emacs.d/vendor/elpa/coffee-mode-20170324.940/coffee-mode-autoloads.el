@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "coffee-mode" "coffee-mode.el" (0 0 0 0))
-;;; Generated autoloads from coffee-mode.el
+;;;### (autoloads nil "coffee-mode" "../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode.el"
+;;;;;;  "ffacad8416065daa7d10750819e132e9")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode.el
 
 (autoload 'coffee-mode "coffee-mode" "\
 Major mode for editing CoffeeScript.
@@ -23,8 +24,21 @@ Major mode for editing CoffeeScript.
 (add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
 
 (add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
+
+;;;### (autoloads "actual autoloads are elsewhere" "coffee-mode"
+;;;;;;  "../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "coffee-mode" '("coffee-" "iced-coffee-cs-keywords" "js2coffee-command")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/coffee-mode-20170324.940/coffee-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

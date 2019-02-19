@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "key-seq" "key-seq.el" (0 0 0 0))
-;;; Generated autoloads from key-seq.el
+;;;### (autoloads nil "key-seq" "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el"
+;;;;;;  "8b304e21bd5d70da2bfa12539bae3ef6")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el
 
 (autoload 'key-seq-define-global "key-seq" "\
 Define a key sequence of the two keys in KEYS starting a COMMAND.
@@ -46,8 +47,20 @@ COMMAND can be an interactive function, a string, or nil.
 If COMMAND is nil, the key-chord is removed.
 
 \(fn KEYMAP KEYS COMMAND)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "key-seq" "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "key-seq" '("key-seq-unset-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

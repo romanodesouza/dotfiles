@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "evil-leader" "evil-leader.el" (0 0 0 0))
-;;; Generated autoloads from evil-leader.el
+;;;### (autoloads nil "evil-leader" "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el"
+;;;;;;  "1834d04ee22c824e694f0a96ab77c001")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el
 
 (autoload 'global-evil-leader-mode "evil-leader" "\
 Global minor mode for <leader> support.
@@ -33,8 +34,21 @@ Create keybindings for major-mode `mode' with `key' bound to command `def'.
 See `evil-leader/set-key'.
 
 \(fn MODE KEY DEF &rest BINDINGS)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "evil-leader"
+;;;;;;  "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-leader" '("evil-leader")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

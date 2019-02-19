@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "ido-completing-read+" "ido-completing-read+.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ido-completing-read+.el
+;;;### (autoloads nil "ido-completing-read+" "../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+.el"
+;;;;;;  "fd5d0ab66e87892935954d3ba4006d5e")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+.el
 
 (defvar ido-cr+-minibuffer-depth -1 "\
 Minibuffer depth of the most recent ido-cr+ activation.
@@ -83,8 +83,21 @@ when ido completion is or is not used by customizing
 `ido-cr+-function-blacklist'.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ido-completing-read+"
+;;;;;;  "../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ido-completing-read+" '("ido-" "minibuf-eldef-update-minibuffer@ido-cr+-compat" "define-ido-internal-var")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/ido-completing-read+-20180628.244/ido-completing-read+.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "flx" "flx.el" (0 0 0 0))
-;;; Generated autoloads from flx.el
+;;;### (autoloads "actual autoloads are elsewhere" "flx" "../../../../../../../.emacs.d/elpa/flx-20151030.1812/flx.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/flx-20151030.1812/flx.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flx" '("flx-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/flx-20151030.1812/flx-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/flx-20151030.1812/flx.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

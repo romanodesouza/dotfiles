@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "multi-compile" "multi-compile.el" (0 0 0 0))
-;;; Generated autoloads from multi-compile.el
+;;;### (autoloads nil "multi-compile" "../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el"
+;;;;;;  "2744797af72d2a9165d157596fe1617b")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el
 
 (autoload 'multi-compile-locate-file-dir "multi-compile" "\
 Look up the directory hierarchy from current file for a directory containing file NAME.
@@ -18,8 +19,21 @@ Look up the directory hierarchy from current file for a directory containing fil
 Choice target and start compile.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "multi-compile"
+;;;;;;  "../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "multi-compile" '("multi-compile-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

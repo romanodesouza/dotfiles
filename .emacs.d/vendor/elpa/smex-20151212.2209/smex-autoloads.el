@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "smex" "smex.el" (0 0 0 0))
-;;; Generated autoloads from smex.el
+;;;### (autoloads nil "smex" "../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex.el"
+;;;;;;  "b87d399098df6d749ce93a81de2b1746")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex.el
 
 (autoload 'smex "smex" "\
 
@@ -23,8 +24,20 @@ Like `smex', but limited to commands that are relevant to the active major mode.
 
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "smex" "../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "smex" '("smex-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/smex-20151212.2209/smex.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

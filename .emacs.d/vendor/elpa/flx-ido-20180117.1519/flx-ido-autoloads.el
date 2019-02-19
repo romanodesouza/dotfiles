@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "flx-ido" "flx-ido.el" (0 0 0 0))
-;;; Generated autoloads from flx-ido.el
+;;;### (autoloads nil "flx-ido" "../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido.el"
+;;;;;;  "a201a810719816212a617581f7e83c48")
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido.el
 
 (defvar flx-ido-mode nil "\
 Non-nil if Flx-Ido mode is enabled.
@@ -20,8 +21,20 @@ for a description of this minor mode.")
 Toggle flx ido mode
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "flx-ido" "../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flx-ido" '("flx-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido-autoloads.el"
+;;;;;;  "../../../../../../../.emacs.d/elpa/flx-ido-20180117.1519/flx-ido.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
