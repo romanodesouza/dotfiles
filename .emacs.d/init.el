@@ -289,19 +289,6 @@
     "n" 'git-timemachine-show-next-revision
     "q" 'git-timemachine-quit))
 
-(use-package magit
-  :init
-  (setq magit-completing-read-function 'magit-ido-completing-read)
-  (add-hook 'git-commit-mode-hook 'evil-insert-state)
-  (evil-leader/set-key "gl" 'magit-log-current)
-  (evil-leader/set-key "gs" 'magit-status)
-  (evil-leader/set-key "gc" 'magit-commit-create)
-  (evil-leader/set-key "gb" 'magit-branch-or-checkout)
-  :config
-  (use-package evil-magit
-    :init (evil-magit-init))
-  (use-package ido-completing-read+))
-
 ;; Go
 (use-package go-mode
   :mode "\\.go$"
