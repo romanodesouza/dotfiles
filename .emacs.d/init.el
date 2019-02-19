@@ -105,8 +105,11 @@
   (setq fzf/git-grep-args "-i --line-number %s -- './*' '!vendor/' '!node_modules/'")
   (setq fzf/rg-args "--trim --hidden -n -S -g '!vendor/' -g '!node_modules/' -g '!.git/' %s"))
 
-(use-package darktooth-theme
-  :config (load-theme 'darktooth t))
+;;(use-package darktooth-theme
+  ;;:config (load-theme 'darktooth t))
+
+(use-package apropospriate-theme
+  :config (load-theme 'apropospriate-light t))
 
 (use-package saveplace
   :init
