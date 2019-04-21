@@ -289,6 +289,13 @@
     "n" 'git-timemachine-show-next-revision
     "q" 'git-timemachine-quit))
 
+(use-package multiple-cursors
+  :commands (mc/mark-next-like-this mc/mark-previous-like-this mc/skip-to-next-like-this)
+  :init
+	(define-key evil-visual-state-map (kbd "C-n") 'mc/mark-next-like-this)
+    (define-key evil-visual-state-map (kbd "C-p") 'mc/mark-previous-like-this)
+    (define-key evil-visual-state-map (kbd "C-s") 'mc/skip-to-next-like-this))
+
 ;; Go
 (use-package go-mode
   :mode "\\.go$"
