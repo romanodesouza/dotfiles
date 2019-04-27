@@ -1,10 +1,7 @@
 ;;; imenus-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "imenus" "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el"
 ;;;;;;  "0e937450085d775251fa96c9b00afab8")
@@ -25,20 +22,12 @@ Perform `imenus' on all buffers with MODE.
 Interactively, use the major mode of the current buffer.
 
 \(fn MODE)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "imenus" "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "imenus" '("imenus-")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/imenus-20180505.1717/imenus.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11248 931913 356000))
 
 ;;;***
 
@@ -46,6 +35,5 @@ Interactively, use the major mode of the current buffer.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; imenus-autoloads.el ends here

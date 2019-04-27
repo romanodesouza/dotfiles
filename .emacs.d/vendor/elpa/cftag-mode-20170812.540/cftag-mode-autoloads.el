@@ -1,10 +1,7 @@
 ;;; cftag-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "cftag-mode" "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el"
 ;;;;;;  "1a87fbfa3a356382900d81a59c44a30d")
@@ -48,20 +45,12 @@ To work around that, do:
 \\{cftag-mode-map}
 
 \(fn)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "cftag-mode" "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cftag-mode" '("cftag-")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11295 156188 223000))
 
 ;;;***
 
@@ -69,6 +58,5 @@ To work around that, do:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; cftag-mode-autoloads.el ends here

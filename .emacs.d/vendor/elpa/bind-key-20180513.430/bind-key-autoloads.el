@@ -1,10 +1,7 @@
 ;;; bind-key-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "bind-key" "../../../../../../../.emacs.d/elpa/bind-key-20180513.430/bind-key.el"
 ;;;;;;  "c372e1fc2cb768b8c0db8a4f4ccf0a9e")
@@ -71,20 +68,12 @@ function symbol (unquoted).
 Display all the personal keybindings defined by `bind-key'.
 
 \(fn)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "bind-key" "../../../../../../../.emacs.d/elpa/bind-key-20180513.430/bind-key.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/bind-key-20180513.430/bind-key.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "bind-key" '("compare-keybindings" "get-binding-description" "bind-key" "personal-keybindings" "override-global-m")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/bind-key-20180513.430/bind-key-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/bind-key-20180513.430/bind-key.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11241 375855 595000))
 
 ;;;***
 
@@ -92,6 +81,5 @@ Display all the personal keybindings defined by `bind-key'.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; bind-key-autoloads.el ends here

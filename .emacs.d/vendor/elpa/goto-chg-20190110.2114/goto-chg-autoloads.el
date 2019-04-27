@@ -1,10 +1,7 @@
 ;;; goto-chg-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "goto-chg" "../../../../../../../.emacs.d/elpa/goto-chg-20190110.2114/goto-chg.el"
 ;;;;;;  "4f98eb5290867ea601c1442c56b2effa")
@@ -42,20 +39,12 @@ Go back to more recent changes after \\[goto-last-change] have been used.
 See `goto-last-change' for use of prefix argument.
 
 \(fn ARG)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "goto-chg" "../../../../../../../.emacs.d/elpa/goto-chg-20190110.2114/goto-chg.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/goto-chg-20190110.2114/goto-chg.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "goto-chg" '("glc-")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/goto-chg-20190110.2114/goto-chg-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/goto-chg-20190110.2114/goto-chg.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11250 579925 223000))
 
 ;;;***
 
@@ -63,6 +52,5 @@ See `goto-last-change' for use of prefix argument.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; goto-chg-autoloads.el ends here

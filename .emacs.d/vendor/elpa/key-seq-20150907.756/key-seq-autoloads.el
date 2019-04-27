@@ -1,10 +1,7 @@
 ;;; key-seq-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "key-seq" "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el"
 ;;;;;;  "8b304e21bd5d70da2bfa12539bae3ef6")
@@ -47,20 +44,12 @@ COMMAND can be an interactive function, a string, or nil.
 If COMMAND is nil, the key-chord is removed.
 
 \(fn KEYMAP KEYS COMMAND)" nil nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "key-seq" "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "key-seq" '("key-seq-unset-")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/key-seq-20150907.756/key-seq.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11257 959975 764000))
 
 ;;;***
 
@@ -68,6 +57,5 @@ If COMMAND is nil, the key-chord is removed.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; key-seq-autoloads.el ends here

@@ -1,10 +1,7 @@
 ;;; evil-leader-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "evil-leader" "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el"
 ;;;;;;  "1834d04ee22c824e694f0a96ab77c001")
@@ -34,21 +31,12 @@ Create keybindings for major-mode `mode' with `key' bound to command `def'.
 See `evil-leader/set-key'.
 
 \(fn MODE KEY DEF &rest BINDINGS)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "evil-leader"
-;;;;;;  "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-leader" '("evil-leader")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/evil-leader-20140606.1243/evil-leader.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11253 951948 828000))
 
 ;;;***
 
@@ -56,6 +44,5 @@ See `evil-leader/set-key'.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; evil-leader-autoloads.el ends here

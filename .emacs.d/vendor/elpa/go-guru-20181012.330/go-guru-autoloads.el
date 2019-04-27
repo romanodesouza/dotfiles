@@ -1,10 +1,7 @@
 ;;; go-guru-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "go-guru" "../../../../../../../.emacs.d/elpa/go-guru-20181012.330/go-guru.el"
 ;;;;;;  "eede11cf4a1c2c8568af6b736560216f")
@@ -106,20 +103,12 @@ Highlight instances of the identifier at point after a short
 timeout.
 
 \(fn &optional ARG)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "go-guru" "../../../../../../../.emacs.d/elpa/go-guru-20181012.330/go-guru.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../../../.emacs.d/elpa/go-guru-20181012.330/go-guru.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-guru" '("go-guru-")))
-
-;;;***
 
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/go-guru-20181012.330/go-guru-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/go-guru-20181012.330/go-guru.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  (23748 11290 32161 687000))
 
 ;;;***
 
@@ -127,6 +116,5 @@ timeout.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; go-guru-autoloads.el ends here
