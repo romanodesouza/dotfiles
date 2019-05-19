@@ -107,8 +107,11 @@
 ;;(use-package darktooth-theme
   ;;:config (load-theme 'darktooth t))
 
-(use-package apropospriate-theme
-  :config (load-theme 'apropospriate-light t))
+;;(use-package apropospriate-theme
+;;  :config (load-theme 'apropospriate-light t))
+
+(use-package leuven-theme
+  :config (load-theme 'leuven t))
 
 (use-package saveplace
   :init
