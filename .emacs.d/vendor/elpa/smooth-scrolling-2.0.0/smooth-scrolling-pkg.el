@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "smooth-scrolling" "2.0.0" "Make emacs scroll smoothly" 'nil :commit "6a1420be510decde0a5eabc56cff229ae554417e" :keywords '("convenience") :authors '(("Adam Spiers" . "emacs-ss@adamspiers.org") ("Jeremy Bondeson" . "jbondeson@gmail.com") ("Ryan C. Thompson" . "rct+github@thompsonclan.org")) :maintainer '("Adam Spiers" . "emacs-ss@adamspiers.org") :url "http://github.com/aspiers/smooth-scrolling/")

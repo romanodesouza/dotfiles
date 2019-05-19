@@ -50,7 +50,7 @@ To work around that, do:
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/cftag-mode-20170812.540/cftag-mode.el")
-;;;;;;  (23748 11295 156188 223000))
+;;;;;;  (23777 50158 110922 769000))
 
 ;;;***
 

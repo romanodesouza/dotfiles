@@ -53,7 +53,7 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree.el")
-;;;;;;  (23748 11249 863920 98000))
+;;;;;;  (23777 49867 736659 749000))
 
 ;;;***
 

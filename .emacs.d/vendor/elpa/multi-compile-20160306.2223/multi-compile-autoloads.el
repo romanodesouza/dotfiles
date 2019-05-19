@@ -21,7 +21,7 @@ Choice target and start compile.
 
 ;;;### (autoloads nil nil ("../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile-autoloads.el"
 ;;;;;;  "../../../../../../../.emacs.d/elpa/multi-compile-20160306.2223/multi-compile.el")
-;;;;;;  (23748 11263 928013 918000))
+;;;;;;  (23777 50061 706390 312000))
 
 ;;;***
 
