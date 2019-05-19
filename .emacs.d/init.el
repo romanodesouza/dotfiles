@@ -96,10 +96,10 @@
 (setq use-package-always-ensure t)
 (setq package-pinned-packages
   '(
-	;; gnu
+    ;; gnu
     (mmm-mode . "gnu")
-  	;; melpa
-  	(leuven-theme . "melpa")
+    ;; melpa
+    (leuven-theme . "melpa")
     (cfml-mode . "melpa")
     (multi-compile . "melpa")
     ;; melpa-stable
