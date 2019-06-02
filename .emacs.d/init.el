@@ -96,11 +96,8 @@
 (setq use-package-always-ensure t)
 (setq package-pinned-packages
   '(
-    ;; gnu
-    (mmm-mode . "gnu")
     ;; melpa
     (leuven-theme . "melpa")
-    (cfml-mode . "melpa")
     (multi-compile . "melpa")
     ;; melpa-stable
     (saveplace . "melpa-stable")
@@ -394,21 +391,6 @@
 
 ;; Coffee
 (use-package coffee-mode)
-
-;; Coldfusion
-(use-package cfml-mode
-  :init
-  (add-to-list 'magic-mode-alist '("<cfcomponent" . cftag-mode))
-  (add-to-list 'magic-mode-alist '("<!---" . cftag-mode))
-  (add-to-list 'auto-mode-alist '("\\.cfm\\'" . cftag-mode))
-  (add-to-list 'auto-mode-alist '("\\.cfc\\'" . cfml-cfscript-mode))
-  :config
-  (use-package mmm-mode
-    :init
-    (setq mmm-global-mode 'maybe)
-    (mmm-add-mode-ext-class nil "\\.cfm\\'" 'cfml-cftag)
-    (mmm-add-mode-ext-class nil "\\.cfc\\'" 'cfml-cftag)
-    (mmm-add-mode-ext-class nil "\\.cfm\\'" 'cfml-js)))
 
 ;; React
 (use-package rjsx-mode
