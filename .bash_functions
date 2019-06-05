@@ -59,10 +59,10 @@ govm() {
 			export GOPATH=~/go
 		;;
 
-		dt) # dev tools
-			print_nrun go get -u github.com/alecthomas/gometalinter
-			print_nrun go get -u github.com/golang/lint/golint
-			print_nrun go get -u github.com/nsf/gocode
+		install-dev-tools)
+			print_nrun go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+			print_nrun go get -u golang.org/x/lint/golint
+			print_nrun go get -u github.com/mdempsky/gocode
 			print_nrun go get -u github.com/rogpeppe/godef
 			print_nrun go get -u golang.org/x/tools/cmd/goimports
 			print_nrun go get -u golang.org/x/tools/cmd/gorename
@@ -70,7 +70,6 @@ govm() {
 			print_nrun go get -u golang.org/x/tools/refactor/rename
 			print_nrun go get -u github.com/kr/pretty
 			print_nrun go get -u github.com/fatih/gomodifytags
-			print_nrun gometalinter --install --update
 		;;
 	esac
 }
