@@ -43,18 +43,18 @@
 	df = diff
 	dc = diff --cached
 
-	l = log --no-merges
-	changes = log --no-merges --pretty=format:\"%h %Cgreen%s%Creset %cr by %cn\" --name-status
+	changelog = log --no-merges --pretty=format:\"%h %Cgreen%s%Creset %cr by %cn\" --name-status
 
 	pr = pull --rebase
 	po = push origin
 	pof = !git pr && git push -f origin
 	apof = !git amendoa && git pof
-	ruub = !git remote update upstream && git rebase
 
 	rb = rebase
-	rbc = rebase --continue
 	rh = reset --hard
+
+	u = remote update origin
+	sync = !git u && git rb
 
 [push]
 	default = current
