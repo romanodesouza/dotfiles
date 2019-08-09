@@ -99,6 +99,7 @@
     ;; melpa
     (leuven-theme . "melpa")
     (apropospriate-theme . "melpa")
+    (nord-theme . "melpa")
     (multi-compile . "melpa")
     ;; melpa-stable
     (saveplace . "melpa-stable")
@@ -153,8 +154,11 @@
 ;;(use-package darktooth-theme
   ;;:config (load-theme 'darktooth t))
 
-(use-package apropospriate-theme
-  :config (load-theme 'apropospriate-dark t))
+;;(use-package apropospriate-theme
+  ;;:config (load-theme 'apropospriate-dark t))
+
+(use-package nord-theme
+  :config (load-theme 'nord t))
 
 ;;(use-package leuven-theme
 ;;  :config (load-theme 'leuven t))
