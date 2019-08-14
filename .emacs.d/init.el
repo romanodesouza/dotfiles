@@ -31,11 +31,12 @@
  compilation-always-kill t
  compilation-error-regexp-alist nil
  compilation-error-regexp-alist-alist nil
- special-display-buffer-names
- `(("*compilation*" . ((name . "*compilation*")
-                       ,@default-frame-alist
-                       (left . (- 1))
-                       (top . 0))))
+ display-buffer-alist
+ '(("\\*compilation\\*"
+	(display-buffer-reuse-window display-buffer-in-side-window)
+    (side . bottom)
+    (reusable-frames . visible)
+    (window-height . 0.25)))
  ;; Open buffers always on bottom
  split-height-threshold nil
  split-width-threshold most-positive-fixnum
