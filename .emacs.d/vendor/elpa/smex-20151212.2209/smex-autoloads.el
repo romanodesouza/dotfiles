@@ -3,11 +3,16 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "smex" "smex.el" (23777 49861 812566 159000))
+;;;### (autoloads nil "smex" "smex.el" (23893 42934 747482 367000))
 ;;; Generated autoloads from smex.el
 
 (autoload 'smex "smex" "\
 
+
+\(fn)" t nil)
+
+(autoload 'smex-major-mode-commands "smex" "\
+Like `smex', but limited to commands that are relevant to the active major mode.
 
 \(fn)" t nil)
 
