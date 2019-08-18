@@ -40,6 +40,9 @@ ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
 endif
 	vim --noplugin +PlugInstall +qall
 
+install-vscode:
+	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
+
 install-x11:
 	ln -sf `pwd`/.Xresources ~/.Xresources
 
@@ -53,4 +56,5 @@ install: \
 	install-terminator \
 	install-top \
 	install-vim \
+	install-vscode \
 	install-x11
