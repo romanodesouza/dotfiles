@@ -3,4 +3,9 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "go.lintTool": "golangci-lint",
+    "diffEditor.renderSideBySide": true,
+    "files.exclude": {
+        "vendor/**": true
+    },
+    "extensions.ignoreRecommendations": false,
 }
