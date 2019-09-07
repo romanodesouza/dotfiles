@@ -8,4 +8,7 @@
         "vendor/**": true
     },
     "extensions.ignoreRecommendations": false,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "editor.minimap.enabled": false,
 }
