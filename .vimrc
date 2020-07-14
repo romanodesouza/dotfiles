@@ -14,10 +14,18 @@ Plug 'mattn/gist-vim'
 Plug 'ntpeters/vim-better-whitespace'
 autocmd BufEnter * EnableStripWhitespaceOnSave
 " Themes
-Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
+Plug 'sainnhe/edge'
 " Commentary
 Plug 'tpope/vim-commentary'
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+" LSP
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
+let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 
 call plug#end()
 
@@ -105,15 +113,13 @@ nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>o :FZF<CR>
-" indent buffer
-nnoremap <silent> <space>ib <ESC>:normal mzgg=G`zzz<CR>
 nnoremap <silent> <leader>q :close!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
-nnoremap <silent> <leader>s :w<CR>
+nnoremap <silent> <leader>s :w<CR>:nohls<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>d :BLines<CR>
-nnoremap <silent> <leader>e $
+nnoremap <silent> <leader>h :nohls<CR>
 " soft line navigation
 nnoremap j gj
 nnoremap k gk
@@ -158,12 +164,27 @@ nnoremap <C-_> u
 nnoremap <silent><C-g> <ESC>:nohls<CR><C-g>
 
 " quit
-cab Q  q
+cab Q q
+cab Qa qa
+cab qA qa
+cab QA qa
 
 syntax on
-set bg=dark
-silent! colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+
+if !empty($ALACRITTY_LOG) 		" Alacritty
+	set bg=light
+	silent! colorscheme edge
+else							" Terminator
+	set bg=dark
+	silent! colorscheme OceanicNext
+	let g:airline_theme='oceanicnext'
+endif
+
+" Golang
+autocmd BufWritePre *.go :LspDocumentFormat
+autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
+autocmd FileType go nmap <buffer> <C-]> :LspDefinition <CR>
+autocmd FileType go nmap <buffer> K :LspHover <CR>
 
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
