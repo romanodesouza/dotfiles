@@ -26,6 +26,11 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+" Git messenger
+Plug 'rhysd/git-messenger.vim'
+let g:git_messenger_no_default_mappings = 1
+let g:git_messenger_always_into_popup = 1
+nmap <space>gm <Plug>(git-messenger)
 
 call plug#end()
 
