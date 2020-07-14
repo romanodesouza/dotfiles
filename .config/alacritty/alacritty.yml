@@ -1,0 +1,10 @@
+colors:
+  primary:
+    background: '#ffffff'
+    foreground: '#657b83'
+
+font:
+  normal:
+    family: Cousine
+    style: Regular
+  size: 10
