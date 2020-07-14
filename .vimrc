@@ -181,7 +181,7 @@ else							" Terminator
 endif
 
 " Golang
-autocmd BufWritePre *.go :LspDocumentFormat
+autocmd BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
 autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
 autocmd FileType go nmap <buffer> <C-]> :LspDefinition <CR>
 autocmd FileType go nmap <buffer> K :LspHover <CR>
