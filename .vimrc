@@ -126,7 +126,6 @@ nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>s :w<CR>:nohls<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>d :BLines<CR>
-nnoremap <silent> <leader>h :nohls<CR>
 " soft line navigation
 nnoremap j gj
 nnoremap k gk
