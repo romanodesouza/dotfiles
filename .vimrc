@@ -31,6 +31,8 @@ Plug 'rhysd/git-messenger.vim'
 let g:git_messenger_no_default_mappings = 1
 let g:git_messenger_always_into_popup = 1
 nmap <space>gm <Plug>(git-messenger)
+" nohls after moving cursor
+Plug 'junegunn/vim-slash'
 
 call plug#end()
 
