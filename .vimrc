@@ -120,7 +120,7 @@ nnoremap <leader>a :GitGrep<space>
 nnoremap <space>s /
 nnoremap <space>r ?
 nnoremap <silent> <space>o :FZF<CR>
-nnoremap <silent> <leader>q :close!<CR>
+nnoremap <silent> <leader>q :bd!<CR>
 nnoremap <silent> <leader>w :only<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>s :w<CR>:nohls<CR>
