@@ -5,6 +5,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " airline
 Plug 'bling/vim-airline'
+let g:airline#extensions#lsp#enabled = 1
 " Dockerfile support
 Plug 'ekalinin/Dockerfile.vim'
 " gist
@@ -25,7 +26,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
-let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+let g:lsp_signs_enabled = 0         	" disable signs
+let g:lsp_diagnostics_echo_cursor = 1	" enable echo under cursor when in normal mode
 " Git messenger
 Plug 'rhysd/git-messenger.vim'
 let g:git_messenger_no_default_mappings = 1
@@ -186,11 +188,20 @@ else							" Terminator
 	let g:airline_theme='oceanicnext'
 endif
 
+function s:lsp_settings()
+	setlocal omnifunc=lsp#complete signcolumn=no
+	nmap <buffer> <C-]> <Plug>(lsp-type-definition) <CR>
+	nmap <buffer> K <Plug>(lsp-hover)
+	nmap <buffer> <space>en <Plug>(lsp-next-diagnostic)
+	nmap <buffer> <space>ep <Plug>(lsp-previous-diagnostic)
+endfunction
+
 " Golang
 autocmd BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
+autocmd FileType go call s:lsp_settings()
 autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
-autocmd FileType go nmap <buffer> <C-]> :LspDefinition <CR>
-autocmd FileType go nmap <buffer> K :LspHover <CR>
+autocmd FileType go nmap <buffer> <space>gt :term go test -v <CR>
+autocmd FileType go nmap <buffer> <space>gi :term go install <CR>
 
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
