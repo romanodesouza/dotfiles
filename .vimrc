@@ -16,7 +16,7 @@ Plug 'ntpeters/vim-better-whitespace'
 autocmd BufEnter * EnableStripWhitespaceOnSave
 " Themes
 Plug 'mhartington/oceanic-next'
-Plug 'sainnhe/edge'
+Plug 'altercation/vim-colors-solarized'
 " Commentary
 Plug 'tpope/vim-commentary'
 " Multiple cursors
@@ -179,14 +179,11 @@ cab QA qa
 
 syntax on
 
-if !empty($ALACRITTY_LOG) 		" Alacritty
-	set bg=light
-	silent! colorscheme edge
-else							" Terminator
-	set bg=dark
-	silent! colorscheme OceanicNext
-	let g:airline_theme='oceanicnext'
-endif
+" theme
+set bg=dark
+silent! colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+let g:solarized_termcolors=256
 
 function s:lsp_settings()
 	setlocal omnifunc=lsp#complete signcolumn=no
