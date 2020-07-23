@@ -26,12 +26,20 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
-let g:lsp_signs_enabled = 0         	" disable signs
-let g:lsp_diagnostics_echo_cursor = 1	" enable echo under cursor when in normal mode
+
+" disable signs
+let g:lsp_signs_enabled				= 0
+" enable echo under cursor when in normal mode
+let g:lsp_diagnostics_echo_cursor	= 1
+
+highlight link LspErrorHighlight		Underlined
+highlight link LspWarningHighlight		Underlined
+highlight link LspInformationHighlight	Underlined
+highlight link LspHintHighlight			Underlined
 " Git messenger
 Plug 'rhysd/git-messenger.vim'
-let g:git_messenger_no_default_mappings = 1
-let g:git_messenger_always_into_popup = 1
+let g:git_messenger_no_default_mappings	= 1
+let g:git_messenger_always_into_popup	= 1
 nmap <space>gm <Plug>(git-messenger)
 " nohls after moving cursor
 Plug 'junegunn/vim-slash'
