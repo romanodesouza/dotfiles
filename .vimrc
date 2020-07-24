@@ -19,8 +19,6 @@ Plug 'mhartington/oceanic-next'
 Plug 'altercation/vim-colors-solarized'
 " Commentary
 Plug 'tpope/vim-commentary'
-" Multiple cursors
-Plug 'terryma/vim-multiple-cursors'
 " LSP
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
