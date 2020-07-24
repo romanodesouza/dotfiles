@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Nova",
+    "workbench.colorTheme": "Oceanic Next",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -11,9 +11,166 @@
     "gitlens.advanced.telemetry.enabled": false,
     "telemetry.enableCrashReporter": false,
     "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "solid",
     "terminal.integrated.cwd": "${fileDirname}",
     "go.lintTool": "golangci-lint",
     "[go]": {
         "editor.rulers": [120]
-    }
+    },
+    "vim.hlsearch": false,
+    "vim.visualstar": true,
+    "vim.statusBarColorControl": true,
+    "vim.useSystemClipboard": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.useCtrlKeys": true,
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["f","d"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": [",","s"],
+            "after": ["<Esc>"],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                }
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["v"],
+            "after": ["v"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["v"],
+            "after": ["a", "f"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+       {
+            "before": ["leader","c"],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                }
+            ]
+       },
+       {
+            "before": ["leader","a"],
+            "commands": [
+                {
+                    "command": "workbench.action.findInFiles",
+                }
+            ]
+       },
+       {
+           "before": ["v"],
+           "commands": [
+               {
+                   "command": "editor.action.smartSelect.grow"
+               }
+           ]
+       },
+       {
+           "before": ["V"],
+           "commands": [
+               {
+                   "command": "editor.action.smartSelect.shrink"
+               }
+           ]
+       },
+       {
+           "before": ["C-n"],
+           "commands": [
+               {
+                   "command": "editor.action.addSelectionToNextFindMatch"
+               }
+           ]
+       },
+       {
+           "before": ["C-x"],
+           "commands": [
+               {
+                   "command": "editor.action.moveSelectionToNextFindMatch"
+               }
+           ]
+       }
+    ],
+    "vim.normalModeKeyBindings": [
+       {
+            "before": ["leader","s"],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                }
+            ]
+       },
+       {
+            "before": ["leader","b"],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                }
+            ]
+       },
+       {
+            "before": ["leader","a"],
+            "commands": [
+                {
+                    "command": "workbench.action.findInFiles",
+                }
+            ]
+       },
+       {
+            "before": ["leader","q"],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                }
+            ]
+       },
+       {
+            "before": ["leader","c"],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                }
+            ]
+       },
+       {
+            "before": ["leader", "v"],
+            "commands": [":vsplit"]
+       },
+       {
+            "before": ["leader", "w"],
+            "commands": [":only!"]
+       },
+       {
+           "before": ["C-l"],
+           "after": ["C-w", "l"]
+       },
+       {
+           "before": ["C-h"],
+           "after": ["C-w", "h"]
+       },
+       {
+            "before": ["C-h"],
+            "commands": [
+                {
+                    "command": "editor.action.showHover",
+                }
+            ]
+       },
+    ],
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
 }

@@ -10,4 +10,17 @@
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
     },
+    {
+        "key": "space o",
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && !inDebugRepl"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.action.marker.next"
+    },
+    {
+        "key": "alt+p",
+        "command": "editor.action.marker.prev"
+    }
 ]
