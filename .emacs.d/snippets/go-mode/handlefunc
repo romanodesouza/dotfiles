@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: func(w http.ResponseWriter, r *http.Request)
-# key: handlefunc
-# --
-func $1(w http.ResponseWriter, r *http.Request) {
-	$0
-}`(go-import-add nil "net/http")`

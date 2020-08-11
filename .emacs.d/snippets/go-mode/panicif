@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: panicif
-# key: panicif
-# --
-if err != nil {
-	panic(err)
-}

@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: import ReactDOM from "react-dom";
-# key: importrd
-# --
-import ReactDOM from "react-dom";
-$0

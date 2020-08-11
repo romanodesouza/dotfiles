@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: package keyword
-# key: package
-# --
-package $0

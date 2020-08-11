@@ -1,5 +1,6 @@
 install-alacritty:
 	ln -sf `pwd`/.config/alacritty ~/.config/
+
 install-bash:
 	ln -sf `pwd`/.bashrc ~/.bashrc
 	ln -sf `pwd`/.bash_profile ~/.bash_profile
@@ -11,8 +12,6 @@ ifeq ("$(wildcard ~/.emacs.d)", "")
 	mkdir ~/.emacs.d
 endif
 	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
-	ln -sf ~/.emacs.d/vendor/elpa/ ~/.emacs.d/
-	git submodule update --init
 	emacs -nw --kill
 
 install-git:

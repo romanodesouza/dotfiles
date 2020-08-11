@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: type interface
-# key: typeinterface
-# --
-type $1 interface {
-    $0
-}

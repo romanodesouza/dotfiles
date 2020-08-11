@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: receiver
-# key: receiver
-# --
-func ($1) $2 ($3) $4 {
-    $0
-}

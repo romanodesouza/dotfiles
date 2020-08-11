@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: benchmark
-# key: benchmark
-# --
-func Benchmark$1(b *testing.B) {
-    $0
-}`(go-import-add nil "testing")`
