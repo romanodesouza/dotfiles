@@ -177,18 +177,9 @@
   (setq gofmt-command "goimports"
         go--coverage-current-file-name "/tmp/coverage.out")
   :config
+  (save-place-mode t)
   (add-hook 'go-mode-hook #'eglot-ensure)
   (add-hook 'before-save-hook 'gofmt-before-save))
-
-(use-package saveplace
-  :init
-  (setq-default save-place t)
-  (setq save-place-forget-unreadable-files t
-        save-place-skip-check-regexp "\\`/\\(?:cdrom\\|floppy\\|mnt\\|/[0-9]\\|\\(?:[^@/:]*@\\)?[^@/:]*[^@/:.]:\\)"))
-
-(use-package smooth-scrolling
-  :init (add-hook 'after-init-hook 'smooth-scrolling-mode)
-  :config (setq smooth-scroll-margin 10))
 
 (use-package which-key
   :init
