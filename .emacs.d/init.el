@@ -55,7 +55,7 @@
  ;; imenu
  imenu-auto-rescan t
  ;; Line spacing
- line-spacing 3)
+ line-spacing 0)
 
 ;; Enable deletion of selected text
 (delete-selection-mode t)
@@ -74,8 +74,8 @@
 ;; Strip trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; Font
-(let ((font "Liberation Mono 11"))
-  (set-face-attribute 'default nil :font font)
+(let ((font "Roboto Mono 11"))
+  (set-face-attribute 'default nil :font font :weight 'normal)
   (set-frame-font font nil t))
 
 ;; my/init
@@ -261,7 +261,11 @@
   (advice-add 'my/save-buffers :after (lambda () (when (get-buffer "*compilation*") (recompile))))
   ;; Cursor blinking
   (blink-cursor-mode 0)
-  ;; (add-hook 'prog-mode-hook 'linum-mode)
+  ;; Theme
+  (use-package spacemacs-theme
+    :defer t
+    :init (load-theme 'spacemacs-light t))
+  ;; Custom
   (load custom-file))
 
 (defun my/counsel-fzf ()
