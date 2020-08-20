@@ -170,6 +170,10 @@
   (define-key eglot-mode-map (kbd "C-]") 'xref-find-definitions)
   (define-key eglot-mode-map (kbd "K") 'eglot-help-at-point))
 
+;; Use ivy to show xref results
+(use-package ivy-xref
+  :init (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+
 ;; Go
 (use-package go-mode
   :init
