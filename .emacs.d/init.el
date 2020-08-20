@@ -166,8 +166,8 @@
 ;; LSP
 (use-package eglot
   :config
-  (define-key evil-motion-state-map (kbd "C-]") 'xref-find-definitions)
-  (define-key evil-motion-state-map (kbd "K") 'eglot-help-at-point))
+  (define-key eglot-mode-map (kbd "C-]") 'xref-find-definitions)
+  (define-key eglot-mode-map (kbd "K") 'eglot-help-at-point))
 
 ;; Go
 (use-package go-mode
