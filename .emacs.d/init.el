@@ -172,7 +172,9 @@
 
 ;; Use ivy to show xref results
 (use-package ivy-xref
-  :init (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+  :init
+  (setq xref-show-definitions-function #'ivy-xref-show-defs)
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 ;; Go
 (use-package go-mode
