@@ -134,7 +134,8 @@
       "s" 'evil-search-forward
       "k" 'kill-buffer
       "en" 'my/next-error
-      "gh" 'vc-region-history))
+      "gh" 'vc-region-history
+      "fr" 'xref-find-references))
 
   (use-package evil-visualstar
     :config (global-evil-visualstar-mode t))
