@@ -148,7 +148,7 @@
   :config
   (use-package key-seq
     :config
-    (key-seq-define-global ",b" 'counsel-switch-buffer)
+    (key-seq-define-global ",b" 'counsel-ibuffer)
     (key-seq-define-global ",s" 'my/save-buffers)
     (key-seq-define-global ",v" 'split-window-horizontally)
     (key-seq-define-global ",q" 'my/kill-or-close)
