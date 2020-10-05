@@ -13,14 +13,15 @@
     {
         "key": "space o",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && !inDebugRepl"
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
+    },
+	{
+        "key": "space e",
+        "command": "editor.action.marker.next",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
     },
     {
-        "key": "alt+n",
-        "command": "editor.action.marker.next"
-    },
-    {
-        "key": "alt+p",
-        "command": "editor.action.marker.prev"
-    }
+        "key": "space p",
+        "command": "editor.action.marker.prev",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
 ]
