@@ -25,95 +25,55 @@
         {
             "before": [",","s"],
             "after": ["<Esc>"],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                }
-            ]
+            "commands": ["workbench.action.files.save"]
         }
     ],
     "vim.visualModeKeyBindings": [
        {
             "before": ["leader","s"],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                }
-            ]
+            "commands": ["workbench.action.files.save"]
        },
        {
             "before": ["leader","c"],
-            "commands": [
-                {
-                    "command": "editor.action.commentLine",
-                }
-            ]
+            "commands": ["editor.action.commentLine"]
        },
        {
             "before": ["leader","a"],
-            "commands": [
-                {
-                    "command": "workbench.action.findInFiles",
-                }
-            ]
+            "commands": ["workbench.action.findInFiles"]
        },
        {
            "before": ["C-n"],
-           "commands": [
-               {
-                   "command": "editor.action.addSelectionToNextFindMatch"
-               }
-           ]
+           "commands": ["editor.action.addSelectionToNextFindMatch"]
        },
        {
            "before": ["C-x"],
-           "commands": [
-               {
-                   "command": "editor.action.moveSelectionToNextFindMatch"
-               }
-           ]
+           "commands": ["editor.action.moveSelectionToNextFindMatch"]
        }
     ],
     "vim.normalModeKeyBindings": [
        {
             "before": ["leader","s"],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                }
-            ]
+            "commands": ["workbench.action.files.save"]
        },
        {
             "before": ["leader","b"],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpen",
-                }
-            ]
+            "commands": ["workbench.action.quickOpen"]
        },
        {
             "before": ["leader","a"],
-            "commands": [
-                {
-                    "command": "workbench.action.findInFiles",
-                }
-            ]
+            "commands": ["workbench.action.findInFiles"]
        },
        {
             "before": ["leader","q"],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                }
-            ]
+            "commands": ["workbench.action.closeActiveEditor"]
        },
        {
             "before": ["leader","c"],
-            "commands": [
-                {
-                    "command": "editor.action.commentLine",
-                }
-            ]
+            "commands": ["editor.action.commentLine" ]
+       },
+       {
+            "before": ["leader","d"],
+            "commands": ["workbench.action.gotoSymbol"]
        },
        {
             "before": ["leader", "v"],
@@ -133,12 +93,12 @@
        },
        {
             "before": ["K"],
-            "commands": [
-                {
-                    "command": "editor.action.showHover",
-                }
-            ]
+            "commands": ["editor.action.showHover"]
        },
+       {
+           "before": ["C-n"],
+           "commands": ["editor.action.marker.next"]
+       }
     ],
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",

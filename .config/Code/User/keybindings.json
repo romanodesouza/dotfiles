@@ -9,19 +9,5 @@
         "key": "ctrl+p",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
-    },
-    {
-        "key": "space o",
-        "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
-    },
-	{
-        "key": "space e",
-        "command": "editor.action.marker.next",
-        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
-    },
-    {
-        "key": "space p",
-        "command": "editor.action.marker.prev",
-        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !inDebugRepl"
+    }
 ]
