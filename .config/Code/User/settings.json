@@ -23,10 +23,6 @@
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["f","d"],
-            "after": ["<Esc>"]
-        },
-        {
             "before": [",","s"],
             "after": ["<Esc>"],
             "commands": [
@@ -34,21 +30,17 @@
                     "command": "workbench.action.files.save",
                 }
             ]
-        },
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["v"],
-            "after": ["v"]
-        }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": ["v"],
-            "after": ["a", "f"]
         }
     ],
     "vim.visualModeKeyBindings": [
+       {
+            "before": ["leader","s"],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                }
+            ]
+       },
        {
             "before": ["leader","c"],
             "commands": [
@@ -64,22 +56,6 @@
                     "command": "workbench.action.findInFiles",
                 }
             ]
-       },
-       {
-           "before": ["v"],
-           "commands": [
-               {
-                   "command": "editor.action.smartSelect.grow"
-               }
-           ]
-       },
-       {
-           "before": ["V"],
-           "commands": [
-               {
-                   "command": "editor.action.smartSelect.shrink"
-               }
-           ]
        },
        {
            "before": ["C-n"],
@@ -156,7 +132,7 @@
            "after": ["C-w", "h"]
        },
        {
-            "before": ["C-h"],
+            "before": ["K"],
             "commands": [
                 {
                     "command": "editor.action.showHover",
