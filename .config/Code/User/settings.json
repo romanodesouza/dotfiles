@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Oceanic Next",
+    "workbench.colorTheme": "Spacemacs - dark",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -130,7 +130,7 @@
     },
     "gopls": {
         // Add parameter placeholders when completing a function.
-        "usePlaceholders": true,
+        "usePlaceholders": false,
 
         // If true, enable additional analyses with staticcheck.
         // Warning: This will significantly increase memory usage.
