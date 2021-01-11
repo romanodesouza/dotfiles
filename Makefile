@@ -1,6 +1,3 @@
-install-alacritty:
-	ln -sf `pwd`/.config/alacritty ~/.config/
-
 install-bash:
 	ln -sf `pwd`/.bashrc ~/.bashrc
 	ln -sf `pwd`/.bash_profile ~/.bash_profile
@@ -48,7 +45,6 @@ install-x11:
 	ln -sf `pwd`/.Xresources ~/.Xresources
 
 install: \
-	install-alacritty \
 	install-bash \
 	install-emacs \
 	install-git \
