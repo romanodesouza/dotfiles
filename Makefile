@@ -46,7 +46,6 @@ install-x11:
 
 install: \
 	install-bash \
-	install-emacs \
 	install-git \
 	install-idea \
 	install-profile \
@@ -54,5 +53,4 @@ install: \
 	install-terminator \
 	install-top \
 	install-vim \
-	install-vscode \
 	install-x11
