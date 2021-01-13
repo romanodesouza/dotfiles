@@ -1,18 +1,29 @@
 [global_config]
-  borderless = True
   handle_size = -3
+  borderless = True
   tab_position = bottom
 [keybindings]
-  close_term = <Alt>q
+  go_up = <Alt>k
   go_down = <Alt>j
   go_left = <Alt>h
   go_right = <Alt>l
-  go_up = <Alt>k
-  hide_window = F12
-  layout_launcher = <Shift><Alt>l
   split_horiz = <Alt>o
   split_vert = <Alt>i
+  close_term = <Alt>q
   toggle_zoom = <Alt>m
+  hide_window = F12
+  broadcast_off = <Alt>s
+  layout_launcher = <Shift><Alt>l
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#999999"
+    font = DejaVu Sans Mono 12
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -22,14 +33,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_darkness = 0.9
-    background_image = None
-    background_type = transparent
-    cursor_blink = False
-    cursor_color = "#999999"
-    font = DejaVu Sans Mono 12
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
