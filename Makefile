@@ -54,3 +54,8 @@ install: \
 	install-top \
 	install-vim \
 	install-x11
+
+install-wsl2: \
+	install-bash \
+	install-git \
+	install-vim \
