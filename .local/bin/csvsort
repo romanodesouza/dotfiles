@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Uniquely sort csv columns
+
+sorted=$(tac - | sort -u -t, -k 1,1 -k 2,2)
+header=$(echo "$sorted" | tail -1)
+content=$(echo "$sorted" | head -n -1)
+
+echo "$header"
+echo "$content" | sort -t, -k 1,1 -k 2,2

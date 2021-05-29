@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Calls grep, preserving the header
+
+file=$(cat -)
+header=$(echo "$file" | head -1)
+content=$(echo "$file" | awk '(NR>1)' | egrep $@)
+
+echo "$header"
+echo "$content"

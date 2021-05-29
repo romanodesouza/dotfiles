@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Concat multiple csv files keeping a single header.
+
+awk 'FNR == 1 && NR != 1 { next; }{ print }' $@

@@ -4,6 +4,9 @@ install-bash:
 	ln -sf `pwd`/.bash_aliases ~/.bash_aliases
 	ln -sf `pwd`/.bash_functions ~/.bash_functions
 
+install-bin:
+	ln -sf `pwd`/.local/bin/* ~/.local/bin/
+
 install-emacs:
 ifeq ("$(wildcard ~/.emacs.d)", "")
 	mkdir ~/.emacs.d
@@ -46,6 +49,7 @@ install-x11:
 
 install: \
 	install-bash \
+	install-bin \
 	install-git \
 	install-idea \
 	install-profile \
@@ -57,5 +61,6 @@ install: \
 
 install-wsl2: \
 	install-bash \
+	install-bin \
 	install-git \
 	install-vim \

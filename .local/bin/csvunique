@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Ensures all lines in a csv are unique
+
+file=$(cat -)
+header=$(echo "$file" | head -1)
+content=$(echo "$file" | awk '(NR>1)')
+
+echo "$header"
+echo "$content" | sort | uniq
