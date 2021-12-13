@@ -5,6 +5,7 @@ install-bash:
 	ln -sf `pwd`/.bash_functions ~/.bash_functions
 
 install-bin:
+	mkdir -p ~/.local/bin || true
 	ln -sf `pwd`/.local/bin/* ~/.local/bin/
 
 install-emacs:
