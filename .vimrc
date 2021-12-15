@@ -196,13 +196,14 @@ let g:solarized_termcolors=256
 
 function s:lsp_settings()
 	setlocal omnifunc=lsp#complete signcolumn=no
-	nmap <buffer> <C-]> <Plug>(lsp-type-definition) <CR>
+	nmap <buffer> <C-]> <Plug>(lsp-definition) <CR>
 	nmap <buffer> K <Plug>(lsp-hover)
 	nmap <buffer> <space>en <Plug>(lsp-next-diagnostic)
 	nmap <buffer> <space>ep <Plug>(lsp-previous-diagnostic)
 endfunction
 
 " Golang
+autocmd BufWritePre *.go call execute('LspDocumentFormat')
 autocmd BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
 autocmd FileType go call s:lsp_settings()
 autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
