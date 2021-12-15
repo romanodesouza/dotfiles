@@ -203,8 +203,7 @@ function s:lsp_settings()
 endfunction
 
 " Golang
-autocmd BufWritePre *.go call execute('LspDocumentFormat')
-autocmd BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
+autocmd BufWritePre *.go call execute(['LspCodeActionSync source.organizeImports', 'LspDocumentFormatSync'])
 autocmd FileType go call s:lsp_settings()
 autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
 autocmd FileType go nmap <buffer> <space>gt :term go test -v <CR>
