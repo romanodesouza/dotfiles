@@ -42,6 +42,9 @@ nmap <space>gm <Plug>(git-messenger)
 " nohls after moving cursor
 Plug 'junegunn/vim-slash'
 
+" Multiple cursors
+Plug 'mg979/vim-visual-multi'
+
 call plug#end()
 
 augroup resCur
@@ -205,6 +208,9 @@ autocmd FileType go call s:lsp_settings()
 autocmd FileType go nmap <buffer> <leader>d :BLines ^type\\|^func <CR>
 autocmd FileType go nmap <buffer> <space>gt :term go test -v <CR>
 autocmd FileType go nmap <buffer> <space>gi :term go install <CR>
+
+" CF
+autocmd FileType cf nmap <buffer> <leader>d :BLines <cffunction <CR>
 
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local

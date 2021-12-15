@@ -36,6 +36,7 @@ install-top:
 
 install-vim:
 	ln -sf `pwd`/.vimrc ~/.vimrc
+	ln -sf `pwd`/.gvimrc ~/.gvimrc
 ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
