@@ -311,7 +311,7 @@
 (defun my/select-project ()
   "Change default-directory to the selected project"
   (interactive)
-  (setq default-directory (ivy-completing-read "Project: " (split-string (shell-command-to-string (concat "find " (getenv "HOME") "/projects -maxdepth 2 -type d -o -type l"))))))
+  (setq default-directory (ivy-completing-read "Project: " (split-string (shell-command-to-string (concat "find " (getenv "HOME") "/dev -maxdepth 2 -type d -o -type l"))))))
 
 (defun remove-elc-on-save ()
   "If you're saving an elisp file, likely the .elc is no longer valid."
