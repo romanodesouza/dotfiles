@@ -74,7 +74,7 @@
 ;; Strip trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; Font
-(let ((font "Roboto Mono 11"))
+(let ((font "Dejavu Sans Mono 11"))
   (set-face-attribute 'default nil :font font :weight 'normal)
   (set-frame-font font nil t))
 
@@ -168,7 +168,7 @@
 (use-package eglot
   :config
   (define-key eglot-mode-map (kbd "C-]") 'xref-find-definitions)
-  (define-key eglot-mode-map (kbd "K") 'eglot-help-at-point))
+  (define-key eglot-mode-map (kbd "K") 'eldoc))
 
 ;; Use ivy to show xref results
 (use-package ivy-xref
@@ -267,9 +267,9 @@
   ;; Cursor blinking
   (blink-cursor-mode 0)
   ;; Theme
-  (use-package spacemacs-theme
+  (use-package solarized-theme
     :defer t
-    :init (load-theme 'spacemacs-dark t))
+    :init (load-theme 'solarized-light t))
   ;; Custom
   (load custom-file))
 
