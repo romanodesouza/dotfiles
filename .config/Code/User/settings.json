@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Spacemacs - light",
+    "workbench.colorTheme": "Eva Dark Bold",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -135,5 +135,6 @@
         // If true, enable additional analyses with staticcheck.
         // Warning: This will significantly increase memory usage.
         "staticcheck": false,
-    }
+    },
+    "go.toolsManagement.autoUpdate": true
 }
