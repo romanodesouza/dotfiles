@@ -1,0 +1,158 @@
+require('packer').startup(function()
+	use 'wbthomason/packer.nvim'
+	use 'marko-cerovac/material.nvim'
+	use 'junegunn/vim-slash'
+	use 'ntpeters/vim-better-whitespace'
+	use 'tpope/vim-commentary'
+	use {
+		'neovim/nvim-lspconfig',
+		'hrsh7th/nvim-cmp',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-vsnip',
+		'hrsh7th/vim-vsnip',
+	}
+	use {
+		{ 'junegunn/fzf', dir = '~/.fzf', run = './install --all' },
+		{ 'junegunn/fzf.vim' },
+	}
+end)
+
+-- theme
+vim.cmd('silent! colorscheme material')
+vim.g.material_style='deep ocean'
+
+-- strip whitespaces
+vim.cmd('autocmd BufEnter * EnableStripWhitespaceOnSave')
+-- quit
+vim.cmd('cab Q q')
+vim.cmd('cab Qa qa')
+vim.cmd('cab qA qa')
+vim.cmd('cab QA qa')
+
+-- leader key
+vim.g.mapleader=','
+
+-- keymaps
+vim.keymap.set({'n', 'v'}, 'Y', 'yy', { silent=true })
+vim.keymap.set({'i', 'n'}, '<leader>s', '<ESC>:w<CR>:nohls<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>o', ':FZF<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>q', ':bd!<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>w', ':only<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>v', ':vsplit<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>b', ':Buffers<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>d', ':BLines<CR>', { silent=true })
+vim.keymap.set({'i'}, 'fd', '<ESC>', { silent=true })
+vim.keymap.set({'n'}, '<C-h>', '<C-w>h', { silent=true })
+vim.keymap.set({'n'}, '<C-j>', '<C-w>j', { silent=true })
+vim.keymap.set({'n'}, '<C-k>', '<C-w>k', { silent=true })
+vim.keymap.set({'n'}, '<C-l>', '<C-w>l', { silent=true })
+vim.keymap.set({'n'}, 'j', 'gj', { silent=true })
+vim.keymap.set({'n'}, 'k', 'gk', { silent=true })
+vim.keymap.set('', '<leader>c', '<Plug>Commentary', { silent=true })
+vim.keymap.set({'x'}, '<leader>a', '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>a', ':Rg<CR>', { silent=true })
+
+-- clipboard behaviour
+vim.opt.clipboard={'unnamedplus'}
+
+-- search
+vim.opt.hlsearch=true
+vim.opt.incsearch=true
+vim.opt.ignorecase=true
+vim.opt.smartcase=true
+vim.opt.wrapscan=true
+
+-- lines
+vim.opt.wrap=true
+vim.opt.linebreak=true
+
+-- indent
+vim.opt.autoindent=true
+vim.opt.smartindent=true
+vim.opt.copyindent=true
+vim.opt.preserveindent=true
+vim.opt.softtabstop=0
+vim.opt.shiftwidth=4
+vim.opt.tabstop=4
+
+-- scroll
+vim.opt.scrolloff=8
+vim.opt.sidescrolloff=15
+vim.opt.sidescroll=1
+
+function org_imports()
+	local clients = vim.lsp.buf_get_clients()
+	for _, client in pairs(clients) do
+
+		local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+		params.context = {only = {'source.organizeImports'}}
+
+		local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 5000)
+		for _, res in pairs(result or {}) do
+			for _, r in pairs(res.result or {}) do
+				if r.edit then
+					vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+				else
+					vim.lsp.buf.execute_command(r.command)
+				end
+			end
+		end
+	end
+end
+
+local nvim_lsp=require('lspconfig')
+local opts={noremap=true, silent=true, buffer=bufnr}
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+
+-- lsp imports
+vim.api.nvim_create_autocmd('BufWritePre', {
+	pattern = {'*.go'},
+	callback = org_imports,
+})
+
+-- lsp format
+vim.api.nvim_create_autocmd('BufWritePre', {
+	pattern = {'*.go' },
+	callback = function(args)
+		vim.lsp.buf.format({sync=true})
+	end,
+})
+
+-- completion
+vim.opt.completeopt='menu,menuone,noselect'
+local cmp=require('cmp')
+
+cmp.setup({
+	sources = {
+		{ name='nvim_lsp'},
+	},
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	}),
+})
+
+-- go
+vim.api.nvim_create_autocmd('FileType', {
+	pattern={'go'},
+	callback=function(args)
+		vim.keymap.set({'n'}, '<leader>d', ':BLines ^type\\|^func <CR>', { silent=true, buffer=true })
+	end,
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+nvim_lsp.gopls.setup({
+	capabilities = capabilities
+})
+

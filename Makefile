@@ -43,6 +43,16 @@ ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
 endif
 	vim --noplugin +PlugInstall +qall
 
+install-nvim:
+ifeq ("$(wildcard ~/.config/nvim)", "")
+	mkdir ~/.config/nvim
+endif
+	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
+ifeq ("$(wildcard ~/.local/share/nvim/site/pack/packer)", "")
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+endif
+	nvim --noplugin +PackerInstall +qall
+
 install-vscode:
 	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
 
@@ -59,6 +69,7 @@ install: \
 	install-terminator \
 	install-top \
 	install-vim \
+	install-nvim \
 	install-x11
 
 install-wsl2: \
