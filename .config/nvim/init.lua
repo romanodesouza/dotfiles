@@ -15,6 +15,8 @@ require('packer').startup(function()
 		{ 'junegunn/fzf', dir = '~/.fzf', run = './install --all' },
 		{ 'junegunn/fzf.vim' },
 	}
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+	use 'nvim-tree/nvim-web-devicons'
 end)
 
 -- theme
@@ -51,6 +53,8 @@ vim.keymap.set({'n'}, 'k', 'gk', { silent=true })
 vim.keymap.set('', '<leader>c', '<Plug>Commentary', { silent=true })
 vim.keymap.set({'x'}, '<leader>a', '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
 vim.keymap.set({'n'}, '<leader>a', ':Rg<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>dh', ':DiffviewFileHistory %<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>dc', ':DiffviewClose<CR>', { silent=true })
 
 -- clipboard behaviour
 vim.opt.clipboard={'unnamedplus'}
