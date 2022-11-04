@@ -17,6 +17,7 @@ require('packer').startup(function()
 	}
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	use 'nvim-tree/nvim-web-devicons'
+	use 'nvim-treesitter/nvim-treesitter'
 end)
 
 -- term colors
@@ -63,6 +64,13 @@ vim.cmd('cab Wq wq')
 
 -- strip whitespaces
 vim.cmd('autocmd BufEnter * EnableStripWhitespaceOnSave')
+
+-- treesitter
+require('nvim-treesitter.configs').setup({
+	ensure_installed={"go", "lua"},
+	highlight={enable=true},
+	incremental_selection={enable=true},
+})
 
 -- leader key
 vim.g.mapleader=','
