@@ -19,42 +19,8 @@ require('packer').startup(function()
 	use 'nvim-tree/nvim-web-devicons'
 end)
 
--- theme
-vim.cmd('silent! colorscheme material')
-vim.g.material_style='deep ocean'
-
--- strip whitespaces
-vim.cmd('autocmd BufEnter * EnableStripWhitespaceOnSave')
--- quit
-vim.cmd('cab Q q')
-vim.cmd('cab Qa qa')
-vim.cmd('cab qA qa')
-vim.cmd('cab QA qa')
-
--- leader key
-vim.g.mapleader=','
-
--- keymaps
-vim.keymap.set({'n', 'v'}, 'Y', 'yy', { silent=true })
-vim.keymap.set({'i', 'n'}, '<leader>s', '<ESC>:w<CR>:nohls<CR>', { silent=true })
-vim.keymap.set({'n'}, '<space>o', ':FZF<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>q', ':bd!<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>w', ':only<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>v', ':vsplit<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>b', ':Buffers<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>d', ':BLines<CR>', { silent=true })
-vim.keymap.set({'i'}, 'fd', '<ESC>', { silent=true })
-vim.keymap.set({'n'}, '<C-h>', '<C-w>h', { silent=true })
-vim.keymap.set({'n'}, '<C-j>', '<C-w>j', { silent=true })
-vim.keymap.set({'n'}, '<C-k>', '<C-w>k', { silent=true })
-vim.keymap.set({'n'}, '<C-l>', '<C-w>l', { silent=true })
-vim.keymap.set({'n'}, 'j', 'gj', { silent=true })
-vim.keymap.set({'n'}, 'k', 'gk', { silent=true })
-vim.keymap.set('', '<leader>c', '<Plug>Commentary', { silent=true })
-vim.keymap.set({'x'}, '<leader>a', '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>a', ':Rg<CR>', { silent=true })
-vim.keymap.set({'n'}, '<space>dh', ':DiffviewFileHistory %<CR>', { silent=true })
-vim.keymap.set({'n'}, '<space>dc', ':DiffviewClose<CR>', { silent=true })
+-- term colors
+vim.opt.termguicolors=true
 
 -- clipboard behaviour
 vim.opt.clipboard={'unnamedplus'}
@@ -84,6 +50,45 @@ vim.opt.scrolloff=8
 vim.opt.sidescrolloff=15
 vim.opt.sidescroll=1
 
+-- theme
+vim.cmd('silent! colorscheme material')
+vim.g.material_style='deep ocean'
+
+-- quit
+vim.cmd('cab Q q')
+vim.cmd('cab Qa qa')
+vim.cmd('cab qA qa')
+vim.cmd('cab QA qa')
+vim.cmd('cab Wq wq')
+
+-- strip whitespaces
+vim.cmd('autocmd BufEnter * EnableStripWhitespaceOnSave')
+
+-- leader key
+vim.g.mapleader=','
+
+-- keymaps
+vim.keymap.set({'n', 'v'}, 'Y', 'yy', { silent=true })
+vim.keymap.set({'i', 'n'}, '<leader>s', '<ESC>:w<CR>:nohls<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>o', ':FZF<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>q', ':bd!<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>w', ':only<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>v', ':vsplit<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>b', ':Buffers<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>d', ':BLines<CR>', { silent=true })
+vim.keymap.set({'i'}, 'fd', '<ESC>', { silent=true })
+vim.keymap.set({'n'}, '<C-h>', '<C-w>h', { silent=true })
+vim.keymap.set({'n'}, '<C-j>', '<C-w>j', { silent=true })
+vim.keymap.set({'n'}, '<C-k>', '<C-w>k', { silent=true })
+vim.keymap.set({'n'}, '<C-l>', '<C-w>l', { silent=true })
+vim.keymap.set({'n'}, 'j', 'gj', { silent=true })
+vim.keymap.set({'n'}, 'k', 'gk', { silent=true })
+vim.keymap.set('', '<leader>c', '<Plug>Commentary', { silent=true })
+vim.keymap.set({'x'}, '<leader>a', '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>a', ':Rg<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>dh', ':DiffviewFileHistory %<CR>', { silent=true })
+vim.keymap.set({'n'}, '<space>dc', ':DiffviewClose<CR>', { silent=true })
+
 function org_imports()
 	local clients = vim.lsp.buf_get_clients()
 	for _, client in pairs(clients) do
@@ -105,10 +110,12 @@ function org_imports()
 end
 
 local nvim_lsp=require('lspconfig')
-local opts={noremap=true, silent=true, buffer=bufnr}
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+local on_attach=function(client, bufnr)
+	local opts={noremap=true, silent=true, buffer=bufnr}
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+	vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+end
 
 -- lsp imports
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -157,6 +164,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 nvim_lsp.gopls.setup({
-	capabilities = capabilities
+	on_attach=on_attach,
+	capabilities=capabilities
 })
 
