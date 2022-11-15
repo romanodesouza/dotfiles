@@ -18,6 +18,7 @@ require('packer').startup(function()
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-treesitter/nvim-treesitter'
+	use 'moll/vim-bbye'
 end)
 
 -- term colors
@@ -79,7 +80,7 @@ vim.g.mapleader=','
 vim.keymap.set({'n', 'v'}, 'Y', 'yy', { silent=true })
 vim.keymap.set({'i', 'n'}, '<leader>s', '<ESC>:w<CR>:nohls<CR>', { silent=true })
 vim.keymap.set({'n'}, '<space>o', ':FZF<CR>', { silent=true })
-vim.keymap.set({'n'}, '<leader>q', ':bd!<CR>', { silent=true })
+vim.keymap.set({'n'}, '<leader>q', ':Bdelete<CR>', { silent=true })
 vim.keymap.set({'n'}, '<leader>w', ':only<CR>', { silent=true })
 vim.keymap.set({'n'}, '<leader>v', ':vsplit<CR>', { silent=true })
 vim.keymap.set({'n'}, '<leader>b', ':Buffers<CR>', { silent=true })
