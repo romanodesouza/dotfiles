@@ -159,3 +159,10 @@ nvim_lsp.gopls.setup({
 	capabilities=capabilities
 })
 
+-- cf
+vim.api.nvim_create_autocmd('FileType', {
+	pattern={'cf'},
+	callback=function(args)
+		vim.keymap.set({'n'}, '<leader>d', ':BLines <cffunction <CR>', { silent=true, buffer=true })
+	end,
+})
