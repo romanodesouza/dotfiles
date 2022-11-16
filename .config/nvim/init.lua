@@ -10,6 +10,7 @@ require('packer').startup(function()
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-vsnip',
 		'hrsh7th/vim-vsnip',
+		'hrsh7th/cmp-nvim-lsp-signature-help'
 	}
 	use {
 		{ 'junegunn/fzf', dir = '~/.fzf', run = './install --all' },
@@ -128,7 +129,8 @@ local cmp=require('cmp')
 
 cmp.setup({
 	sources = {
-		{ name='nvim_lsp'},
+		{name='nvim_lsp'},
+		{name='nvim_lsp_signature_help'},
 	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
