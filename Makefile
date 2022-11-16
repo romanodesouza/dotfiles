@@ -51,7 +51,7 @@ endif
 ifeq ("$(wildcard ~/.local/share/nvim/site/pack/packer)", "")
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 endif
-	nvim --noplugin +PackerInstall +qall
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 install-vscode:
 	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
