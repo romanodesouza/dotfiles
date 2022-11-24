@@ -105,26 +105,19 @@ vim.keymap.set({'i','v', 'n'}, '<C-g>', '<ESC>', { silent=true })
 
 local nvim_lsp=require('lspconfig')
 local on_attach=function(client, bufnr)
-	vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border='rounded'})
+	vim.lsp.handlers['textDocument/hover']=vim.lsp.with(vim.lsp.handlers.hover, {border='rounded'})
 	local opts={noremap=true, silent=true, buffer=bufnr}
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 end
 
--- lsp imports
+-- lsp format and organize imports
 vim.api.nvim_create_autocmd('BufWritePre', {
 	pattern = {'*.go'},
 	callback = function(args)
-		vim.lsp.buf.code_action({context={only={'source.organizeImports'}}, apply=true})
-	end,
-})
-
--- lsp format
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = {'*.go' },
-	callback = function(args)
 		vim.lsp.buf.format({sync=true})
+		vim.lsp.buf.code_action({context={only={'source.organizeImports'}}, apply=true})
 	end,
 })
 
