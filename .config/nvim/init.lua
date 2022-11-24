@@ -60,6 +60,7 @@ vim.g.material_style='deep ocean'
 -- quit
 vim.cmd('cab Q q')
 vim.cmd('cab Qa qa')
+vim.cmd('cab Qall qall')
 vim.cmd('cab qA qa')
 vim.cmd('cab QA qa')
 vim.cmd('cab Wq wq')
