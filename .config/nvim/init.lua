@@ -99,6 +99,8 @@ vim.keymap.set({'x'}, '<leader>a', '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
 vim.keymap.set({'n'}, '<leader>a', ':Rg<CR>', { silent=true })
 vim.keymap.set({'n'}, '<space>dh', ':DiffviewFileHistory %<CR>', { silent=true })
 vim.keymap.set({'n'}, '<space>dc', ':DiffviewClose<CR>', { silent=true })
+vim.keymap.set({'c'}, '<C-g>', '<C-c>', { silent=true })
+vim.keymap.set({'i','v', 'n'}, '<C-g>', '<ESC>', { silent=true })
 
 local nvim_lsp=require('lspconfig')
 local on_attach=function(client, bufnr)
