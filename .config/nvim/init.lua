@@ -102,6 +102,7 @@ vim.keymap.set({'n'}, '<space>dc', ':DiffviewClose<CR>', { silent=true })
 
 local nvim_lsp=require('lspconfig')
 local on_attach=function(client, bufnr)
+	vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border='rounded'})
 	local opts={noremap=true, silent=true, buffer=bufnr}
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
