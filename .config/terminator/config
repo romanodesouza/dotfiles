@@ -20,7 +20,7 @@
     background_type = transparent
     cursor_blink = False
     cursor_color = "#999999"
-    font = DejaVu Sans Mono 12
+    font = Cascadia Code 11
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
