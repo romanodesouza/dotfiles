@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Eva Dark Bold",
+    "workbench.colorTheme": "Eva Light",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -136,5 +136,16 @@
         // Warning: This will significantly increase memory usage.
         "staticcheck": false,
     },
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.renderWhitespace": "none",
+    "workbench.activityBar.visible": false,
+    "editor.renderLineHighlight": "none", // removes line highlight
+    "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
+    "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
+    "editor.folding": false, // removes the folding feature
+    "editor.occurrencesHighlight": false, // removes highlights occ
+    "editor.matchBrackets": "never", // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
+    "workbench.statusBar.visible": false, // removes the status bar
+    "scm.diffDecorations": "none",
 }
