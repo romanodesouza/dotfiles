@@ -139,7 +139,6 @@
     "go.toolsManagement.autoUpdate": true,
     "editor.fontFamily": "Cascadia Code",
     "editor.renderWhitespace": "none",
-    "workbench.activityBar.visible": false,
     "editor.renderLineHighlight": "none", // removes line highlight
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
     "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
@@ -148,4 +147,6 @@
     "editor.matchBrackets": "never", // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
     "workbench.statusBar.visible": false, // removes the status bar
     "scm.diffDecorations": "none",
+    "editor.guides.indentation": false,
+    "workbench.activityBar.visible": false,
 }
