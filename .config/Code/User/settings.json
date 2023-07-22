@@ -23,6 +23,10 @@
             "before": [",","s"],
             "after": ["<Esc>"],
             "commands": ["workbench.action.files.save"]
+        },
+        {
+            "before": ["ctrl+d"],
+            "after": ["<Esc>", "l", "x"],
         }
     ],
     "vim.visualModeKeyBindings": [
