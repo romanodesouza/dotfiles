@@ -24,15 +24,6 @@ install-terminator:
 install-top:
 	ln -sf `pwd`/.toprc ~/.toprc
 
-install-vim:
-	ln -sf `pwd`/.vimrc ~/.vimrc
-	ln -sf `pwd`/.gvimrc ~/.gvimrc
-ifeq ("$(wildcard ~/.vim/autoload/plug.vim)", "")
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-	vim --noplugin +PlugInstall +qall
-
 install-nvim:
 ifeq ("$(wildcard ~/.config/nvim)", "")
 	mkdir ~/.config/nvim
@@ -57,7 +48,6 @@ install: \
 	install-ssh \
 	install-terminator \
 	install-top \
-	install-vim \
 	install-nvim \
 	install-x11
 
@@ -65,4 +55,4 @@ install-wsl2: \
 	install-bash \
 	install-bin \
 	install-git \
-	install-vim \
+	install-nvim
