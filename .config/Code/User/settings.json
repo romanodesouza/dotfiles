@@ -99,6 +99,26 @@
        {
            "before": ["C-n"],
            "commands": ["editor.action.marker.next"]
+       },
+       {
+            "before": ["space", "g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+       },
+       {
+            "before": ["space", "g", "r"],
+            "commands": ["editor.action.goToReferences"]
+       },
+       {
+            "before": ["space", "e", "l"],
+            "commands": ["workbench.actions.view.problems"]
+       },
+       {
+            "before": ["space", "e", "n"],
+            "commands": ["editor.action.marker.nextInFiles"]
+       },
+       {
+            "before": ["space", "e", "p"],
+            "commands": ["editor.action.marker.prevInFiles"]
        }
     ],
     "workbench.colorCustomizations": {
