@@ -7,9 +7,6 @@
         "vendor/**": true
     },
     "extensions.ignoreRecommendations": false,
-    "telemetry.enableTelemetry": false,
-    "gitlens.advanced.telemetry.enabled": false,
-    "telemetry.enableCrashReporter": false,
     "editor.minimap.enabled": false,
     "editor.cursorBlinking": "solid",
     "terminal.integrated.cwd": "${fileDirname}",
