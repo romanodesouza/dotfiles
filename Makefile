@@ -17,9 +17,9 @@ install-profile:
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
-install-terminator:
-	rm -rf ~/.config/terminator || true
-	ln -sf `pwd`/.config/terminator/ ~/.config/
+install-kitty:
+	rm -rf ~/.config/kitty || true
+	ln -sf `pwd`/.config/kitty/ ~/.config/
 
 install-top:
 	ln -sf `pwd`/.toprc ~/.toprc
@@ -42,7 +42,7 @@ install: \
 	install-git \
 	install-profile \
 	install-ssh \
-	install-terminator \
+	install-kitty \
 	install-top \
 	install-nvim \
 	install-x11
