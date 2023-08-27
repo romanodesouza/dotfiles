@@ -29,10 +29,6 @@ ifeq ("$(wildcard ~/.config/nvim)", "")
 	mkdir ~/.config/nvim
 endif
 	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
-ifeq ("$(wildcard ~/.local/share/nvim/site/pack/packer)", "")
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-endif
-	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 install-vscode:
 	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
