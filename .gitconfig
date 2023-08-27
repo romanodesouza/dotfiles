@@ -31,7 +31,6 @@
 
 [alias]
 	ci = commit
-	amend = commit --amend -C HEAD
 	amendoa = commit -a --amend -C HEAD
 
 	st = status
@@ -42,13 +41,6 @@
 
 	df = diff
 	dc = diff --cached
-
-	changelog = log --no-merges --pretty=format:\"%h %Cgreen%s%Creset %cr by %cn\" --name-status
-
-	pr = pull --rebase
-	po = push origin
-	pof = !git pr && git push -f origin
-	apof = !git amendoa && git pof
 
 	rb = rebase
 	rh = reset --hard
