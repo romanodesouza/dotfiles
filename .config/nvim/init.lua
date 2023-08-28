@@ -17,6 +17,16 @@ require("lazy").setup({
 		"junegunn/fzf.vim",
 		dependencies = { "junegunn/fzf", build = ":call fzf#install()" }
 	},
+	{
+		"gfanto/fzf-lsp.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local fzf_lsp = require("fzf_lsp")
+			vim.lsp.handlers["textDocument/implementation"] = fzf_lsp.implementation_handler
+			vim.lsp.handlers["textDocument/references"] = fzf_lsp.references_handler
+			vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lsp.document_symbol_handler
+		end
+	},
 
 	-- Syntax highlighting
 	{
@@ -100,6 +110,7 @@ require("lazy").setup({
 				vim.keymap.set("n", "<C-]>", vim.lsp.buf.definition, opts)
 				vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
 				vim.keymap.set("n", "<space>r", vim.lsp.buf.references, opts)
+				vim.keymap.set("n", "<leader>d", vim.lsp.buf.document_symbol, opts)
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -165,7 +176,6 @@ vim.keymap.set({ "n" }, "<leader>q", ":Bdelete<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>w", ":only<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>v", ":vsplit<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>b", ":Buffers<CR>", { silent=true })
-vim.keymap.set({ "n" }, "<leader>d", ":BLines<CR>", { silent=true })
 vim.keymap.set({ "i" }, "fd", "<ESC>", { silent=true })
 vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { silent=true })
 vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { silent=true })
@@ -201,12 +211,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function(args)
 		OrgImports(1000)
 		vim.lsp.buf.format({ sync=true })
-	end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "go" },
-	callback = function(args)
-		vim.keymap.set({ "n" }, "<leader>d", ":BLines ^type\\|^func <CR>", { silent=true, buffer=true })
 	end
 })
