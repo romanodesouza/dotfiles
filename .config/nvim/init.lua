@@ -110,7 +110,7 @@ require("lazy").setup({
 				vim.keymap.set("n", "<C-]>", vim.lsp.buf.definition, opts)
 				vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
 				vim.keymap.set("n", "<space>r", vim.lsp.buf.references, opts)
-				vim.keymap.set("n", "<leader>d", vim.lsp.buf.document_symbol, opts)
+				vim.keymap.set("n", "<space>d", vim.lsp.buf.document_symbol, opts)
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
