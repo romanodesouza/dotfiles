@@ -11,11 +11,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- leader key
+vim.g.mapleader=","
+
 require("lazy").setup({
 	-- FZF
 	{
 		"junegunn/fzf.vim",
-		dependencies = { "junegunn/fzf", build = ":call fzf#install()" }
+		dependencies = { "junegunn/fzf", build = ":call fzf#install()" },
+		config = function()
+			vim.keymap.set({ "n" }, "<space>o", ":FZF<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<space>e", ":Files %:p:h<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<leader>b", ":Buffers<CR>", { silent=true })
+			vim.keymap.set({ "x" }, "<leader>a", '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
+			vim.keymap.set({ "n" }, "<leader>a", ":Rg<CR>", { silent=true })
+		end
 	},
 	{
 		"gfanto/fzf-lsp.nvim",
@@ -66,7 +76,12 @@ require("lazy").setup({
 	},
 
 	-- Comment stuff out
-	{ "tpope/vim-commentary" },
+	{
+		"tpope/vim-commentary",
+		config = function()
+			vim.keymap.set("", "<leader>c", "<Plug>Commentary", { silent=true })
+		end
+	},
 
 	-- LSP
 	{
@@ -164,18 +179,12 @@ vim.cmd("cab qA qa")
 vim.cmd("cab QA qa")
 vim.cmd("cab Wq wq")
 
--- leader key
-vim.g.mapleader=","
-
 -- keymaps
-vim.keymap.set({ "n", "v" }, "Y", "yy", { silent=true })
-vim.keymap.set({ "i", "n" }, "<leader>s", "<ESC>:w<CR>:nohls<CR>", { silent=true })
-vim.keymap.set({ "n" }, "<space>o", ":FZF<CR>", { silent=true })
-vim.keymap.set({ "n" }, "<space>e", ":Files %:p:h<CR>", { silent=true })
-vim.keymap.set({ "n" }, "<leader>q", ":Bdelete<CR>", { silent=true })
+vim.keymap.set({ "n" }, "<leader>q", ":bdelete<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>w", ":only<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>v", ":vsplit<CR>", { silent=true })
-vim.keymap.set({ "n" }, "<leader>b", ":Buffers<CR>", { silent=true })
+vim.keymap.set({ "i", "n" }, "<leader>s", "<ESC>:w<CR>:nohls<CR>", { silent=true })
+vim.keymap.set({ "n", "v" }, "Y", "yy", { silent=true })
 vim.keymap.set({ "i" }, "fd", "<ESC>", { silent=true })
 vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { silent=true })
 vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { silent=true })
@@ -183,9 +192,6 @@ vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { silent=true })
 vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { silent=true })
 vim.keymap.set({ "n" }, "j", "gj", { silent=true })
 vim.keymap.set({ "n" }, "k", "gk", { silent=true })
-vim.keymap.set("", "<leader>c", "<Plug>Commentary", { silent=true })
-vim.keymap.set({ "x" }, "<leader>a", '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
-vim.keymap.set({ "n" }, "<leader>a", ":Rg<CR>", { silent=true })
 vim.keymap.set({ "c" }, "<C-g>", "<C-c>", { silent=true })
 vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
 
