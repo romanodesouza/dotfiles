@@ -73,7 +73,7 @@
             "commands": ["editor.action.commentLine" ]
        },
        {
-            "before": ["leader","d"],
+            "before": ["space","d"],
             "commands": ["workbench.action.gotoSymbol"]
        },
        {
@@ -101,11 +101,11 @@
            "commands": ["editor.action.marker.next"]
        },
        {
-            "before": ["space", "g", "i"],
+            "before": ["space", "i"],
             "commands": ["editor.action.goToImplementation"]
        },
        {
-            "before": ["space", "g", "r"],
+            "before": ["space", "r"],
             "commands": ["editor.action.goToReferences"]
        },
        {
