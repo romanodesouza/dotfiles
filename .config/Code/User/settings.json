@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Eva Light",
+    "workbench.colorTheme": "Nord",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -158,7 +158,7 @@
         "staticcheck": false
     },
     "go.toolsManagement.autoUpdate": true,
-    "editor.fontFamily": "Cascadia Code",
+    "editor.fontFamily": "Source Code Pro",
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "none", // removes line highlight
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
@@ -169,5 +169,5 @@
     "workbench.statusBar.visible": false, // removes the status bar
     "scm.diffDecorations": "none",
     "editor.guides.indentation": false,
-    "workbench.activityBar.visible": false
+    "editor.fontSize": 13
 }
