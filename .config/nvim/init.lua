@@ -25,6 +25,9 @@ require("lazy").setup({
 			vim.keymap.set({ "n" }, "<leader>b", ":Buffers<CR>", { silent=true })
 			vim.keymap.set({ "x" }, "<leader>a", '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
 			vim.keymap.set({ "n" }, "<leader>a", ":Rg<CR>", { silent=true })
+			vim.g.fzf_action = {
+				["ctrl-q"]="fill_quickfix",
+			}
 		end
 	},
 	{
