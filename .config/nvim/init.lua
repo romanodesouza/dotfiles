@@ -141,7 +141,15 @@ require("lazy").setup({
 				capabilities=capabilities
 			})
 		end
-	}
+	},
+
+	-- Diff and file history logs
+	{
+		"sindrets/diffview.nvim",
+		config = function()
+			vim.keymap.set({ "n" }, "<space>l", ":DiffviewFileHistory --no-merges %<CR>", { silent=true })
+		end
+	},
 })
 
 -- clipboard behaviour
