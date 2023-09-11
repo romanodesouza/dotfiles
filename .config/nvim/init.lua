@@ -193,7 +193,7 @@ vim.cmd("cab QA qa")
 vim.cmd("cab Wq wq")
 
 -- keymaps
-vim.keymap.set({ "n" }, "<leader>q", ":bdelete<CR>", { silent=true })
+vim.keymap.set({ "n" }, "<leader>q", ":bdelete<CR>:tabclose<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>w", ":only<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>v", ":vsplit<CR>", { silent=true })
 vim.keymap.set({ "i", "n" }, "<leader>s", "<ESC>:w<CR>:nohls<CR>", { silent=true })
