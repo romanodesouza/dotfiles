@@ -11,7 +11,7 @@
 export TERM=xterm-256color
 export GOPATH=$HOME/go
 export GOROOT=$HOME/opt/go/activated
-export FZF_DEFAULT_COMMAND="(git ls-files --others --exclude-standard && git ls-files) | egrep -v '^(vendor|node_modules)/' || ag --hidden -g '' --ignore .git || find . -type f"
+export FZF_DEFAULT_COMMAND="(git ls-files --others --exclude-standard && git ls-files) | egrep -v '^(vendor|node_modules)/' || rg --files --hidden -g '!{.git,vendor,node_modules}/*' || find . -type f"
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
