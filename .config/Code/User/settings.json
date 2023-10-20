@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Nord",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
@@ -122,9 +121,9 @@
        }
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
+        "statusBar.background": "#007acc",
+        "statusBar.noFolderBackground": "#007acc",
+        "statusBar.debuggingBackground": "#007acc"
     },
     "go.formatTool": "goimports",
     "go.lintTool": "golangci-lint",
@@ -169,5 +168,8 @@
     "workbench.statusBar.visible": false, // removes the status bar
     "scm.diffDecorations": "none",
     "editor.guides.indentation": false,
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "workbench.colorTheme": "Nord",
+    "breadcrumbs.enabled": false,
+    "workbench.activityBar.visible": false
 }
