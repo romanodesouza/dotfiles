@@ -9,5 +9,9 @@
         "key": "ctrl+p",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFile"
     }
 ]
