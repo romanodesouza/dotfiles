@@ -65,7 +65,17 @@ require("lazy").setup({
 		config = function()
 			vim.opt.termguicolors=true
 			vim.g.nord_bold=false
+			vim.g.nord_italic=false
 			vim.cmd.colorscheme("nord")
+		end
+	},
+
+	-- Airline
+	{
+		"vim-airline/vim-airline",
+    	dependencies = { "vim-airline/vim-airline-themes" },
+		config = function()
+			vim.g.airline_theme="base16_nord"
 		end
 	},
 
