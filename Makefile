@@ -18,8 +18,11 @@ install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
 install-kitty:
-	rm -rf ~/.config/kitty || true
-	ln -sf `pwd`/.config/kitty/ ~/.config/
+ifeq ("$(wildcard ~/.config/kitty)", "")
+	mkdir ~/.config/kitty
+endif
+	curl https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf -o ~/.config/kitty/nord.conf
+	ln -sf `pwd`/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 install-top:
 	ln -sf `pwd`/.toprc ~/.toprc
@@ -41,7 +44,7 @@ install: \
 	install-ssh \
 	install-kitty \
 	install-top \
-	install-nvim \
+	install-nvim
 
 install-wsl2: \
 	install-bash \
