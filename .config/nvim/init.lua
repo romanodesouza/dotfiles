@@ -72,7 +72,7 @@ require("lazy").setup({
 	-- Airline
 	{
 		"vim-airline/vim-airline",
-    	dependencies = { "vim-airline/vim-airline-themes" },
+		dependencies = { "vim-airline/vim-airline-themes" },
 		config = function()
 			vim.g.airline_theme="base16_nord"
 		end
