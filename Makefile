@@ -33,9 +33,6 @@ endif
 install-vscode:
 	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
 
-install-x11:
-	ln -sf `pwd`/.Xresources ~/.Xresources
-
 install: \
 	install-bash \
 	install-bin \
@@ -45,7 +42,6 @@ install: \
 	install-kitty \
 	install-top \
 	install-nvim \
-	install-x11
 
 install-wsl2: \
 	install-bash \
