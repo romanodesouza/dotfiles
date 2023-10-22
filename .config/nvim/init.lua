@@ -40,7 +40,6 @@ require("lazy").setup({
 			vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lsp.document_symbol_handler
 		end
 	},
-	{ "ibhagwan/fzf-lua" },
 
 	-- Syntax highlighting
 	{
