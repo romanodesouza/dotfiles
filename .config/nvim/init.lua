@@ -166,7 +166,7 @@ require("lazy").setup({
 	    "knubie/vim-kitty-navigator",
 	    build = "cp ./*.py ~/.config/kitty/",
 	    config = function()
-		vim.g.kitty_navigator_no_mappings = 1
+		vim.g.kitty_navigator_no_mappings=1
 		vim.keymap.set("n", "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
 		vim.keymap.set("n", "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
 		vim.keymap.set("n", "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
@@ -229,6 +229,7 @@ vim.keymap.set({ "n" }, "j", "gj", { silent=true })
 vim.keymap.set({ "n" }, "k", "gk", { silent=true })
 vim.keymap.set({ "c" }, "<C-g>", "<C-c>", { silent=true })
 vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
+vim.keymap.set({ "i" }, "<C-BS>", "<C-w>", { silent=true })
 
 
 -- Taken from https://github.com/golang/tools/blob/1f10767725e2be1265bef144f774dc1b59ead6dd/gopls/doc/vim.md#neovim-imports
