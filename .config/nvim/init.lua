@@ -188,7 +188,7 @@ vim.opt.wrapscan=true
 -- lines
 vim.opt.wrap=true
 vim.opt.linebreak=true
-vim.opt.number=true
+vim.opt.relativenumber=true
 
 -- indent
 vim.opt.autoindent=true
