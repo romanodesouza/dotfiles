@@ -136,11 +136,11 @@ require("lazy").setup({
 			local on_attach = function(client, bufnr)
 				vim.lsp.handlers["textDocument/hover"]=vim.lsp.with(vim.lsp.handlers.hover, { border="rounded" })
 				local opts = { noremap=true, silent=true, buffer=bufnr }
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "<C-]>", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "<space>r", vim.lsp.buf.references, opts)
-				vim.keymap.set("n", "<space>d", vim.lsp.buf.document_symbol, opts)
+				vim.keymap.set({ "n" }, "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set({ "n" }, "<C-]>", vim.lsp.buf.definition, opts)
+				vim.keymap.set({ "n" }, "<space>i", vim.lsp.buf.implementation, opts)
+				vim.keymap.set({ "n" }, "<space>r", vim.lsp.buf.references, opts)
+				vim.keymap.set({ "n" }, "<space>d", vim.lsp.buf.document_symbol, opts)
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
