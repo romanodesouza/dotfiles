@@ -178,6 +178,10 @@ require("lazy").setup({
 -- clipboard behaviour
 vim.opt.clipboard={"unnamedplus"}
 
+-- no backup and swap files
+vim.opt.backup=false
+vim.opt.swapfile=false
+
 -- search
 vim.opt.hlsearch=true
 vim.opt.incsearch=true
