@@ -19,3 +19,6 @@ PATH="$HOME/.fzf/bin:$PATH"
 PATH="$GOROOT/bin:$PATH"
 PATH="$GOPATH/bin:$PATH"
 PATH="$JAVA_HOME/bin:$PATH"
+
+# local config
+[ -f ~/.profile.local ] && . ~/.profile.local
