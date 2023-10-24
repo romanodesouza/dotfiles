@@ -167,10 +167,10 @@ require("lazy").setup({
 	    build = "cp ./*.py ~/.config/kitty/",
 	    config = function()
 		vim.g.kitty_navigator_no_mappings=1
-		vim.keymap.set("n", "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
-		vim.keymap.set("n", "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
-		vim.keymap.set("n", "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
-		vim.keymap.set("n", "<M-k>", ":KittyNavigateUp<CR>", { silent=true })
+		vim.keymap.set({ "n" }, "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
+		vim.keymap.set({ "n" }, "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
+		vim.keymap.set({ "n" }, "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
+		vim.keymap.set({ "n" }, "<M-k>", ":KittyNavigateUp<CR>", { silent=true })
 	    end
 	},
 })
