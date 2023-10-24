@@ -66,10 +66,10 @@ require("lazy").setup({
 		"vim-airline/vim-airline",
 		dependencies = { "vim-airline/vim-airline-themes" },
 		config = function()
-		    vim.g.airline_theme=(function()
-			if os.getenv("THEME") == "nord" then return "base16_nord" end
-			return os.getenv("THEME")
-		    end)()
+		    vim.g.airline_theme=(function(theme)
+			if theme == "nord" then return "base16_nord" end
+			return theme
+		    end)(os.getenv("THEME"))
 		end
 	},
 
