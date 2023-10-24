@@ -22,6 +22,7 @@ ifeq ("$(wildcard ~/.config/kitty)", "")
 	mkdir ~/.config/kitty
 endif
 	curl https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf -o ~/.config/kitty/nord.conf
+	curl https://raw.githubusercontent.com/catppuccin/kitty/main/themes/mocha.conf -o ~/.config/kitty/catppuccin.conf
 	ln -sf `pwd`/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 install-top:

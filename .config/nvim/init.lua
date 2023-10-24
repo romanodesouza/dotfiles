@@ -57,24 +57,22 @@ require("lazy").setup({
 			})
 		end
 	},
-	{
-		"shaunsingh/nord.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.opt.termguicolors=true
-			vim.g.nord_bold=false
-			vim.g.nord_italic=false
-			vim.cmd.colorscheme("nord")
-		end
-	},
+	-- Themes
+	{ "shaunsingh/nord.nvim", lazy = false },
+	{ "catppuccin/nvim", lazy = false },
 
 	-- Airline
 	{
 		"vim-airline/vim-airline",
 		dependencies = { "vim-airline/vim-airline-themes" },
 		config = function()
-			vim.g.airline_theme="base16_nord"
+		    vim.g.airline_theme=(function()
+			if os.getenv("THEME") == "nord" then
+			    return "base16_nord"
+			else
+			    return os.getenv("THEME")
+			end
+		    end)()
 		end
 	},
 
@@ -174,6 +172,10 @@ require("lazy").setup({
 	    end
 	},
 })
+
+-- Apply colorscheme
+vim.opt.termguicolors=true
+vim.cmd.colorscheme(os.getenv("THEME"))
 
 -- clipboard behaviour
 vim.opt.clipboard={"unnamedplus"}
