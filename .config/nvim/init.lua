@@ -172,6 +172,10 @@ require("lazy").setup({
 
 -- Apply colorscheme
 vim.opt.termguicolors=true
+if os.getenv("THEME") == "nord" then
+    vim.g.nord_bold=false
+    vim.g.nord_italic=false
+end
 vim.cmd.colorscheme(os.getenv("THEME"))
 
 -- clipboard behaviour
