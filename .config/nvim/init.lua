@@ -66,10 +66,10 @@ require("lazy").setup({
 		"vim-airline/vim-airline",
 		dependencies = { "vim-airline/vim-airline-themes" },
 		config = function()
-		    vim.g.airline_theme=(function(theme)
-			if theme == "nord" then return "base16_nord" end
-			return theme
-		    end)(os.getenv("THEME"))
+			vim.g.airline_theme=(function(theme)
+				if theme == "nord" then return "base16_nord" end
+				return theme
+			end)(os.getenv("THEME"))
 		end
 	},
 
@@ -158,23 +158,23 @@ require("lazy").setup({
 
 	-- Neovim + Kitty window navigator
 	{
-	    "knubie/vim-kitty-navigator",
-	    build = "cp ./*.py ~/.config/kitty/",
-	    config = function()
-		vim.g.kitty_navigator_no_mappings=1
-		vim.keymap.set({ "n" }, "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
-		vim.keymap.set({ "n" }, "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
-		vim.keymap.set({ "n" }, "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
-		vim.keymap.set({ "n" }, "<M-k>", ":KittyNavigateUp<CR>", { silent=true })
-	    end
+		"knubie/vim-kitty-navigator",
+		build = "cp ./*.py ~/.config/kitty/",
+		config = function()
+			vim.g.kitty_navigator_no_mappings=1
+			vim.keymap.set({ "n" }, "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<M-k>", ":KittyNavigateUp<CR>", { silent=true })
+		end
 	},
 })
 
 -- Apply colorscheme
 vim.opt.termguicolors=true
 if os.getenv("THEME") == "nord" then
-    vim.g.nord_bold=false
-    vim.g.nord_italic=false
+	vim.g.nord_bold=false
+	vim.g.nord_italic=false
 end
 vim.cmd.colorscheme(os.getenv("THEME"))
 
@@ -198,11 +198,9 @@ vim.opt.linebreak=true
 vim.opt.relativenumber=true
 
 -- indent
-vim.opt.autoindent=true
 vim.opt.smartindent=true
-vim.opt.copyindent=true
-vim.opt.preserveindent=true
-vim.opt.softtabstop=0
+vim.opt.expandtab=false
+vim.opt.tabstop=4
 vim.opt.shiftwidth=4
 
 -- scroll
