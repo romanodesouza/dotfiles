@@ -211,6 +211,9 @@ vim.opt.sidescroll=1
 -- folding
 vim.opt.foldenable=false
 
+-- max columns line
+vim.opt.colorcolumn="120"
+
 -- quit
 vim.cmd("cab Q q")
 vim.cmd("cab Qa qa")
