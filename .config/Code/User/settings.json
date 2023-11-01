@@ -120,13 +120,6 @@
             "commands": ["editor.action.marker.prevInFiles"]
        }
     ],
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
-    },
     "go.formatTool": "goimports",
     "go.lintTool": "golangci-lint",
     "go.useLanguageServer": true,
@@ -159,7 +152,7 @@
         "staticcheck": false
     },
     "go.toolsManagement.autoUpdate": true,
-    "editor.fontFamily": "Source Code Pro",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "none", // removes line highlight
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
@@ -171,7 +164,15 @@
     "scm.diffDecorations": "none",
     "editor.guides.indentation": false,
     "editor.fontSize": 13,
-    "workbench.colorTheme": "Nord",
     "breadcrumbs.enabled": false,
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Alt Catppuccin Mocha",
+    "editor.fontLigatures": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
 }
