@@ -11,7 +11,12 @@
         "when": "inQuickOpen"
     },
     {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "!inQuickOpen && editorTextFocus"
+    },
+    {
         "key": "ctrl+shift+n",
         "command": "explorer.newFile"
-    }
+    },
 ]
