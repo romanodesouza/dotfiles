@@ -261,10 +261,20 @@ function OrgImports(wait_ms)
 	end
 end
 
+local orgimports_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.go" },
-	callback = function(args)
+	callback = function()
 		OrgImports(1000)
+	end,
+	group = orgimports_sync_grp
+})
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoFmt", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.go" },
+	callback = function()
 		vim.lsp.buf.format({ sync=true })
-	end
+	end,
+	group = format_sync_grp
 })
