@@ -17,27 +17,35 @@ vim.g.mapleader=","
 require("lazy").setup({
 	-- FZF
 	{
-		"junegunn/fzf.vim",
-		dependencies = { "junegunn/fzf", build = ":call fzf#install()" },
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			vim.keymap.set({ "n" }, "<space>o", ":FZF<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<space>e", ":Files %:p:h<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<leader>b", ":Buffers<CR>", { silent=true })
-			vim.keymap.set({ "x" }, "<leader>a", '"yy:<C-u>Rg <c-r>y<CR>', { silent=true })
-			vim.keymap.set({ "n" }, "<leader>a", ":Rg<CR>", { silent=true })
-			vim.g.fzf_action = {
-				["ctrl-q"]="fill_quickfix",
-			}
-		end
-	},
-	{
-		"gfanto/fzf-lsp.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local fzf_lsp = require("fzf_lsp")
-			vim.lsp.handlers["textDocument/implementation"] = fzf_lsp.implementation_handler
-			vim.lsp.handlers["textDocument/references"] = fzf_lsp.references_handler
-			vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lsp.document_symbol_handler
+			local fzf_lua = require("fzf-lua")
+			local actions = fzf_lua.actions
+
+			fzf_lua.setup({
+				"fzf-native",
+				winopts={
+					preview={ default=false },
+				},
+				files={
+					cmd=os.getenv("FZF_DEFAULT_COMMAND"),
+				},
+				grep={
+					actions={
+						["ctrl-g"]=false,
+					},
+				},
+			})
+
+			vim.keymap.set({ "n" }, "<space>o", "<Cmd>FzfLua files<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<leader>b", "<Cmd>FzfLua buffers<CR>", { silent=true })
+			vim.keymap.set({ "x" }, "<leader>a", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<leader>a", "<Cmd>FzfLua grep<CR>", { silent=true })
+
+			vim.lsp.handlers["textDocument/implementation"] = fzf_lua.lsp_implementations
+			vim.lsp.handlers["textDocument/references"] = fzf_lua.lsp_references
+			vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lua.lsp_document_symbols
 		end
 	},
 
