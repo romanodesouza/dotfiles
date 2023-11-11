@@ -224,6 +224,18 @@ vim.cmd("cab qA qa")
 vim.cmd("cab QA qa")
 vim.cmd("cab Wq wq")
 
+-- netrw file tree browser
+vim.g.netrw_banner=0
+vim.g.netrw_liststyle=3
+vim.g.netrw_hide=0
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "netrw",
+	callback = function()
+		vim.keymap.set({ "n" }, "o", "<CR>", { silent=true, buffer=true, remap=true })
+		vim.keymap.set({ "n" }, "a", "%", { silent=true, buffer=true, remap=true })
+	end
+})
+
 -- keymaps
 vim.keymap.set({ "n" }, "<leader>q", ":bdelete<CR>:tabclose<CR>", { silent=true })
 vim.keymap.set({ "n" }, "<leader>w", ":only<CR>", { silent=true })
@@ -240,6 +252,7 @@ vim.keymap.set({ "n" }, "k", "gk", { silent=true })
 vim.keymap.set({ "c" }, "<C-g>", "<C-c>", { silent=true })
 vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
 vim.keymap.set({ "i" }, "<C-BS>", "<C-w>", { silent=true })
+vim.keymap.set({ "n" }, "<space>x", vim.cmd.Ex, { silent=true })
 
 
 -- Taken from https://github.com/golang/tools/blob/1f10767725e2be1265bef144f774dc1b59ead6dd/gopls/doc/vim.md#neovim-imports
