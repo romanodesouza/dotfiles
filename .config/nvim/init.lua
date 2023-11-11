@@ -181,6 +181,11 @@ require("lazy").setup({
 			vim.keymap.set({ "n" }, "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
 		end
 	},
+
+	-- Indentation auto detection
+	{
+		"tpope/vim-sleuth",
+	}
 })
 
 -- Apply colorscheme
