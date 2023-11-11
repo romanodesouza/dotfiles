@@ -21,7 +21,6 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local fzf_lua = require("fzf-lua")
-			local actions = fzf_lua.actions
 
 			fzf_lua.setup({
 				"fzf-native",
