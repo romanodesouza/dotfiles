@@ -301,4 +301,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = format_sync_grp
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "make", "go", "lua", "sh" },
+	callback = function()
+		vim.opt_local.tabstop=4
+		vim.opt_local.shiftwidth=4
+	end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "yaml" },
+	callback = function()
+		vim.opt_local.tabstop=2
+		vim.opt_local.shiftwidth=2
+	end
+})
+
 require("init_local")
