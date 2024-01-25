@@ -143,6 +143,13 @@ require("lazy").setup({
 				vim.keymap.set({ "n" }, "<space>i", vim.lsp.buf.implementation, opts)
 				vim.keymap.set({ "n" }, "<space>r", vim.lsp.buf.references, opts)
 				vim.keymap.set({ "n" }, "<space>d", vim.lsp.buf.document_symbol, opts)
+				vim.keymap.set({ "n" }, "<space>e", vim.diagnostic.open_float, opts)
+				vim.diagnostic.config({
+					virtual_text = false,
+					float = {
+						border = "single",
+					}
+				})
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
