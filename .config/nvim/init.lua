@@ -67,6 +67,7 @@ require("lazy").setup({
 	-- Themes
 	{ "shaunsingh/nord.nvim", lazy = false },
 	{ "catppuccin/nvim", lazy = false },
+	{ "rose-pine/neovim", lazy = false },
 
 	-- Airline
 	{
@@ -75,6 +76,8 @@ require("lazy").setup({
 		config = function()
 			vim.g.airline_theme=(function(theme)
 				if theme == "nord" then return "base16_nord" end
+				if theme == "rose-pine-main" then return "base16_nord" end
+				if theme == "rose-pine-dawn" then return "solarized" end
 				return theme
 			end)(os.getenv("THEME"))
 		end
