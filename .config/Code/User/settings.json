@@ -164,9 +164,7 @@
     "scm.diffDecorations": "none",
     "editor.guides.indentation": false,
     "editor.fontSize": 13,
-    "breadcrumbs.enabled": false,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Alt Catppuccin Mocha",
+    "workbench.colorTheme": "Eva Light",
     "editor.fontLigatures": true,
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
