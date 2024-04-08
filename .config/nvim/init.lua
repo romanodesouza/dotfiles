@@ -66,7 +66,13 @@ require("lazy").setup({
 	},
 	-- Themes
 	{ "shaunsingh/nord.nvim", lazy = false },
-	{ "sainnhe/everforest", lazy = false },
+	{
+		"sainnhe/everforest",
+		lazy = false,
+		config = function()
+			vim.g.everforest_background = 'soft'
+		end
+	},
 
 	-- Airline
 	{
@@ -220,6 +226,10 @@ vim.opt.wrapscan=true
 -- lines
 vim.opt.wrap=true
 vim.opt.linebreak=true
+
+
+-- line numbers
+vim.opt.number=true
 
 -- indent
 vim.opt.smartindent=true
