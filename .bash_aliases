@@ -12,4 +12,4 @@ alias ll='ls -alF'
 
 alias vim='nvim'
 alias lvim='THEME=everforest nvim --cmd "set bg=light"'
-alias dvim='THEME=nord nvim --cmd "set bg=dark"'
+alias dvim='THEME=everforest nvim --cmd "set bg=dark"'
