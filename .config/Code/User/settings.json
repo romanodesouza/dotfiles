@@ -152,7 +152,7 @@
         "staticcheck": false
     },
     "go.toolsManagement.autoUpdate": true,
-    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "none", // removes line highlight
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
