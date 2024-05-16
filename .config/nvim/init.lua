@@ -65,13 +65,24 @@ require("lazy").setup({
 		end
 	},
 	-- Themes
-	{ "shaunsingh/nord.nvim", lazy = false },
+	{
+		"shaunsingh/nord.nvim",
+		lazy = false,
+		config = function()
+			vim.g.nord_bold=false
+			vim.g.nord_italic=false
+		end
+	},
 	{
 		"sainnhe/everforest",
 		lazy = false,
 		config = function()
-			vim.g.everforest_background = 'soft'
+			vim.g.everforest_background="soft"
 		end
+	},
+	{
+		"tinted-theming/base16-vim",
+		lazy = false
 	},
 
 	-- Airline
@@ -202,11 +213,6 @@ require("lazy").setup({
 })
 
 -- Apply colorscheme
-vim.opt.termguicolors=true
-if os.getenv("THEME") == "nord" then
-	vim.g.nord_bold=false
-	vim.g.nord_italic=false
-end
 vim.cmd.colorscheme(os.getenv("THEME"))
 
 -- clipboard behaviour
