@@ -64,15 +64,8 @@ require("lazy").setup({
 			})
 		end
 	},
+
 	-- Themes
-	{
-		"shaunsingh/nord.nvim",
-		lazy = false,
-		config = function()
-			vim.g.nord_bold=false
-			vim.g.nord_italic=false
-		end
-	},
 	{
 		"sainnhe/everforest",
 		lazy = false,
@@ -89,12 +82,6 @@ require("lazy").setup({
 	{
 		"vim-airline/vim-airline",
 		dependencies = { "vim-airline/vim-airline-themes" },
-		config = function()
-			vim.g.airline_theme=(function(theme)
-				if theme == "nord" then return "base16_nord" end
-				return theme
-			end)(os.getenv("THEME"))
-		end
 	},
 
 	-- Automatically clears search highlight when cursor is moved
@@ -211,9 +198,6 @@ require("lazy").setup({
 		"tpope/vim-sleuth",
 	}
 })
-
--- Apply colorscheme
-vim.cmd.colorscheme(os.getenv("THEME"))
 
 -- clipboard behaviour
 vim.opt.clipboard={"unnamedplus"}
