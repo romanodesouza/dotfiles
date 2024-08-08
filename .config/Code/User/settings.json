@@ -132,7 +132,7 @@
         "editor.rulers": [120],
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
         // Optional: Disable snippets, as they conflict with completion ranking.
         "editor.snippetSuggestions": "none"
@@ -140,7 +140,7 @@
     "[go.mod]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         }
     },
     "gopls": {
@@ -158,7 +158,7 @@
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
     "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
     "editor.folding": false, // removes the folding feature
-    "editor.occurrencesHighlight": false, // removes highlights occ
+    "editor.occurrencesHighlight": "off", // removes highlights occ
     "editor.matchBrackets": "never", // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
     "workbench.statusBar.visible": false, // removes the status bar
     "scm.diffDecorations": "none",
