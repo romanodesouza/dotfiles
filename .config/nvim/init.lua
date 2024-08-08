@@ -56,7 +56,7 @@ require("lazy").setup({
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "go", "gomod", "javascript", "json", "yaml", "html", "lua", "dockerfile", "make", "bash", "dart" },
+				ensure_installed = { "go", "gomod", "javascript", "json", "yaml", "html", "lua", "dockerfile", "make", "bash" },
 				sync_install = false,
 				highlight = { enable = true },
 				incremental_selection = { enable = true },
@@ -160,12 +160,6 @@ require("lazy").setup({
 
 			-- Go
 			nvim_lsp.gopls.setup({
-				on_attach=on_attach,
-				capabilities=capabilities
-			})
-
-			-- Dart
-			nvim_lsp.dartls.setup({
 				on_attach=on_attach,
 				capabilities=capabilities
 			})
