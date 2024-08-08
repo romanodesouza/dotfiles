@@ -81,7 +81,7 @@
        },
        {
             "before": ["leader", "w"],
-            "commands": [":only!"]
+            "commands": [":only"]
        },
        {
            "before": ["C-l"],
