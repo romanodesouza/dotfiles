@@ -19,7 +19,7 @@
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-            "before": [",","s"],
+            "before": ["leader","s"],
             "after": ["<Esc>"],
             "commands": ["workbench.action.files.save"]
         },
