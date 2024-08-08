@@ -173,4 +173,5 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
+    "editor.lightbulb.enabled": "off",
 }
