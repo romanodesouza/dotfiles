@@ -3,20 +3,41 @@
     {
         "key": "ctrl+n",
         "command": "workbench.action.quickOpenSelectNext",
-        "when": "inQuickOpen"
+        "when": "vim.active && inQuickOpen"
     },
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "inQuickOpen"
+        "when": "vim.active && inQuickOpen"
     },
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",
-        "when": "!inQuickOpen && editorTextFocus"
+        "when": "vim.active && !inQuickOpen && !suggestWidgetVisible"
     },
     {
-        "key": "ctrl+shift+n",
-        "command": "explorer.newFile"
+        "key": "ctrl+m",
+        "command": "workbench.action.acceptSelectedQuickOpenItem",
+        "when": "vim.active && inQuickOpen"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "acceptSelectedSuggestion",
+        "when": "vim.active && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "acceptSelectedSuggestion",
+        "when": "vim.active && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "vim.active && inQuickOpen"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "vim.active && inQuickOpen"
     },
 ]

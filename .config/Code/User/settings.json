@@ -26,6 +26,14 @@
         {
             "before": ["ctrl+d"],
             "after": ["<Esc>", "l", "x"]
+        },
+        {
+            "before": ["f", "d"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["ctrl+g"],
+            "after": ["<Esc>"]
         }
     ],
     "vim.visualModeKeyBindings": [
