@@ -36,8 +36,8 @@ ifeq ("$(wildcard ~/.config/nvim)", "")
 endif
 	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
 
-install-vscode:
-	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
+install-vscodium:
+	ln -sf `pwd`/.config/VSCodium/User/* ~/.config/VSCodium/User/
 
 install: \
 	install-bash \
@@ -47,7 +47,8 @@ install: \
 	install-ssh \
 	install-kitty \
 	install-top \
-	install-nvim
+	install-nvim \
+	install-vscodium
 
 install-wsl2: \
 	install-bash \
