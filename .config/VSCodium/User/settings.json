@@ -8,7 +8,7 @@
     "extensions.ignoreRecommendations": false,
     "editor.minimap.enabled": false,
     "editor.cursorBlinking": "solid",
-    "terminal.integrated.cwd": "${fileDirname}",
+    "terminal.integrated.cwd": "",
     "vim.hlsearch": false,
     "vim.visualstar": true,
     "vim.statusBarColorControl": true,
@@ -162,14 +162,13 @@
     "go.toolsManagement.autoUpdate": true,
     "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
     "editor.renderWhitespace": "none",
-    "editor.renderLineHighlight": "none", // removes line highlight
+    "editor.renderLineHighlight": "line",
     "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
     "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
     "editor.folding": false, // removes the folding feature
     "editor.occurrencesHighlight": "off", // removes highlights occ
-    "editor.matchBrackets": "never", // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
-    "workbench.statusBar.visible": false, // removes the status bar
-    "scm.diffDecorations": "none",
+    "editor.matchBrackets": "never", // removes the status bar
+    "scm.diffDecorations": "gutter",
     "editor.guides.indentation": false,
     "editor.fontSize": 13,
     "workbench.colorTheme": "Eva Light",
@@ -182,4 +181,5 @@
         "statusBar.debuggingForeground": "#ffffff"
     },
     "editor.lightbulb.enabled": "off",
+    "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
 }
