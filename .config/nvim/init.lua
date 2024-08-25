@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath=vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -18,9 +18,9 @@ require("lazy").setup({
 	-- FZF
 	{
 		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			local fzf_lua = require("fzf-lua")
+		dependencies={ "nvim-tree/nvim-web-devicons" },
+		config=function()
+			local fzf_lua=require("fzf-lua")
 
 			fzf_lua.setup({
 				"fzf-native",
@@ -41,47 +41,40 @@ require("lazy").setup({
 			vim.keymap.set({ "n" }, "<leader>b", "<Cmd>FzfLua buffers<CR>", { silent=true })
 			vim.keymap.set({ "x" }, "<leader>a", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
 			vim.keymap.set({ "n" }, "<leader>a", "<Cmd>FzfLua grep<CR>", { silent=true })
-
-			vim.lsp.handlers["textDocument/implementation"] = fzf_lua.lsp_implementations
-			vim.lsp.handlers["textDocument/references"] = fzf_lua.lsp_references
-			vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lua.lsp_document_symbols
 		end
 	},
 
 	-- Syntax highlighting
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function ()
-			local configs = require("nvim-treesitter.configs")
+		build=":TSUpdate",
+		config=function ()
+			local configs=require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "go", "gomod", "javascript", "json", "yaml", "html", "lua", "dockerfile", "make", "bash" },
-				sync_install = false,
-				highlight = { enable = true },
-				incremental_selection = { enable = true },
-				disable = { "sql" },
+				ensure_installed={ "go", "gomod", "javascript", "json", "yaml", "html", "lua", "dockerfile", "make", "bash" },
+				sync_install=false,
+				highlight={ enable=true },
+				incremental_selection={ enable=true },
+				disable={ "sql" },
 			})
 		end
 	},
 
 	-- Themes
 	{
-		"sainnhe/everforest",
-		lazy = false,
-		config = function()
-			vim.g.everforest_background="soft"
-		end
-	},
-	{
 		"tinted-theming/base16-vim",
-		lazy = false
+		lazy=false,
+		config=function()
+			vim.opt.termguicolors=true
+			vim.cmd.colorscheme "base16-catppuccin-frappe"
+		end
 	},
 
 	-- Airline
 	{
 		"vim-airline/vim-airline",
-		dependencies = { "vim-airline/vim-airline-themes" },
+		dependencies={ "vim-airline/vim-airline-themes" },
 	},
 
 	-- Automatically clears search highlight when cursor is moved
@@ -90,7 +83,7 @@ require("lazy").setup({
 	-- Highlights trailing whitespace characters
 	{
 		"ntpeters/vim-better-whitespace",
-		config = function()
+		config=function()
 			-- strip whitespaces on save
 			vim.cmd("autocmd BufEnter * EnableStripWhitespaceOnSave")
 		end
@@ -99,91 +92,8 @@ require("lazy").setup({
 	-- Comment stuff out
 	{
 		"tpope/vim-commentary",
-		config = function()
+		config=function()
 			vim.keymap.set("", "<leader>c", "<Plug>Commentary", { silent=true })
-		end
-	},
-
-	-- LSP
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			{ "neovim/nvim-lspconfig" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-vsnip" },
-			{ "hrsh7th/vim-vsnip" },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help" }
-		},
-		config = function()
-			vim.opt.completeopt="menu,menuone,noselect"
-			local cmp = require("cmp")
-
-			cmp.setup({
-				sources = {
-					{ name="nvim_lsp" },
-					{ name="nvim_lsp_signature_help" },
-				},
-				snippet = {
-					-- REQUIRED - you must specify a snippet engine
-					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-				}),
-			})
-
-			local nvim_lsp = require("lspconfig")
-			local on_attach = function(client, bufnr)
-				vim.lsp.handlers["textDocument/hover"]=vim.lsp.with(vim.lsp.handlers.hover, { border="rounded" })
-				local opts = { noremap=true, silent=true, buffer=bufnr }
-				vim.keymap.set({ "n" }, "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set({ "n" }, "<C-]>", vim.lsp.buf.definition, opts)
-				vim.keymap.set({ "n" }, "<space>i", vim.lsp.buf.implementation, opts)
-				vim.keymap.set({ "n" }, "<space>r", vim.lsp.buf.references, opts)
-				vim.keymap.set({ "n" }, "<space>d", vim.lsp.buf.document_symbol, opts)
-				vim.keymap.set({ "n" }, "<space>e", vim.diagnostic.open_float, opts)
-				vim.diagnostic.config({
-					virtual_text = false,
-					float = {
-						border = "single",
-					}
-				})
-			end
-
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			-- Go
-			nvim_lsp.gopls.setup({
-				on_attach=on_attach,
-				capabilities=capabilities
-			})
-		end
-	},
-
-	-- Diff and file history logs
-	{
-		"sindrets/diffview.nvim",
-		config = function()
-			vim.keymap.set({ "n" }, "<space>l", ":DiffviewFileHistory --no-merges %<CR>", { silent=true })
-		end
-	},
-
-	-- Neovim + Kitty window navigator
-	{
-		"knubie/vim-kitty-navigator",
-		build = "cp ./*.py ~/.config/kitty/",
-		config = function()
-			vim.g.kitty_navigator_no_mappings=1
-			vim.keymap.set({ "n" }, "<M-h>", ":KittyNavigateLeft<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<M-j>", ":KittyNavigateDown<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<M-k>", ":KittyNavigateUp<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<M-l>", ":KittyNavigateRight<CR>", { silent=true })
 		end
 	},
 
@@ -210,7 +120,6 @@ vim.opt.wrapscan=true
 -- lines
 vim.opt.wrap=true
 vim.opt.linebreak=true
-
 
 -- line numbers
 vim.opt.number=true
@@ -241,8 +150,8 @@ vim.g.netrw_banner=0
 vim.g.netrw_liststyle=3
 vim.g.netrw_hide=0
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "netrw",
-	callback = function()
+	pattern="netrw",
+	callback=function()
 		vim.keymap.set({ "n" }, "o", "<CR>", { silent=true, buffer=true, remap=true })
 		vim.keymap.set({ "n" }, "a", "%", { silent=true, buffer=true, remap=true })
 	end
@@ -266,52 +175,17 @@ vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
 vim.keymap.set({ "i" }, "<C-BS>", "<C-w>", { silent=true })
 vim.keymap.set({ "n" }, "<space>x", vim.cmd.Ex, { silent=true })
 
-
--- Taken from https://github.com/golang/tools/blob/1f10767725e2be1265bef144f774dc1b59ead6dd/gopls/doc/vim.md#neovim-imports
-function OrgImports(wait_ms)
-	local params = vim.lsp.util.make_range_params()
-	params.context = { only = { "source.organizeImports" } }
-	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-	for _, res in pairs(result or {}) do
-		for _, r in pairs(res.result or {}) do
-			if r.edit then
-				vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
-			else
-				vim.lsp.buf.execute_command(r.command)
-			end
-		end
-	end
-end
-
-local orgimports_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go" },
-	callback = function()
-		OrgImports(1000)
-	end,
-	group = orgimports_sync_grp
-})
-
-local format_sync_grp = vim.api.nvim_create_augroup("GoFmt", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go" },
-	callback = function()
-		vim.lsp.buf.format({ sync=true })
-	end,
-	group = format_sync_grp
-})
-
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "make", "go", "lua", "sh" },
-	callback = function()
+	pattern={ "make", "go", "lua", "sh" },
+	callback=function()
 		vim.opt_local.tabstop=4
 		vim.opt_local.shiftwidth=4
 	end
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "yaml" },
-	callback = function()
+	pattern={ "yaml" },
+	callback=function()
 		vim.opt_local.tabstop=2
 		vim.opt_local.shiftwidth=2
 	end
