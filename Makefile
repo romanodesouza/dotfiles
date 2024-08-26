@@ -11,6 +11,9 @@ install-bin:
 install-git:
 	ln -sf `pwd`/.gitconfig ~/.gitconfig
 
+install-idea:
+	ln -sf `pwd`/.ideavimrc ~/.ideavimrc
+
 install-profile:
 	ln -sf `pwd`/.profile ~/.profile
 
@@ -43,6 +46,7 @@ install: \
 	install-bash \
 	install-bin \
 	install-git \
+	install-idea \
 	install-profile \
 	install-ssh \
 	install-kitty \
