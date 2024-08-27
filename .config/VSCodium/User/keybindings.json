@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
+    // quickOpen selections
     {
         "key": "ctrl+n",
         "command": "workbench.action.quickOpenSelectNext",
@@ -43,39 +44,106 @@
     {
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode",
+        "when": "vim.active"
+    },
+
+    // window navigation
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight",
+        "when": "vim.active"
     },
     {
-        "key": "F12",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
-    },
-    {
-        "key": "alt+m",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "terminal.active"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "\u0005"
-        },
-        "when": "terminal.active"
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft",
+        "when": "vim.active"
     },
     {
         "key": "ctrl+k",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "\u000B"
-        },
-        "when": "terminal.active"
+        "command": "workbench.action.navigateUp",
+        "when": "vim.active"
     },
     {
-        "key": "ctrl+f",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "\u0006"
-        },
-        "when": "terminal.active"
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown",
+        "when": "vim.active"
+    },
+
+    // tab navigation
+    {
+        "key": "tab",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "vim.active && (vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "shift-tab",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "vim.active && (vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+
+    // fuzzy finder
+    {
+        "key": "space o",
+        "command": "workbench.action.quickOpen",
+        "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "space b",
+        "command": "workbench.action.showAllEditors",
+        "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+
+    // symbols
+    {
+        "key": "space s",
+        "command": "workbench.action.gotoSymbol",
+        "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+
+    // file explorer
+    {
+        "key": "space e",
+        "command": "workbench.view.explorer",
+        "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus && !inQuickOpen && !inputFocus"
+    },
+    {
+        "key": "space e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.active && filesExplorerFocus && !inQuickOpen && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "s",
+        "command": "explorer.openToSide",
+        "when": "vim.active && filesExplorerFocus && !inputFocus"
     },
 ]

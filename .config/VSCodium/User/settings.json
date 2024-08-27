@@ -1,14 +1,4 @@
 {
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "diffEditor.renderSideBySide": true,
-    "files.exclude": {
-        "vendor/**": true
-    },
-    "extensions.ignoreRecommendations": false,
-    "editor.minimap.enabled": false,
-    "editor.cursorBlinking": "solid",
-    "terminal.integrated.cwd": "",
     "vim.hlsearch": false,
     "vim.visualstar": true,
     "vim.statusBarColorControl": true,
@@ -19,7 +9,7 @@
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["leader","s"],
+            "before": ["leader", "s"],
             "after": ["<Esc>"],
             "commands": ["workbench.action.files.save"]
         },
@@ -38,15 +28,15 @@
     ],
     "vim.visualModeKeyBindings": [
        {
-            "before": ["leader","s"],
+            "before": ["leader", "s"],
             "commands": ["workbench.action.files.save"]
        },
        {
-            "before": ["leader","c"],
+            "before": ["leader", "c"],
             "commands": ["editor.action.commentLine"]
        },
        {
-            "before": ["leader","a"],
+            "before": ["leader", "a"],
             "commands": ["workbench.action.findInFiles"]
        },
        {
@@ -60,28 +50,20 @@
     ],
     "vim.normalModeKeyBindings": [
        {
-            "before": ["leader","s"],
+            "before": ["leader", "s"],
             "commands": ["workbench.action.files.save"]
        },
        {
-            "before": ["leader","b"],
-            "commands": ["workbench.action.quickOpen"]
-       },
-       {
-            "before": ["leader","a"],
+            "before": ["leader", "a"],
             "commands": ["workbench.action.findInFiles"]
        },
        {
-            "before": ["leader","q"],
+            "before": ["leader", "q"],
             "commands": ["workbench.action.closeActiveEditor"]
        },
        {
-            "before": ["leader","c"],
-            "commands": ["editor.action.commentLine" ]
-       },
-       {
-            "before": ["space","d"],
-            "commands": ["workbench.action.gotoSymbol"]
+            "before": ["leader", "c"],
+            "commands": ["editor.action.commentLine"]
        },
        {
             "before": ["leader", "v"],
@@ -90,14 +72,6 @@
        {
             "before": ["leader", "w"],
             "commands": [":only"]
-       },
-       {
-           "before": ["C-l"],
-           "after": ["C-w", "l"]
-       },
-       {
-           "before": ["C-h"],
-           "after": ["C-w", "h"]
        },
        {
             "before": ["K"],
@@ -126,7 +100,7 @@
        {
             "before": ["space", "e", "p"],
             "commands": ["editor.action.marker.prevInFiles"]
-       }
+       },
     ],
     "go.formatTool": "goimports",
     "go.lintTool": "golangci-lint",
@@ -137,7 +111,6 @@
         "--debug=localhost:6060" // to investigate memory usage, see profiles
     ],
     "[go]": {
-        "editor.rulers": [120],
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
@@ -160,26 +133,51 @@
         "staticcheck": false
     },
     "go.toolsManagement.autoUpdate": true,
+
+    "catppuccin.boldKeywords": false,
+    "catppuccin.italicComments": false,
+    "catppuccin.italicKeywords": false,
+
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": true,
+
+    "editor.cursorBlinking": "solid",
+    "editor.folding": false,
     "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
-    "editor.renderWhitespace": "none",
-    "editor.renderLineHighlight": "line",
-    "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
-    "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
-    "editor.folding": false, // removes the folding feature
-    "editor.occurrencesHighlight": "off", // removes highlights occ
-    "editor.matchBrackets": "never", // removes the status bar
-    "scm.diffDecorations": "gutter",
-    "editor.guides.indentation": false,
-    "editor.fontSize": 13,
-    "workbench.colorTheme": "Eva Light",
     "editor.fontLigatures": true,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
-    },
+    "editor.fontSize": 14,
+    "editor.fontWeight": "500",
+    "editor.guides.indentation": false,
+    "editor.hideCursorInOverviewRuler": true,
     "editor.lightbulb.enabled": "off",
+    "editor.lineHeight": 21,
+    "editor.links": false,
+    "editor.matchBrackets": "never",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "line",
+    "editor.renderWhitespace": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "extensions.ignoreRecommendations": false,
+
+    "files.exclude": { "vendor/**": true },
+
+    "scm.diffDecorations": "gutter",
+
+    "terminal.integrated.cwd": "",
     "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
+
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.sideBar.location": "right",
+
+    "window.menuBarVisibility": "toggle",
 }
