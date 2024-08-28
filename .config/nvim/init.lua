@@ -44,23 +44,6 @@ require("lazy").setup({
 		end
 	},
 
-	-- Syntax highlighting
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build=":TSUpdate",
-		config=function ()
-			local configs=require("nvim-treesitter.configs")
-
-			configs.setup({
-				ensure_installed={ "go", "gomod", "javascript", "json", "yaml", "html", "lua", "dockerfile", "make", "bash" },
-				sync_install=false,
-				highlight={ enable=true },
-				incremental_selection={ enable=true },
-				disable={ "sql" },
-			})
-		end
-	},
-
 	-- Themes
 	{
 		"tinted-theming/base16-vim",
