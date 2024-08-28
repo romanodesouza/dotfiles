@@ -173,11 +173,11 @@
     "scm.diffDecorations": "gutter",
 
     "terminal.integrated.cwd": "",
-    "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
 
     "workbench.colorTheme": "Catppuccin Frappé",
     "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
 
     "window.menuBarVisibility": "toggle",
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 }
