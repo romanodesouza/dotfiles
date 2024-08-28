@@ -181,4 +181,8 @@
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.shellIntegration.decorationsEnabled": "never",
     "terminal.integrated.allowChords": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "-editor.action.toggleTabFocusMode",
+        "-workbench.action.terminal.focusFind"
+    ],
 }
