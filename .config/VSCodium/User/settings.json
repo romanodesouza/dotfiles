@@ -1,7 +1,7 @@
 {
     "vim.hlsearch": false,
     "vim.visualstar": true,
-    "vim.statusBarColorControl": true,
+    "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
     "vim.ignorecase": true,
     "vim.smartcase": true,
