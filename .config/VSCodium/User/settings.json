@@ -180,4 +180,5 @@
 
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "terminal.integrated.allowChords": false,
 }
