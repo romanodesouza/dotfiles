@@ -49,24 +49,51 @@
 
     // window navigation
     {
-        "key": "ctrl+l",
+        "key": "alt+l",
         "command": "workbench.action.navigateRight",
-        "when": "vim.active"
+        "when": "vim.active && (!terminalFocus || terminalCount == 1)"
     },
     {
-        "key": "ctrl+h",
+        "key": "alt+h",
         "command": "workbench.action.navigateLeft",
-        "when": "vim.active"
+        "when": "vim.active && (!terminalFocus || terminalCount == 1)"
     },
     {
-        "key": "ctrl+k",
+        "key": "alt+k",
         "command": "workbench.action.navigateUp",
         "when": "vim.active"
     },
     {
-        "key": "ctrl+j",
+        "key": "alt+j",
         "command": "workbench.action.navigateDown",
         "when": "vim.active"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "vim.active && (terminalFocus && terminalCount > 1)"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "vim.active && (terminalFocus && terminalCount > 1)"
+    },
+
+    // terminal
+    {
+        "key": "F12",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "vim.active"
+    },
+    {
+        "key": "alt+i",
+        "command": "workbench.action.terminal.split",
+        "when": "vim.active && terminalFocus"
+    },
+    {
+        "key": "alt+m",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "vim.active && terminalFocus"
     },
 
     // tab navigation
