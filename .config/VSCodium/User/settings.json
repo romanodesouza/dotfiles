@@ -9,6 +9,10 @@
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
+            "before": ["C-g"],
+            "after": ["C-c"]
+        },
+        {
             "before": ["leader", "s"],
             "after": ["<Esc>"],
             "commands": ["workbench.action.files.save"]
@@ -21,12 +25,12 @@
             "before": ["f", "d"],
             "after": ["<Esc>"]
         },
-        {
-            "before": ["ctrl+g"],
-            "after": ["<Esc>"]
-        }
     ],
     "vim.visualModeKeyBindings": [
+       {
+           "before": ["C-g"],
+           "after": ["C-c"]
+       },
        {
             "before": ["leader", "s"],
             "commands": ["workbench.action.files.save"]
@@ -36,26 +40,22 @@
             "commands": ["editor.action.commentLine"]
        },
        {
-            "before": ["leader", "a"],
-            "commands": ["workbench.action.findInFiles"]
-       },
-       {
            "before": ["C-n"],
            "commands": ["editor.action.addSelectionToNextFindMatch"]
        },
        {
            "before": ["C-x"],
            "commands": ["editor.action.moveSelectionToNextFindMatch"]
-       }
+       },
     ],
     "vim.normalModeKeyBindings": [
        {
-            "before": ["leader", "s"],
-            "commands": ["workbench.action.files.save"]
+           "before": ["C-g"],
+           "after": ["C-c"]
        },
        {
-            "before": ["leader", "a"],
-            "commands": ["workbench.action.findInFiles"]
+            "before": ["leader", "s"],
+            "commands": ["workbench.action.files.save"]
        },
        {
             "before": ["leader", "q"],
@@ -80,26 +80,6 @@
        {
            "before": ["C-n"],
            "commands": ["editor.action.marker.next"]
-       },
-       {
-            "before": ["space", "i"],
-            "commands": ["editor.action.goToImplementation"]
-       },
-       {
-            "before": ["space", "r"],
-            "commands": ["editor.action.goToReferences"]
-       },
-       {
-            "before": ["space", "e", "l"],
-            "commands": ["workbench.actions.view.problems"]
-       },
-       {
-            "before": ["space", "e", "n"],
-            "commands": ["editor.action.marker.nextInFiles"]
-       },
-       {
-            "before": ["space", "e", "p"],
-            "commands": ["editor.action.marker.prevInFiles"]
        },
     ],
     "go.formatTool": "goimports",

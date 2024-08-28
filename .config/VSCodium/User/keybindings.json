@@ -110,33 +110,47 @@
 
     // fuzzy finder
     {
-        "key": "space o",
+        "key": "space f f",
         "command": "workbench.action.quickOpen",
         "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
     },
     {
-        "key": "space b",
+        "key": "space f p",
+        "command": "workbench.action.files.openFolder",
+        "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "space f r",
+        "command": "workbench.action.openRecent",
+        "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "space f b",
         "command": "workbench.action.showAllEditors",
         "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
     },
-
-    // symbols
     {
-        "key": "space s",
+        "key": "space f s",
         "command": "workbench.action.gotoSymbol",
         "when": "vim.active && vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
     },
+    {
+        "key": "space f o",
+        "command": "workbench.action.findInFiles",
+        "when": "vim.active && vim.mode == 'Visual' && (editorTextFocus || !inputFocus)"
+    },
+
 
     // file explorer
     {
         "key": "space e",
         "command": "workbench.view.explorer",
-        "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus && !inQuickOpen && !inputFocus"
+        "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus && (editorTextFocus || !inputFocus)"
     },
     {
         "key": "space e",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.active && filesExplorerFocus && !inQuickOpen && !inputFocus"
+        "when": "vim.active && filesExplorerFocus && (editorTextFocus || !inputFocus)"
     },
     {
         "key": "r",
@@ -172,5 +186,34 @@
         "key": "s",
         "command": "explorer.openToSide",
         "when": "vim.active && filesExplorerFocus && !inputFocus"
+    },
+
+    // code navigation
+    {
+        "key": "space g i",
+        "command": "editor.action.goToImplementation",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "space g r",
+        "command": "editor.action.goToReferences",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+
+    // problems
+    {
+        "key": "space p l",
+        "command": "workbench.actions.view.problems",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "space p n",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "space p p",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
     },
 ]
