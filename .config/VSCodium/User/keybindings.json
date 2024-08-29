@@ -173,4 +173,46 @@
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && searchViewletFocus && !editorTextFocus"
     },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.active && searchViewletFocus && !editorTextFocus"
+    },
+
+    // sidebar navigation
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft",
+        "when": "vim.active && listFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.active && listFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "list.focusDown",
+        "when": "vim.active && listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "list.focusUp",
+        "when": "vim.active && listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "list.select",
+        "when": "vim.active && listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "list.focusFirst",
+        "when": "vim.active && inputFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "list.focusLast",
+        "when": "vim.active && inputFocus"
+    },
 ]

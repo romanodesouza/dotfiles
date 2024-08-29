@@ -7,6 +7,9 @@
     "vim.smartcase": true,
     "vim.useCtrlKeys": true,
     "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-s>": true,
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": ["<C-g>"],
@@ -47,9 +50,9 @@
            "before": ["<C-x>"],
            "commands": ["editor.action.moveSelectionToNextFindMatch"]
        },
-       // find occurrences
+       // search
        {
-           "before": ["<space>", "f", "o"],
+           "before": ["<C-s>"],
            "commands": ["workbench.action.findInFiles"],
        },
     ],
@@ -110,11 +113,6 @@
        {
            "before": ["<space>", "f", "s"],
            "commands": ["workbench.action.gotoSymbol"],
-       },
-       // find occurrences
-       {
-           "before": ["<space>", "f", "o"],
-           "commands": ["workbench.action.findInFiles"],
        },
        // code navigation
        {
