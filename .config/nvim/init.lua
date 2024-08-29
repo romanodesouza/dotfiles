@@ -37,10 +37,10 @@ require("lazy").setup({
 				},
 			})
 
-			vim.keymap.set({ "n" }, "<space>o", "<Cmd>FzfLua files<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<leader>b", "<Cmd>FzfLua buffers<CR>", { silent=true })
-			vim.keymap.set({ "x" }, "<leader>a", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<leader>a", "<Cmd>FzfLua grep<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<space>ff", "<Cmd>FzfLua files<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<space>fb", "<Cmd>FzfLua buffers<CR>", { silent=true })
+			vim.keymap.set({ "x" }, "<C-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<C-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
 		end
 	},
 
@@ -156,7 +156,8 @@ vim.keymap.set({ "n" }, "k", "gk", { silent=true })
 vim.keymap.set({ "c" }, "<C-g>", "<C-c>", { silent=true })
 vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
 vim.keymap.set({ "i" }, "<C-BS>", "<C-w>", { silent=true })
-vim.keymap.set({ "n" }, "<space>x", vim.cmd.Ex, { silent=true })
+vim.keymap.set({ "n" }, "<C-e>", vim.cmd.Ex, { silent=true })
+vim.keymap.set({ "x" }, "y", "ygv<Esc>", { silent=true })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern={ "make", "go", "lua", "sh" },
