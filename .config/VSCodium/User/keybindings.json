@@ -183,36 +183,36 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.navigateLeft",
-        "when": "vim.active && listFocus"
+        "when": "vim.active && !editorTextFocus && listFocus"
     },
     {
         "key": "ctrl+g",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.active && listFocus"
+        "when": "vim.active && !editorTextFocus && listFocus"
     },
     {
         "key": "ctrl+n",
         "command": "list.focusDown",
-        "when": "vim.active && listFocus && !inputFocus"
+        "when": "vim.active && !editorTextFocus && listFocus && !inputFocus"
     },
     {
         "key": "ctrl+p",
         "command": "list.focusUp",
-        "when": "vim.active && listFocus && !inputFocus"
+        "when": "vim.active && !editorTextFocus && listFocus && !inputFocus"
     },
     {
         "key": "ctrl+m",
         "command": "list.select",
-        "when": "vim.active && listFocus && !inputFocus"
+        "when": "vim.active && !editorTextFocus && listFocus && !inputFocus"
     },
     {
         "key": "ctrl+n",
         "command": "list.focusFirst",
-        "when": "vim.active && inputFocus"
+        "when": "vim.active && !editorTextFocus && !inQuickOpen && inputFocus"
     },
     {
         "key": "ctrl+p",
         "command": "list.focusLast",
-        "when": "vim.active && inputFocus"
+        "when": "vim.active && !editorTextFocus && !inQuickOpen && inputFocus"
     },
 ]
