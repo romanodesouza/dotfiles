@@ -9,16 +9,16 @@
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["C-g"],
-            "after": ["C-c"]
+            "before": ["<C-g>"],
+            "after": ["<C-c>"]
         },
         {
-            "before": ["leader", "s"],
+            "before": ["<leader>", "s"],
             "after": ["<Esc>"],
             "commands": ["workbench.action.files.save"]
         },
         {
-            "before": ["ctrl+d"],
+            "before": ["<C-d>"],
             "after": ["<Esc>", "l", "x"]
         },
         {
@@ -28,49 +28,58 @@
     ],
     "vim.visualModeKeyBindings": [
        {
-           "before": ["C-g"],
-           "after": ["C-c"]
+           "before": ["<C-g>"],
+           "after": ["<C-c>"]
        },
        {
-            "before": ["leader", "s"],
+            "before": ["<leader>", "s"],
             "commands": ["workbench.action.files.save"]
        },
        {
-            "before": ["leader", "c"],
+            "before": ["<leader>", "c"],
             "commands": ["editor.action.commentLine"]
        },
        {
-           "before": ["C-n"],
+           "before": ["<C-n>"],
            "commands": ["editor.action.addSelectionToNextFindMatch"]
        },
        {
-           "before": ["C-x"],
+           "before": ["<C-x>"],
            "commands": ["editor.action.moveSelectionToNextFindMatch"]
+       },
+       // find occurrences
+       {
+           "before": ["<space>", "f", "o"],
+           "commands": ["workbench.action.findInFiles"],
        },
     ],
     "vim.normalModeKeyBindings": [
        {
-           "before": ["C-g"],
-           "after": ["C-c"]
+           "before": ["<C-g>"],
+           "after": ["<C-c>"]
        },
        {
-            "before": ["leader", "s"],
+            "before": ["<leader>", "s"],
             "commands": ["workbench.action.files.save"]
        },
        {
-            "before": ["leader", "q"],
+            "before": ["<leader>", "q"],
             "commands": ["workbench.action.closeActiveEditor"]
        },
        {
-            "before": ["leader", "c"],
+            "before": ["<C-w>"],
+            "commands": ["workbench.action.closeActiveEditor"]
+       },
+       {
+            "before": ["<leader>", "c"],
             "commands": ["editor.action.commentLine"]
        },
        {
-            "before": ["leader", "v"],
+            "before": ["<leader>", "v"],
             "commands": [":vsplit"]
        },
        {
-            "before": ["leader", "w"],
+            "before": ["<leader>", "w"],
             "commands": [":only"]
        },
        {
@@ -78,8 +87,56 @@
             "commands": ["editor.action.showHover"]
        },
        {
-           "before": ["C-n"],
+           "before": ["<C-n>"],
            "commands": ["editor.action.marker.next"]
+       },
+       // fuzzy finder
+       {
+           "before": ["<space>", "f", "f"],
+           "commands": ["workbench.action.quickOpen"],
+       },
+       {
+           "before": ["<space>", "f", "b"],
+           "commands": ["workbench.action.showAllEditors"],
+       },
+       {
+           "before": ["<space>", "f", "p"],
+           "commands": ["workbench.action.files.openFolder"],
+       },
+       {
+           "before": ["<space>", "f", "r"],
+           "commands": ["workbench.action.openRecent"],
+       },
+       {
+           "before": ["<space>", "f", "s"],
+           "commands": ["workbench.action.gotoSymbol"],
+       },
+       // find occurrences
+       {
+           "before": ["<space>", "f", "o"],
+           "commands": ["workbench.action.findInFiles"],
+       },
+       // code navigation
+       {
+           "before": ["<space>", "g", "i"],
+           "commands": ["editor.action.goToImplementation"],
+       },
+       {
+           "before": ["<space>", "g", "r"],
+           "commands": ["editor.action.goToReferences"],
+       },
+       // problems
+       {
+           "before": ["<space>", "p", "l"],
+           "commands": ["workbench.actions.view.problems"],
+       },
+       {
+           "before": ["<space>", "p", "n"],
+           "commands": ["editor.action.marker.nextInFiles"],
+       },
+       {
+           "before": ["<space>", "p", "p"],
+           "commands": ["editor.action.marker.prevInFiles"],
        },
     ],
     "go.formatTool": "goimports",
