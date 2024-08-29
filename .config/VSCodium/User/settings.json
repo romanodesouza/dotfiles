@@ -55,6 +55,10 @@
            "before": ["<C-s>"],
            "commands": ["workbench.action.findInFiles"],
        },
+       {
+           "before": ["y"],
+           "after": ["y", "g", "v", "<Esc>"],
+       },
     ],
     "vim.normalModeKeyBindings": [
        {
