@@ -30,40 +30,40 @@
         },
     ],
     "vim.visualModeKeyBindings": [
-       {
-           "before": ["<C-g>"],
-           "after": ["<C-c>"]
-       },
-       {
+        {
+            "before": ["<C-g>"],
+            "after": ["<C-c>"]
+        },
+        {
             "before": ["<leader>", "s"],
             "commands": ["workbench.action.files.save"]
-       },
-       {
+        },
+        {
             "before": ["<leader>", "c"],
             "commands": ["editor.action.commentLine"]
-       },
-       {
-           "before": ["<C-n>"],
-           "commands": ["editor.action.addSelectionToNextFindMatch"]
-       },
-       {
-           "before": ["<C-x>"],
-           "commands": ["editor.action.moveSelectionToNextFindMatch"]
-       },
-       // search
-       {
-           "before": ["<C-s>"],
-           "commands": ["workbench.action.findInFiles"],
-       },
-       {
-           "before": ["y"],
-           "after": ["y", "g", "v", "<Esc>"],
-       },
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": ["editor.action.addSelectionToNextFindMatch"]
+        },
+        {
+            "before": ["<C-x>"],
+            "commands": ["editor.action.moveSelectionToNextFindMatch"]
+        },
+        // search
+        {
+            "before": ["<C-s>"],
+            "commands": ["workbench.action.findInFiles"],
+        },
+        {
+            "before": ["y"],
+            "after": ["y", "g", "v", "<Esc>"],
+        },
     ],
     "vim.normalModeKeyBindings": [
        {
-           "before": ["<C-g>"],
-           "after": ["<C-c>"]
+            "before": ["<C-g>"],
+            "after": ["<C-c>"]
        },
        {
             "before": ["<leader>", "s"],
@@ -97,27 +97,6 @@
            "before": ["<C-n>"],
            "commands": ["editor.action.marker.next"]
        },
-       // fuzzy finder
-       {
-           "before": ["<space>", "f", "f"],
-           "commands": ["workbench.action.quickOpen"],
-       },
-       {
-           "before": ["<space>", "f", "b"],
-           "commands": ["workbench.action.showAllEditors"],
-       },
-       {
-           "before": ["<space>", "f", "p"],
-           "commands": ["workbench.action.files.openFolder"],
-       },
-       {
-           "before": ["<space>", "f", "r"],
-           "commands": ["workbench.action.openRecent"],
-       },
-       {
-           "before": ["<space>", "f", "s"],
-           "commands": ["workbench.action.gotoSymbol"],
-       },
        // code navigation
        {
            "before": ["<space>", "g", "i"],
@@ -127,18 +106,9 @@
            "before": ["<space>", "g", "r"],
            "commands": ["editor.action.goToReferences"],
        },
-       // problems
        {
-           "before": ["<space>", "p", "l"],
-           "commands": ["workbench.actions.view.problems"],
-       },
-       {
-           "before": ["<space>", "p", "n"],
-           "commands": ["editor.action.marker.nextInFiles"],
-       },
-       {
-           "before": ["<space>", "p", "p"],
-           "commands": ["editor.action.marker.prevInFiles"],
+           "before": ["<space>", "g", "s"],
+           "commands": ["workbench.action.gotoSymbol"],
        },
     ],
     "go.formatTool": "goimports",
@@ -224,4 +194,7 @@
         "-editor.action.toggleTabFocusMode",
         "-workbench.action.terminal.focusFind"
     ],
+    "breadcrumbs.filePath": "on",
+    "breadcrumbs.symbolPath": "off",
+    "workbench.activityBar.location": "hidden",
 }

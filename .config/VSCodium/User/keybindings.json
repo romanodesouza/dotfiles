@@ -105,12 +105,12 @@
 
     // file explorer
     {
-        "key": "ctrl+e",
+        "key": "alt+e",
         "command": "workbench.view.explorer",
         "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus"
     },
     {
-        "key": "ctrl+e",
+        "key": "alt+e",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && filesExplorerFocus"
     },
@@ -152,25 +152,30 @@
 
     // timeline
     {
-        "key": "ctrl+t",
+        "key": "alt+t",
         "command": "timeline.focus",
         "when": "vim.active && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+t",
-        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "alt+t",
+        "command": "workbench.action.togglePanel",
+        "when": "vim.active && view.timeline.visible"
+    },
+    {
+        "key": "shift+k",
+        "command": "list.showHover",
         "when": "vim.active && view.timeline.visible"
     },
 
     // search
     {
-        "key": "ctrl+s",
+        "key": "alt+s",
         "command": "workbench.action.findInFiles",
         "when": "vim.active && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+s",
-        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "alt+s",
+        "command": "workbench.action.togglePanel",
         "when": "vim.active && searchViewletFocus && !editorTextFocus"
     },
     {
@@ -215,4 +220,49 @@
         "command": "list.focusLast",
         "when": "vim.active && !editorTextFocus && !inQuickOpen && inputFocus"
     },
+
+    // breadcrumbs
+    {
+        "key": "-",
+        "command": "breadcrumbs.focusAndSelect",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "-",
+        "command": "breadcrumbs.focusPrevious",
+        "when": "vim.active && breadcrumbsActive"
+    },
+    {
+        "key": "=",
+        "command": "breadcrumbs.focusNext",
+        "when": "vim.active && breadcrumbsActive"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "breadcrumbs.selectEditor",
+        "when": "vim.active && breadcrumbsActive"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "breadcrumbs.selectEditor",
+        "when": "vim.active && breadcrumbsActive"
+    },
+    {
+        "key": "s",
+        "command": "breadcrumbs.revealFocusedFromTreeAside",
+        "when": "vim.active && breadcrumbsActive"
+    },
+
+    // problems
+    {
+        "key": "alt+p",
+        "command": "workbench.actions.view.problems",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+p",
+        "command": "workbench.actions.view.toggleProblems",
+        "when": "vim.active && problemFocus"
+    },
+
 ]
