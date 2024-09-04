@@ -42,7 +42,6 @@ install-nvim:
 ifeq ("$(wildcard ~/.config/nvim)", "")
 	mkdir ~/.config/nvim
 	mkdir ~/.config/nvim/lua
-	touch ~/.config/nvim/lua/init_local.lua
 endif
 	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
 

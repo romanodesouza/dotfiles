@@ -37,10 +37,10 @@ require("lazy").setup({
 				},
 			})
 
-			vim.keymap.set({ "n" }, "<space>ff", "<Cmd>FzfLua files<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<space>fb", "<Cmd>FzfLua buffers<CR>", { silent=true })
-			vim.keymap.set({ "x" }, "<C-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<C-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<C-p>", "<Cmd>FzfLua files<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<M-b>", "<Cmd>FzfLua buffers<CR>", { silent=true })
+			vim.keymap.set({ "x" }, "<M-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
+			vim.keymap.set({ "n" }, "<M-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
 		end
 	},
 
@@ -62,15 +62,6 @@ require("lazy").setup({
 
 	-- Automatically clears search highlight when cursor is moved
 	{ "junegunn/vim-slash" },
-
-	-- Highlights trailing whitespace characters
-	{
-		"ntpeters/vim-better-whitespace",
-		config=function()
-			-- strip whitespaces on save
-			vim.cmd("autocmd BufEnter * EnableStripWhitespaceOnSave")
-		end
-	},
 
 	-- Comment stuff out
 	{
@@ -130,12 +121,13 @@ vim.cmd("cab Wq wq")
 
 -- netrw file tree browser
 vim.g.netrw_banner=0
-vim.g.netrw_liststyle=3
+vim.g.netrw_liststyle=0
 vim.g.netrw_hide=0
 vim.api.nvim_create_autocmd("FileType", {
 	pattern="netrw",
 	callback=function()
 		vim.keymap.set({ "n" }, "o", "<CR>", { silent=true, buffer=true, remap=true })
+		vim.keymap.set({ "n" }, "=", "<CR>", { silent=true, buffer=true, remap=true })
 		vim.keymap.set({ "n" }, "a", "%", { silent=true, buffer=true, remap=true })
 	end
 })
@@ -156,23 +148,5 @@ vim.keymap.set({ "n" }, "k", "gk", { silent=true })
 vim.keymap.set({ "c" }, "<C-g>", "<C-c>", { silent=true })
 vim.keymap.set({ "i", "v", "n" }, "<C-g>", "<ESC>", { silent=true })
 vim.keymap.set({ "i" }, "<C-BS>", "<C-w>", { silent=true })
-vim.keymap.set({ "n" }, "<C-e>", vim.cmd.Ex, { silent=true })
+vim.keymap.set({ "n" }, "-", vim.cmd.Ex, { silent=true })
 vim.keymap.set({ "x" }, "y", "ygv<Esc>", { silent=true })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern={ "make", "go", "lua", "sh" },
-	callback=function()
-		vim.opt_local.tabstop=4
-		vim.opt_local.shiftwidth=4
-	end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern={ "yaml" },
-	callback=function()
-		vim.opt_local.tabstop=2
-		vim.opt_local.shiftwidth=2
-	end
-})
-
-require("init_local")
