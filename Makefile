@@ -35,6 +35,10 @@ endif
 	kitten themes --dump-theme catppuccin-mocha > ~/.config/kitty/catppuccin-theme.conf
 	ln -sf `pwd`/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
+install-terminator:
+	rm -rf ~/.config/terminator || true
+	ln -sf `pwd`/.config/terminator/ ~/.config/
+
 install-top:
 	ln -sf `pwd`/.toprc ~/.toprc
 
