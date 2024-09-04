@@ -56,7 +56,6 @@ install: \
 	install-bash \
 	install-bin \
 	install-git \
-	install-idea \
 	install-profile \
 	install-ssh \
 	install-kitty \
