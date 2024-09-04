@@ -8,6 +8,13 @@ install-bin:
 	mkdir -p ~/.local/bin || true
 	ln -sf `pwd`/.local/bin/* ~/.local/bin/
 
+install-emacs:
+ifeq ("$(wildcard ~/.emacs.d)", "")
+	mkdir ~/.emacs.d
+endif
+	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
+	emacs -nw --kill
+
 install-git:
 	ln -sf `pwd`/.gitconfig ~/.gitconfig
 
