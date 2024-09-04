@@ -9,10 +9,10 @@ install-bin:
 	ln -sf `pwd`/.local/bin/* ~/.local/bin/
 
 install-emacs:
-ifeq ("$(wildcard ~/.emacs.d)", "")
-	mkdir ~/.emacs.d
+ifeq ("$(wildcard ~/.config/emacs)", "")
+	mkdir ~/.config/emacs
 endif
-	ln -sf `pwd`/.emacs.d/* ~/.emacs.d/
+	ln -sf `pwd`/.config/emacs/* ~/.config/emacs/
 	emacs -nw --kill
 
 install-git:
