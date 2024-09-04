@@ -29,6 +29,9 @@ require("lazy").setup({
         },
         files={
           cmd=os.getenv("FZF_DEFAULT_COMMAND"),
+          actions={
+            ["ctrl-g"]=false,
+          },
         },
         grep={
           actions={
@@ -37,7 +40,7 @@ require("lazy").setup({
         },
       })
 
-      vim.keymap.set({ "n" }, "<C-p>", "<Cmd>FzfLua files<CR>", { silent=true })
+      vim.keymap.set({ "n" }, "<C-p>", "<Cmd>FzfLua files header=false<CR>", { silent=true })
       vim.keymap.set({ "n" }, "<M-b>", "<Cmd>FzfLua buffers<CR>", { silent=true })
       vim.keymap.set({ "x" }, "<M-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
       vim.keymap.set({ "n" }, "<M-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
