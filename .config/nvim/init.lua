@@ -1,13 +1,13 @@
 local lazypath=vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -15,66 +15,64 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader=","
 
 require("lazy").setup({
-	-- FZF
-	{
-		"ibhagwan/fzf-lua",
-		dependencies={ "nvim-tree/nvim-web-devicons" },
-		config=function()
-			local fzf_lua=require("fzf-lua")
+  -- FZF
+  {
+    "ibhagwan/fzf-lua",
+    dependencies={ "nvim-tree/nvim-web-devicons" },
+    config=function()
+      local fzf_lua=require("fzf-lua")
 
-			fzf_lua.setup({
-				"fzf-native",
-				winopts={
-					preview={ default=false },
-				},
-				files={
-					cmd=os.getenv("FZF_DEFAULT_COMMAND"),
-				},
-				grep={
-					actions={
-						["ctrl-g"]=false,
-					},
-				},
-			})
+      fzf_lua.setup({
+        "fzf-native",
+        winopts={
+          preview={ default=false },
+        },
+        files={
+          cmd=os.getenv("FZF_DEFAULT_COMMAND"),
+        },
+        grep={
+          actions={
+            ["ctrl-g"]=false,
+          },
+        },
+      })
 
-			vim.keymap.set({ "n" }, "<C-p>", "<Cmd>FzfLua files<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<M-b>", "<Cmd>FzfLua buffers<CR>", { silent=true })
-			vim.keymap.set({ "x" }, "<M-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
-			vim.keymap.set({ "n" }, "<M-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
-		end
-	},
+      vim.keymap.set({ "n" }, "<C-p>", "<Cmd>FzfLua files<CR>", { silent=true })
+      vim.keymap.set({ "n" }, "<M-b>", "<Cmd>FzfLua buffers<CR>", { silent=true })
+      vim.keymap.set({ "x" }, "<M-s>", "<Cmd>FzfLua grep_visual<CR>", { silent=true })
+      vim.keymap.set({ "n" }, "<M-s>", "<Cmd>FzfLua grep<CR>", { silent=true })
+    end
+  },
 
-	-- Themes
-	{
-		"tinted-theming/base16-vim",
-		lazy=false,
-		config=function()
-			vim.opt.termguicolors=true
-			vim.cmd.colorscheme "base16-catppuccin-frappe"
-		end
-	},
+  -- Themes
+  {
+    "tinted-theming/base16-vim",
+    lazy=false,
+    config=function()
+      vim.opt.termguicolors=true
+      vim.cmd.colorscheme "base16-catppuccin-frappe"
+    end
+  },
 
-	-- Airline
-	{
-		"vim-airline/vim-airline",
-		dependencies={ "vim-airline/vim-airline-themes" },
-	},
+  -- Airline
+  {
+    "vim-airline/vim-airline",
+    dependencies={ "vim-airline/vim-airline-themes" },
+  },
 
-	-- Automatically clears search highlight when cursor is moved
-	{ "junegunn/vim-slash" },
+  -- Automatically clears search highlight when cursor is moved
+  { "junegunn/vim-slash" },
 
-	-- Comment stuff out
-	{
-		"tpope/vim-commentary",
-		config=function()
-			vim.keymap.set("", "<leader>c", "<Plug>Commentary", { silent=true })
-		end
-	},
+  -- Comment stuff out
+  {
+    "tpope/vim-commentary",
+    config=function()
+      vim.keymap.set("", "<leader>c", "<Plug>Commentary", { silent=true })
+    end
+  },
 
-	-- Indentation auto detection
-	{
-		"tpope/vim-sleuth",
-	}
+  -- Indentation auto detection
+  { "tpope/vim-sleuth" },
 })
 
 -- clipboard behaviour
@@ -124,12 +122,12 @@ vim.g.netrw_banner=0
 vim.g.netrw_liststyle=0
 vim.g.netrw_hide=0
 vim.api.nvim_create_autocmd("FileType", {
-	pattern="netrw",
-	callback=function()
-		vim.keymap.set({ "n" }, "o", "<CR>", { silent=true, buffer=true, remap=true })
-		vim.keymap.set({ "n" }, "=", "<CR>", { silent=true, buffer=true, remap=true })
-		vim.keymap.set({ "n" }, "a", "%", { silent=true, buffer=true, remap=true })
-	end
+  pattern="netrw",
+  callback=function()
+    vim.keymap.set({ "n" }, "o", "<CR>", { silent=true, buffer=true, remap=true })
+    vim.keymap.set({ "n" }, "=", "<CR>", { silent=true, buffer=true, remap=true })
+    vim.keymap.set({ "n" }, "a", "%", { silent=true, buffer=true, remap=true })
+  end
 })
 
 -- keymaps
