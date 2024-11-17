@@ -225,12 +225,12 @@
     {
         "key": "-",
         "command": "breadcrumbs.focusAndSelect",
-        "when": "vim.active && vim.mode == 'Normal'"
+        "when": "vim.active && vim.mode == 'Normal' && !inputFocus"
     },
     {
         "key": "-",
         "command": "breadcrumbs.focusPrevious",
-        "when": "vim.active && breadcrumbsActive"
+        "when": "vim.active && breadcrumbsActive && !inputFocus"
     },
     {
         "key": "=",

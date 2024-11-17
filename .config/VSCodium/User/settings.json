@@ -153,7 +153,6 @@
 
     "editor.cursorBlinking": "solid",
     "editor.folding": false,
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.fontWeight": "500",

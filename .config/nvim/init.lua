@@ -47,16 +47,6 @@ require("lazy").setup({
     end
   },
 
-  -- Themes
-  {
-    "tinted-theming/base16-vim",
-    lazy=false,
-    config=function()
-      vim.opt.termguicolors=true
-      vim.cmd.colorscheme "base16-catppuccin-frappe"
-    end
-  },
-
   -- Airline
   {
     "vim-airline/vim-airline",

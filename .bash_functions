@@ -28,7 +28,6 @@ git_info() {
 	printf " $git_branch_symbol$branch$marks "
 }
 
-
 delete_broken_links() {
 	for i in $(file * | grep broken | cut -d : -f 1); do rm $i; done
 }
@@ -78,4 +77,3 @@ print_nrun() {
 	echo $@
 	eval $@
 }
-
