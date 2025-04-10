@@ -221,4 +221,5 @@
         }
     },
     "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+    "editor.wordWrap": "on",
 }
