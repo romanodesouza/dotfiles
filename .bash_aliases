@@ -11,3 +11,6 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 
 alias vim='nvim'
+
+alias python='python3'
+alias pip='pip3'
