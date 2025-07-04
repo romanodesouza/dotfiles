@@ -1,110 +1,71 @@
-# Sensible Bash - An attempt at saner Bash defaults
-# Maintainer: mrzool <http://mrzool.cc>
-# Repository: https://github.com/mrzool/bash-sensible
-# Version: 0.2.2
-# Modified by Romano Augusto
-
-# Unique Bash version check
-if ((BASH_VERSINFO[0] < 4))
-then
-  echo "sensible.bash: Looks like you're running an older version of Bash."
-  echo "sensible.bash: You need at least bash-4.0 or some options will not work correctly."
-  echo "sensible.bash: Keep your software up-to-date!"
-fi
-
-## GENERAL OPTIONS ##
-
-# Update window size after every command
-shopt -s checkwinsize
-
-# Automatically trim long paths in the prompt (requires Bash 4.x)
-PROMPT_DIRTRIM=2
-
-# Enable history expansion with space
-# E.g. typing !!<space> will replace the !! with your last command
-bind Space:magic-space
-
-# Turn on recursive globbing (enables ** to recurse all directories)
-shopt -s globstar 2> /dev/null
-
-## SMARTER TAB-COMPLETION (Readline bindings) ##
-
-# Perform file completion in a case insensitive fashion
-bind "set completion-ignore-case on"
-
-# Treat hyphens and underscores as equivalent
-bind "set completion-map-case on"
-
-# Display matches for ambiguous patterns at first tab press
-bind "set show-all-if-ambiguous on"
-
-## SANE HISTORY DEFAULTS ##
-
-# Append to the history file, don't overwrite it
-shopt -s histappend
-
-# Save multi-line commands as one command
-shopt -s cmdhist
-
-# Record each line as it gets issued
-PROMPT_COMMAND='history -a'
-
-# Huge history. Doesn't appear to slow things down, so why not?
-HISTSIZE=500000
-HISTFILESIZE=100000
-
-# Avoid duplicate entries
-HISTCONTROL="erasedups:ignoreboth"
-
-# Don't record some commands
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
-
-# Use standard ISO 8601 timestamp
-# %F equivalent to %Y-%m-%d
-# %T equivalent to %H:%M:%S (24-hours format)
-HISTTIMEFORMAT='%F %T '
-
-# Enable incremental history search with up/down arrows (also Readline goodness)
-# Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\e[C": forward-char'
-bind '"\e[D": backward-char'
-
-## BETTER DIRECTORY NAVIGATION ##
-
-# Prepend cd to directory names automatically
-shopt -s autocd 2> /dev/null
-# Correct spelling errors during tab-completion
-shopt -s dirspell 2> /dev/null
-# Correct spelling errors in arguments supplied to cd
-shopt -s cdspell 2> /dev/null
-
-# This allows you to bookmark your favorite places across the file system
-# Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
-shopt -s cdable_vars
-
-# Examples:
-# export dotfiles="$HOME/dotfiles"
-# export projects="$HOME/projects"
-# export documents="$HOME/Documents"
-# export dropbox="$HOME/Dropbox"
-
-# Load external files
+[ -f ~/.sensible.bash ] && . ~/.sensible.bash
 [ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-[ -f ~/.bash_functions ] && . ~/.bash_functions
 
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(git_info)\[\033[01;34m\]\[\033[00m\]\n\$ '
+git_info() {
+	[ -x "$(which git)" ] || return    # git not found
 
-# fzf
+	local git_branch_symbol='⑂ '
+	local git_branch_changed_symbol='+'
+	local git_need_push_symbol='⇡'
+	local git_need_pull_symbol='⇣'
+	local git_eng="env LANG=C git"	 # force git output in English to make our work easier
+	# get current branch name or short SHA1 hash for detached head
+	local branch="$($git_eng symbolic-ref --short HEAD 2>/dev/null || $git_eng describe --tags --always 2>/dev/null)"
+	[ -n "$branch" ] || return	# git branch not found
+
+	local marks
+
+	# branch is modified?
+	[ -n "$($git_eng status --porcelain)" ] && marks+=" $git_branch_changed_symbol"
+
+	# how many commits local branch is ahead/behind of remote?
+	local stat="$($git_eng status --porcelain --branch | grep '^##' | grep -o '\[.\+\]$')"
+	local aheadN="$(echo $stat | grep -o 'ahead [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
+	local behindN="$(echo $stat | grep -o 'behind [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
+	[ -n "$aheadN" ] && marks+=" $git_need_push_symbol$aheadN"
+	[ -n "$behindN" ] && marks+=" $git_need_pull_symbol$behindN"
+
+	# print the git branch segment without a trailing newline
+	printf " $git_branch_symbol$branch$marks "
+}
+
+setup-lang() {
+	case $1 in
+		go)
+			local version=$2
+			local dest=~/opt/go/$version
+			if [ ! -d $dest ]; then
+				local file=go$version.linux-amd64.tar.gz
+				wget https://storage.googleapis.com/golang/$file
+				mkdir -p $dest
+				tar -xvf $file -C $dest/
+				rm -f $file
+			fi
+			rm ~/opt/go/activated 2>/dev/null
+			ln -s $dest/go ~/opt/go/activated
+			export GOPATH=~/go
+		;;
+	esac
+}
+
+alias mount='mount | column -t'
+
+# Remove all containers
+alias dr='docker ps -aq | xargs docker stop | xargs docker rm 2>/dev/null'
+# Remove all <none> images
+alias drn="docker images -a | grep '<none>' | awk '{print \$3}' | xargs docker rmi 2>/dev/null"
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+
+alias vim='nvim'
+
+alias python='python3'
+alias pip='pip3'
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(git_info)\[\033[01;34m\]\[\033[00m\]\n\$ '
 eval "$(fzf --bash)"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# local config
 [ -f ~/.bashrc.local ] && . ~/.bashrc.local
-

@@ -1,36 +1,40 @@
 WSL := $(findstring WSL, $(shell uname -r))
 
-install-bash:
-	ln -sf `pwd`/.bashrc ~/.bashrc
-	ln -sf `pwd`/.bash_profile ~/.bash_profile
-	ln -sf `pwd`/.bash_aliases ~/.bash_aliases
-	ln -sf `pwd`/.bash_functions ~/.bash_functions
-
 install-bin:
 	mkdir -p ~/.local/bin || true
 	ln -sf `pwd`/.local/bin/* ~/.local/bin/
+	which git && which nvim || (sudo apt update && sudo apt install git neovim)
+
+install-fzf:
+	wget --quiet https://github.com/junegunn/fzf/releases/download/v0.63.0/fzf-0.63.0-linux_amd64.tar.gz -O fzf.tar.gz
+	tar -xvf fzf.tar.gz
+	chmod +x ./fzf
+	mv ./fzf ~/.local/bin/fzf
+
+install-bash:
+	wget --quiet https://raw.githubusercontent.com/mrzool/bash-sensible/refs/heads/master/sensible.bash -O ~/.sensible.bash
+	ln -sf `pwd`/.bashrc ~/.bashrc
+	echo "source ~/.bashrc" > ~/.bash_profile
+	exec bash
+
+install-profile:
+	ln -sf `pwd`/.profile ~/.profile
 
 install-emacs:
-ifneq ("$(WSL)", "WSL")
 	ifeq ("$(wildcard ~/.config/emacs)", "")
 		mkdir -p ~/.config/emacs
 	endif
 	ln -sf `pwd`/.config/emacs/* ~/.config/emacs/
 	emacs -nw --kill
-endif
 
 install-git:
+	wget --quiet https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.4/diff-so-fancy -O diff-so-fancy
+	chmod +x ./diff-so-fancy
+	mv ./diff-so-fancy ~/.local/bin/diff-so-fancy
 	ln -sf `pwd`/.gitconfig ~/.gitconfig
 
 install-idea:
-ifneq ("$(WSL)", "WSL")
 	ln -sf `pwd`/.ideavimrc ~/.ideavimrc
-endif
-
-install-profile:
-ifneq ("$(WSL)", "WSL")
-	ln -sf `pwd`/.profile ~/.profile
-endif
 
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
@@ -56,26 +60,25 @@ install-top:
 
 install-nvim:
 ifeq ("$(wildcard ~/.config/nvim)", "")
-	mkdir -p ~/.config/nvim
-	mkdir ~/.config/nvim/lua
+	mkdir -p ~/.config/nvim/lua
 endif
 	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
 
-install-vscodium:
+install-cursor:
 ifneq ("$(WSL)", "WSL")
-	ln -sf `pwd`/.config/VSCodium/User/* ~/.config/VSCodium/User/
+	ln -sf `pwd`/.config/Cursor/User/* ~/.config/Cursor/User/
 else
-	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\VSCodium\User\settings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/VSCodium/User/settings.json'"
-	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\VSCodium\User\keybindings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/VSCodium/User/keybindings.json'"
+	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Cursor\User\settings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Cursor/User/settings.json'"
+	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Cursor\User\keybindings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Cursor/User/keybindings.json'"
 endif
 
 install: \
-	install-bash \
 	install-bin \
-	install-git \
+	install-fzf \
+	install-bash \
 	install-profile \
+	install-git \
 	install-ssh \
-	install-kitty \
 	install-top \
 	install-nvim \
-	install-vscodium
+	install-cursor
