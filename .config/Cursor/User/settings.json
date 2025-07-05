@@ -50,11 +50,6 @@
             "before": ["<C-x>"],
             "commands": ["editor.action.moveSelectionToNextFindMatch"]
         },
-        // search
-        {
-            "before": ["<C-s>"],
-            "commands": ["workbench.action.findInFiles"],
-        },
         {
             "before": ["y"],
             "after": ["y", "g", "v", "<Esc>"],
@@ -97,19 +92,6 @@
            "before": ["<C-n>"],
            "commands": ["editor.action.marker.next"]
        },
-       // code navigation
-       {
-           "before": ["<space>", "g", "i"],
-           "commands": ["editor.action.goToImplementation"],
-       },
-       {
-           "before": ["<space>", "g", "r"],
-           "commands": ["editor.action.goToReferences"],
-       },
-       {
-           "before": ["<space>", "g", "s"],
-           "commands": ["workbench.action.gotoSymbol"],
-       },
     ],
     "go.formatTool": "goimports",
     "go.lintTool": "golangci-lint",
@@ -142,18 +124,6 @@
         "staticcheck": false
     },
     "go.toolsManagement.autoUpdate": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-        },
-    },
-    "isort.args":["--profile", "black"],
-
-    "catppuccin.boldKeywords": false,
-    "catppuccin.italicComments": false,
-    "catppuccin.italicKeywords": false,
 
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -190,11 +160,7 @@
 
     "terminal.integrated.cwd": "",
 
-    "workbench.colorTheme": "Catppuccin Frappé",
-    "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
-
-    "window.menuBarVisibility": "toggle",
     "terminal.integrated.shellIntegration.decorationsEnabled": "never",
     "terminal.integrated.allowChords": false,
     "terminal.integrated.commandsToSkipShell": [
@@ -203,7 +169,6 @@
     ],
     "breadcrumbs.filePath": "on",
     "breadcrumbs.symbolPath": "off",
-    "workbench.activityBar.location": "hidden",
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
             "source": "PowerShell",
@@ -230,4 +195,8 @@
     },
     "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
     "editor.wordWrap": "on",
+    "workbench.activityBar.location": "default",
+    "workbench.activityBar.orientation": "vertical",
+    "search.quickOpen.includeHistory": false,
+    "window.menuBarVisibility": "compact"
 }

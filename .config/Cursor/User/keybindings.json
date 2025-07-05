@@ -74,23 +74,6 @@
         "when": "vim.active && (terminalFocus && terminalCount > 1)"
     },
 
-    // terminal
-    {
-        "key": "F12",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "vim.active"
-    },
-    {
-        "key": "alt+i",
-        "command": "workbench.action.terminal.split",
-        "when": "vim.active && terminalFocus"
-    },
-    {
-        "key": "alt+m",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "vim.active && terminalFocus"
-    },
-
     // tab navigation
     {
         "key": "tab",
@@ -105,12 +88,12 @@
 
     // file explorer
     {
-        "key": "alt+e",
+        "key": "ctrl+shift+e",
         "command": "workbench.view.explorer",
         "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus"
     },
     {
-        "key": "alt+e",
+        "key": "ctrl+shift+e",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && filesExplorerFocus"
     },
@@ -152,30 +135,35 @@
 
     // timeline
     {
-        "key": "alt+t",
+        "key": "ctrl+shift+f",
         "command": "timeline.focus",
         "when": "vim.active && vim.mode == 'Normal'"
     },
     {
-        "key": "alt+t",
-        "command": "workbench.action.togglePanel",
+        "key": "ctrl+shift+f",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.active && view.timeline.visible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && view.timeline.visible"
     },
     {
         "key": "shift+k",
         "command": "list.showHover",
-        "when": "vim.active && view.timeline.visible"
+        "when": "vim.active && view.workbench.scm.visible"
     },
 
     // search
     {
-        "key": "alt+s",
+        "key": "ctrl+shift+h",
         "command": "workbench.action.findInFiles",
         "when": "vim.active && vim.mode == 'Normal'"
     },
     {
-        "key": "alt+s",
-        "command": "workbench.action.togglePanel",
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && searchViewletFocus && !editorTextFocus"
     },
     {
@@ -221,48 +209,42 @@
         "when": "vim.active && !editorTextFocus && !inQuickOpen && inputFocus"
     },
 
-    // breadcrumbs
+    // problems panel
     {
-        "key": "-",
-        "command": "breadcrumbs.focusAndSelect",
-        "when": "vim.active && vim.mode == 'Normal' && !inputFocus"
-    },
-    {
-        "key": "-",
-        "command": "breadcrumbs.focusPrevious",
-        "when": "vim.active && breadcrumbsActive && !inputFocus"
-    },
-    {
-        "key": "=",
-        "command": "breadcrumbs.focusNext",
-        "when": "vim.active && breadcrumbsActive"
-    },
-    {
-        "key": "ctrl+c",
-        "command": "breadcrumbs.selectEditor",
-        "when": "vim.active && breadcrumbsActive"
-    },
-    {
-        "key": "ctrl+g",
-        "command": "breadcrumbs.selectEditor",
-        "when": "vim.active && breadcrumbsActive"
-    },
-    {
-        "key": "s",
-        "command": "breadcrumbs.revealFocusedFromTreeAside",
-        "when": "vim.active && breadcrumbsActive"
-    },
-
-    // problems
-    {
-        "key": "alt+p",
+        "key": "ctrl+shift+i",
         "command": "workbench.actions.view.problems",
         "when": "vim.active && vim.mode == 'Normal'"
     },
     {
-        "key": "alt+p",
+        "key": "ctrl+shift+i",
         "command": "workbench.actions.view.toggleProblems",
         "when": "vim.active && problemFocus"
     },
 
+    // terminal panel
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "vim.active"
+    },
+    {
+        "key": "alt+i",
+        "command": "workbench.action.terminal.split",
+        "when": "vim.active && terminalFocus"
+    },
+    {
+        "key": "alt+m",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "vim.active && terminalFocus"
+    },
+
+    // chat
+    {
+        "key": "ctrl+shift+l",
+        "command": "aichat.newchataction"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-aichat.newchataction"
+    },
 ]
