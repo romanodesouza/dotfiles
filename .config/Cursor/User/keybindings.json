@@ -247,4 +247,11 @@
         "key": "ctrl+l",
         "command": "-aichat.newchataction"
     },
+
+    // toggle test file
+    {
+        "key": "ctrl+t",
+        "command": "go.toggle.test.file",
+        "when": "vim.active && vim.mode == 'Normal' && editorLangId == 'go'"
+    },
 ]
