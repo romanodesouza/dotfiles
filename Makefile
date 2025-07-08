@@ -76,10 +76,10 @@ endif
 install: \
 	install-bin \
 	install-fzf \
-	install-bash \
 	install-profile \
 	install-git \
 	install-ssh \
 	install-top \
 	install-nvim \
-	install-cursor
+	install-cursor \
+	install-bash
