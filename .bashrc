@@ -60,7 +60,7 @@ alias egrep='egrep --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 
-alias vim='nvim'
+which nvim >/dev/null && alias vim='nvim'
 
 alias python='python3'
 alias pip='pip3'
