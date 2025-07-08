@@ -3,7 +3,7 @@ WSL := $(findstring WSL, $(shell uname -r))
 install-bin:
 	mkdir -p ~/.local/bin || true
 	ln -sf `pwd`/.local/bin/* ~/.local/bin/
-	which git && which nvim || (sudo apt update && sudo apt install git neovim)
+	which git && which nvim || (sudo apt update && sudo apt install -y git neovim)
 
 install-fzf:
 	wget --quiet https://github.com/junegunn/fzf/releases/download/v0.63.0/fzf-0.63.0-linux_amd64.tar.gz -O fzf.tar.gz
