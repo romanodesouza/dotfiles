@@ -10,6 +10,7 @@ install-fzf:
 	tar -xvf fzf.tar.gz
 	chmod +x ./fzf
 	mv ./fzf ~/.local/bin/fzf
+	rm fzf.tar.gz
 
 install-bash:
 	wget --quiet https://raw.githubusercontent.com/mrzool/bash-sensible/refs/heads/master/sensible.bash -O ~/.sensible.bash
