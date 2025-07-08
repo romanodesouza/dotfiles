@@ -46,7 +46,8 @@
 	rh = reset --hard
 
 	u = remote update origin
-	sync = !git u && git rb
+	syncr = !git u && git rb
+	syncm = !git u && git merge
 
 [push]
 	default = current
