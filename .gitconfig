@@ -58,7 +58,7 @@
 	insteadOf = https://github.com/
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	editor = nvim
+	editor = vim
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
