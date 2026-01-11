@@ -30,12 +30,6 @@ install-git:
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
-install-terminator:
-ifneq ("$(WSL)", "WSL")
-	rm -rf ~/.config/terminator || true
-	ln -sf `pwd`/.config/terminator/ ~/.config/
-endif
-
 install-top:
 	ln -sf `pwd`/.toprc ~/.toprc
 
