@@ -34,9 +34,6 @@ install-git:
 	mv ./diff-so-fancy ~/.local/bin/diff-so-fancy
 	ln -sf `pwd`/.gitconfig ~/.gitconfig
 
-install-idea:
-	ln -sf `pwd`/.ideavimrc ~/.ideavimrc
-
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
