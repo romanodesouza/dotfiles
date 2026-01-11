@@ -21,13 +21,6 @@ install-bash:
 install-profile:
 	ln -sf `pwd`/.profile ~/.profile
 
-install-emacs:
-	ifeq ("$(wildcard ~/.config/emacs)", "")
-		mkdir -p ~/.config/emacs
-	endif
-	ln -sf `pwd`/.config/emacs/* ~/.config/emacs/
-	emacs -nw --kill
-
 install-git:
 	wget --quiet https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.4/diff-so-fancy -O diff-so-fancy
 	chmod +x ./diff-so-fancy
