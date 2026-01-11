@@ -1,6 +1,8 @@
 [ -f ~/.sensible.bash ] && . ~/.sensible.bash
 [ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
 
+set +o noclobber
+
 git_info() {
 	[ -x "$(which git)" ] || return    # git not found
 
