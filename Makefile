@@ -30,16 +30,6 @@ install-git:
 install-ssh:
 	ln -sf `pwd`/.ssh/config ~/.ssh/config
 
-install-kitty:
-ifneq ("$(WSL)", "WSL")
-	ifeq ("$(wildcard ~/.config/kitty)", "")
-		mkdir -p ~/.config/kitty
-	endif
-	kitten themes --dump-theme Nord > ~/.config/kitty/nord-theme.conf
-	kitten themes --dump-theme catppuccin-mocha > ~/.config/kitty/catppuccin-theme.conf
-	ln -sf `pwd`/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-endif
-
 install-terminator:
 ifneq ("$(WSL)", "WSL")
 	rm -rf ~/.config/terminator || true
