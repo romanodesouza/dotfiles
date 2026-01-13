@@ -86,16 +86,16 @@
         "when": "vim.active && (vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
     },
 
-    // file explorer
+    // folders
     {
         "key": "ctrl+shift+e",
-        "command": "workbench.view.explorer",
+        "command": "workbench.explorer.fileView.focus",
         "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus"
     },
     {
         "key": "ctrl+shift+e",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.active && filesExplorerFocus"
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "vim.active && vim.mode == 'Normal' && foldersViewVisible"
     },
     {
         "key": "r",
@@ -141,7 +141,7 @@
     },
     {
         "key": "ctrl+shift+f",
-        "command": "workbench.action.toggleSidebarVisibility",
+        "command": "timeline.toggleVisibility",
         "when": "vim.active && view.timeline.visible"
     },
     {
@@ -173,11 +173,6 @@
     },
 
     // sidebar navigation
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.navigateLeft",
-        "when": "vim.active && !editorTextFocus && listFocus"
-    },
     {
         "key": "ctrl+g",
         "command": "workbench.action.toggleSidebarVisibility",
@@ -236,16 +231,6 @@
         "key": "alt+m",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "vim.active && terminalFocus"
-    },
-
-    // chat
-    {
-        "key": "ctrl+shift+l",
-        "command": "aichat.newchataction"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "-aichat.newchataction"
     },
 
     // toggle test file

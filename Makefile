@@ -39,12 +39,12 @@ ifeq ("$(wildcard ~/.config/nvim)", "")
 endif
 	ln -sf `pwd`/.config/nvim/init.lua ~/.config/nvim/init.lua
 
-install-cursor:
+install-vscode:
 ifneq ("$(WSL)", "WSL")
-	ln -sf `pwd`/.config/Cursor/User/* ~/.config/Cursor/User/
+	ln -sf `pwd`/.config/Code/User/* ~/.config/Code/User/
 else
-	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Cursor\User\settings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Cursor/User/settings.json'"
-	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Cursor\User\keybindings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Cursor/User/keybindings.json'"
+	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Code\User\settings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Code/User/settings.json'"
+	powershell.exe -Command "Start-Process PowerShell -Verb RunAs -ArgumentList 'New-Item -ItemType SymbolicLink -Path \$$env:APPDATA\Code\User\keybindings.json -Target \\\\wsl$$\Ubuntu/`pwd`/.config/Code/User/keybindings.json'"
 endif
 
 install: \
@@ -55,5 +55,5 @@ install: \
 	install-ssh \
 	install-top \
 	install-nvim \
-	install-cursor \
+	install-vscode \
 	install-bash

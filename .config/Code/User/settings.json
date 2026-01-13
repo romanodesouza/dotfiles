@@ -130,9 +130,10 @@
     "diffEditor.renderSideBySide": true,
 
     "editor.cursorBlinking": "solid",
+    "editor.fontFamily": "Cascadia Mono, Monospace",
     "editor.folding": false,
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.fontWeight": "500",
     "editor.guides.indentation": false,
     "editor.hideCursorInOverviewRuler": true,
@@ -196,7 +197,8 @@
     "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
     "editor.wordWrap": "on",
     "workbench.activityBar.location": "default",
-    "workbench.activityBar.orientation": "vertical",
     "search.quickOpen.includeHistory": false,
-    "window.menuBarVisibility": "compact"
+    "workbench.colorTheme": "Spinel",
+    "window.menuBarVisibility": "compact",
+    "workbench.secondarySideBar.defaultVisibility": "visible"
 }
