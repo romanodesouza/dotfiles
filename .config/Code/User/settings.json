@@ -198,10 +198,11 @@
     "editor.wordWrap": "on",
     "workbench.activityBar.location": "default",
     "search.quickOpen.includeHistory": false,
-    "workbench.colorTheme": "Spinel",
+    "workbench.colorTheme": "JetBrains Darcula Theme",
     "window.menuBarVisibility": "compact",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "chat.viewSessions.orientation": "stacked",
     "telemetry.feedback.enabled": false,
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "editor.bracketPairColorization.enabled": false
 }
