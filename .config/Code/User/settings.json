@@ -200,5 +200,10 @@
     "search.quickOpen.includeHistory": false,
     "workbench.colorTheme": "Spinel",
     "window.menuBarVisibility": "compact",
-    "workbench.secondarySideBar.defaultVisibility": "visible"
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "http.systemCertificatesNode": true,
+    "chat.viewSessions.orientation": "stacked",
+    "telemetry.feedback.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "telemetry.telemetryLevel": "off"
 }
