@@ -88,12 +88,12 @@
 
     // folders
     {
-        "key": "ctrl+shift+e",
+        "key": "ctrl+shift+f",
         "command": "workbench.explorer.fileView.focus",
         "when": "vim.active && vim.mode == 'Normal' && !filesExplorerFocus"
     },
     {
-        "key": "ctrl+shift+e",
+        "key": "ctrl+shift+f",
         "command": "workbench.action.toggleAuxiliaryBar",
         "when": "vim.active && vim.mode == 'Normal' && foldersViewVisible"
     },
@@ -131,28 +131,6 @@
         "key": "s",
         "command": "explorer.openToSide",
         "when": "vim.active && filesExplorerFocus && !inputFocus"
-    },
-
-    // timeline
-    {
-        "key": "ctrl+shift+f",
-        "command": "timeline.focus",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "timeline.toggleVisibility",
-        "when": "vim.active && view.timeline.visible"
-    },
-    {
-        "key": "ctrl+g",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.active && view.timeline.visible"
-    },
-    {
-        "key": "shift+k",
-        "command": "list.showHover",
-        "when": "vim.active && view.workbench.scm.visible"
     },
 
     // search
