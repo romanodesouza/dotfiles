@@ -37,12 +37,14 @@ setup-lang() {
 			local version=$2
 			local dest=~/opt/go/$version
 			if [ ! -d $dest ]; then
-				local file=go$version.linux-amd64.tar.gz
-				wget https://storage.googleapis.com/golang/$file
 				mkdir -p $dest
-				tar -xvf $file -C $dest/
-				rm -f $file
 			fi
+
+			local file=go$version.linux-amd64.tar.gz
+			wget https://go.dev/dl/$file
+			tar -xvf $file -C $dest/
+			rm -f $file
+
 			rm ~/opt/go/activated 2>/dev/null
 			ln -s $dest/go ~/opt/go/activated
 			export GOPATH=~/go
